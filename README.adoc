@@ -1,9 +1,0 @@
-This repository contains a set of demos for EHANDBOOK Container-Build. 
-
-== Setup
-
-After cloning the respository, you first should adapt the file `set_tool_paths.bat` to your local environment. 
-
-----
-include::set_tool_paths.bat[]
-----
