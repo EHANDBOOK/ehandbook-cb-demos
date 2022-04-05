@@ -1,0 +1,11 @@
+ehbfunctionoverview::Iac[Function Overview for Iac]
+
+== Iac/Iac_mdl
+
+ehbmodelref::Iac/Iac_mdl[Iac/Iac_mdl]
+
+In the IgnitionAngle module, the base ignition angle Iac_degIgnBase and the optimum ignition angle Iac_degMinAdvBestTq_Sim are determined from the speed Epm_rpmEngSpd_Sim and the re- lative fill Amf_facRelAir_Sim. The base ignition angle describes the angle of the highest torque at which just no knocking occurs. It is calculated via the map Iac_rpmEngSpdfacRelAir2degBase_MAP and can then be shifted late with the offset Iac_degIgnOptOffset for safety before the ignition angle to be set Iac_degIgn_Sim is passed on as a message. In contrast to smart engine control, a positive value means that ignition takes place before the upper ignition dead center, and a negative angle after it, i.e. the ignition angle is pulled late by the basic parameterization of the offset Iac_degIgnOptOffset with -5.0°KW.
+
+
+
+

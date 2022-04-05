@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<componentmanifest:Component xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:componentmanifest="http://componentmanifest/1.0" id="S_aab1" name="Actuators" componentType="Model" filename="S_aab1.kaom">
+  <childComponents id="S_aab1" name="Actuators" componentType="Model" filename="S_aab1.kaom">
+    <childComponents id="S_aab35" name="Actuators_mdl" componentType="SubSystem" filename="S_aab35.kaom">
+      <childComponents id="S_aab57" name="Tvc" componentType="SubSystem" filename="S_aab57.kaom">
+        <childComponents id="S_aab66" name="ThrottleValvePosition" componentType="SubSystem" filename="S_aab66.kaom">
+          <childComponents id="S_aab69" name="G1_ADC_Input_Receive" componentType="SubSystem" filename="S_aab69.kaom"/>
+          <childComponents id="S_aab104" name="G1_ADC_Input_Receive1" componentType="SubSystem" filename="S_aab104.kaom"/>
+        </childComponents>
+        <childComponents id="S_aab194" name="ThrottleValveControl" componentType="SubSystem" filename="S_aab194.kaom">
+          <childComponents id="S_aab210" name="PID_Limit_AWU_Fcn" componentType="SubSystem" filename="S_aab210.kaom"/>
+          <childComponents id="S_aab249" name="PID_Limit_AWU" componentType="SubSystem" filename="S_aab249.kaom">
+            <childComponents id="S_aab347" name="Limiter" componentType="SubSystem" filename="S_aab347.kaom"/>
+          </childComponents>
+        </childComponents>
+        <childComponents id="S_aab418" name="ThrottleValveOutput" componentType="SubSystem" filename="S_aab418.kaom">
+          <childComponents id="S_aab438" name="G1_HbridgeOut_Ctrl" componentType="SubSystem" filename="S_aab438.kaom"/>
+          <childComponents id="S_aab483" name="G1_Hbridge_Get_error" componentType="SubSystem" filename="S_aab483.kaom"/>
+        </childComponents>
+        <childComponents id="S_aab532" name="Limiter" componentType="SubSystem" filename="S_aab532.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab557" name="Apv" componentType="SubSystem" filename="S_aab557.kaom">
+        <childComponents id="S_aab574" name="G1_PWM_Output_Ctrl" componentType="SubSystem" filename="S_aab574.kaom"/>
+        <childComponents id="S_aab649" name="G1_PwmOut_Get_error" componentType="SubSystem" filename="S_aab649.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab669" name="Wcs" componentType="SubSystem" filename="S_aab669.kaom">
+        <childComponents id="S_aab675" name="Hysteresis_Delta_RSP" componentType="SubSystem" filename="S_aab675.kaom"/>
+        <childComponents id="S_aab687" name="G1_DigOut_GetError" componentType="SubSystem" filename="S_aab687.kaom"/>
+        <childComponents id="S_aab697" name="G1_DigOut_Ctrl" componentType="SubSystem" filename="S_aab697.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab760" name="Fps" componentType="SubSystem" filename="S_aab760.kaom">
+        <childComponents id="S_aab782" name="G1_DigOut_Ctrl" componentType="SubSystem" filename="S_aab782.kaom"/>
+        <childComponents id="S_aab800" name="G1_DigOut_GetError" componentType="SubSystem" filename="S_aab800.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab839" name="Mrs" componentType="SubSystem" filename="S_aab839.kaom">
+        <childComponents id="S_aab861" name="G1_DigOut_Ctrl" componentType="SubSystem" filename="S_aab861.kaom"/>
+        <childComponents id="S_aab879" name="G1_DigOut_GetError" componentType="SubSystem" filename="S_aab879.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab915" name="Str" componentType="SubSystem" filename="S_aab915.kaom">
+        <childComponents id="S_aab937" name="G1_DigOut_Ctrl" componentType="SubSystem" filename="S_aab937.kaom"/>
+        <childComponents id="S_aab955" name="G1_DigOut_GetError" componentType="SubSystem" filename="S_aab955.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab994" name="Doh" componentType="SubSystem" filename="S_aab994.kaom">
+        <childComponents id="S_aab1007" name="DiagnosisOutput_10" componentType="SubSystem" filename="S_aab1007.kaom"/>
+        <childComponents id="S_aab1205" name="DiagnosisOutput_5" componentType="SubSystem" filename="S_aab1205.kaom"/>
+        <childComponents id="S_aab1371" name="DiagnosisOutput_6" componentType="SubSystem" filename="S_aab1371.kaom"/>
+        <childComponents id="S_aab1537" name="DiagnosisOutput_7" componentType="SubSystem" filename="S_aab1537.kaom"/>
+        <childComponents id="S_aab1703" name="DiagnosisOutput_8" componentType="SubSystem" filename="S_aab1703.kaom"/>
+        <childComponents id="S_aab1869" name="DiagnosisOutput_9" componentType="SubSystem" filename="S_aab1869.kaom"/>
+        <childComponents id="S_aab2040" name="DiagnosisOutput_1" componentType="SubSystem" filename="S_aab2040.kaom"/>
+        <childComponents id="S_aab2206" name="DiagnosisOutput_2" componentType="SubSystem" filename="S_aab2206.kaom"/>
+        <childComponents id="S_aab2377" name="DiagnosisOutput_3" componentType="SubSystem" filename="S_aab2377.kaom"/>
+        <childComponents id="S_aab2543" name="DiagnosisOutput_4" componentType="SubSystem" filename="S_aab2543.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab2729" name="Eoh" componentType="SubSystem" filename="S_aab2729.kaom"/>
+      <childComponents id="S_aab2808" name="Icc" componentType="SubSystem" filename="S_aab2808.kaom">
+        <childComponents id="S_aab2835" name="G1_IGN_SetParam_for_PFI" componentType="SubSystem" filename="S_aab2835.kaom"/>
+        <childComponents id="S_aab2958" name="EdgeRising" componentType="SubSystem" filename="S_aab2958.kaom"/>
+        <childComponents id="S_aab2970" name="IGN_FadeOut_Immediate" componentType="SubSystem" filename="S_aab2970.kaom"/>
+        <childComponents id="S_aab3022" name="EdgeFalling" componentType="SubSystem" filename="S_aab3022.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab3044" name="Ais" componentType="SubSystem" filename="S_aab3044.kaom">
+        <childComponents id="S_aab3066" name="G1_DigOut_Ctrl" componentType="SubSystem" filename="S_aab3066.kaom"/>
+        <childComponents id="S_aab3084" name="G1_DigOut_GetError" componentType="SubSystem" filename="S_aab3084.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab3129" name="Cov" componentType="SubSystem" filename="S_aab3129.kaom">
+        <childComponents id="S_aab3146" name="G1_PWM_Output_Ctrl" componentType="SubSystem" filename="S_aab3146.kaom"/>
+        <childComponents id="S_aab3224" name="G1_PwmOut_Get_error" componentType="SubSystem" filename="S_aab3224.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab3247" name="Wgc" componentType="SubSystem" filename="S_aab3247.kaom">
+        <childComponents id="S_aab3261" name="G1_PWM_Output_Ctrl" componentType="SubSystem" filename="S_aab3261.kaom"/>
+        <childComponents id="S_aab3339" name="G1_PwmOut_Get_error" componentType="SubSystem" filename="S_aab3339.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab3362" name="Ivc" componentType="SubSystem" filename="S_aab3362.kaom">
+        <childComponents id="S_aab3380" name="Ivc" componentType="SubSystem" filename="S_aab3380.kaom">
+          <childComponents id="S_aab3493" name="G1_InjVlvPFI_SetParam" componentType="SubSystem" filename="S_aab3493.kaom"/>
+        </childComponents>
+        <childComponents id="S_aab3698" name="Ivc_Diag" componentType="SubSystem" filename="S_aab3698.kaom">
+          <childComponents id="S_aab3709" name="G1_Inj_Set_DEVE_forPFI" componentType="SubSystem" filename="S_aab3709.kaom"/>
+        </childComponents>
+        <childComponents id="S_aab3742" name="Ivc_Error" componentType="SubSystem" filename="S_aab3742.kaom"/>
+      </childComponents>
+      <childComponents id="S_aab3765" name="Ics" componentType="SubSystem" filename="S_aab3765.kaom">
+        <childComponents id="S_aab3787" name="G1_DigOut_Ctrl" componentType="SubSystem" filename="S_aab3787.kaom"/>
+        <childComponents id="S_aab3805" name="G1_DigOut_GetError" componentType="SubSystem" filename="S_aab3805.kaom"/>
+      </childComponents>
+    </childComponents>
+  </childComponents>
+</componentmanifest:Component>

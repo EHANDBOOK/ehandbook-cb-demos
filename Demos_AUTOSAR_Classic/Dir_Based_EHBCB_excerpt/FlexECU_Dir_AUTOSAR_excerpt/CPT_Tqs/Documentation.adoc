@@ -1,0 +1,23 @@
+ehbfunctionoverview::CPT_Tqs[Component Overview for CPT_Tqs]
+
+ehbmodelref::TorqueStructure/Main[TorqueStructure/Main]
+
+Hello BMW!
+
+== Momentenstruktur
+
+Das Modul Momentenstruktur (TorqueStructure) berechnet das benötigte Moment, dass der Motor bereitstellen muss, um sich selbst am laufen zu halten und dem Fahrerwunsch gerecht zu werden. Zur Selbsterhaltung muss der Motor soviel Moment abgeben, wie durch innere Verluste verbraucht wird (Schleppmoment Tqs_tqDrag ). Es wird in Abhängigkeit von der Drehzahl Epm_rpmEngSpd und der relativen Füllung Amf_facRelAir über das Kennfeld Tqs_rpmEngSpdfacRelAir2tqDrag_MAP abgeschätzt. Grundsätzlich kann man sagen, dass bei hohen Drehzahlen mehr Reibung, welche zu größerem Schleppmoment führt, auftritt als bei Niedrigen. Hinzu kommt eine Korrektur durch die Kühlmitteltemperatur Ctc_atCool über das Kennfeld Tqs_atCool2tqDrag_CUR . Bei sehr niedrigen Temperaturen erhöht sich das Schleppmoment durch die hohe Viskosität des Motoröls. Ab einer Temperatur von rund 60 degree Celsius wird es zu Null.
+
+ehbmodelref::TorqueStructure/Main/EngSpdControl[TorqueStructure/Main/EngSpdControl]
+
+Der Motor soll ohne Fahrerwunsch stabil eine Leelaufdrehzahl halten, d. h., die Momentenanforderung muss dem Schleppmoment entsprechen. Bei hohen Drehzahlen soll die Momentenanforderung ohne Fahrerwunschmoment zurückgehen, damit sich die Drehzahl reduziert (Motorbremse) und bei niedrigeren als der Leerlaufdrehzahl erhöhen, damit der Motor nicht ausgeht. Das wird erreicht, indem ein drehzahlabhängiges minimales Moment errechnet wird. Dazu wird der Stabilisierungsfaktor Tqs_facEngSpdStab durch Division der Leerlaufdrehzahl Tqs_rpmTorqueInc und der aktuellen Drehzahl errechnet und mit dem Schleppmoment multipliziert. Bei hohen Drehzahlen ist das minimal angeforderte Moment kleiner als das Schleppmoment, der Motor bremst also, bei Leerlaufdrehzahl wird der Faktor zu Eins, d. h., das Schleppmoment wird genau ausgeglichen und bei Drehzahlen unterhalb der Leerlaufdrehzahl findet eine Überhöhung statt, sodass der Motor beschleunigt und versucht die Leerlaufdrehzahl zu erreichen. Die Bildung aus dem Maximum von Drehzahl und Eins dient dazu, unter allen Umständen eine Division durch Null zu verhindern.
+
+Auf Basis dessen wird im Anschluss der Fahrerwunsch abhängig von Drehzahl und Pedalstellung Egc_facEgas über das Kennfeld Tqs_rpmEngSpdfacEgas2facEgasFilt_MAP gefiltert und als Faktor zwischen dem minimal benötigten und dem ebenfalls drehzahlabhängigen ( Tqs_rpmEngSpd2tqMax_CUR ) maximal abgebbaren Moment Tqs_tqMax interpretiert. Abbildung 5.7 veranschaulicht die Zusammenhänge der Berechnungen (s. auch Gleichung 5.12) grafisch.
+
+Die Grundparametrierung der Kennfeld- und Kennlinienwerte stammen aus einem vorhandenen BMW-8-Zylinder-Modell mit entsprechenden Anpassungen (in der Regel Multiplikation mit Faktor 38).
+
+image::tqs_png_1.png[]
+
+Zusätzlich zu der beschriebenen Implementierung kommt noch ein Drehzahlregler. Es handelt sich dabei um einen PI-Regler, der die Regelabweichung zwischen Solldrehzahl
+
+image::tqs_png_2.png[]

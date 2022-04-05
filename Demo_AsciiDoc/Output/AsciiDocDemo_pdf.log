@@ -1,0 +1,38 @@
+2022-04-05 16:13:08.072 [pool-1-thread-1] INFO  com.etas.ehcb.pdf.PdfGenerator      - Start to generate PDF for 'AsciiDocDemo'.
+2022-04-05 16:13:08.082 [pool-1-thread-1] INFO  com.etas.ehcb.pdf.PdfGenerator      - header.image=C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\css\ETAS-Logo_Blue_sRGB.png
+2022-04-05 16:13:08.083 [pool-1-thread-1] INFO  com.etas.ehcb.pdf.PdfGenerator      - footer.text=© ETAS GmbH reserves all rights even in the event of industrial property rights. We reserve all rights of disposal such as copying and passing on to third parties.
+2022-04-05 16:13:08.141 [pool-1-thread-1] INFO  c.e.m.common.dita.pdf.Dita2PdfUtil  - User provided styling used for PDF conversion C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\css\PdfCustomization.xsl
+2022-04-05 16:13:08.142 [pool-1-thread-1] INFO  c.e.m.c.d.pdf.Dita2PdfConverterByFc - Number of DITA map files to be generated 1
+2022-04-05 16:13:08.147 [pool-1-thread-1] INFO  c.e.m.c.d.pdf.Dita2PdfConverterByFc - Individual PDFs generated in folder 'C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\tmpPdf'
+2022-04-05 16:13:08.153 [pool-1-thread-1] INFO  c.e.m.c.d.pdf.Dita2PdfConverterByFc - FC *.ditamap: C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\tmpPdf\Documentation4569044911575922272.ditamap
+2022-04-05 16:13:08.175 [pool-1-thread-1] INFO  c.e.m.c.d.pdf.DitaOtProcessBuilder  - DITA-OT command: [C:\ETAS\EHANDBOOK-Container-Build_10.0.0-Windows\plugins\com.etas.mex.common.dita_1.0.0.20220301-1220\target\dita-ot\bin\dita.bat, -i, C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\tmpPdf\Documentation4569044911575922272.ditamap, -o, C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\tmpPdf, --outputFile.base=Documentation4569044911575922272, --header.image=C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\css\ETAS-Logo_Blue_sRGB.png, --footer.text=© ETAS GmbH reserves all rights even in the event of industrial property rights. We reserve all rights of disposal such as copying and passing on to third parties., --format=ehandbook-pdf, --outer.control=quiet, --org.dita.pdf2.i18n.enabled=false]
+2022-04-05 16:13:16.025 [Thread-8] ERROR c.e.m.c.d.pdf.DitaOtProcessBuilder  - Error: java.lang.IllegalArgumentException: URI has an authority component
+2022-04-05 16:13:16.117 [pool-1-thread-1] ERROR c.e.m.c.d.pdf.Dita2PdfConverterByFc - Failed to convert DITA 'C:\ehandook-cb-demos\Demo_AsciiDoc\.\Output\temp_ID169129509649800\tmpPdf\Documentation4569044911575922272.ditamap' to PDF: Failed to convert DITA to PDF. Exit value is: FAILURE
+com.etas.mex.common.dita.pdf.DitaOtException: Failed to convert DITA to PDF. Exit value is: FAILURE
+	at com.etas.mex.common.dita.pdf.DitaOtProcessBuilder.convertDita2Pdf(DitaOtProcessBuilder.java:87)
+	at com.etas.mex.common.dita.pdf.Dita2PdfConverterByFc.createPdfAndUpdateProgress(Dita2PdfConverterByFc.java:135)
+	at com.etas.mex.common.dita.pdf.Dita2PdfConverterByFc.lambda$0(Dita2PdfConverterByFc.java:114)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1655)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceTask.doLeaf(ReduceOps.java:952)
+	at java.base/java.util.stream.ReduceOps$ReduceTask.doLeaf(ReduceOps.java:926)
+	at java.base/java.util.stream.AbstractTask.compute(AbstractTask.java:327)
+	at java.base/java.util.concurrent.CountedCompleter.exec(CountedCompleter.java:746)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinTask.doInvoke(ForkJoinTask.java:408)
+	at java.base/java.util.concurrent.ForkJoinTask.invoke(ForkJoinTask.java:736)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateParallel(ReduceOps.java:919)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:233)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at com.etas.mex.common.dita.pdf.Dita2PdfConverterByFc.createPdfInParallel(Dita2PdfConverterByFc.java:118)
+	at com.etas.mex.common.dita.pdf.Dita2PdfConverterByFc.convertAllTopicRefs(Dita2PdfConverterByFc.java:77)
+	at com.etas.ehcb.pdf.PdfGenerator.generateAllPdfs(PdfGenerator.java:197)
+	at com.etas.ehcb.pdf.PdfGenerator.generatePdf(PdfGenerator.java:102)
+	at com.etas.ehcb.command.CommandExecutor.lambda$4(CommandExecutor.java:269)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-05 16:13:16.118 [pool-1-thread-1] INFO  ROOT                                - Number of ERROR in Pdf log: 2
+2022-04-05 16:13:16.119 [pool-1-thread-1] INFO  ROOT                                - Number of WARNING in Pdf log: 0

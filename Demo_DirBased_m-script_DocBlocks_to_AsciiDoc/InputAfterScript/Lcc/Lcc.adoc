@@ -1,0 +1,25 @@
+ehbfunctionoverview::Lcc[Function Overview for Lcc]
+
+== Lcc/Lcc_mdl/Two-point-controller
+
+ehbmodelref::Lcc/Lcc_mdl/Two-point-controller[Lcc/Lcc_mdl/Two-point-controller]
+
+The two-point controller works via an integrator. If, for example, lambda 1 is controlled and the lambda sensor outputs a lean value (lambda > 1), the correction factor is increased until the injection is so large that a rich lambda value is present (lambda less than 1). Then the correction factor is corrected downwards until the lambda value is lean again. In the program this is set up as follows: The lambda value is compared with the lambda setpoint. If the lambda value is greater, a logical 0 is output, the other way round a logical 1. As soon as the state changes, the integrator used is initialized and a start value is set. This start value corresponds to the sum of integrator output and a correction factor (Lcc_facInitValue). The correction factor increases the dynamics of the control. The integrator input is formed from the map Lcc_EngSpd2facIntegrator_CUR and depends on the speed. The output of the integrator is limited by Lcc_LambdaCorrMinTPC and Lcc_LambdaCorrMaxTPC.
+
+
+== Lcc/Lcc_mdl
+
+ehbmodelref::Lcc/Lcc_mdl[Lcc/Lcc_mdl]
+
+Two types of lambda controllers are integrated into the engine control system. One is a two-point controller and the other is a continuous controller designed as a PID controller. Two control concepts are tested in order to achieve the best possible result. A PID controller is also difficult to parameterize, since the controlled system includes a dead time. The lambda sensor used is a broadband sensor that also detects a rich and lean mixture composition. Thus, it is also possible to run rich and lean with the two-point controller.
+
+
+== Lcc/Lcc_mdl/PID-Controller
+
+ehbmodelref::Lcc/Lcc_mdl/PID-Controller[Lcc/Lcc_mdl/PID-Controller]
+
+The input of the PID controller is formed from the difference between the lambda value and the lambda setpoint. P-, I- and D-portion1 are dependent on speed and intake manifold pressure. The gain factors are stored in Lcc_facKLambdaCorrPID_MAP (P component), Lcc_tiTnLambdaCorrPID_MAP (I component) and Lcc_tiTvLambdaCorrPID_MAP (D component). The PID controller also limits the correction factor by T2t_ThrValveReqCorrMin and T2t_ThrValveReqCorrMax.
+
+
+
+

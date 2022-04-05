@@ -1,0 +1,21 @@
+= Function Documentation 
+
+== Function Overview 
+
+Here you get an overview of this module:
+
+ehbfunctionoverview::Component2[Function OverviewComponent2] 
+
+== Function Description 
+
+The following model screenshot shows the first level subsystem of the model *Lcc*:
+
+ehbmodelref::Lcc/Main_Block[Lcc/Main_Block] 
+
+This is the first hierarchy of the referenced model *Two_point_controller*:
+
+ehbmodelref::Two_point_controller[Two_point_controller]
+
+This is the first hierarchy of the referenced model *PID-Controller*:
+
+ehbmodelref::PID_Controller[PID_Controller]

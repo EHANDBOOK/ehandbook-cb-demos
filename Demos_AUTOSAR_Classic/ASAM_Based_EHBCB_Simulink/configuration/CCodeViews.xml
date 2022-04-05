@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Views>
+  <View name="DETAILED">
+    <BDESettings unusedsequenceCalls="true"
+    usedsequenceCalls="true" graphicalComments="true"
+    processNameLocals="true" summaryComments="true"></BDESettings>
+  </View>
+  <View name="EXTERNAL">
+    <BDESettings unusedsequenceCalls="false"
+    usedsequenceCalls="false" graphicalComments="true"
+    processNameLocals="false" summaryComments="false"></BDESettings>
+  </View>
+  <View name="INTERNAL">
+    <BDESettings unusedsequenceCalls="true"
+    usedsequenceCalls="true" graphicalComments="true"
+    processNameLocals="true" summaryComments="true"></BDESettings>
+  </View>
+</Views>

@@ -1,0 +1,32 @@
+ehbfunctionoverview::CPT_Lcc[Component Overview for CPT_Lcc]
+
+== Lambdakorrektur
+
+In die Motorsteuerung werden 2 Arten von Lambdaregelungen integriert. Zum Einen ein Zweipunktregler und zum Anderen ein stetiger Regler, als PID-Regler ausgeführt. Es werden zwei Regelkonzepte getestet, um das bestmögliche Ergebnis zu erzielen. Ein PID-Regler ist zudem schwer zu parametrieren, da die Regelstrecke eine Totzeit beinhaltet. Die verwendete Lambdasonde ist eine Breitbandsonde, die auch eine fette und magere Gemisch- Zusammensetzung erkennt. So ist es auch mit dem Zweipunktregler möglich fett und mager zu fahren.
+
+=== Lambdasondenerfassung
+
+Dieses Modul dient ausschließlich zur Inbetriebnahme der Lambdaregelung. Zur Erfassung dient ein Analogeingang, bis die eigentliche Lambdaerfassung durch die Basissoftware unterstützt wird. Dieses analoge Spannungssignal wird im Kennfeld zu einem Lambdawert umgerechnet und in die Variable Lamsoni geschrieben.
+
+Bedingungen für aktive Lambdaregelung:
+
+Die Lambdaregelung ist im Normalbetrieb aktiv. Ausnahmen sind der Schubbetrieb (Isc_flgFuelCutoff), bei dem keine Einspritzung stattfindet und während des Startvorgangs (Stc_flgFuelCorrActive). Bei diesem wird erstens die Einspritzmenge gesteuert und zweitens muss die Lambdasonde vorgeheizt werden, damit sie betriebsbereit ist. Die Umschaltung zwischen PID-Regelung und Zweipunktregelung erfolgt über den Parameter Lcc_flgSwitch2PIDController.
+
+ehbmodelref::Lcc/Lcc_mdl[Lcc/Lcc_mdl]
+//ehbmodelref::LambdaControl/Main[LambdaControl/Main]
+
+=== Zweipunktregler
+
+Der Zweipunktregler funktioniert über einen Integrator. Wird zum Beispiel Lambda 1 geregelt und die Lambdasonde gibt einen mageren Wert aus (Lambda > 1) wird der Korrekturfaktor solange erhöht, bis die Einspritzung so groß ist, dass ein fetter Lambdawert vorliegt (Lambda kleiner 1). Danach wird der Korrekturfaktor nach unten korrigiert bis der Lambdawert wieder mager ist. Im Programm ist dies folgendermaßen angelegt: Der Lambdawert wird mit dem Lambda-Sollwert verglichen. Ist der Lambdawert größer, wird eine logische 0 ausgegeben, andersrum eine logische 1. Sobald der Zustand wechselt, wird der verwendete Integrator initialisiert und es wird ein Startwert gesetzt. Dieser Startwert entspricht der Summe aus Integratorausgang und einem Korrekturfaktor (Lcc_facInitValue). Der Korrekturfaktor erhöht die Dynamik der Regelung. Der Integratoreingang wird aus dem Kennfeld Lcc_EngSpd2facIntegrator_CUR gebildet und ist abhängig von der Drehzahl. Der Ausgang des Integrators ist begrenzt durch Lcc_LambdaCorrMinTPC und Lcc_LambdaCorrMaxTPC.
+
+ehbmodelref::Lcc/Lcc_mdl/Two-point-controller[Lcc/Lcc_mdl/Two-point-controller]
+//ehbmodelref::LambdaControl_Project/Two-point-controller[LambdaControl_Project/Two-point-controller]
+
+=== PID-Regler
+
+Der Eingang des PID-Reglers wird aus der Differenz zwischen Lambdawert und Lambda-Sollwert gebildet. P-, I- und D-Anteil1 sind abhängig von der Drehzahl und des Saugrohrdrucks. Die Verstärkungsfaktoren sind in Lcc_facKLambdaCorrPID_MAP (P-Anteil), Lcc_tiTnLambdaCorrPID_MAP (IAnteil) und Lcc_tiTvLambdaCorrPID_MAP (D-Anteil) hinterlegt. Auch der PIDRegler begrenzt durch T2t_ThrValveReqCorrMin und T2t_ThrValveReqCorrMax den Korrekturfaktor.
+
+ehbmodelref::Lcc/Lcc_mdl/PID-Controller[Lcc/Lcc_mdl/PID-Controller]
+//ehbmodelref::LambdaControl_Project/PID-Controller[LambdaControl_Project/PID-Controller]
+
+Die Auswertung der Funktion Lcc_calc erfolgt im Synchron-Raster.    

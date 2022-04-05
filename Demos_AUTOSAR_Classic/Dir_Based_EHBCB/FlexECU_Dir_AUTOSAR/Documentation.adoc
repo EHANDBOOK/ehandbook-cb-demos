@@ -1,0 +1,13 @@
+= About EHANDBOOK FlexECU Demo
+
+The ECU software described in this container was designed for demonstration and test purposes. It consists of 16 function components, designed both in ASCET and Simulink. The ECU software works for an existing engine in an OEM vehicle.
+
+*Type of the engine used:*
+* gasoline 3 cylinder in-line
+* 0,7 Litre (699 cubic centimetre) 55 kW
+* 2 valves per cylinder
+* Intake-manifold fuel injection
+* Turbo charger with charge-air intercooler
+* Twin spark
+
+*Type of ECU:* ETAS FlexECU-G1 based on Bosch MED17.3.4 production ECU

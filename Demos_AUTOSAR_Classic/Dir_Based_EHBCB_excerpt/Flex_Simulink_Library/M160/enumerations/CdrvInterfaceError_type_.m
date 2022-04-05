@@ -1,0 +1,30 @@
+% CdrvInterfaceError_type_
+% Definition of enums as Simulink parameters
+CDRV_E_OK_ = Simulink.Parameter;
+CDRV_E_OK_.DataType = 'single';
+CDRV_E_OK_.Value = 0;
+CDRV_E_OK_.StorageClass = 'ImportedExtern';
+CDRV_E_NULL_PTR_ = Simulink.Parameter;
+CDRV_E_NULL_PTR_.DataType = 'single';
+CDRV_E_NULL_PTR_.Value = 1;
+CDRV_E_NULL_PTR_.StorageClass = 'ImportedExtern';
+CDRV_E_PFI_ = Simulink.Parameter;
+CDRV_E_PFI_.DataType = 'single';
+CDRV_E_PFI_.Value = 2;
+CDRV_E_PFI_.StorageClass = 'ImportedExtern';
+CDRV_E_GDI_ = Simulink.Parameter;
+CDRV_E_GDI_.DataType = 'single';
+CDRV_E_GDI_.Value = 3;
+CDRV_E_GDI_.StorageClass = 'ImportedExtern';
+CDRV_E_S0_ = Simulink.Parameter;
+CDRV_E_S0_.DataType = 'single';
+CDRV_E_S0_.Value = 3;
+CDRV_E_S0_.StorageClass = 'ImportedExtern';
+CDRV_E_S1_ = Simulink.Parameter;
+CDRV_E_S1_.DataType = 'single';
+CDRV_E_S1_.Value = 3;
+CDRV_E_S1_.StorageClass = 'ImportedExtern';
+CDRV_E_CYL_NO_ = Simulink.Parameter;
+CDRV_E_CYL_NO_.DataType = 'single';
+CDRV_E_CYL_NO_.Value = 3;
+CDRV_E_CYL_NO_.StorageClass = 'ImportedExtern';

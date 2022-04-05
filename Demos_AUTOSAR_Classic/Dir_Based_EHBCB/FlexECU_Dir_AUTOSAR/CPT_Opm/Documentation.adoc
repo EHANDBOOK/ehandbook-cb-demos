@@ -1,0 +1,27 @@
+ehbfunctionoverview::CPT_Opm[Component Overview for CPT_Opm]
+
+== Operationsmodus
+
+Die Aufgabe des Modul Operationsmodus (Operationmode) besteht in erster Linie darin den Motor im Fehlerfall schnellstmöglich in einen sicheren Zustand zu bringen. Dazu wird:
+
+* die Einspritzung ausgesetzt
+* die Zündung ausgeschaltet
+* die Drosselklappe in Notlaufposition gebracht
+
+ehbmodelref::OperationMode/Main[OperationMode/Main]
+
+Hierbei wird ein Zustandsautomat verwendet, der drei Zustände Off, Normal und IOError enthält. Der Zustand Off ist der Startzustand der Motorsteuerung. In diesem Zustand wird die Aktuatorik mit den Werten des sicheren Zustands angesteuert.
+
+Durch setzen des Flags Opm_stEngControl auf true wird in den Zustand Normal auf die Aktuatorik mit den gerechneten Werten der Motorsteuerung oder den manuell überschriebenen Werten versorgt. Beim Auftritt eines Fehlers aus den Sensorik- und Aktuatorik-Modulen wird in den Zustand IOError gewechselt und die Aktuatorik in den sicheren Zustand geschaltet. Erst nach Beseitigung des Fehlers kann mittels Opm_stEngControl = false wieder in den Zustand Off geschaltet werden, um von vorne zu starten. Der Zustandsautomat wird im 100ms-Raster ausgeführt.
+
+ehbmodelref::sm_OpMode/Main[sm_OpMode/Main]
+
+Zur Fehlererkennung werden die eingehenden Signale mit den Fehlerinformationen aus den Komponentenmodulen Eih_InputError und Eoh_OutputError zunächst aufbereitet. Dazu wird im 1ms-Raster geprüft, ob Fehler vorliegen und gegebenenfalls jeweils, getrennt nach Sensorik und Aktuatorik, Zähler inkrementiert. Sobald einer der Zähler den Grenzwert Opm_tiIOErrorDelay (Zeit bis Erkennung in Sekunden) erreicht, wird das entsprechende Flag Opm_flgInputErrorMem oder Opm_flgOutputErrorMem auf true gesetzt und auch nach einem Rücksetzen der Zähler (kein Fehler mehr vorhanden) beibehalten. Der Zustandsautomat verwendet diese Informationen zur Evaluation und wechselt mit Auftreten eines Fehlers am Eingang in den Zustand IOError. In der Variablen Opm_flgIOErrorAct steht der aktuelle Fehlerzustand, also ob aktuell ein Fehler vorhanden ist oder nicht. Sie wird verwendet um zu Prüfen, ob noch ein Fehler vorliegt oder bei Wunsch in den Zustand Off gewechselt werden darf. Mit diesem Wechsel werden dann die Fehlerspeicher Opm_flgInputErrorMem und Opm_flgOutputErrorMem zurückgesetzt.
+
+Die Fehlererkennung kann durch setzen des Flag Opm_stIOErrorOverride auf false komplett ausgeschaltet werden. Das ist jedoch nicht zu empfehlen, da sehr schnell ein unerwartetes Verhalten auftreten kann, das zu Schäden am Motor führen kann, wie beispielsweise einer Sensorstörung bei der Drosselklappe, die zu einem zu großem oder zu kleinem Öffnungswinkel führt1.
+
+Die Vorteile dieser Implementierung sind:
+
+* Durch diese Implementierung kann in einer adäquaten Zeit ein Fehlverhalten erkannt und mit Abschaltung reagiert werden, ohne dabei sofort bei jedem kurzen Störimpuls übertrieben zu reagieren.
+* Die Aufteilung nach Sensorik und Aktuatorik ermöglicht es Fehler schneller zu lokalisieren.
+* Mit Anpassung der Reaktionszeit bis zur Abschaltung Opm_tiIOErrorDelay kann die „Schärfe“ der Erkennung eingestellt werden.
