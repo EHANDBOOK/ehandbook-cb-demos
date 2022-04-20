@@ -4,6 +4,10 @@ This repository contains a set of demos for EHANDBOOK Container-Build.
 
 To run the demos, please ensure that you have the latest EHANDBOOK Container-Build tools installed. 
 
+## Clone Repository
+
+A guide how to setup SSH for cloning the repository can be found here https://confluence.etas-dev.com/display/ETASDEVU/SSH+Git+Access+to+Bitbucket#SSHGitAccesstoBitbucket-Createpublicandprivatekeypair .
+
 ## Setup
 
 After cloning the respository, you first should adapt the file `set_tool_paths.bat` to your local environment. 
