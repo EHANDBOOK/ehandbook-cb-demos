@@ -14,7 +14,7 @@ The function name provided here are the function component folder name which wil
 
 This is a sample for a static image without any model linkage:
 
-image::staticImage.png[]
+image::StaticImage.png[]
 
 == Interactive Model Linking
 
