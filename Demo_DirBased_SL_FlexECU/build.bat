@@ -3,10 +3,12 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
--n DirBased_SL_FlexECU_adoc_all_V1 ^
--gensvg ^
+-n ETAS_FlexECU_Dir_Simulink ^
+-simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink" ^
 -nomatlab ^
--simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink"
+-gensvg ^
+-styling ".\etas-styling" ^
+-rootlevel ".\configuration\rootlevel.json"
 
 pause
 

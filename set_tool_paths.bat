@@ -1,3 +1,3 @@
-set EHB_CB_PATH=C:\ETAS\EHANDBOOK-Container-Build_10.0.0-Windows
-set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-UGG_10.0.0-Windows
+set EHB_CB_PATH=C:\ETAS\EHANDBOOK-Container-Build_10.1.0-Windows
+set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-UGG_10.1.0-Windows
 set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
