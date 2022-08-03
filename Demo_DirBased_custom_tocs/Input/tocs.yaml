@@ -1,0 +1,26 @@
+docuUnits:  
+  - id: SWC_1
+    displayName: "Software Component 1"
+  - id: SWC_2
+    displayName: "Software Component 2"
+  - id: SWC_n
+    displayName: "Software Component n"
+  - id: Composition_1
+    displayName: "Composition 1"
+  - id: Composition_2
+    displayName: "Composition 2"
+tocs:
+  - displayName: Alphabetic list of software components
+    contents:
+    - idRef: SWC_1
+    - idRef: SWC_2
+    - idRef: SWC_n
+  - displayName: Software architecture
+    contents:
+    - idRef: Composition_1  
+      contents:
+      - idRef: SWC_1
+      - idRef: SWC_2
+    - idRef: Composition_2
+      contents:
+      - idRef: SWC_n
