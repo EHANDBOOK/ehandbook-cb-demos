@@ -1,0 +1,34 @@
+% Diagnosis_Errors
+% Definition of enums as Simulink parameters
+OK = Simulink.Parameter;
+OK.DataType = 'single';
+OK.Value = 0;
+OK.StorageClass = 'ImportedExtern';
+OverTemp = Simulink.Parameter;
+OverTemp.DataType = 'single';
+OverTemp.Value = 1;
+OverTemp.StorageClass = 'ImportedExtern';
+OpenCircuit = Simulink.Parameter;
+OpenCircuit.DataType = 'single';
+OpenCircuit.Value = 2;
+OpenCircuit.StorageClass = 'ImportedExtern';
+ShortToBatt = Simulink.Parameter;
+ShortToBatt.DataType = 'single';
+ShortToBatt.Value = 3;
+ShortToBatt.StorageClass = 'ImportedExtern';
+ShortToBattNEG = Simulink.Parameter;
+ShortToBattNEG.DataType = 'single';
+ShortToBattNEG.Value = 4;
+ShortToBattNEG.StorageClass = 'ImportedExtern';
+ShortToGnd = Simulink.Parameter;
+ShortToGnd.DataType = 'single';
+ShortToGnd.Value = 5;
+ShortToGnd.StorageClass = 'ImportedExtern';
+ShortToGndPOS = Simulink.Parameter;
+ShortToGndPOS.DataType = 'single';
+ShortToGndPOS.Value = 6;
+ShortToGndPOS.StorageClass = 'ImportedExtern';
+ShortToGndNEG = Simulink.Parameter;
+ShortToGndNEG.DataType = 'single';
+ShortToGndNEG.Value = 7;
+ShortToGndNEG.StorageClass = 'ImportedExtern';

@@ -1,0 +1,125 @@
+{
+	"chapter": "データ ディクショナリ (Data Dictionary)",
+	"tables": [
+		{
+			"title": "システム定数 (System Constants)",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_system_constant"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Description",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Physical",
+					"id": "SW-VALUES-PHYS"
+				},
+				{
+					"title": "Coded",
+					"id": "SW-VALUES-CODED"
+				}
+			]
+		},
+		{
+			"title": "校正パラメータ (Calibration Parameters)",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_parameter"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Description",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Type",
+					"id": "ehb_category"
+				}
+			]
+		},
+		{
+			"title": "変数 (Variables)",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_variable"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Description",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Type",
+					"id": "ehb_category"
+				}
+			]
+		},
+		{
+			"title": "クラス インスタンス (Class Instances)",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_CLASS_INSTANCE"
+				}
+			],
+			"columns": [
+				{
+					"title": "Class instance",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Class",
+					"id": "SW-CLASS-REF"
+				},
+				{
+					"title": "Implementation",
+					"id": "SW-CLASS-ATTR-IMPL-REF"
+				},
+				{
+					"title": "Description",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Reference",
+					"id": "ehb_reference"
+				}
+			]
+		}
+	]
+}
