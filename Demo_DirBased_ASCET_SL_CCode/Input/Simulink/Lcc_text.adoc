@@ -2,11 +2,7 @@
 
 == Function Overview
 
-Lambda Correction Calculation
-
-Here comes a function diagram:
-
-ehbfunctionoverview::SL[Function1 Overview Diagram]
+ehbfunctionoverview::"Simulink"[Function Overview diagram for component with Simulink model]
 
 The function name provided here are the function component folder name which will have the metadata excel file. 
 

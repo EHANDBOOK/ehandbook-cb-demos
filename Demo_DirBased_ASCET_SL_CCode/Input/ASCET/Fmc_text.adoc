@@ -2,12 +2,10 @@
 
 == Function Overview
 
-Here comes a function diagram:
-
-ehbfunctionoverview::ASCET[Function1 Overview Diagram]
+ehbfunctionoverview::ASCET[Function Overview diagram for component with ASCET model]
 
 == Function Description
 
-C-Code visualizations as interactive model screenshots
+Interactive model screenshot derived from ASCET 6 model:
 
 ehbmodelref::FuelMass/Main[main]

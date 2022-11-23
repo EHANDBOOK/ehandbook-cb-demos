@@ -1,0 +1,11 @@
+= Function Documentation
+
+== Function Overview
+
+ehbfunctionoverview::ASCET[Function Overview diagram for component with C-Code model]
+
+== Function Description
+
+Interactive model screenshot derived from C-Code visualiation.
+
+ehbmodelref::"CCode/CCode/INJECTIONTIME_IMPL_Itc_calc"[CCode/CCode/INJECTIONTIME_IMPL_Itc_calc]
