@@ -1,0 +1,10 @@
+== Description
+
+This is the description for Composition 2
+
+== Software Components
+
+It comprises two software components:
+
+* swc3
+* swc4
