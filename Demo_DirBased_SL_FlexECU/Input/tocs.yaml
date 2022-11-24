@@ -1,0 +1,53 @@
+docuUnits:
+  - id: Actuators
+    displayName: "Actuators (Sensor Value Treatment)"
+  - id: Afr
+    displayName: "Afr (Air Flow Ratio)"
+  - id: Amf
+    displayName: "Amf (Air Mass Flow)"
+  - id: Epm
+    displayName: "Epm (Engine Position Management)"
+  - id: Fmc
+    displayName: "Fmc (Fuel Mass Calculation)"
+  - id: dummy
+    displayName: "Cc (Component Control)"
+  - id: Iac
+    displayName: "Iac (Ignition Angle Calculation)"
+  - id: Icc
+    displayName: "Icc (Inter Cooler Calculation)"
+  - id: Isc
+    displayName: "Isc (Idle Speed Control)"
+  - id: Itc
+    displayName: "Itc (Injection Time Calculation)"
+  - id: Lcc
+    displayName: "Lcc (Lambda Control Calculation)"
+  - id: Opm
+    displayName: "Opm (Operation Mode)"
+  - id: Sensors
+    displayName: "Sensors (Sensor Value Treatment)"
+  - id: T2t
+    displayName: "T2t (Torque to throttle calculation)"
+  - id: Tqs
+    displayName: "Tqs (Torque Structure)"
+tocs:
+  - displayName: Alphabetic list of functions
+    contents:
+    - idRef: Actuators
+    - idRef: Afr
+    - idRef: Amf
+    - idRef: dummy
+    - idRef: Epm
+    - idRef: Fmc
+    - idRef: Iac
+    - idRef: Icc
+    - idRef: Isc
+    - idRef: Itc
+    - idRef: Lcc
+    - idRef: Opm
+    - idRef: Sensors
+    - idRef: T2t
+    - idRef: Tqs
+  - displayName: ECU interface functions
+    contents:
+    - idRef: Sensors
+    - idRef: Actuators
