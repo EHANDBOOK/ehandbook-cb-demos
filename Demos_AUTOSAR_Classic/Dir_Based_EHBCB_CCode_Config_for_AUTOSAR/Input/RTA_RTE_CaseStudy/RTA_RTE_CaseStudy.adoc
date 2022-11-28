@@ -1,0 +1,10 @@
+= RTA-RTE Case Study
+
+The RTA-RTE Case Study comrpises two software components:
+
+* SenderInstance
+* ReceiverInstance
+
+== Overview
+
+ehbfunctionoverview::"SenderInstance,ReceiverInstance"["SenderInstance,ReceiverInstance"]

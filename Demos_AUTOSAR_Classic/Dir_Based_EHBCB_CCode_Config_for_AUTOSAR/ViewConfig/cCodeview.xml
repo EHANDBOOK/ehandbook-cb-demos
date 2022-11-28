@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!-- V1.0.0 / 24.08.2006 / GADV-Dk -->
+<!-- V1.0.1 / 02.11.2006 / GADV-Dk: View name "Code", "Kompakt" u. "Physik" entfernt -->
+<!-- V2.0.0 / 18.03.2010 / CDG-SMT/EMT2-Obdrzalek: sequence calls ersetzt durch unusedsequenceCalls und usedsequenceCalls -->
+<Views>
+	<View name="DETAILED">
+		<DocumentationSettings>
+			<Components graphic="true" notes="true" layout="true" processes="true" elements="true" implementation="true" exportedElements="true"
+				importedElements="true" privateMethods="true" publicMethods="true" data="true"></Components>
+			<Projects notes="true" elements="true" taskSchedule="true" targetOptions="true" operatingSystem="true" taskSettings="true" implementation="true"
+				codegenOptions="true" bindings="true" formulas="true" data="true"></Projects>
+		</DocumentationSettings>
+		<BDESettings unusedsequenceCalls="false" usedsequenceCalls="true" graphicalComments="true" processNameLocals="true"></BDESettings>
+		<ElementDefaults>
+			<AsLine>
+				<Element dependency="*" existence="*" type="Implementation Cast" kind="*" scope="*" memory="*" modelType="*" calibration="*"></Element>
+			</AsLine>
+			<Invisible></Invisible>
+			<Contour></Contour>
+			<HideContents></HideContents>
+		</ElementDefaults>
+	</View>
+	<View name="EXTERNAL">
+		<DocumentationSettings>
+			<Components graphic="true" notes="true" layout="true" processes="true" elements="true" implementation="true" exportedElements="true"
+				importedElements="true" privateMethods="true" publicMethods="true" data="true"></Components>
+			<Projects notes="true" elements="true" taskSchedule="true" targetOptions="true" operatingSystem="true" taskSettings="true" implementation="true"
+				codegenOptions="true" bindings="true" formulas="true" data="true"></Projects>
+		</DocumentationSettings>
+		<BDESettings unusedsequenceCalls="false" usedsequenceCalls="false" graphicalComments="true" processNameLocals="false"></BDESettings>
+		<ElementDefaults>
+			<AsLine>
+				<Element dependency="*" existence="*" type="Implementation Cast" kind="*" scope="*" memory="*" modelType="*" calibration="*"></Element>
+			</AsLine>
+			<Invisible></Invisible>
+			<Contour></Contour>
+			<HideContents></HideContents>
+		</ElementDefaults>
+	</View>
+	<View name="INTERNAL">
+		<DocumentationSettings>
+			<Components graphic="true" notes="true" layout="true" processes="true" elements="true" implementation="true" exportedElements="true"
+				importedElements="true" privateMethods="true" publicMethods="true" data="true"></Components>
+			<Projects notes="true" elements="true" taskSchedule="true" targetOptions="true" operatingSystem="true" taskSettings="true" implementation="true"
+				codegenOptions="true" bindings="true" formulas="true" data="true"></Projects>
+		</DocumentationSettings>
+		<BDESettings unusedsequenceCalls="false" usedsequenceCalls="false" graphicalComments="true" processNameLocals="false"></BDESettings>
+		<ElementDefaults>
+			<AsLine>
+				<Element dependency="*" existence="*" type="Implementation Cast" kind="*" scope="*" memory="*" modelType="*" calibration="*"></Element>
+			</AsLine>
+			<Invisible></Invisible>
+			<Contour></Contour>
+			<HideContents></HideContents>
+		</ElementDefaults>
+	</View>
+</Views>
