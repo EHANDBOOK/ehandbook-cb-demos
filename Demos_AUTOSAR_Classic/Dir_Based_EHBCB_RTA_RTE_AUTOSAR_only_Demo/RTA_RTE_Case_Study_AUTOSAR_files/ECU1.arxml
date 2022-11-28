@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+
+<AUTOSAR xmlns='http://autosar.org/schema/r4.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd'>
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>TGen_CaseStudy1</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-VALUE-COLLECTION>
+          <SHORT-NAME>ECUC_intra</SHORT-NAME>
+          <ECU-EXTRACT-REF DEST='SYSTEM'>/TGen_CaseStudy1/sys_intra</ECU-EXTRACT-REF>
+          <ECUC-VALUES>
+            <ECUC-MODULE-CONFIGURATION-VALUES-REF-CONDITIONAL>
+              <ECUC-MODULE-CONFIGURATION-VALUES-REF DEST='ECUC-MODULE-CONFIGURATION-VALUES'>/TGen_CaseStudy1/Os</ECUC-MODULE-CONFIGURATION-VALUES-REF>
+            </ECUC-MODULE-CONFIGURATION-VALUES-REF-CONDITIONAL>
+            <ECUC-MODULE-CONFIGURATION-VALUES-REF-CONDITIONAL>
+              <ECUC-MODULE-CONFIGURATION-VALUES-REF DEST='ECUC-MODULE-CONFIGURATION-VALUES'>/TGen_CaseStudy1/Rte</ECUC-MODULE-CONFIGURATION-VALUES-REF>
+            </ECUC-MODULE-CONFIGURATION-VALUES-REF-CONDITIONAL>
+          </ECUC-VALUES>
+        </ECUC-VALUE-COLLECTION>
+        <ECUC-MODULE-CONFIGURATION-VALUES>
+          <SHORT-NAME>Os</SHORT-NAME>
+          <DEFINITION-REF DEST='ECUC-MODULE-DEF'>/AUTOSAR/EcucDefs/Os</DEFINITION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>OsAppMode1</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Os/OsAppMode</DEFINITION-REF>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>OsInfo</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Os/OsOS</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsStackMonitoring</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsUseGetServiceId</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsUseParameterAccess</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsUseResScheduler</DEFINITION-REF>
+                  <VALUE>true</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsStatus</DEFINITION-REF>
+                  <VALUE>STANDARD</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-STRING-PARAM-DEF'>/RTAOS/EcucDefs/Os/OsOS/OsDefTaskStack</DEFINITION-REF>
+                  <VALUE>4096</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-STRING-PARAM-DEF'>/RTAOS/EcucDefs/Os/OsOS/OsDefCat1Stack</DEFINITION-REF>
+                  <VALUE>1024</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-STRING-PARAM-DEF'>/RTAOS/EcucDefs/Os/OsOS/OsDefCat2Stack</DEFINITION-REF>
+                  <VALUE>1024</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>OsHooks_1</SHORT-NAME>
+                  <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsHooks</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsHooks/OsErrorHook</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsHooks/OsPostTaskHook</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsHooks/OsPreTaskHook</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsHooks/OsProtectionHook</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsHooks/OsShutdownHook</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsOS/OsHooks/OsStartupHook</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/RTAOS/EcucDefs/Os/OsOS/OsHooks/OsStackFaultHook</DEFINITION-REF>
+                      <VALUE>false</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>RTE_RESOURCE</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Os/OsResource</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsResource/OsResourceProperty</DEFINITION-REF>
+                  <VALUE>STANDARD</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>TaskA</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Os/OsTask</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                  <VALUE>FULL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                  <VALUE>8</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST='ECUC-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskResourceRef</DEFINITION-REF>
+                  <VALUE-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/TGen_CaseStudy1/Os/RTE_RESOURCE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>TaskB</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Os/OsTask</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                  <VALUE>FULL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                  <VALUE>6</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST='ECUC-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskResourceRef</DEFINITION-REF>
+                  <VALUE-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/TGen_CaseStudy1/Os/RTE_RESOURCE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>TaskInit</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Os/OsTask</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskSchedule</DEFINITION-REF>
+                  <VALUE>FULL</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskActivation</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskPriority</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+              <REFERENCE-VALUES>
+                <ECUC-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST='ECUC-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Os/OsTask/OsTaskResourceRef</DEFINITION-REF>
+                  <VALUE-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/TGen_CaseStudy1/Os/RTE_RESOURCE</VALUE-REF>
+                </ECUC-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+        <ECUC-MODULE-CONFIGURATION-VALUES>
+          <SHORT-NAME>Rte</SHORT-NAME>
+          <DEFINITION-REF DEST='ECUC-MODULE-DEF'>/AUTOSAR/EcucDefs/Rte</DEFINITION-REF>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>RteBswGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteBswGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteBswGeneral/RteSchMVersionInfoApi</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>Params</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteCalibrationSupport</DEFINITION-REF>
+                  <VALUE>NONE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteCodeVendorId</DEFINITION-REF>
+                  <VALUE>998</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteDevErrorDetect</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteDevErrorDetectUninit</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteGenerationMode</DEFINITION-REF>
+                  <VALUE>COMPATIBILITY_MODE</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteMeasurementSupport</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-ENUMERATION-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteOptimizationMode</DEFINITION-REF>
+                  <VALUE>RUNTIME</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteValueRangeCheckEnabled</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-BOOLEAN-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteVfbTraceEnabled</DEFINITION-REF>
+                  <VALUE>false</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteGeneration/RteToolChainSignificantCharacters</DEFINITION-REF>
+                  <VALUE>128</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>RteOsInteraction</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteOsInteraction</DEFINITION-REF>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>RtePostBuildVariantConfiguration</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RtePostBuildVariantConfiguration</DEFINITION-REF>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>RtePostBuildUsedPredefinedVariant</SHORT-NAME>
+                  <DEFINITION-REF DEST='ECUC-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RtePostBuildVariantConfiguration/RtePostBuildUsedPredefinedVariant</DEFINITION-REF>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>I_SenderInstance</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-INSTANCE-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST='ECUC-FOREIGN-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteSoftwareComponentInstanceRef</DEFINITION-REF>
+                  <VALUE-IREF>
+                    <TARGET-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/SenderInstance</TARGET-REF>
+                  </VALUE-IREF>
+                </ECUC-INSTANCE-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>PollPeriod</SHORT-NAME>
+                  <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RtePositionInTask</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST='ECUC-FOREIGN-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteEventRef</DEFINITION-REF>
+                      <VALUE-REF DEST='TIMING-EVENT'>/TGen_CaseStudy1/SenderComponent/IBSenderComponent/PollPeriod</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST='ECUC-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                      <VALUE-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/TGen_CaseStudy1/Os/TaskA</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE>
+              <SHORT-NAME>I_ReceiverInstance</SHORT-NAME>
+              <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance</DEFINITION-REF>
+              <REFERENCE-VALUES>
+                <ECUC-INSTANCE-REFERENCE-VALUE>
+                  <DEFINITION-REF DEST='ECUC-FOREIGN-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteSoftwareComponentInstanceRef</DEFINITION-REF>
+                  <VALUE-IREF>
+                    <TARGET-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/ReceiverInstance</TARGET-REF>
+                  </VALUE-IREF>
+                </ECUC-INSTANCE-REFERENCE-VALUE>
+              </REFERENCE-VALUES>
+              <SUB-CONTAINERS>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>InputPort_CaseStudyData_Event</SHORT-NAME>
+                  <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RtePositionInTask</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST='ECUC-FOREIGN-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteEventRef</DEFINITION-REF>
+                      <VALUE-REF DEST='DATA-RECEIVED-EVENT'>/TGen_CaseStudy1/ReceiverComponent/IBReceiverComponent/InputPort_CaseStudyData_Event</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST='ECUC-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                      <VALUE-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/TGen_CaseStudy1/Os/TaskB</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+                <ECUC-CONTAINER-VALUE>
+                  <SHORT-NAME>mse1</SHORT-NAME>
+                  <DEFINITION-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping</DEFINITION-REF>
+                  <PARAMETER-VALUES>
+                    <ECUC-NUMERICAL-PARAM-VALUE>
+                      <DEFINITION-REF DEST='ECUC-INTEGER-PARAM-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RtePositionInTask</DEFINITION-REF>
+                      <VALUE>1</VALUE>
+                    </ECUC-NUMERICAL-PARAM-VALUE>
+                  </PARAMETER-VALUES>
+                  <REFERENCE-VALUES>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST='ECUC-FOREIGN-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteEventRef</DEFINITION-REF>
+                      <VALUE-REF DEST='SWC-MODE-SWITCH-EVENT'>/TGen_CaseStudy1/ReceiverComponent/IBReceiverComponent/mse1</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                    <ECUC-REFERENCE-VALUE>
+                      <DEFINITION-REF DEST='ECUC-REFERENCE-DEF'>/AUTOSAR/EcucDefs/Rte/RteSwComponentInstance/RteEventToTaskMapping/RteMappedToTaskRef</DEFINITION-REF>
+                      <VALUE-REF DEST='ECUC-PARAM-CONF-CONTAINER-DEF'>/TGen_CaseStudy1/Os/TaskInit</VALUE-REF>
+                    </ECUC-REFERENCE-VALUE>
+                  </REFERENCE-VALUES>
+                </ECUC-CONTAINER-VALUE>
+              </SUB-CONTAINERS>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
