@@ -1,0 +1,62 @@
+<?xml version="1.0" standalone="no"?>
+
+<svg 
+     version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns:klighd="http://de.cau.cs.kieler/klighd"
+     x="0px"
+     y="0px"
+     width="217px"
+     height="438px"
+     viewBox="0 0 217 438"
+     xmlns:ehb="http://www.etas.com/ehandbook" ehb:data-clickpic-sourceId="Actuators.componentmanifest#S_aab2970" ehb:data-clickpic-parentId="Actuators.componentmanifest#S_aab2808"
+     >
+<title></title>
+<desc>Creator: FreeHEP Graphics2D Driver Producer:de.cau.cs.kieler.klighd.piccolo.svggen.freeHEPExtendedRevision Source</desc>
+<g stroke-dashoffset="0" stroke-linejoin="miter" stroke-dasharray="none" stroke-width="1" stroke-linecap="butt" stroke-miterlimit="10">
+<g transform="matrix(1, 0, 0, 1, 9, 7)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="0.09803921729326248" stroke="none">
+  <path d="M 0.5 0.5 L 206.5 0.5 L 206.5 421.5 L 0.5 421.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 8, 6)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="0.09803921729326248" stroke="none">
+  <path d="M 0.5 0.5 L 206.5 0.5 L 206.5 421.5 L 0.5 421.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 7, 5)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="0.09803921729326248" stroke="none">
+  <path d="M 0.5 0.5 L 206.5 0.5 L 206.5 421.5 L 0.5 421.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 6, 4)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="0.09803921729326248" stroke="none">
+  <path d="M 0.5 0.5 L 206.5 0.5 L 206.5 421.5 L 0.5 421.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 3)">
+<g fill="#ffffff" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 0.5 0.5 L 206.5 0.5 L 206.5 421.5 L 0.5 421.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 3)">
+<g fill="#63b9ff" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 0.5 0.5 L 206.5 0.5 L 206.5 421.5 L 0.5 421.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 3)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 0.5 0.5 L 206.5 0.5 L 206.5 421.5 L 0.5 421.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 0, 207.5)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#000000" stroke="none" font-family="Arial" style="white-space: pre" fill-opacity="1" textLength="217.0px" lengthAdjust="spacingAndGlyphs">ehooks_medc17flex_devlib_CAN_Init_fcncall</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 36, 425)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Arial" style="white-space: pre" fill-opacity="1" textLength="143.0px" lengthAdjust="spacingAndGlyphs" id="f33fd33e-e1cc-4c2a-9ca3-9fc36986da0c">FlexECU_SFcn_Frm_CAN_Init</text>
+</g>
+</g>
+</svg>

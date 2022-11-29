@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Components language="SIMULINK" modelConverterVersion="7.0.0" uggToolVersion="10.2.0">
+  <Component name="Lcc" namespace="NOT DEFINED YET">
+    <View name="DEFAULT" componentManifestLocation="DEFAULT\kaoms\Lcc.componentmanifest">
+      <Graphic name="Main" hierarchyPath="/Main_Block/Two-point-controller/EdgeFalling1" ID="Lcc.componentmanifest:95">
+        <File name="DEFAULT\images\S_aac264.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/Two-point-controller/EdgeRising1" ID="Lcc.componentmanifest:103">
+        <File name="DEFAULT\images\S_aac394.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/PID-Controller/PID_Limit_AWU/Limiter" ID="Lcc.componentmanifest:56">
+        <File name="DEFAULT\images\S_aac178.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/Two-point-controller/EdgeRising" ID="Lcc.componentmanifest:99">
+        <File name="DEFAULT\images\S_aac373.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/Two-point-controller/EdgeFalling" ID="Lcc.componentmanifest:91">
+        <File name="DEFAULT\images\S_aac429.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block" ID="Lcc.componentmanifest:7">
+        <File name="DEFAULT\images\S_aac20.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/PID-Controller" ID="Lcc.componentmanifest:26">
+        <File name="DEFAULT\images\S_aac30.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/PID-Controller/PID_Limit_AWU" ID="Lcc.componentmanifest:40">
+        <File name="DEFAULT\images\S_aac80.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="">
+        <File name="DEFAULT\images\S_aac1.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/Two-point-controller" ID="Lcc.componentmanifest:77">
+        <File name="DEFAULT\images\S_aac243.svg"/>
+      </Graphic>
+      <Graphic name="Main" hierarchyPath="/Main_Block/Two-point-controller/Integrator" ID="Lcc.componentmanifest:107">
+        <File name="DEFAULT\images\S_aac294.svg"/>
+      </Graphic>
+    </View>
+  </Component>
+</Components>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kaom:Entity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ann="http://kieler.cs.cau.de/annotations" xmlns:kaom="http://kieler.cs.cau.de/KAOM" name="G1_DigOut_GetError">
+  <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+  <annotations xsi:type="ann:StringAnnotation" name="elementType" value="SubSystem"/>
+  <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab800"/>
+  <annotations xsi:type="ann:StringAnnotation" name="componentmanifestPath" value="Actuators.componentmanifest"/>
+  <childEntities name="DTC_DigOut_GetError">
+    <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="showLabel"/>
+    <annotations xsi:type="ann:IntAnnotation" name="fontSize" value="8"/>
+    <annotations xsi:type="ann:StringAnnotation" name="fontName" value="Helvetica"/>
+    <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab802"/>
+    <annotations xsi:type="ann:StringAnnotation" name="fillColor" value="255,255,255"/>
+    <annotations xsi:type="ann:StringAnnotation" name="lineStyleColor" value="0,0,0"/>
+    <annotations xsi:type="ann:StringAnnotation" name="size" value="57,36"/>
+    <annotations xsi:type="ann:StringAnnotation" name="orientation" value="right"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="showShadow"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementType" value="DataTypeConversion"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="expandable"/>
+    <annotations xsi:type="ann:StringAnnotation" name="position" value="253,93"/>
+    <annotations xsi:type="ann:StringAnnotation" name="labelPosition" value="228,129"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementName" value="DTC_DigOut_GetError"/>
+    <annotations xsi:type="ann:StringAnnotation" name="innerLabel" value="single"/>
+    <childPorts incomingLinks="//@childLinks.1">
+      <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portType" value="input"/>
+      <annotations xsi:type="ann:StringAnnotation" name="angle" value="180.0"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portDecorator" value="dot"/>
+      <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab803"/>
+      <annotations xsi:type="ann:StringAnnotation" name="index" value="1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portSize" value="1,1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portPosition" value="253,110"/>
+    </childPorts>
+    <childPorts outgoingLinks="//@childLinks.0">
+      <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portType" value="output"/>
+      <annotations xsi:type="ann:StringAnnotation" name="angle" value="0.0"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portDecorator" value="none"/>
+      <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab804"/>
+      <annotations xsi:type="ann:StringAnnotation" name="index" value="1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portSize" value="1,1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portPosition" value="308,110"/>
+    </childPorts>
+  </childEntities>
+  <childEntities name="FlexECU_DevLib_FcnAPI_Wrapper_SFcn">
+    <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="showLabel" value="true"/>
+    <annotations xsi:type="ann:IntAnnotation" name="fontSize" value="8"/>
+    <annotations xsi:type="ann:StringAnnotation" name="fontName" value="Helvetica"/>
+    <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab805"/>
+    <annotations xsi:type="ann:StringAnnotation" name="fillColor" value="99,185,255"/>
+    <annotations xsi:type="ann:StringAnnotation" name="lineStyleColor" value="0,0,0"/>
+    <annotations xsi:type="ann:StringAnnotation" name="size" value="102,172"/>
+    <annotations xsi:type="ann:StringAnnotation" name="orientation" value="right"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="showShadow"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementType" value="S-Function"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="expandable"/>
+    <annotations xsi:type="ann:StringAnnotation" name="position" value="73,25"/>
+    <annotations xsi:type="ann:StringAnnotation" name="labelPosition" value="25,197"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementName" value="FlexECU_DevLib_FcnAPI_Wrapper_SFcn"/>
+    <annotations xsi:type="ann:StringAnnotation" name="innerLabel" value="ehooks_medc17flex_devlib_basic_io_fcncall"/>
+    <childPorts outgoingLinks="//@childLinks.1">
+      <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portType" value="output"/>
+      <annotations xsi:type="ann:StringAnnotation" name="angle" value="0.0"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portDecorator" value="none"/>
+      <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab806"/>
+      <annotations xsi:type="ann:StringAnnotation" name="index" value="1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portSize" value="1,1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portPosition" value="173,110"/>
+    </childPorts>
+  </childEntities>
+  <childEntities name="status">
+    <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="showLabel" value="true"/>
+    <annotations xsi:type="ann:IntAnnotation" name="fontSize" value="8"/>
+    <annotations xsi:type="ann:StringAnnotation" name="fontName" value="Helvetica"/>
+    <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab807"/>
+    <annotations xsi:type="ann:StringAnnotation" name="fillColor" value="255,255,255"/>
+    <annotations xsi:type="ann:StringAnnotation" name="lineStyleColor" value="0,0,0"/>
+    <annotations xsi:type="ann:StringAnnotation" name="size" value="32,16"/>
+    <annotations xsi:type="ann:StringAnnotation" name="orientation" value="right"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="showShadow"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementType" value="Outport"/>
+    <annotations xsi:type="ann:BooleanAnnotation" name="expandable"/>
+    <annotations xsi:type="ann:StringAnnotation" name="position" value="398,103"/>
+    <annotations xsi:type="ann:StringAnnotation" name="labelPosition" value="400,119"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementName" value="status"/>
+    <annotations xsi:type="ann:StringAnnotation" name="uniqueName" value="status"/>
+    <annotations xsi:type="ann:StringAnnotation" name="innerLabel" value="1"/>
+    <childPorts incomingLinks="//@childLinks.0">
+      <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portType" value="input"/>
+      <annotations xsi:type="ann:StringAnnotation" name="angle" value="180.0"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portDecorator" value="dot"/>
+      <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab808"/>
+      <annotations xsi:type="ann:StringAnnotation" name="index" value="1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portSize" value="1,1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portPosition" value="398,110"/>
+    </childPorts>
+    <childPorts id="S_aab809">
+      <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portType" value="virtualOutput"/>
+      <annotations xsi:type="ann:StringAnnotation" name="angle" value="180.0"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portDecorator" value="dot"/>
+      <annotations xsi:type="ann:StringAnnotation" name="ID" value="S_aab809"/>
+      <annotations xsi:type="ann:StringAnnotation" name="index" value="1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portSize" value="1,1"/>
+      <annotations xsi:type="ann:StringAnnotation" name="portPosition" value="430,111"/>
+    </childPorts>
+  </childEntities>
+  <childLinks source="//@childEntities.0/@childPorts.1" target="//@childEntities.2/@childPorts.0">
+    <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementType" value="Connection"/>
+    <annotations xsi:type="ann:IntAnnotation" name="lineStyleWidth" value="1"/>
+    <annotations xsi:type="ann:StringAnnotation" name="lineStyleColor" value="0,0,0"/>
+    <annotations xsi:type="ann:StringAnnotation" name="bendPoints" value="308,110,313,110,383,110,398,110"/>
+  </childLinks>
+  <childLinks source="//@childEntities.1/@childPorts.0" target="//@childEntities.0/@childPorts.0">
+    <annotations xsi:type="ann:StringAnnotation" name="language" value="Simulink"/>
+    <annotations xsi:type="ann:StringAnnotation" name="elementType" value="Connection"/>
+    <annotations xsi:type="ann:IntAnnotation" name="lineStyleWidth" value="1"/>
+    <annotations xsi:type="ann:StringAnnotation" name="lineStyleColor" value="0,0,0"/>
+    <annotations xsi:type="ann:StringAnnotation" name="bendPoints" value="173,110,178,110,238,110,253,110"/>
+  </childLinks>
+</kaom:Entity>

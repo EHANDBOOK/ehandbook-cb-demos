@@ -1,0 +1,229 @@
+<?xml version="1.0" standalone="no"?>
+
+<svg 
+     version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns:klighd="http://de.cau.cs.kieler/klighd"
+     x="0px"
+     y="0px"
+     width="160px"
+     height="168px"
+     viewBox="0 0 160 168"
+     xmlns:ehb="http://www.etas.com/ehandbook" ehb:data-clickpic-sourceId="TorqueStructure_Project_040g0000e52g1ng70472nk19bss02.componentmanifest#A_aad349"
+     >
+<title></title>
+<desc>Creator: FreeHEP Graphics2D Driver Producer:de.cau.cs.kieler.klighd.piccolo.svggen.freeHEPExtendedRevision Source</desc>
+<g stroke-dashoffset="0" stroke-linejoin="miter" stroke-dasharray="none" stroke-width="1" stroke-linecap="butt" stroke-miterlimit="10">
+<g ehb:data-clickpic-targetId="TorqueStructure_Project_040g0000e52g1ng70472nk19bss02.componentmanifest#A_aad10" >
+<g transform="matrix(1, 0, 0, 1, 11, 9)">
+<g fill="#ffffff" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 1 1 L 141 1 L 141 141 L 1 141 L 1 1 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 11, 9)">
+<g stroke-opacity="1" stroke-width="2" fill="none" stroke="#000000">
+  <path d="M 1 1 L 141 1 L 141 141 L 1 141 L 1 1 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 32, 31)">
+<clipPath id="clip1">
+  <path d="M 0 0 L 0 100 L 100 100 L 100 0 z"/>
+</clipPath>
+<g clip-path="url(#clip1)">
+<image x="0" y="0" width="100" height="100"  xlink:href="data:image/JPG;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3of8A
+Hw/+6v8AM1JUAhi89h5aY2jjaPU0/wAiL/nkn/fIoAI/vy/739BUlQJDEXkzGnDcfKPQU/yIv+eS
+f98igAj+/L/vf0FSVAkMReTMacNx8o9BT/Ii/wCeSf8AfIoAI/vy/wC9/QVJUCQxF5Mxpw3Hyj0F
+P8iL/nkn/fIoAI/vy/739BWbc+JNLttw+0ea64+WIbs/Q9P1qgBN4gmlW1ZYNMV9juFAeTgZxxwO
+np179K2bfSrC1CiG0hUrnDFct+Z5qLuXwnX7OnS/jXb7Lp6v9DIXxfp6s5MNz8xyPlX0A/ve1a9h
+qtnqSZtpgWxkxnhl6dvx69KlSGIvJmNOG4+Uegqjf+HrK9PmIv2ecciWLjnnkjvyc+vvRaa8w5sN
+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
+H9zRRRQB/9k="/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 77, 4)">
+<g fill="#ee6a50" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 0.5 0.5 L 9.5 0.5 L 9.5 9.5 L 0.5 9.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 77, 4)">
+<g stroke-opacity="1" fill="none" stroke="#6c7b8b">
+  <path d="M 0.5 0.5 L 9.5 0.5 L 9.5 9.5 L 0.5 9.5 L 0.5 0.5 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 2, 17)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 0 0 L 0 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 2, 17)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 0 0 L 0 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 17, 11.166671752929688)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="42.0px" lengthAdjust="spacingAndGlyphs" id="fe87e8cf-6444-4df9-a722-0385ab3a20f1">Tqs_calc</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 37)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 37)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M -1 3 L 3 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 37)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 17, 31.166671752929688)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="81.0px" lengthAdjust="spacingAndGlyphs" id="36e0f2b6-a3b2-4e03-bb02-459cd2d484f2">Epm_rpmEngSpd</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 67)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 67)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M -1 3 L 3 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 67)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 17, 61.166656494140625)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="61.0px" lengthAdjust="spacingAndGlyphs" id="a0802b30-64d2-42b1-bc7f-1b363a47999f">Egc_facEgas</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 47)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 47)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M -1 3 L 3 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 47)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 17, 41.16667175292969)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="68.0px" lengthAdjust="spacingAndGlyphs" id="554b096a-c70a-4f23-9e82-1bdb318910f9">Amf_facRelAir</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 57)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 57)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M -1 3 L 3 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 57)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 17, 51.166656494140625)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="54.0px" lengthAdjust="spacingAndGlyphs" id="5c6c0124-e241-4d02-8c67-505fc55335a8">Ctc_atCool</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 27)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 27)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M -1 3 L 3 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 5, 27)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 3 0 L 3 6 L 6 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 17, 21.166671752929688)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="94.0px" lengthAdjust="spacingAndGlyphs" id="b00b8189-50a4-48a6-b231-0306e7faadd5">Isc_facIdleSpdStab</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 152.5, 97)">
+<g fill="#000000" fill-rule="nonzero" fill-opacity="1" stroke="none">
+  <path d="M 0 0 L 0 6 L 3 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 152.5, 97)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 7 3 L 3 3"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 152.5, 97)">
+<g stroke-opacity="1" fill="none" stroke="#000000">
+  <path d="M 0 0 L 0 6 L 3 3 z"/>
+</g>
+</g>
+<g transform="matrix(1, 0, 0, 1, 97, 91.66665649414062)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="53.0px" lengthAdjust="spacingAndGlyphs" id="dbaa463e-3e06-48c3-8e6e-439aeeea9c4b">Tqs_tqReq</text>
+</g>
+<g transform="matrix(1, 0, 0, 1, 44.5, 154)">
+  <text x="0" y="11.0" font-weight="normal" font-size="10.666666984558105px" font-style="normal" fill="#0000ff" stroke="none" font-family="Tahoma" style="white-space: pre" fill-opacity="1" textLength="79.0px" lengthAdjust="spacingAndGlyphs" id="0ef65c1e-3304-45d6-a440-b32b252c05d8">TorqueStructure</text>
+</g>
+</g>
+</g>
+</svg>
