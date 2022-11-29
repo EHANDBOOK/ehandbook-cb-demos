@@ -1,0 +1,6 @@
+{
+	"packages": [
+		"packageX",
+		"packageA.packageB"
+	]
+}

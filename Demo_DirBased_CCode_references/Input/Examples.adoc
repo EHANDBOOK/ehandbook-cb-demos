@@ -1,0 +1,18 @@
+= C-Code Examples
+
+== Arrays
+
+----
+include::arrays.c[lines=7..8;26..29]
+----
+
+ehbmodelref::"Input/Input/AccessCompileTimeInitialized"[Input/Input/AccessCompileTimeInitialized]
+
+
+== Structs
+
+----
+include::structs.c[lines=25..30;72..77]
+----
+
+ehbmodelref::"Input/Input/StructMain/SimpleNamedMemberAssignment"[Input/Input/StructMain/SimpleNamedMemberAssignment]
