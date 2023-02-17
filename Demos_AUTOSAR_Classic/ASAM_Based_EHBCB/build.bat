@@ -1,7 +1,7 @@
 cls
 
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\ASAM_Based_EHBCB\FlexECU_ASAM_AUTOSAR\asamCC.ccx" ^
+-i ".\FlexECU_ASAM_AUTOSAR\asamCC.ccx" ^
 -o "." ^
 -n "FlexECU_ASAM_AUTOSAR" ^
 -simlib "Flex_Simulink_Library" ^
