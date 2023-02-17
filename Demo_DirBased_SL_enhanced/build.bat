@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
--n enhanced_SL_view_V91_Hide ^
+-n "DirBased_Simulink_Example" ^
 -gensvg ^
 -nomatlab ^
 -tableconfig "TableConfiguration.json" ^
