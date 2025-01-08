@@ -21,3 +21,11 @@ After cloning the respository, you first should adapt the file `set_tool_paths.b
 Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK Container-Build tool(s) on the given input data.
 The build then generates an EHANDBOOK Container file and - where configured - a corresponding PDF output. 
 
+
+# AI-generated code notice
+
+Use of generative AI in this repository:
+
+The repository partially contains AI-generated code by using GitHub Copilot Business.
+
+This notice needs to remain attached to any reproduction of this repository.
