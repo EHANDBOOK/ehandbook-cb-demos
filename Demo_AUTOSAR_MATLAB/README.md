@@ -54,14 +54,15 @@ This demo shows how to build a container for an AUTOSAR software component (`Epm
 
 For more details on working with AUTOSAR components in Simulink, refer to the official MathWorks documentation:
 
-1.  **Install MATLAB Apps:** Ensure you have the **AUTOSAR Blockset**, **Embedded Coder**, and **Simulink Coder** installed in your MATLAB environment.
+1. **Install MATLAB Apps:** Ensure you have the **AUTOSAR Blockset**, **Embedded Coder**, and **Simulink Coder** installed in your MATLAB environment.
 
-2.  **Model Import and Configuration:** The following links provide guidance on importing and configuring AUTOSAR models in Simulink:
-    *   [Create an AUTOSAR Software Component in Simulink](https://in.mathworks.com/help/autosar/ug/create-an-autosar-software-component-in-simulink.html#mw_1a65cc20-5f3b-469d-a7bc-55c987033eef)
-    *   [Configure AUTOSAR Ports Using Simulink Bus Ports](https://in.mathworks.com/help/autosar/ug/configure-autosar-ports-using-sl-bus-ports.html)
-    *   [Configure AUTOSAR Adaptive Elements and Properties](https://in.mathworks.com/help/autosar/ug/configure-autosar-adaptive-elements-and-properties.html)
+2. **Model Import and Configuration:** The following links provide guidance on importing and configuring AUTOSAR models in Simulink:
+    * [Create an AUTOSAR Software Component in Simulink](https://in.mathworks.com/help/autosar/ug/create-an-autosar-software-component-in-simulink.html#mw_1a65cc20-5f3b-469d-a7bc-55c987033eef)
+    * [Configure AUTOSAR Ports Using Simulink Bus Ports](https://in.mathworks.com/help/autosar/ug/configure-autosar-ports-using-sl-bus-ports.html)
+    * [Configure AUTOSAR Adaptive Elements and Properties](https://in.mathworks.com/help/autosar/ug/configure-autosar-adaptive-elements-and-properties.html)
 
-3.  **Example Model:** To explore a complete example of an AUTOSAR software component, run the following command in the MATLAB command window:
+3. **Example Model:** To explore a complete example of an AUTOSAR software component, run the following command in the MATLAB command window:
+
     ```matlab
     openExample('autosar_swc')
     ```

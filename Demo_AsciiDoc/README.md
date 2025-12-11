@@ -54,21 +54,25 @@ This demo highlights how to build an EHANDBOOK container primarily from AsciiDoc
 
 A key feature shown in `AsciiDocUserDocument.adoc` is the ability to link documentation directly to model content. This is done with special syntax:
 
-*   **Link an existing image to a model:**
+* **Link an existing image to a model:**
     This syntax embeds an image and makes it a clickable link to a model element in the EHANDBOOK.
+
     ```asciidoc
     image::VectorImage.svg[link=ehbmodelref:model_ICC]
     ```
 
-*   **Generate a model screenshot:**
+* **Generate a model screenshot:**
     This command instructs EHANDBOOK Container-Build to generate a screenshot of a specific model hierarchy and embed it.
+
     ```asciidoc
     ehbmodelref::model_ICC/ICC_mdl[image_title]
     ```
 
-*   **Generate a function overview:**
+* **Generate a function overview:**
     This command generates a block diagram showing the inputs and outputs of a function.
+
     ```asciidoc
     ehbfunctionoverview::Documentation[Title Name]
     ```
+
 ```
