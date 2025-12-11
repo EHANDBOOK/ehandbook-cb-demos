@@ -51,8 +51,8 @@
 							<SHORT-NAME>Dummy</SHORT-NAME>							
 							<P>
 								<L-1 L="DE">
-									Das Modul Dummy stellt einen Platzhalter für alle
-									noch nicht vollständig integrierten
+									Das Modul Dummy stellt einen Platzhalter fÃ¼r alle
+									noch nicht vollstÃ¤ndig integrierten
 									Komponentenansteuerungen
 									dar. Hier werden Parameter als Nachrichten weitergereicht
 									um die
@@ -61,19 +61,19 @@
 							</P>
 							<P>
 								<L-1 L="DE">
-									Dazu gehören:
+									Dazu gehï¿½ren:
 								</L-1>
 							</P>
 							<LIST TYPE="UNNUMBER">
 								<ITEM>
 									<P>
-										<L-1 L="DE">das Tastverhältnis des Umschaltventils Sekundärluft
+										<L-1 L="DE">das TastverhÃ¤ltnis des Umschaltventils SekundÃ¤rluft
 											dummy_facAirPumpRate_Sim</L-1>
 									</P>
 								</ITEM>
 								<ITEM>
 									<P>
-										<L-1 L="DE">das Tastverhältnis des Umschaltventils Druckgeber
+										<L-1 L="DE">das TastverhÃ¤ltnis des Umschaltventils Druckgeber
 											dummy_facChOverVlvRate_Sim</L-1>
 									</P>
 								</ITEM>
@@ -91,21 +91,21 @@
 								</ITEM>
 								<ITEM>
 									<P>
-										<L-1 L="DE">der Zustand (true/false) des Ladeluftkühlers
+										<L-1 L="DE">der Zustand (true/false) des LadeluftkÃ¼hlers
 											dummy_stIntercooler_Sim</L-1>
 									</P>
 								</ITEM>
 								<ITEM>
 									<P>
-										<L-1 L="DE">der Zustand (true/false) der Sekundärluftpumpe
+										<L-1 L="DE">der Zustand (true/false) der SekundÃ¤rluftpumpe
 											dummy_stAirInjReacPump_Sim</L-1>
 									</P>
 								</ITEM>
 							</LIST>
 							<P>
 								<L-1 L="DE">
-									Außerdem ist es zu Test- und Demonstrationszwecken
-									möglich durch Setzen des Flags
+									Ausserdem ist es zu Test- und Demonstrationszwecken
+									mÃ¶glich durch Setzen des Flags
 									dummy_flgT2tOverride auf einen
 									direkten Durchgriff des Egas-Stellers zur Drosselklappe
 									umzuschalten, d. h., die Positionsanforderung
@@ -113,7 +113,7 @@
 									entspricht eins zu
 									eins der Position des Egas-Stellers Egc_facEgas_Sim. Im
 									Regelfall kommt
-									diese Stellgröße aus der Funktion
+									diese StellgrÃ¶sse aus der Funktion
 									Momentenumrechnung (T2t_facThrValveReq_Sim).
 								</L-1>
 							</P>
