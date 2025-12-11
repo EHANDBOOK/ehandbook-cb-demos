@@ -10,21 +10,21 @@ ehbfunctionoverview::Function2[Function2 Overview Diagram]
 
 == Function Description
 
-=== Starten des Motors
+=== Starting the Engine
 
-Bei einem Startvorgang eines Verbrennungsmotors wird mit Hilfe der Klemme 50 der Anlasser betätigt. Er schleppt den Motor auf eine Drehzahl bei der er selbstständig auf die Leerlaufdrehzahl beschleunigen kann. Der Startvorgang muss von der Motorsteuerung erkannt werden, damit diese bestimmte Anpassungen vornehmen kann
+During the starting process of an internal combustion engine, the starter is actuated with the help of terminal 50. It cranks the engine to a speed at which it can independently accelerate to idle speed. The starting process must be recognized by the engine control unit so that it can make certain adjustments.
 
 C-Code visualizations as interactive model screenshots
 
 ehbmodelref::func2.c/add[add]
 
-=== Regler Übersicht
+=== Controller Overview
 
-Die Motorsteuerung hat die Aufgabe bestimmte Betriebszustände zu regeln. Dafür sind mehrere Regler notwendig, die in reihe und parallel geschaltet sind.
+The engine control unit has the task of regulating certain operating states. This requires several controllers that are connected in series and in parallel.
 
 image::regler.png[]
 
-Ist der Motor in Leerlaufbetrieb, wird die Sollleerlaufdrehzahl mit Hilfe des Leerlaufreglers geregelt. Der Regler hat dabei zwei Stellgrößen die beeinflusst werden. Zum einen wird der Saugrohrdruck über die Drosselklappenstellung beeinflusst und zum anderen wird der Zündwinkel und hiermit das Moment beeinflusst.
+If the engine is in idle mode, the target idle speed is regulated by the idle speed controller. The controller influences two manipulated variables. On the one hand, the intake manifold pressure is influenced by the throttle valve position, and on the other hand, the ignition angle and thus the torque are influenced.
 
 == Source Code Listing
 
