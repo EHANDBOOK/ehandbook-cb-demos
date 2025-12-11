@@ -72,7 +72,7 @@ This repository is organized into demo folders, each showcasing specific feature
 | Demo | Technology/Use Case | Complexity | Description |
 | :--- | :--- | :--- | :--- |
 | [Demo_ASAM_SL_simple](./Demo_ASAM_SL_simple/README.md) | `ASAM`, `Simulink` | Beginner | Illustrates a simple ASAM-based build for a single Simulink function. |
-| [Demo_ASAMBased_ASET_PDF_FlexECU](./Demo_ASAMBased_ASET_PDF_FlexECU/README.md) | `ASAM`, `ASET`, `PDF`, `FlexECU` | Advanced | Shows an ASAM-based build with ASET, PDF output, and FlexECU integration. |
+| [Demo_ASAMBased_ASCET_PDF_FlexECU](./Demo_ASAMBased_ASCET_PDF_FlexECU/README.md) | `ASAM`, `ASET`, `PDF`, `FlexECU` | Advanced | Shows an ASAM-based build with ASET, PDF output, and FlexECU integration. |
 | [Demo_Ascet_AddOn_Toolbox](./Demo_Ascet_AddOn_Toolbox/README.md) | `ASCET` | Intermediate | Demonstrates the use of the ASCET Add-On Toolbox. |
 | [Demo_AsciiDoc](./Demo_AsciiDoc/README.md) | `AsciiDoc` | Beginner | Shows how to generate documentation from AsciiDoc source files. |
 | [Demo_AUTOSAR_MATLAB](./Demo_AUTOSAR_MATLAB/README.md) | `AUTOSAR`, `MATLAB` | Intermediate | Covers generating documentation for AUTOSAR components using MATLAB. |
