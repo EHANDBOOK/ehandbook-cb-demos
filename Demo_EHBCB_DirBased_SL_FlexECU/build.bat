@@ -7,7 +7,7 @@ cls
 -simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink" ^
 -nomatlab ^
 -gensvg ^
--styling ".\etas-styling" ^
+-styling ".\styling" ^
 -rootlevel ".\configuration\rootlevel.json"
 
 pause

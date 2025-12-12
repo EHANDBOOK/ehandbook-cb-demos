@@ -7,7 +7,7 @@ cls
 -simlib "Flex_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
--styling ".\etas-styling" ^
+-styling ".\styling" ^
 -rootlevel ".\configuration\rootlevel.json" ^
 -labelamendment ".\configuration\labelamendment.json"
 
