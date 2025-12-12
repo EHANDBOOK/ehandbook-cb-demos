@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i "FlexECU_Dir_AUTOSAR" ^
 -o "." ^
--n "FlexECU_Dir_AUTOSAR" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR" ^
 -simlib "Flex_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^

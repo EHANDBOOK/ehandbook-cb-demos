@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Lcc" ^
 -o "." ^
--n "Demo_Simulink_model_with_Japanese_documentation" ^
+-n "Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese" ^
 -gensvg ^
 -styling ".\css" ^
 -labelconfig ".\configuration\LabelConfig.json" ^

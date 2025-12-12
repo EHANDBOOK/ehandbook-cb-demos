@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
--n ETAS_FlexECU_Dir_Simulink ^
+-n "Demo_EHBCB_DirBased_SL_FlexECU" ^
 -simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink" ^
 -nomatlab ^
 -gensvg ^

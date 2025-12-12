@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\InputAfterScript" ^
 -o ".\Output" ^
--n SL_scripted_V1 ^
+-n "Demo_EHBCB_DirBased_SL_Mscript" ^
 -gensvg ^
 -nomatlab 
 

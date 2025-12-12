@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
--n EHB_Demo_custom_tocs ^
+-n "Demo_EHBCB_DirBased_Custom_Tocs" ^
 -gensvg ^
 -styling ".\etas-styling" ^
 

@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
--n "Dir_Based_EHBCB_CCode_Config_for_AUTOSAR" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config" ^
 -gensvg ^
 -ccodemeta ".\CCodeConfig\ccode_config.xml" ^
 

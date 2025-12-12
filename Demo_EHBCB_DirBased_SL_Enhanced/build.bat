@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
--n "DirBased_Simulink_Example" ^
+-n "Demo_EHBCB_DirBased_SL_Enhanced" ^
 -gensvg ^
 -nomatlab ^
 -tableconfig "TableConfiguration.json" ^

@@ -12,7 +12,7 @@ md %EHB_CB_INPUT_DIR%
 
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i %EHB_CB_INPUT_DIR% ^
--n %ARXML_DIR% ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only" ^
 -o "./Output"
 
 pause

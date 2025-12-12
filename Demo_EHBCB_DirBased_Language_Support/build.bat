@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
--n "EHANDBOOK_Demo_Language_Support" ^
+-n "Demo_EHBCB_DirBased_Language_Support" ^
 -styling ".\styling" ^
 -pdf
 

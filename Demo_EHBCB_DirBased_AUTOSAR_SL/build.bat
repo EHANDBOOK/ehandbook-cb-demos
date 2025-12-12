@@ -3,7 +3,7 @@ cls
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i "ControllerExample" ^
 -o "." ^
--n "AUTOSAR_Simulink_Example" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_SL" ^
 -gensvg ^
 -nomatlab ^
 -autosarcomposition "ThrottlePositionControlComposition"
