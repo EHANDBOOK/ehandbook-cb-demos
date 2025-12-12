@@ -74,5 +74,3 @@ A key feature shown in `AsciiDocUserDocument.adoc` is the ability to link docume
     ```asciidoc
     ehbfunctionoverview::Documentation[Title Name]
     ```
-
-```
