@@ -69,34 +69,28 @@ Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK C
 
 This repository is organized into demo folders, each showcasing specific features or use cases.
 
-| Demo | Technology/Use Case | Complexity | Description |
-| :--- | :--- | :--- | :--- |
-| [Demo_ASAM_SL_simple](./Demo_ASAM_SL_simple/README.md) | `ASAM`, `Simulink` | Beginner | Illustrates a simple ASAM-based build for a single Simulink function. |
-| [Demo_ASAMBased_ASCET_PDF_FlexECU](./Demo_ASAMBased_ASCET_PDF_FlexECU/README.md) | `ASAM`, `ASET`, `PDF`, `FlexECU` | Advanced | Shows an ASAM-based build with ASET, PDF output, and FlexECU integration. |
-| [Demo_Ascet_AddOn_Toolbox](./Demo_Ascet_AddOn_Toolbox/README.md) | `ASCET` | Intermediate | Demonstrates the use of the ASCET Add-On Toolbox. |
-| [Demo_AsciiDoc](./Demo_AsciiDoc/README.md) | `AsciiDoc` | Beginner | Shows how to generate documentation from AsciiDoc source files. |
-| [Demo_AUTOSAR_MATLAB](./Demo_AUTOSAR_MATLAB/README.md) | `AUTOSAR`, `MATLAB` | Intermediate | Covers generating documentation for AUTOSAR components using MATLAB. |
-| [Demo_AUTOSAR_Signal_Mapping](./Demo_AUTOSAR_Signal_Mapping/README.md) | `AUTOSAR` | Intermediate | Focuses on signal mapping within an AUTOSAR project. |
-| [Demos_AUTOSAR_Classic](./Demos_AUTOSAR_Classic/README.md) | `AUTOSAR` | Advanced | Provides a set of demos for the AUTOSAR Classic platform. |
-| [Demo_DirBased_ASCET_SL_CCode](./Demo_DirBased_ASCET_SL_CCode/README.md) | `ASCET`, `Simulink`, `C-Code` | Advanced | A complex demo mixing ASCET, Simulink, and C-Code in a directory-based structure. |
-| [Demo_DirBased_CCode_simple](./Demo_DirBased_CCode_simple/README.md) | `C-Code` | Beginner | A fundamental example of documenting a simple C-code project. |
-| [Demo_DirBased_CCode_references](./Demo_DirBased_CCode_references/README.md) | `C-Code` | Intermediate | Demonstrates handling of code hierarchies and references in a C-Code project. |
-| [Demo_DirBased_custom_tocs](./Demo_DirBased_custom_tocs/README.md) | `Customization` | Intermediate | Shows how to create custom table of contents structures. |
-| [Demo_DirBased_language_support](./Demo_DirBased_language_support/README.md) | `Customization`, `Localization` | Intermediate | Illustrates support for multiple languages in the output. |
-| [Demo_DirBased_m-script](./Demo_DirBased_m-script/README.md) | `MATLAB`, `M-Script` | Intermediate | Shows how to process MATLAB m-scripts to generate documentation. |
-| [Demo_DirBased_m-script_DocBlocks_to_AsciiDoc](./Demo_DirBased_m-script_DocBlocks_to_AsciiDoc/README.md) | `MATLAB`, `AsciiDoc` | Advanced | Converts documentation blocks from m-scripts into AsciiDoc format. |
-| [Demo_DirBased_mixed_models](./Demo_DirBased_mixed_models/README.md) | `Simulink`, `C-Code` | Intermediate | A demo showcasing a mix of different model and code types. |
-| [Demo_DirBased_Nested_TOC](./Demo_DirBased_Nested_TOC/README.md) | `Customization` | Intermediate | Focuses on creating a table of contents with multiple nested levels. |
-| [Demo_DirBased_SL_AsciiDoc_Japanese](./Demo_DirBased_SL_AsciiDoc_Japanese/README.md) | `Simulink`, `AsciiDoc`, `Localization` | Advanced | A Simulink demo featuring AsciiDoc and Japanese language support. |
-| [Demo_DirBased_SL_enhanced](./Demo_DirBased_SL_enhanced/README.md) | `Simulink` | Intermediate | Showcases enhanced features for Simulink model documentation. |
-| [Demo_DirBased_SL_FlexECU](./Demo_DirBased_SL_FlexECU/README.md) | `Simulink`, `FlexECU` | Intermediate | A Simulink-based demo with FlexECU integration. |
-| [Demo_DirBased_SL_Libraries](./Demo_DirBased_SL_Libraries/README.md) | `Simulink` | Intermediate | Demonstrates the handling and documentation of Simulink libraries. |
-| [Demo_DirBased_SL_referencedModels](./Demo_DirBased_SL_referencedModels/README.md) | `Simulink` | Intermediate | Shows how to handle Simulink projects containing referenced models. |
-| [Demo_DirBased_SL_ViewConcept](./Demo_DirBased_SL_ViewConcept/README.md) | `Simulink` | Advanced | Illustrates the "View Concept" for structuring Simulink documentation. |
-| [Demo_DirBased_TargetLink_Library](./Demo_DirBased_TargetLink_Library/README.md) | `TargetLink`, `Simulink` | Advanced | A demo for documenting TargetLink libraries. |
-| [Demo_EHB_CB_AddOn_for_MATLAB_Simulink](./Demo_EHB_CB_AddOn_for_MATLAB_Simulink/README.md) | `Simulink`, `MATLAB` | Intermediate | Demonstrates the EHANDBOOK Add-On for MATLAB/Simulink. |
-| [Demo_PDF](./Demo_PDF/README.md) | `PDF`, `Customization` | Intermediate | Focuses on features and configurations for PDF output generation. |
-| [Demo_UGG_iCB](./Demo_UGG_iCB/README.md) | `UGG` | Intermediate | Shows the integration of the Universal Generic Generator (UGG). |
+| Demo | Technology/Use Case | Skill Level | Build System | Feature/Aspect | Description |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| [Demo_EHBCB_AddOn_ASCET_Toolbox](./Demo_EHBCB_AddOn_ASCET_Toolbox/) | `ASCET` | Intermediate | Add-On | Toolbox | Placeholder: No README.md available. |
+| [Demo_EHBCB_AddOn_SL_Toolbox](./Demo_EHBCB_AddOn_SL_Toolbox/) | `Simulink` | Intermediate | Add-On | Toolbox | Placeholder: No README.md available. |
+| [Demo_EHBCB_ASAMBased_SL_Simple](./Demo_EHBCB_ASAMBased_SL_Simple/README.md) | `ASAM`, `Simulink` | Beginner | ASAM-Based | Single Function | Demonstrates generating an EHANDBOOK container using ASAM-based input formats for a single Simulink-based ECU function. |
+| [Demo_DirBased_CCode_simple](./Demo_DirBased_CCode_simple/README.md) | `C-Code` | Beginner | Directory-Based | Simple Example | A fundamental example of documenting a simple C-code project. |
+| [Demo_EHBCB_DirBased_AsciiDoc](./Demo_EHBCB_DirBased_AsciiDoc/README.md) | `AsciiDoc` | Beginner | Directory-Based | Documentation | Showcases generating an EHANDBOOK container from textual content written in AsciiDoc format. |
+| [Demo_DirBased_CCode_references](./Demo_DirBased_CCode_references/README.md) | `C-Code` | Intermediate | Directory-Based | Code Hierarchies | Demonstrates handling of code hierarchies and references in a C-Code project. |
+| [Demo_DirBased_custom_tocs](./Demo_DirBased_custom_tocs/README.md) | `Customization` | Intermediate | Directory-Based | Custom TOCs | Shows how to create custom table of contents structures. |
+| [Demo_DirBased_language_support](./Demo_DirBased_language_support/README.md) | `Customization`, `Localization` | Intermediate | Directory-Based | Multi-Language Support | Illustrates support for multiple languages in the output. |
+| [Demo_EHBCB_DirBased_PDF](./Demo_EHBCB_DirBased_PDF/README.md) | `PDF`, `AsciiDoc` | Intermediate | Directory-Based | PDF Embedding | Embeds content from external PDF documents into an EHANDBOOK container by converting PDF pages into SVG images. |
+| [Demo_EHBCB_DirBased_SL_Mscript](./Demo_EHBCB_DirBased_SL_Mscript/README.md) | `MATLAB`, `Simulink` | Intermediate | Directory-Based | Script Automation | Uses a MATLAB script to generate input files for EHANDBOOK Container-Build from Simulink models. |
+| [Demo_EHBCB_DirBased_UGG_iCB](./Demo_EHBCB_DirBased_UGG_iCB/README.md) | `UGG`, `Mixed Models` | Intermediate | Directory-Based | Accelerated Builds | Demonstrates the use of the Unified Graphics Generator (UGG) to speed up the EHB-CB process by pre-generating model graphics and data. |
+| [Demo_EHBCB_DirBased_SL_Enhanced](./Demo_EHBCB_DirBased_SL_Enhanced/README.md) | `Simulink` | Advanced | Directory-Based | Advanced Features | Demonstrates advanced Simulink processing features, including custom table configurations and Simulink library support. |
+| [Demo_EHBCB_DirBased_SL_ViewConcept](./Demo_EHBCB_DirBased_SL_ViewConcept/README.md) | `Simulink` | Advanced | Directory-Based | View Concept | Illustrates the Simulink View Concept to generate different EHANDBOOK variants from a single model, enabling know-how protection. |
+| [Demo_DirBased_ASCET_SL_CCode](./Demo_DirBased_ASCET_SL_CCode/README.md) | `ASCET`, `Simulink`, `C-Code` | Advanced | Directory-Based | Mixed Models | A complex demo mixing ASCET, Simulink, and C-Code in a directory-based structure. |
+| [Demo_DirBased_m-script_DocBlocks_to_AsciiDoc](./Demo_DirBased_m-script_DocBlocks_to_AsciiDoc/README.md) | `MATLAB`, `AsciiDoc` | Advanced | Directory-Based | DocBlock Conversion | Converts documentation blocks from m-scripts into AsciiDoc format. |
+| [Demo_DirBased_SL_AsciiDoc_Japanese](./Demo_DirBased_SL_AsciiDoc_Japanese/README.md) | `Simulink`, `AsciiDoc`, `Localization` | Advanced | Directory-Based | Japanese Support | A Simulink demo featuring AsciiDoc and Japanese language support. |
+| [Demo_DirBased_SL_FlexECU](./Demo_DirBased_SL_FlexECU/README.md) | `Simulink`, `FlexECU` | Intermediate | Directory-Based | FlexECU Integration | A Simulink-based demo with FlexECU integration. |
+| [Demo_DirBased_SL_Libraries](./Demo_DirBased_SL_Libraries/README.md) | `Simulink` | Intermediate | Directory-Based | Library Handling | Demonstrates the handling and documentation of Simulink libraries. |
+| [Demo_DirBased_SL_referencedModels](./Demo_DirBased_SL_referencedModels/README.md) | `Simulink` | Intermediate | Directory-Based | Referenced Models | Shows how to handle Simulink projects containing referenced models. |
+| [Demo_DirBased_TargetLink_Library](./Demo_DirBased_TargetLink_Library/README.md) | `TargetLink`, `Simulink` | Advanced | Directory-Based | TargetLink Libraries | A demo for documenting TargetLink libraries. |
 
 ## AI-generated code notice
 
