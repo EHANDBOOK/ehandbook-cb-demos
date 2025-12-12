@@ -48,6 +48,18 @@ This demo highlights two important features for managing complex Simulink projec
 
 ### Key Concepts
 
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_SL_Libraries" ^
+-simlib ".\\simlibs,%MATLAB_PATH%\\toolbox\\simulink" ^
+-simulinkview ".\\configuration\\SimulinkViewConfig.json" ^
+-viewtype "GlobalView" ^
+-gensvg
+```
+
 #### Simulink Library Support
 
 When a Simulink model uses blocks from an external library, the EHANDBOOK Container-Build needs to know where to find that library to correctly resolve the links. This is typically done by passing the path to the library folder via the `-simlib` command-line argument in the `build.bat` file.

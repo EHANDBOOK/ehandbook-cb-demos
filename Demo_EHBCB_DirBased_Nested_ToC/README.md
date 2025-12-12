@@ -46,6 +46,16 @@ This demo builds on the concept of custom TOCs by showing how to create more com
 * **`Output/`**: The destination folder for the generated EHANDBOOK container.
 * **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
 
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_Nested_ToC"
+```
+
 ### Nested TOC Specification
 
 The key to creating a nested TOC is the recursive structure of the `contents` property in the `tocs.yaml` file. By placing a `contents` list under an `idRef` entry, you make that entry a parent node in the hierarchy.

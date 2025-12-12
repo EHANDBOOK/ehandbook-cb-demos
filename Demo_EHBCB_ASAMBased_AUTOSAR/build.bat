@@ -2,7 +2,7 @@ cls
 
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\FlexECU_ASAM_AUTOSAR\asamCC.ccx" ^
--o "." ^
+-o ".\Output" ^
 -n "Demo_EHBCB_ASAMBased_AUTOSAR" ^
 -simlib "Flex_Simulink_Library" ^
 -nomatlab ^

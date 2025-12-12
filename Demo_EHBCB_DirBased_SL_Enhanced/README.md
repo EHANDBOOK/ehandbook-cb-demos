@@ -52,6 +52,20 @@ This demo highlights several powerful command-line arguments and configuration f
 
 ### Key Build Options
 
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_SL_Enhanced" ^
+-gensvg ^
+-nomatlab ^
+-tableconfig "TableConfiguration.json" ^
+-viewtype "AllView" ^
+-simulinkview "SimulinkGlobalView.json" ^
+-simlib ".\\SimLib,%MATLAB_PATH%\\toolbox\\simulink"
+```
+
 * `-tableconfig "TableConfiguration.json"`: This option points to the JSON file that configures customized tables for model data, allowing for more organized and readable presentation of parameters and variables.
 * `-viewtype "AllView"`: This option activates the Simulink View Concept. It can be used with a configuration file (like `SimulinkGlobalView.json`) to apply know-how protection by hiding the implementation details of certain blocks. For more information, see the [Simulink View Concept documentation](https://docs.etas.com/ehandbook/ehandbook/how-to-guides/simulink-view-concept.html).
 * `-simlib`: This option tells the builder to process additional Simulink libraries. The path to the library is often configured in the main EHB-CB configuration. For more details, see the [Simulink Library Support documentation](https://docs.etas.com/ehandbook/ehandbook/how-to-guides/EHANDBOOK_Container-Build_User_Guide_Advanced_Features.html#simulink-library-support).

@@ -28,7 +28,7 @@
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder and open the `Dir_Based_EHBCB_CCode_Config_for_AUTOSAR.ehb` file.
+* After the build completes, navigate to the `Output/` folder and open the `Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config.ehb` file.
 * Navigate to the function diagrams for the "Sender" or "Receiver" components.
 * Observe how the standard C-Code function calls that interact with the AUTOSAR RTE are no longer generic blocks. Instead, they are represented by meaningful icons (e.g., port icons for read/write, a gear icon for a server call), as defined in the configuration.
 
@@ -70,7 +70,7 @@ The build script ties everything together by passing the metadata file to the co
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^
 -o ".\\Output" ^
--n "Dir_Based_EHBCB_CCode_Config_for_AUTOSAR" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config" ^
 -gensvg ^
 -ccodemeta ".\\CCodeConfig\\ccode_config.xml"
 ```

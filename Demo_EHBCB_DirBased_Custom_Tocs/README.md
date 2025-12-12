@@ -44,8 +44,20 @@ By default, the directory-based build automatically creates two TOCs: an alphabe
 * **`Input/`**: Contains the source artifacts and the TOC definition.
   * **`Composition_1/`, `Composition_2/`, `SWC_1/`, etc.**: These folders represent the different documentation units or software components.
   * **`tocs.yaml`**: The core of this demo. This file, placed in the root of the input directory, defines the structure and content of all tables of contents.
-* **`etas-styling/`**: Contains styling information for the container.
+* **`styling/`**: Contains styling information for the container.
 * **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_Custom_Tocs" ^
+-gensvg ^
+-styling ".\\styling"
+```
 
 ### Custom TOC Specification with `tocs.yaml`
 

@@ -28,7 +28,7 @@
 
 ## 🔬 Explore the Output
 
-* After the build completes, an `ETAS_RTA_SK_EHANDBOOK_Demo.ehb` file will be created in this directory.
+* After the build completes, a `Demo_EHBCB_DirBased_AUTOSAR_CCODE.ehb` file will be created in the `Output` directory.
 * Open the EHANDBOOK file. You will see the AUTOSAR software components from the RTA-CAR Starter Kit.
 * Navigate into a function diagram. You will see that the C-Code has been visualized as a block diagram, and the AUTOSAR RTE calls (like `Rte_IWriteRef`) are represented by special icons, making the AUTOSAR-specific interactions clear.
 
@@ -56,8 +56,8 @@ The build script is simple, but the `-ccodemeta` argument is the key to enabling
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\RTA_SK" ^
--o "." ^
--n "ETAS_RTA_SK_EHANDBOOK_Demo" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_CCODE" ^
 -gensvg ^
 -ccodemeta ".\\CCodeConfig\\ccode_config.xml"
 ```

@@ -37,7 +37,7 @@ This demo involves a manual pre-processing step to simulate the conversion of a 
 ## 🔬 Explore the Output
 
 * After the build completes, navigate to the `Output/` folder.
-* Open the generated `PDF2SVG_V5.ehb` file.
+* Open the generated `Demo_EHBCB_DirBased_PDF.ehb` file.
 * Navigate to the documentation for "Function_A".
 * You will see the content from your original PDF rendered as a series of images within the handbook, demonstrating the successful import.
 
@@ -73,3 +73,13 @@ This demo showcases a powerful workaround for including content from formats not
     ```
 
 4. **`build.bat`**: This is a standard build script that processes the `Input` directory. Because the `.adoc` file uses standard image linking, no special parameters are needed for the EHB-CB call itself.
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_PDF" ^
+-nomatlab ^
+-gensvg
+```

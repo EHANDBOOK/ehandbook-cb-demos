@@ -47,3 +47,15 @@ This demo provides a basic example of how to structure a directory-based build f
 * **`CCodeLib/`**: This folder contains a shared library (`mul_div.c`) that provides common functions (`mul`, `div`) used by the other C-Code modules.
 * **`Output/`**: This is the destination folder where the generated EHANDBOOK will be saved.
 * **`build.bat`**: This script runs the EHANDBOOK Container-Build process.
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_CCODE_Simple" ^
+-ccodemeta ".\\CCodeConfig\\CCodeFunctionConfig.xml" ^
+-gensvg
+```

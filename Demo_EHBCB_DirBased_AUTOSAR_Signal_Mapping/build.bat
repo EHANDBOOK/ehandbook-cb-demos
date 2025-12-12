@@ -1,6 +1,6 @@
 cls
 
-C:\00_work\00_installer\EHB\EHB_CB_V11.3\eHandbookCB.exe ^
+%EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping" ^

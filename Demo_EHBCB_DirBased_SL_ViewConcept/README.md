@@ -60,23 +60,24 @@ The `build.bat` script executes the container build twice with different paramet
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\\Input" ^
--o ".\\Output" ^
--n "Demo_Simulink_External_View" ^
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_SL_ViewConcept_External" ^
 -viewtype "EXTERNAL" ^
--gensvg
+-gensvg 
 ```
 
 * The key parameter here is `-viewtype "EXTERNAL"`. This tells EHB-CB to apply the view named "EXTERNAL" as defined in the configuration files found in the `SLviewDemo_VCFDB/` directory. This results in a handbook suitable for external parties where intellectual property is protected.
 
-**2. Default View Build:**
+**2. Internal View Build:**
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\\Input" ^
--o ".\\Output" ^
--n "Demo_Simulink_Default_View" ^
--gensvg
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_SL_ViewConcept_Internal" ^
+-viewtype "INTERNAL" ^
+-gensvg 
 ```
 
-* This second run omits the `-viewtype` argument. Without it, EHB-CB generates a default view that shows the complete, detailed implementation of the model, suitable for internal developers and documentation.
+* This second run uses `-viewtype "INTERNAL"`. EHB-CB generates a view that shows the complete, detailed implementation of the model, suitable for internal developers and documentation.

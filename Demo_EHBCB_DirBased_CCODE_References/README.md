@@ -50,3 +50,25 @@ This demo highlights how a single configuration parameter can significantly chan
 * **`build.bat`**: This script runs the container build using the "no hierarchies" configuration.
 * **`build_hierarchies.bat`**: This script runs the container build using the "generate hierarchies" configuration.
 * **`Output/`**: The destination folder for the generated EHANDBOOK container.
+
+### Build Scripts
+
+**`build.bat` (No Hierarchies)**
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_CCODE_References_No_Hierarchies" ^
+-ccodemeta ".\\configuration_no_hierarchies\\CCodeConfig.xml" ^
+-gensvg
+```
+
+**`build_hierarchies.bat` (With Hierarchies)**
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_CCODE_References_With_Hierarchies" ^
+-ccodemeta ".\\configuration\\CCodeConfig.xml" ^
+-gensvg
+```

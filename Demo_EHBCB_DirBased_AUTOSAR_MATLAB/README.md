@@ -48,6 +48,17 @@ This demo shows how to build a container for an AUTOSAR software component (`Epm
   * **`Documentation.adoc`**: An AsciiDoc file for including additional documentation.
 * **`build.bat`**: The script that runs the directory-based EHANDBOOK Container-Build process. The build is driven by the file types and directory structure found in the input folder.
 
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\FlexECUDemo_Matlab" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_MATLAB" ^
+-gensvg
+```
+
 ---
 
 ## ℹ️ Additional Information

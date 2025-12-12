@@ -49,6 +49,16 @@ This demo highlights the necessary configuration for supporting Asian languages 
 
 ### Supporting Asian Languages in PDF Documents
 
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_Language_Support" ^
+-styling ".\\styling" ^
+-pdf
+```
+
 While EHANDBOOK-NAVIGATOR typically renders Asian languages correctly out of the box, generating a PDF with these characters requires explicit font configuration.
 
 1. **Font Installation:** The fonts you want to use must be installed on the Windows system where the PDF is being generated. You can check available fonts in `Settings > Personalization > Fonts`.

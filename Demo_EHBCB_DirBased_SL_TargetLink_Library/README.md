@@ -57,11 +57,11 @@ The build script highlights the essential arguments for TargetLink support:
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\\Input" ^
--o ".\\Output" ^
--n "EHB_Demo_DirBased_TargetLink_Library" ^
--simlib ".\\simlibs,%MATLAB_PATH%\\toolbox\\simulink" ^
--simulinkview ".\\configuration\\SimulinkViewConfig.json" ^
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_SL_TargetLink_Library" ^
+-simlib ".\simlibs,%MATLAB_PATH%\toolbox\simulink" ^
+-simulinkview ".\configuration\SimulinkViewConfig.json" ^
 -viewtype "GlobalView" ^
 -gensvg
 ```

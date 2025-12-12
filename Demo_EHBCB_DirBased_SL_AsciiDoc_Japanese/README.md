@@ -45,9 +45,27 @@ This demo focuses on combining a standard Simulink model with non-English docume
   * `Lcc.slx`: The Simulink model file.
   * `Lcc.adoc`: The AsciiDoc file containing the textual documentation in Japanese.
   * `Lcc.xlsx`: An Excel file defining the function's interface.
-* **`configuration/`**: Contains styling information, including the crucial XSL stylesheet for PDF font settings.
+* **`styling/`**: Contains styling information, including the crucial XSL stylesheet for PDF font settings.
   * `PdfCustomization.xsl`: This file is configured to tell the PDF generator to use a Japanese-capable font.
 * **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Lcc" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese" ^
+-gensvg ^
+-styling ".\\styling" ^
+-labelconfig ".\\configuration\\LabelConfig.json" ^
+-labelamendment ".\\configuration\\LabelAmendment.json" ^
+-rootlevel ".\\configuration\\RootLevel.json" ^
+-tableconfig ".\\configuration\\TableConfiguration.json" ^
+-simlib ".\\Flex_Simulink_Library" ^
+-pdf
+```
 
 ### Supporting Japanese Content in PDF Documents
 

@@ -48,7 +48,27 @@ This demo combines many of the advanced features of the EHANDBOOK Container-Buil
 * **`SimLib/`**: Contains a shared Simulink library that the function models depend on. The build process is configured to look in this folder via the `-simlib` argument.
 * **`configuration/`**: Holds various JSON configuration files.
   * `rootlevel.json`: Specifies which root-level blocks in the Simulink models should be skipped to simplify the navigation hierarchy.
-* **`etas-styling/`**: A dedicated folder for branding and styling artifacts.
+* **`styling/`**: A dedicated folder for branding and styling artifacts.
   * `branding.properties`, `commonltr.css`: Define the visual style (colors, fonts, logos) of the EHANDBOOK container.
   * `title_page.properties`, `title_page.svg`: Define the content and layout of the PDF title page.
 * **`build.bat`**: The script that runs the build, referencing the various configuration and styling files.
+
+### Build Script: `build.bat`
+
+The build script highlights the essential arguments for this demo:
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_SL_FlexECU" ^
+-simlib ".\\SimLib,%MATLAB_PATH%\\toolbox\\simulink" ^
+-nomatlab ^
+-gensvg ^
+-styling ".\\styling" ^
+-rootlevel ".\\configuration\\rootlevel.json"
+```
+
+* `-styling ".\\styling"`: This argument tells EHB-CB where to find the styling artifacts.
+* `-rootlevel ".\\configuration\\rootlevel.json"`: This argument tells EHB-CB to skip the root level of the Simulink models.
+* `-simlib ".\\SimLib,..."`: This argument tells EHB-CB where to find the necessary Simulink libraries.

@@ -28,7 +28,7 @@
 ## 🔬 Explore the Output
 
 * After the build completes, navigate to the `Output/` folder.
-* Open the generated EHANDBOOK file names `Mini_ASAM_SL_V1.ehb`
+* Open the generated EHANDBOOK file names `Demo_EHBCB_ASAMBased_SL_Simple.ehb`
 
 ---
 
@@ -46,3 +46,15 @@
     * `_pic/`: A directory for picture or image files that can be referenced in the documentation.
 * **`Output/`**: This is the destination folder where the generated EHANDBOOK will be saved after the build process.
 * **`build.bat`**: This script runs the EHANDBOOK Container-Build process. It's powerful because it requires no separate configuration file; the build is entirely controlled by the file types and the directory structure found in the `Input` folder.
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input\\asamCC.ccx" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_ASAMBased_SL_Simple" ^
+-nomatlab ^
+-gensvg
+```

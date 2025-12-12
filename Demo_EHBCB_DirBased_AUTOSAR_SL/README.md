@@ -28,7 +28,7 @@
 
 ## 🔬 Explore the Output
 
-* After the build completes, an `AUTOSAR_Simulink_Example.ehb` file will be created in this directory.
+* After the build completes, a `Demo_EHBCB_DirBased_AUTOSAR_SL.ehb` file will be created in the `Output` directory.
 * Open the EHANDBOOK file. You will see the `ThrottlePositionController` software component documented.
 * Navigate to the function diagram. You will see the detailed implementation of the controller, which has been generated directly from the provided Simulink model.
 
@@ -53,8 +53,8 @@ The build script uses a standard directory-based command, but with a key flag fo
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i "ControllerExample" ^
--o "." ^
--n "AUTOSAR_Simulink_Example" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_SL" ^
 -gensvg ^
 -nomatlab ^
 -autosarcomposition "ThrottlePositionControlComposition"

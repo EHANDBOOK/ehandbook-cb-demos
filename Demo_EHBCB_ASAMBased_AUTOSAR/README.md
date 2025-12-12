@@ -31,7 +31,7 @@
 
 ## 🔬 Explore the Output
 
-* After the build completes, a `FlexECU_ASAM_AUTOSAR.ehb` file will be created in this directory.
+* After the build completes, a `Demo_EHBCB_ASAMBased_AUTOSAR.ehb` file will be created in the `Output` directory.
 * Open the EHANDBOOK file to explore the documented AUTOSAR system. You will see the software components and their underlying ASCET model implementations integrated into a single, navigable handbook.
 
 ---
@@ -47,7 +47,7 @@ This demo showcases a powerful integration of AUTOSAR and ASCET using the ASAM-b
   * **`_global_arxml/`**: This directory contains the AUTOSAR `.arxml` files that describe the system's software architecture, compositions, components, and interfaces.
   * **Component Folders (e.g., `Fmc/`, `Tqs/`):** Each folder represents a function or component and contains the corresponding ASCET model (`.axl`) that implements the logic for an AUTOSAR SWC.
 * **`configuration/`**: Contains various JSON files for customizing the output, such as `rootlevel.json` to control the hierarchy and `labelamendment.json` to modify labels.
-* **`etas-styling/`**: Provides custom branding and styling for the generated EHANDBOOK container.
+* **`styling/`**: Provides custom branding and styling for the generated EHANDBOOK container.
 * **`Flex_Simulink_Library/`**: Contains Simulink library files, provided via the `-simlib` argument.
 
 ### Build Script: `build.bat`
@@ -57,12 +57,12 @@ The build script invokes EHB-CB in ASAM mode by pointing directly to the `.ccx` 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\FlexECU_ASAM_AUTOSAR\\asamCC.ccx" ^
--o "." ^
--n "FlexECU_ASAM_AUTOSAR" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_ASAMBased_AUTOSAR" ^
 -simlib "Flex_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
--styling ".\\etas-styling" ^
+-styling ".\\styling" ^
 -rootlevel ".\\configuration\\rootlevel.json" ^
 -labelamendment ".\\configuration\\labelamendment.json"
 ```

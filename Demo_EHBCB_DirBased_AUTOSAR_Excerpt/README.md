@@ -22,13 +22,13 @@
 2. **Build:**
     * Open a command prompt or terminal.
     * Navigate to this directory.
-    * Execute the `build_excerpt.bat` script.
+    * Execute the `build.bat` script.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, a `FlexECU_Dir_AUTOSAR_excerpt.ehb` file will be created in this directory.
+* After the build completes, a `Demo_EHBCB_DirBased_AUTOSAR_Excerpt.ehb` file will be created in the `Output` directory.
 * Open the EHANDBOOK file. You will find a handbook that contains *only* the software components that were included in the `FlexECU_Dir_AUTOSAR_excerpt` input folder, rather than the full FlexECU system.
 
 ---
@@ -45,16 +45,21 @@ This demo highlights the flexibility of the directory-based build. By simply con
 * **`configuration/`**: Contains various JSON files for customizing the output.
 * **`etas-styling/`**: Provides custom branding and styling.
 
-### Build Script: `build_excerpt.bat`
+### Build Script: `build.bat`
 
 The build script is a standard directory-based build command. The key is that the input directory it points to (`FlexECU_Dir_AUTOSAR_excerpt`) only contains a subset of the project files.
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i "FlexECU_Dir_AUTOSAR_excerpt" ^
--o "." ^
--n "FlexECU_Dir_AUTOSAR_excerpt" ^
-...
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_Excerpt" ^
+-simlib "Flex_Simulink_Library" ^
+-nomatlab ^
+-gensvg ^
+-styling ".\\etas-styling" ^
+-rootlevel ".\\configuration\\rootlevel.json" ^
+-labelamendment ".\\configuration\\labelamendment.json"
 ```
 
 * `-i "FlexECU_Dir_AUTOSAR_excerpt"`: EHB-CB scans this directory and builds a handbook based *only* on the artifacts it finds within. If a component's folder or its description in an `.arxml` file is missing, it is simply excluded from the final output. This provides an easy way to generate focused documentation for specific parts of a large system.

@@ -47,4 +47,17 @@ This demo showcases a more complex build scenario compared to a single-function 
 * **`Output/`**: This is the destination folder where the generated EHANDBOOK container and PDF document will be saved.
 * **`build.bat`**: This script executes the EHANDBOOK Container-Build process. The build is driven by the content and structure of the `Input/` directory and the main `.ccx` file, demonstrating a configuration-by-convention approach.
 
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input\\asamCC_ASCET.ccx" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_ASAMBased_ASCET_PDF_FlexECU" ^
+-gensvg ^
+-nomatlab ^
+-styling ".\\styling"
+```
+
 ```
