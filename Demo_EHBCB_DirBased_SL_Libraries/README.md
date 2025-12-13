@@ -41,7 +41,7 @@ This demo highlights two important features for managing complex Simulink projec
 ### Directory Structure
 
 * **`Input/`**: Contains the main Simulink model for the function.
-* **`simlibs/`**: This folder contains the external Simulink libraries that the main model depends on. The build process is configured to include this path.
+* **`simlib/`**: This folder contains the external Simulink libraries that the main model depends on. The build process is configured to include this path.
 * **`configuration/`**: Holds the configuration files for the build.
 * `SimulinkViewConfig.json`: This file defines the view configuration. It specifies that the contents of linked blocks should be hidden, effectively protecting the know-how contained within the libraries.
 * **`build.bat`**: The script that runs the container build, referencing the library path and view configuration.
@@ -55,7 +55,7 @@ The `build.bat` script uses the following command:
 -i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_SL_Libraries" ^
--simlib ".\\simlibs,%MATLAB_PATH%\\toolbox\\simulink" ^
+-simlib ".\\simlib,%MATLAB_PATH%\\toolbox\\simulink" ^
 -simulinkview ".\\configuration\\SimulinkViewConfig.json" ^
 -viewtype "GlobalView" ^
 -gensvg
@@ -69,7 +69,6 @@ When a Simulink model uses blocks from an external library, the EHANDBOOK Contai
 
 The Simulink View Concept allows you to control what a user sees inside a model. In this demo, the `configuration/SimulinkViewConfig.json` file is used to hide the contents of blocks that are library links. This is a powerful feature for protecting intellectual property, as it allows you to share a functional model without revealing the specific implementation details of your proprietary library blocks.
 
-
 ### Build Script: `build.bat`
 
 The `build.bat` script uses the following command:
@@ -79,7 +78,7 @@ The `build.bat` script uses the following command:
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_SL_Libraries" ^
--simlib ".\simlibs,%MATLAB_PATH%\toolbox\simulink" ^
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink" ^
 -simulinkview ".\configuration\SimulinkViewConfig.json" ^
 -viewtype "GlobalView" ^
 -gensvg
@@ -88,7 +87,7 @@ The `build.bat` script uses the following command:
 * `-i ".\Input"`: Specifies the input directory containing all source artifacts.
 * `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
 * `-n "Demo_EHBCB_DirBased_SL_Libraries"`: Sets the name of the output file.
-* `-simlib ".\simlibs,%MATLAB_PATH%\toolbox\simulink"`: Specifies paths to Simulink library files.
+* `-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink"`: Specifies paths to Simulink library files.
 * `-simulinkview ".\configuration\SimulinkViewConfig.json"`: Applies view configuration for know-how protection.
 * `-viewtype "GlobalView"`: Selects the specific view type to apply.
 * `-gensvg`: Automatically generates SVG screenshots from the interactive models.

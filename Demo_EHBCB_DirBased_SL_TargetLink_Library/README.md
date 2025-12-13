@@ -47,7 +47,7 @@ This demo's configuration is key to enabling TargetLink support. EHB-CB leverage
 ### Directory Structure
 
 * **`Input/TargetLink/`**: Contains the primary model (`tllib.slx`) that is built from TargetLink blocks, along with its AsciiDoc documentation (`TargetLink.adoc`).
-* **`simlibs/`**: This crucial directory contains the TargetLink library file (`tllib.slx`). The EHB-CB build process uses this library to understand how to render the custom blocks used in the main model.
+* **`simlib/`**: This crucial directory contains the TargetLink library file (`tllib.slx`). The EHB-CB build process uses this library to understand how to render the custom blocks used in the main model.
 * **`configuration/`**: Contains `SimulinkViewConfig.json`, which is used to hide the underlying implementation of the TargetLink library blocks, presenting them as clean, atomic blocks in the final handbook.
 * **`Output/`**: The destination for the generated EHANDBOOK container.
 
@@ -60,12 +60,12 @@ The build script highlights the essential arguments for TargetLink support:
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_SL_TargetLink_Library" ^
--simlib ".\simlibs,%MATLAB_PATH%\toolbox\simulink" ^
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink" ^
 -simulinkview ".\configuration\SimulinkViewConfig.json" ^
 -viewtype "GlobalView" ^
 -gensvg
 ```
 
-* `-simlib ".\\simlibs,..."`: This argument tells EHB-CB where to find the necessary Simulink libraries. By pointing it to the `simlibs` folder, we enable it to find `tllib.slx` and correctly render the TargetLink blocks.
+* `-simlib ".\\simlib,..."`: This argument tells EHB-CB where to find the necessary Simulink libraries. By pointing it to the `simlib` folder, we enable it to find `tllib.slx` and correctly render the TargetLink blocks.
 * **MATLAB Connection**: The script sets a `MATLAB_PATH` and uses it in the build. A connection to MATLAB is **required** for generating the graphics of the TargetLink blocks.
 * `-simulinkview` and `-viewtype`: These arguments apply a predefined view that prevents the build process from showing the detailed subsystems inside the TargetLink library blocks, which is a recommended best practice.

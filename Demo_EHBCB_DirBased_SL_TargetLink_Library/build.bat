@@ -6,7 +6,7 @@ rem set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_SL_TargetLink_Library" ^
--simlib ".\simlibs,%MATLAB_PATH%\toolbox\simulink" ^
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink" ^
 -simulinkview ".\configuration\SimulinkViewConfig.json" ^
 -viewtype "GlobalView" ^
 -gensvg
