@@ -1,9 +1,0 @@
-/* border for the title page SVG */
-body.titlePage svg {
-	border: 1px #cdd0d3 solid;
-}
-
-/* spacing between the topic content and footer text */
-.horizontalRule {
-	border-top: 1px solid #1E539E;
-}
