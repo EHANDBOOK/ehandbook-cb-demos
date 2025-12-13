@@ -50,6 +50,7 @@ This demo highlights the necessary configuration for supporting Asian languages 
 ### Supporting Asian Languages in PDF Documents
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^

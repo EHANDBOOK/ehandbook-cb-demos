@@ -54,6 +54,7 @@ This demo highlights how a single configuration parameter can significantly chan
 ### Build Scripts
 
 **`build.bat` (No Hierarchies)**
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^
@@ -64,6 +65,7 @@ This demo highlights how a single configuration parameter can significantly chan
 ```
 
 **`build_hierarchies.bat` (With Hierarchies)**
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^

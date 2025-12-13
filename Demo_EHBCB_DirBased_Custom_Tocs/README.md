@@ -50,6 +50,7 @@ By default, the directory-based build automatically creates two TOCs: an alphabe
 ### Build Script: `build.bat`
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^

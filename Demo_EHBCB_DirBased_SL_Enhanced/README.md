@@ -53,6 +53,7 @@ This demo highlights several powerful command-line arguments and configuration f
 ### Key Build Options
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^

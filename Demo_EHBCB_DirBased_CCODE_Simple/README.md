@@ -51,6 +51,7 @@ This demo provides a basic example of how to structure a directory-based build f
 ### Build Script: `build.bat`
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^

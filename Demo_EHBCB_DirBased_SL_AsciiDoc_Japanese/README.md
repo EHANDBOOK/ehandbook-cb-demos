@@ -52,6 +52,7 @@ This demo focuses on combining a standard Simulink model with non-English docume
 ### Build Script: `build.bat`
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Lcc" ^

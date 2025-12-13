@@ -49,6 +49,7 @@ This demo highlights two important features for managing complex Simulink projec
 ### Key Concepts
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^

@@ -75,6 +75,7 @@ This demo showcases a powerful workaround for including content from formats not
 4. **`build.bat`**: This is a standard build script that processes the `Input` directory. Because the `.adoc` file uses standard image linking, no special parameters are needed for the EHB-CB call itself.
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^

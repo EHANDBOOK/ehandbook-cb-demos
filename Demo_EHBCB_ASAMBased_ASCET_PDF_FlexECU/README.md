@@ -1,4 +1,3 @@
-```markdown
 # Demo: ASAM-based EHB-CB for a multi-component ASCET & Simulink project with PDF output
 
 **Objective:** This demo illustrates how to generate an EHANDBOOK Container and a corresponding PDF document for a complex ECU project. The project is based on ASAM standard input formats (CCX, FSX, MDX) and includes multiple function components specified in both ASCET and Simulink.
@@ -50,6 +49,7 @@ This demo showcases a more complex build scenario compared to a single-function 
 ### Build Script: `build.bat`
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input\\asamCC_ASCET.ccx" ^
@@ -58,6 +58,4 @@ The `build.bat` script uses the following command:
 -gensvg ^
 -nomatlab ^
 -styling ".\\styling"
-```
-
 ```

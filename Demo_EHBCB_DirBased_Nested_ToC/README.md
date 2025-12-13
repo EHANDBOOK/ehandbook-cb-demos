@@ -49,6 +49,7 @@ This demo builds on the concept of custom TOCs by showing how to create more com
 ### Build Script: `build.bat`
 
 The `build.bat` script uses the following command:
+
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^
