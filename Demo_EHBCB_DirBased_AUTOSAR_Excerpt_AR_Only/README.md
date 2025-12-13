@@ -21,7 +21,7 @@
 2. **Build:**
     * Open a command prompt or terminal.
     * Navigate to this directory.
-    * Execute the `build_excerpt.bat` script.
+    * Execute the `build.bat` script.
 
 ---
 
@@ -43,7 +43,7 @@ This demo highlights the ability of EHB-CB to create useful documentation even f
   * **`.arxml` files:** Contains the AUTOSAR architecture files (`Compositions.arxml`, `Interfaces.arxml`, etc.).
   * **Component Folders (e.g., `CPT_Tqs/`):** Contains a folder for a software component, but note that this folder *only* contains a documentation file (`Documentation.adoc`) and **no ASCET model or C-Code**.
 
-### Build Script: `build_excerpt.bat`
+### Build Script: `build.bat`
 
 The build script is a standard directory-based build command.
 
