@@ -43,7 +43,7 @@ This demo highlights the flexibility of the directory-based build. By simply con
   * **`.arxml` files:** Contains the necessary AUTOSAR architecture files (`Compositions.arxml`, `Interfaces.arxml`, etc.).
   * **Component Folders (e.g., `CPT_Afr/`, `CPT_Tqs/`):** Contains a *subset* of the component folders from the full FlexECU demo. Each folder includes the ASCET model (`.axl`) that implements the SWC's logic.
 * **`configuration/`**: Contains various JSON files for customizing the output.
-* **`etas-styling/`**: Provides custom branding and styling.
+* **`styling/`**: Provides custom branding and styling.
 
 ### Build Script: `build.bat`
 
@@ -57,7 +57,7 @@ The build script is a standard directory-based build command. The key is that th
 -simlib "FlexECU_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
--styling ".\\etas-styling" ^
+-styling ".\\styling" ^
 -rootlevel ".\\configuration\\rootlevel.json" ^
 -labelamendment ".\\configuration\\labelamendment.json"
 ```
