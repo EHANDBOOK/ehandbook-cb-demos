@@ -1,9 +1,20 @@
-/* border for the title page SVG */
-body.titlePage svg {
-	border: 1px #cdd0d3 solid;
+@font-face {
+	font-family: Manrope;
+	src: url("Manrope-Regular.ttf");
+}
+
+@font-face {
+	font-family: Manrope;
+	src: url("Manrope-Bold.ttf");
+	font-weight: bold;
+}
+
+body {
+	font-family: Manrope, Arial, sans-serif;
+	font-size: 13px;
 }
 
 /* spacing between the topic content and footer text */
 .horizontalRule {
-	border-top: 1px solid #1E539E;
+	border-top: 1px solid #164293;
 }
