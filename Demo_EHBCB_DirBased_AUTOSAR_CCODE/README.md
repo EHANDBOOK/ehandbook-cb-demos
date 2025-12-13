@@ -40,7 +40,7 @@ This demo highlights how to configure the C-Code converter to properly document 
 
 ### Directory & File Structure
 
-* **`RTA_SK/`**: This is the main input directory for the build, containing the artifacts from the RTA-CAR Starter Kit.
+* **`Input/`**: This is the main input directory for the build, containing the artifacts from the RTA-CAR Starter Kit.
   * **`.arxml` files:** The `System.arxml` and `Interfaces.arxml` files at the root of this directory describe the overall AUTOSAR architecture.
   * **Component Folders (e.g., `CPT_MasterSWC/`):** Each `CPT_` folder represents a software component and contains:
     * The component-specific `.arxml` file (e.g., `MasterSWC.arxml`).
@@ -55,7 +55,7 @@ The build script is simple, but the `-ccodemeta` argument is the key to enabling
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\\RTA_SK" ^
+-i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_CCODE" ^
 -gensvg ^

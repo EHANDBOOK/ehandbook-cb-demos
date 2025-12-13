@@ -31,12 +31,12 @@
 ## 🔬 Explore the Output
 
 * After the build completes, navigate to the `Output/` folder. You will find two EHANDBOOK files:
-    1. `Demo_Simulink_External_View.ehb`
-    2. `Demo_Simulink_Default_View.ehb`
+    1. `Demo_EHBCB_DirBased_SL_ViewConcept_External.ehb`
+    2. `Demo_EHBCB_DirBased_SL_ViewConcept_Internal.ehb`
 
 * Open both files and compare them.
-* In `Demo_Simulink_External_View.ehb`, navigate to the function diagram. You will see that the "Controller" block is shown as an empty black box, hiding its internal logic.
-* In `Demo_Simulink_Default_View.ehb`, the same "Controller" block will show its complete internal implementation.
+* In `Demo_EHBCB_DirBased_SL_ViewConcept_External.ehb`, navigate to the function diagram. You will see that the "Controller" block is shown as an empty black box, hiding its internal logic.
+* In `Demo_EHBCB_DirBased_SL_ViewConcept_Internal.ehb`, the same "Controller" block will show its complete internal implementation.
 
 ---
 

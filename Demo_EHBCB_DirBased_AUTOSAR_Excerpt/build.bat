@@ -1,7 +1,7 @@
 cls
 
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i "FlexECU_Dir_AUTOSAR_excerpt" ^
+-i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_Excerpt" ^
 -simlib "Flex_Simulink_Library" ^

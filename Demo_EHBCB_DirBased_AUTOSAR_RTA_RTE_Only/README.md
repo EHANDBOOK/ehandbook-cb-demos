@@ -70,3 +70,34 @@ md RTA_RTE_Case_Study_AUTOSAR_files_ehb_cb_input
 * The second call to `eHandbookCB.exe` is a standard directory-based build.
 * The input (`-i`) is the temporary directory that was created and populated in Step 1.
 * EHB-CB processes this generated structure to build the final, architecture-only EHANDBOOK container.
+
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+
+```batch
+# First, convert AUTOSAR ARXML files to EHB-CB input format
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i RTA_RTE_Case_Study_AUTOSAR_files ^
+-o "RTA_RTE_Case_Study_AUTOSAR_files_ehb_cb_input" ^
+-ar2ehbcbinput
+
+# Then, build the EHANDBOOK container from the converted input
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i "RTA_RTE_Case_Study_AUTOSAR_files_ehb_cb_input" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_RTA_RTE_Only" ^
+-o "./Output"
+```
+
+This demo uses a two-step build process:
+
+1. **Convert AUTOSAR ARXML to EHB-CB Input Format:**
+   * `-i RTA_RTE_Case_Study_AUTOSAR_files`: Specifies the directory containing AUTOSAR ARXML files.
+   * `-o "RTA_RTE_Case_Study_AUTOSAR_files_ehb_cb_input"`: Specifies the output directory for the converted files.
+   * `-ar2ehbcbinput`: Triggers the conversion from AUTOSAR format to EHB-CB input format.
+
+2. **Build the EHANDBOOK Container:**
+   * `-i "RTA_RTE_Case_Study_AUTOSAR_files_ehb_cb_input"`: Uses the converted files as input.
+   * `-n "Demo_EHBCB_DirBased_AUTOSAR_RTA_RTE_Only"`: Sets the name of the output file.
+   * `-o "./Output"`: Specifies the output directory for the generated EHANDBOOK container.

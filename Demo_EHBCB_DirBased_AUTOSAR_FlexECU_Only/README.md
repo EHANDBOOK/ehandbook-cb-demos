@@ -72,3 +72,34 @@ md FlexECU_AUTOSAR_files_ehb_cb_input
 * EHB-CB processes this generated structure to build the final, architecture-only EHANDBOOK container.
 
 This two-step process is the recommended workflow for generating a handbook purely from `.arxml` files.
+
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+
+```batch
+# First, convert AUTOSAR ARXML files to EHB-CB input format
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i FlexECU_AUTOSAR_files ^
+-o "FlexECU_AUTOSAR_files_ehb_cb_input" ^
+-ar2ehbcbinput
+
+# Then, build the EHANDBOOK container from the converted input
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i "FlexECU_AUTOSAR_files_ehb_cb_input" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only" ^
+-o "./Output"
+```
+
+This demo uses a two-step build process:
+
+1. **Convert AUTOSAR ARXML to EHB-CB Input Format:**
+   * `-i FlexECU_AUTOSAR_files`: Specifies the directory containing AUTOSAR ARXML files.
+   * `-o "FlexECU_AUTOSAR_files_ehb_cb_input"`: Specifies the output directory for the converted files.
+   * `-ar2ehbcbinput`: Triggers the conversion from AUTOSAR format to EHB-CB input format.
+
+2. **Build the EHANDBOOK Container:**
+   * `-i "FlexECU_AUTOSAR_files_ehb_cb_input"`: Uses the converted files as input.
+   * `-n "Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only"`: Sets the name of the output file.
+   * `-o "./Output"`: Specifies the output directory for the generated EHANDBOOK container.

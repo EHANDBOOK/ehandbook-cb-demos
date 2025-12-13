@@ -92,3 +92,29 @@ The `ComponentMapping.json` in this demo has the following structure:
   * `component`: The name of the component importing the signal.
 
 Using this specification, you can connect functions from different domains, and EHANDBOOK will visualize these connections. For more details, see the [official documentation](https://docs.etas.com/ehandbook/ehandbook/how-to-guides/EHANDBOOK_Container-Build_User_Guide_Advanced_Features.html#mapping_signals_across_domain).
+
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping" ^
+-gensvg ^
+-nomatlab ^
+-matlabpath "%MATLAB_PATH%\bin" ^
+-simlib "%MATLAB_PATH%\toolbox\simulink" ^
+-componentconnectormappingfile ".\ComponentMapping.json"
+```
+
+* `-i ".\Input"`: Specifies the input directory containing all source artifacts.
+* `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
+* `-n "Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping"`: Sets the name of the output file.
+* `-gensvg`: Automatically generates SVG screenshots from the interactive models.
+* `-nomatlab`: Instructs the builder to use its internal Simulink reader rather than launching MATLAB.
+* `-matlabpath "%MATLAB_PATH%\bin"`: Specifies the path to the MATLAB installation (used for certain operations even with `-nomatlab`).
+* `-simlib "%MATLAB_PATH%\toolbox\simulink"`: Specifies the path to Simulink library blocks.
+* `-componentconnectormappingfile ".\ComponentMapping.json"`: Specifies a JSON file that maps component connectors for signal mapping.

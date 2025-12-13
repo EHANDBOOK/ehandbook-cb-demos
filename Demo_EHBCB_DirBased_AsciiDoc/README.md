@@ -74,3 +74,27 @@ A key feature shown in `AsciiDocUserDocument.adoc` is the ability to link docume
     ```asciidoc
     ehbfunctionoverview::Documentation[Title Name]
     ```
+
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_AsciiDoc" ^
+-gensvg ^
+-nomatlab ^
+-styling ".\styling" ^
+-simlib "%MATLAB_PATH%\toolbox\simulink"
+```
+
+* `-i ".\Input"`: Specifies the input directory containing all source artifacts.
+* `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
+* `-n "Demo_EHBCB_DirBased_AsciiDoc"`: Sets the name of the output file.
+* `-gensvg`: Automatically generates SVG screenshots from the interactive models.
+* `-nomatlab`: Instructs the builder to use its internal Simulink reader rather than launching MATLAB.
+* `-styling ".\styling"`: Applies custom styling from the specified directory.
+* `-simlib "%MATLAB_PATH%\toolbox\simulink"`: Specifies the path to Simulink library blocks.

@@ -55,7 +55,7 @@ The `build.bat` script uses the following command:
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\\Lcc" ^
+-i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese" ^
 -gensvg ^

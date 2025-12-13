@@ -29,7 +29,7 @@
 ## 🔬 Explore the Output
 
 * After the build completes, a `Demo_EHBCB_DirBased_AUTOSAR_Excerpt.ehb` file will be created in the `Output` directory.
-* Open the EHANDBOOK file. You will find a handbook that contains *only* the software components that were included in the `FlexECU_Dir_AUTOSAR_excerpt` input folder, rather than the full FlexECU system.
+* Open the EHANDBOOK file. You will find a handbook that contains *only* the software components that were included in the `Input` folder, rather than the full FlexECU system.
 
 ---
 
@@ -39,7 +39,7 @@ This demo highlights the flexibility of the directory-based build. By simply con
 
 ### Directory & File Structure
 
-* **`FlexECU_Dir_AUTOSAR_excerpt/`**: This is the main input directory. It is a slimmed-down version of a full project directory.
+* **`Input/`**: This is the main input directory. It is a slimmed-down version of a full project directory.
   * **`.arxml` files:** Contains the necessary AUTOSAR architecture files (`Compositions.arxml`, `Interfaces.arxml`, etc.).
   * **Component Folders (e.g., `CPT_Afr/`, `CPT_Tqs/`):** Contains a *subset* of the component folders from the full FlexECU demo. Each folder includes the ASCET model (`.axl`) that implements the SWC's logic.
 * **`configuration/`**: Contains various JSON files for customizing the output.
@@ -47,11 +47,11 @@ This demo highlights the flexibility of the directory-based build. By simply con
 
 ### Build Script: `build.bat`
 
-The build script is a standard directory-based build command. The key is that the input directory it points to (`FlexECU_Dir_AUTOSAR_excerpt`) only contains a subset of the project files.
+The build script is a standard directory-based build command. The key is that the input directory it points to only contains a subset of the project files.
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i "FlexECU_Dir_AUTOSAR_excerpt" ^
+-i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_Excerpt" ^
 -simlib "Flex_Simulink_Library" ^
@@ -62,4 +62,4 @@ The build script is a standard directory-based build command. The key is that th
 -labelamendment ".\\configuration\\labelamendment.json"
 ```
 
-* `-i "FlexECU_Dir_AUTOSAR_excerpt"`: EHB-CB scans this directory and builds a handbook based *only* on the artifacts it finds within. If a component's folder or its description in an `.arxml` file is missing, it is simply excluded from the final output. This provides an easy way to generate focused documentation for specific parts of a large system.
+* `-i "Input"`: EHB-CB scans this directory and builds a handbook based *only* on the artifacts it finds within. If a component's folder or its description in an `.arxml` file is missing, it is simply excluded from the final output. This provides an easy way to generate focused documentation for specific parts of a large system.

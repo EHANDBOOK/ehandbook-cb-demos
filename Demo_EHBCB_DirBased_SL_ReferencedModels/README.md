@@ -55,3 +55,14 @@ The result is a seamless, interactive model in the EHANDBOOK container that accu
 
 ![Function Overview with Referenced Models](FunctionOverviewDiagramExpl.jpg)
 *A function overview diagram showing a Simulink model that includes two referenced subsystems.*
+
+### Build Script: `build.bat`
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_SL_ReferencedModels" ^
+-gensvg ^
+-simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink" 
+```

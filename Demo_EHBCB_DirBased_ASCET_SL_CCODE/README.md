@@ -57,3 +57,24 @@ This demo showcases the power of the directory-based build to automatically dete
     * `Fmc_text.adoc`: AsciiDoc file for documentation.
 * **`Output/`**: This is the destination folder where the generated EHANDBOOK will be saved.
 * **`build.bat`**: This script runs the EHANDBOOK Container-Build process. It relies on the directory structure and file types in the `Input` folder to correctly build the container.
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_ASCET_SL_CCODE" ^
+-nomatlab ^
+-simlib "%MATLAB_PATH%\toolbox\simulink\blocks\library" ^
+-gensvg
+```
+
+* `-i ".\Input"`: Specifies the input directory containing all source artifacts.
+* `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
+* `-n "Demo_EHBCB_DirBased_ASCET_SL_CCODE"`: Sets the name of the output file.
+* `-nomatlab`: Instructs the builder to use its internal Simulink reader rather than launching MATLAB, speeding up the build.
+* `-simlib "%MATLAB_PATH%\toolbox\simulink\blocks\library"`: Specifies the path to Simulink library blocks.
+* `-gensvg`: Automatically generates SVG screenshots from the interactive models.

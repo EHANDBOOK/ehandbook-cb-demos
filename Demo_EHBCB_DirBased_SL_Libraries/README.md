@@ -68,3 +68,27 @@ When a Simulink model uses blocks from an external library, the EHANDBOOK Contai
 #### View Configuration for Know-How Protection
 
 The Simulink View Concept allows you to control what a user sees inside a model. In this demo, the `configuration/SimulinkViewConfig.json` file is used to hide the contents of blocks that are library links. This is a powerful feature for protecting intellectual property, as it allows you to share a functional model without revealing the specific implementation details of your proprietary library blocks.
+
+
+### Build Script: `build.bat`
+
+The `build.bat` script uses the following command:
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\Input" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_SL_Libraries" ^
+-simlib ".\simlibs,%MATLAB_PATH%\toolbox\simulink" ^
+-simulinkview ".\configuration\SimulinkViewConfig.json" ^
+-viewtype "GlobalView" ^
+-gensvg
+```
+
+* `-i ".\Input"`: Specifies the input directory containing all source artifacts.
+* `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
+* `-n "Demo_EHBCB_DirBased_SL_Libraries"`: Sets the name of the output file.
+* `-simlib ".\simlibs,%MATLAB_PATH%\toolbox\simulink"`: Specifies paths to Simulink library files.
+* `-simulinkview ".\configuration\SimulinkViewConfig.json"`: Applies view configuration for know-how protection.
+* `-viewtype "GlobalView"`: Selects the specific view type to apply.
+* `-gensvg`: Automatically generates SVG screenshots from the interactive models.

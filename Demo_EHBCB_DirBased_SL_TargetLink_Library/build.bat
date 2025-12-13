@@ -1,8 +1,6 @@
 cls
 
-set EHB_CB_PATH=C:\ETAS\EHANDBOOK-CB10.3
-set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-UGG10.3
-set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
+rem set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
 
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\Input" ^

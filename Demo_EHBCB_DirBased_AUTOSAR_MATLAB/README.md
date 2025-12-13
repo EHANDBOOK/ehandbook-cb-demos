@@ -54,7 +54,7 @@ The `build.bat` script uses the following command:
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\\FlexECUDemo_Matlab" ^
+-i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_MATLAB" ^
 -gensvg

@@ -63,3 +63,14 @@ The `Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink.m` script perf
 2. **Extracts Interface Data:** It inspects each model to find signals, parameters, and local variables.
 3. **Generates Excel Files:** It writes the extracted interface data into a structured `.xlsx` file, formatted with the specific columns required by EHANDBOOK Container-Build.
 4. **Generates Documentation:** It creates a basic `.adoc` file for each model, providing a template for further documentation and including placeholders for EHANDBOOK-specific commands like `ehbfunctionoverview`.
+
+### Build Script: `build.bat`
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\InputAfterScript" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_SL_Mscript" ^
+-gensvg ^
+-nomatlab 
+```

@@ -42,7 +42,7 @@ This demo showcases a powerful integration of AUTOSAR and ASCET using the ASAM-b
 
 ### Directory & File Structure
 
-* **`FlexECU_ASAM_AUTOSAR/`**: This is the main input directory, structured according to ASAM standards.
+* **`Input/`**: This is the main input directory, structured according to ASAM standards.
   * `asamCC.ccx`: The central ASAM Container-Build configuration file. This file is the main input to the `eHandbookCB.exe` call and references all other necessary files.
   * **`_global_arxml/`**: This directory contains the AUTOSAR `.arxml` files that describe the system's software architecture, compositions, components, and interfaces.
   * **Component Folders (e.g., `Fmc/`, `Tqs/`):** Each folder represents a function or component and contains the corresponding ASCET model (`.axl`) that implements the logic for an AUTOSAR SWC.
@@ -56,7 +56,7 @@ The build script invokes EHB-CB in ASAM mode by pointing directly to the `.ccx` 
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\\FlexECU_ASAM_AUTOSAR\\asamCC.ccx" ^
+-i ".\\Input\\asamCC.ccx" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_ASAMBased_AUTOSAR" ^
 -simlib "Flex_Simulink_Library" ^
@@ -67,5 +67,5 @@ The build script invokes EHB-CB in ASAM mode by pointing directly to the `.ccx` 
 -labelamendment ".\\configuration\\labelamendment.json"
 ```
 
-* `-i ".\\FlexECU_ASAM_AUTOSAR\\asamCC.ccx"`: This is the key argument that triggers the **ASAM-based build**. Instead of a directory, the input is a single configuration file.
+* `-i ".\\Input\\asamCC.ccx"`: This is the key argument that triggers the **ASAM-based build**. Instead of a directory, the input is a single configuration file.
 * EHB-CB parses the `.ccx` file, which in turn points to the `.arxml` files and the ASCET models, allowing it to build a complete picture of the AUTOSAR system and its implementation.

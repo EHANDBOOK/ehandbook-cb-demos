@@ -52,7 +52,7 @@ The build script uses a standard directory-based command, but with a key flag fo
 
 ```batch
 %EHB_CB_PATH%\eHandbookCB.exe ^
--i "ControllerExample" ^
+-i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_SL" ^
 -gensvg ^

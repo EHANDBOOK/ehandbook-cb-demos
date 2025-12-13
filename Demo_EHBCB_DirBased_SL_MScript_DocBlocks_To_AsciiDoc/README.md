@@ -63,3 +63,14 @@ The `Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.
 3. **Extracts DocBlock Content:** It reads the textual content from within each DocBlock.
 4. **Generates AsciiDoc:** It creates an `.adoc` file and populates it with the content extracted from the DocBlocks, preserving the documentation written in the model.
 5. **Generates Excel Files:** It also extracts interface data (signals, parameters) and writes it to a structured `.xlsx` file.
+
+### Build Script: `build.bat`
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\InputAfterScript" ^
+-o ".\Output" ^
+-n "Demo_EHBCB_DirBased_SL_MScript_DocBlocks_To_AsciiDoc" ^
+-gensvg ^
+-nomatlab
+```
