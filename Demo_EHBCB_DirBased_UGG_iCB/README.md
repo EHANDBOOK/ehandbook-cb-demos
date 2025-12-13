@@ -27,7 +27,7 @@ This demo is split into two distinct steps. For convenience, the artifacts gener
         * Execute `step1_build_with_UGG.bat`.
         * This script runs the UGG tool on the raw models in `Input_UGG/`.
         * It generates `.ugg` files and other artifacts in the `Output_UGG/` directory. This shows how the pre-processed files are created.
-        > **Note:** After running Step 1, you would manually copy the generated `.ugg` files (e.g., `Actuators.ugg`, `Lcc.ugg`, etc.) from the `Output_UGG/` directory into their corresponding subdirectories within `Input_iCB/`. For this demo, this has already been done.
+        > **Note:** After running Step 1, you would have to copy the generated `.ugg` files (e.g., `Actuators.ugg`, `Lcc.ugg`, etc.) from the `Output_UGG/` directory into their corresponding subdirectories within `Input_iCB/`. For this demo, this has already been done.
     * **Step 2 (Build EHB):**
         * Execute `step2_build_with_iCB.bat`.
         * This script runs the main EHB-CB process.
