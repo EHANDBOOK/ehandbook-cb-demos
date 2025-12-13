@@ -2,11 +2,11 @@
   {
       "exported": {
           "port": "result",
-          "component": "Function 1"
+          "component": "Function1"
       },
       "imported": {
           "port": "a",
-          "component": "Function 2"
+          "component": "Function2"
       }
   }
 ]
