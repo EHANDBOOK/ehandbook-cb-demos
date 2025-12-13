@@ -43,6 +43,7 @@ This demo builds on the concept of custom TOCs by showing how to create more com
 * **`Input/`**: Contains the source artifacts and the TOC definition.
   * **`ecu/`, `compo1/`, `swc1/`, etc.**: Folders representing the different documentation units that will be organized in the TOC.
   * **`tocs.yaml`**: The configuration file that defines the nested TOC structure.
+* **`styling/`**: Contains styling information for the container.  
 * **`Output/`**: The destination folder for the generated EHANDBOOK container.
 * **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
 
@@ -55,6 +56,7 @@ The `build.bat` script uses the following command:
 -i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_Nested_ToC"
+-styling ".\\styling"
 ```
 
 ### Nested TOC Specification
