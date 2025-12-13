@@ -19,8 +19,8 @@
                     <SD GID="language">EN</SD>
                     <SD GID="hide_component">true</SD>
                     <SD GID="condition">true</SD>
-                    <SD GID="confidential_level_2">false</SD>
-                    <SD GID="legal_note">Dieses Dokument enthält vertrauliche Informationen. Eine Veröffentlichung ohne schriftliche Zustimmung der Robert Bosch GmbH ist verboten.</SD>					
+                    <SD GID="confidential_level_2">false</SD>                    
+                    <SD GID="legal_note">This document contains confidential information. Disclosure is prohibited without the written consent of ETAS GmbH.</SD>
                 </SDG>
             </SDGS>
             <AREFS>
