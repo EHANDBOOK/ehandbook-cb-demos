@@ -11,7 +11,7 @@
 * **Custom Styling:** Application of a corporate look and feel using the `etas-styling` folder.
 * **Custom Title Page:** Customization of the generated PDF's title page via `title_page.properties`.
 * **Custom Table of Contents:** A `tocs.yaml` file to define a specific navigation structure.
-* **Simulink Library Support:** Processing of an additional Simulink library from the `SimLib` folder.
+* **Simulink Library Support:** Processing of an additional Simulink library from the `simlib` folder.
 * **Root-Level Skipping:** Using a configuration file (`rootlevel.json`) to simplify the model hierarchy by skipping unnecessary top-level blocks.
 
 ---
@@ -45,7 +45,7 @@ This demo combines many of the advanced features of the EHANDBOOK Container-Buil
 ### Directory Structure
 
 * **`Input/`**: Contains the source artifacts for all 15 functions, organized into subdirectories. It also includes the `tocs.yaml` for defining the TOC.
-* **`SimLib/`**: Contains a shared Simulink library that the function models depend on. The build process is configured to look in this folder via the `-simlib` argument.
+* **`simlib/`**: Contains a shared Simulink library that the function models depend on. The build process is configured to look in this folder via the `-simlib` argument.
 * **`configuration/`**: Holds various JSON configuration files.
   * `rootlevel.json`: Specifies which root-level blocks in the Simulink models should be skipped to simplify the navigation hierarchy.
 * **`styling/`**: A dedicated folder for branding and styling artifacts.
@@ -62,7 +62,7 @@ The build script highlights the essential arguments for this demo:
 -i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_SL_FlexECU" ^
--simlib ".\\SimLib,%MATLAB_PATH%\\toolbox\\simulink" ^
+-simlib ".\\simlib,%MATLAB_PATH%\\toolbox\\simulink" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\\styling" ^
@@ -71,4 +71,4 @@ The build script highlights the essential arguments for this demo:
 
 * `-styling ".\\styling"`: This argument tells EHB-CB where to find the styling artifacts.
 * `-rootlevel ".\\configuration\\rootlevel.json"`: This argument tells EHB-CB to skip the root level of the Simulink models.
-* `-simlib ".\\SimLib,..."`: This argument tells EHB-CB where to find the necessary Simulink libraries.
+* `-simlib ".\\simlib,..."`: This argument tells EHB-CB where to find the necessary Simulink libraries.

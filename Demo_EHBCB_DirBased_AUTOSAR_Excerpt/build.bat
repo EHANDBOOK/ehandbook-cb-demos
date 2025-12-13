@@ -4,7 +4,7 @@ cls
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_Excerpt" ^
--simlib "Flex_Simulink_Library" ^
+-simlib "FlexECU_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\etas-styling" ^

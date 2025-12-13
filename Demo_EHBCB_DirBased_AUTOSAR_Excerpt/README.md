@@ -54,7 +54,7 @@ The build script is a standard directory-based build command. The key is that th
 -i ".\\Input" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_Excerpt" ^
--simlib "Flex_Simulink_Library" ^
+-simlib "FlexECU_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\\etas-styling" ^

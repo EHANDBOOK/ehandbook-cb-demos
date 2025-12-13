@@ -34,7 +34,7 @@
 * Observe the following:
   * The "Model Parameters & Variables" chapter contains custom-structured tables.
   * The model view may hide certain details (like the contents of subsystems) as defined by the view concept.
-  * The model will have correctly resolved links to the blocks from the `SimLib` library.
+  * The model will have correctly resolved links to the blocks from the `simlib` library.
 
 ---
 
@@ -45,7 +45,7 @@ This demo highlights several powerful command-line arguments and configuration f
 ### Directory and File Structure
 
 * **`Input/`**: Contains the primary Simulink model to be processed.
-* **`SimLib/`**: A folder containing an additional Simulink library (`.slx` file) that the main model depends on.
+* **`simlib/`**: A folder containing an additional Simulink library (`.slx` file) that the main model depends on.
 * **`TableConfiguration.json`**: A configuration file that defines the structure, columns, and filters for creating custom tables of model parameters and variables.
 * **`SimulinkGlobalView.json`**: A configuration file for the Simulink View Concept, specifying which parts of the model to hide or show.
 * **`build.bat`**: The build script that orchestrates the process, using several key command-line arguments.
@@ -64,7 +64,7 @@ The `build.bat` script uses the following command:
 -tableconfig "TableConfiguration.json" ^
 -viewtype "AllView" ^
 -simulinkview "SimulinkGlobalView.json" ^
--simlib ".\\SimLib,%MATLAB_PATH%\\toolbox\\simulink"
+-simlib ".\\simlib,%MATLAB_PATH%\\toolbox\\simulink"
 ```
 
 * `-tableconfig "TableConfiguration.json"`: This option points to the JSON file that configures customized tables for model data, allowing for more organized and readable presentation of parameters and variables.

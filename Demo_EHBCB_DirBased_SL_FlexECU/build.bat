@@ -4,7 +4,7 @@ cls
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_SL_FlexECU" ^
--simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink" ^
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\styling" ^

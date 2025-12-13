@@ -4,7 +4,7 @@ cls
 -i ".\Input\asamCC.ccx" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_ASAMBased_AUTOSAR" ^
--simlib "Flex_Simulink_Library" ^
+-simlib "FlexECU_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\styling" ^

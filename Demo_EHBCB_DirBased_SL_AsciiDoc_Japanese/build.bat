@@ -10,7 +10,7 @@ cls
 -labelamendment ".\configuration\LabelAmendment.json" ^
 -rootlevel ".\configuration\RootLevel.json" ^
 -tableconfig ".\configuration\TableConfiguration.json" ^
--simlib ".\Flex_Simulink_Library" ^
+-simlib ".\FlexECU_Simulink_Library" ^
 -pdf
 
 pause  

@@ -48,7 +48,7 @@ This demo showcases a powerful integration of AUTOSAR and ASCET using the ASAM-b
   * **Component Folders (e.g., `Fmc/`, `Tqs/`):** Each folder represents a function or component and contains the corresponding ASCET model (`.axl`) that implements the logic for an AUTOSAR SWC.
 * **`configuration/`**: Contains various JSON files for customizing the output, such as `rootlevel.json` to control the hierarchy and `labelamendment.json` to modify labels.
 * **`styling/`**: Provides custom branding and styling for the generated EHANDBOOK container.
-* **`Flex_Simulink_Library/`**: Contains Simulink library files, provided via the `-simlib` argument.
+* **`FlexECU_Simulink_Library/`**: Contains Simulink library files, provided via the `-simlib` argument.
 
 ### Build Script: `build.bat`
 
@@ -59,7 +59,7 @@ The build script invokes EHB-CB in ASAM mode by pointing directly to the `.ccx` 
 -i ".\\Input\\asamCC.ccx" ^
 -o ".\\Output" ^
 -n "Demo_EHBCB_ASAMBased_AUTOSAR" ^
--simlib "Flex_Simulink_Library" ^
+-simlib "FlexECU_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\\styling" ^

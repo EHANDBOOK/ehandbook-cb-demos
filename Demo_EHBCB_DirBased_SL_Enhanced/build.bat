@@ -9,7 +9,7 @@ cls
 -tableconfig "TableConfiguration.json" ^
 -viewtype "AllView" ^
 -simulinkview "SimulinkGlobalView.json" ^
--simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink"
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink"
 
 pause
 

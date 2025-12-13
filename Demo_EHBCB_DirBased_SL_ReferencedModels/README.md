@@ -40,7 +40,7 @@ This demo highlights how EHANDBOOK Container-Build handles modern, component-bas
 ### Directory Structure
 
 * **`Input/`**: Contains the top-level Simulink models (`Component1` and `Component2`). These models contain "Model" blocks that reference other model files.
-* **`SimLib/`**: This folder acts as a library, containing the referenced models (`M160_control_lib.mdl`, `M160_lib.mdl`) that the top-level models depend on.
+* **`simlib/`**: This folder acts as a library, containing the referenced models (`M160_control_lib.mdl`, `M160_lib.mdl`) that the top-level models depend on.
 * **`build.bat`**: The script that runs the container build. It uses the `-simlib` argument to tell the builder where to find the referenced models and other libraries.
 
 ### Referenced Model Handling
@@ -64,5 +64,5 @@ The result is a seamless, interactive model in the EHANDBOOK container that accu
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_SL_ReferencedModels" ^
 -gensvg ^
--simlib ".\SimLib,%MATLAB_PATH%\toolbox\simulink" 
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink" 
 ```

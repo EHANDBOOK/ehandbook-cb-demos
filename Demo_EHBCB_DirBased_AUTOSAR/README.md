@@ -44,7 +44,7 @@ This demo shows how the directory-based build mode can be used for complex AUTOS
   * **Component Folders (e.g., `CPT_Fmc/`, `CPT_Tqs/`):** Each `CPT_` folder represents a software component. Inside, you will find the corresponding ASCET model (`.axl`) that implements the component's logic, along with any associated documentation (`.adoc`).
 * **`configuration/`**: Contains various JSON files for customizing the output, such as `rootlevel.json` to control the hierarchy and `labelamendment.json` to modify labels.
 * **`etas-styling/`**: Provides custom branding and styling for the generated EHANDBOOK container.
-* **`Flex_Simulink_Library/`**: Contains Simulink library files, provided via the `-simlib` argument.
+* **`FlexECU_Simulink_Library/`**: Contains Simulink library files, provided via the `-simlib` argument.
 
 ### Build Script: `build.bat`
 
@@ -55,7 +55,7 @@ The build script invokes EHB-CB in directory-based mode by pointing to the main 
 -i "FlexECU_Dir_AUTOSAR" ^
 -o "." ^
 -n "FlexECU_Dir_AUTOSAR" ^
--simlib "Flex_Simulink_Library" ^
+-simlib "FlexECU_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\\etas-styling" ^

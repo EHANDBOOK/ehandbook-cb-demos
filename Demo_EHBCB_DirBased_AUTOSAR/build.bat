@@ -4,7 +4,7 @@ cls
 -i "FlexECU_Dir_AUTOSAR" ^
 -o "." ^
 -n "Demo_EHBCB_DirBased_AUTOSAR" ^
--simlib "Flex_Simulink_Library" ^
+-simlib "FlexECU_Simulink_Library" ^
 -nomatlab ^
 -gensvg ^
 -styling ".\styling" ^
