@@ -1,23 +1,21 @@
 = AsciiDoc Support in EHANDBOOK 
 
-This document provides a brief information on the AsciiDoc functionality in general and 
-the supported features and special meanings within EHANDBOOK.
+This document provides brief information on the AsciiDoc functionality in general and the supported features and special meanings within EHANDBOOK.
 
-The ETAS AsciiDoc converter is an add-on for the directory based EHANDBOOK Container-Build Tool-Chain and generates textual and graphical content
-for EHANDBOOK containers out of AsciiDoc files. 
+The AsciiDoc converter is part of the Directory-based EHANDBOOK Container-Build Tool-Chain and generates textual and graphical content for EHANDBOOK containers from AsciiDoc files. 
 
-AsciiDoc is a lightweight markup language for authoring documentation in plain text. So any kind of text editor can be used to create the files.
-There are a lot of Ascii characters, which become a special meaning in the context of AsciiDoc.
+https://asciidoc.org/[AsciiDoc] is a lightweight markup language for authoring documentation in plain text. Any kind of text editor can be used to create the files.
+There are many ASCII characters that have special meaning in the context of AsciiDoc.
 
-*EHANDBOOK:* File extension must be *.adoc or *.asciidoc for EHB.
-EHB supports only a subset of the AsciiDoc functionality. 
-Other features than decribed below may also work, but not garanteed by ETAS.
+*EHANDBOOK:* File extension must be *.adoc or *.asciidoc for EHANDBOOK.
+EHANDBOOK supports only a subset of the AsciiDoc functionality. 
+Other features than described below may also work, but are not guaranteed by ETAS.
 
 Now let's have a look into some of these magic Ascii characters and start with a header:
 
 == Document Header and Section Titles
-A document header represents the title of the document. 
-Document header can be followed then by texts, images, lists, table or section titles
+
+A document header represents the title of the document. The document header can be followed by text, images, lists, tables, or section titles.
 
 Document title syntax: using '=' character(s) at the very beginning of a new line:
 
@@ -31,7 +29,7 @@ Document title syntax: using '=' character(s) at the very beginning of a new lin
 
  == Another Level 1 Section Title
 
-will look in EHB as:
+will look in EHANDBOOK as follows:
 
 == Level 1 Section Title
 
@@ -41,50 +39,52 @@ will look in EHB as:
 
 == Another Level 1 Section Title
 
-More information could be found in https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#section-titles
+More information can be found in https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#section-titles
 
-*EHANDBOOK:* For EHB, the document header is expected as the very first line in the document. 
-If document header is not present, then name of the folder in which AsciiDoc file resides will be considered as document title.
-Each sub section title appears as a sub chapter in the TOC in EHB-Navigator.
+*EHANDBOOK:* For EHANDBOOK, the document header is expected as the very first line in the document. 
+
+If the document header is not present, then the name of the folder in which the AsciiDoc file resides will be considered as the document title.
+Each subsection title appears as a subchapter in the TOC in EHANDBOOK-NAVIGATOR.
 
 == Formatted Text 
+
 Text style syntax: framing of text by special characters
 
- Formatted text such as \*bold*, \_italic_, \^super^script phrase, \~sub~script phrase are supported. Nested formatting such as \*\_bold-italic_*  is also possible.
+Formatted text such as \*bold*, \_italic_, \^super^script phrase, \~sub~script phrase are supported. Nested formatting such as \*\_bold-italic_*  is also possible.
 
-Will look in EHB as:
+Will look in EHANDBOOK as:
 
 Formatted text such as *bold*, _italic_, ^super^script phrase, ~sub~script phrase are supported. Nested formatting such as *_bold-italic_*  is also possible.
 
-More information could be found in https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#formatted-text
+More information can be found in https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#formatted-text
 
 == Lists 
 
 Ordered List Syntax: using the '.' character at the beginning of a new line 
  
- '.' Ordered list can have a list title, followed by list elements in seperate lines
- '.' In Ordered list, list elements starts with a dot '.' 
+ '.' Ordered list can have a list title, followed by list elements in separate lines
+ '.' In an ordered list, list elements start with a dot '.' 
 
-Will look in EHB as:
+Will look in EHANDBOOK as:
 
-. Ordered list can have a list title followed by list elements in seperate lines
-. In Ordered list, list elements starts with dot '.' 
+. Ordered list can have a list title followed by list elements in separate lines
+. In an ordered list, list elements start with a dot '.' 
 
 Unordered List Syntax: using the '-' or '*' character at the beginning of a new line 
  
- '-' Unordered list can have a list title followed by list elements in seperate lines
+ '-' Unordered list can have a list title followed by list elements in separate lines
  '-' Unordered list element starts with hyphen '-'
- '*' Alternately Unordered list element can start with an asterik 
+ '*' Alternatively, an unordered list element can start with an asterisk 
 
-Will look in EHB as:
+Will look in EHANDBOOK as:
 
-- Unordered list can have a list title followed by list elements in seperate lines.
+- Unordered list can have a list title followed by list elements in separate lines.
 - Unordered list element starts with hyphen '-'
-* Alternately Unordered list element can start with an asterik
+* Alternatively, an unordered list element can start with an asterisk
 
 A blank line is required before and after a list to separate it from other blocks.
 
-More information could be found in  https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#lists
+More information can be found in  https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#lists
 
 *EHANDBOOK:* Only basic ordered and unordered lists without nesting are supported in EHANDBOOK.
 
@@ -106,7 +106,7 @@ Table with title has the following syntax:
  |Cell in column 3, row 2
  |===
 
-Will look in EHB as:
+Will look in EHANDBOOK as:
 
 .Table title 
 
@@ -122,15 +122,15 @@ Will look in EHB as:
 |Cell in column 3, row 2
 |===
 
-More information could be found in  https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables
+More information can be found in  https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables
 
 *EHANDBOOK:* Only simple tables are supported in EHANDBOOK (equal columns and rows, no nesting).
-The sortable headers and the filter line is added by EHB automatically.
+The sortable headers and the filter line is added by EHANDBOOK automatically.
 
 
 == Images in EHANDBOOK
 
-Images can be embeded in AsciiDoc documentation. In EHANDBOOK, model screen-shots can be linked to interactive models by providing the link to model path.
+Images can be embedded in AsciiDoc documentation. In EHANDBOOK, model screenshots can be linked to interactive models by providing the link to the model path.
 
 === Embed pre-generated images
 
@@ -144,22 +144,24 @@ image::VectorImage.svg[]
 *EHANDBOOK:* Pre-generated images in svg, jpg and png formats are supported.
 
 === Pre-generated Images linked with Model
-Pre-generated image can also be linked to its corresponding hierarchy of the interactive model in EHANDBOOK NAVIGATOR. 
+
+Pre-generated image can also be linked to its corresponding hierarchy of the interactive model in EHANDBOOK-NAVIGATOR. 
 
  Syntax: image::image_name.svg[link=ehbmodelref:model_path]
 
 image::VectorImage.svg[link=ehbmodelref:model_ICC]
 
-=== EHB generated Images linked with Model
-Model hierachy screenshot made by EHB and linked to the interactive model in EHANDBOOK NAVIGATOR.
+=== EHANDBOOK generated Images linked with Model
+
+Model hierarchy screenshot made by EHANDBOOK and linked to the interactive model in EHANDBOOK-NAVIGATOR.
 
  Syntax: ehbmodelref::model_path[image_title]
 
 ehbmodelref::model_ICC/ICC_mdl[image_title]
 
-=== EHB generated Function Overview Image
+=== EHANDBOOK generated Function Overview Image
 
-A function overview image is generated by EHB out of the model(s) inputs and outputs
+A function overview image is generated by EHANDBOOK from the model(s) inputs and outputs
 
  Syntax for one Function only: ehbfunctionoverview::function_name[title]
 
@@ -179,13 +181,13 @@ Contents from another AsciiDoc file or other file formats can be inlined within 
 In either case path relative to Asciidoc documentation is expected.
 To inline the content from another AsciiDoc file into the main AsciiDoc file, the name of the file to be inlined should start with an underscore '_'.
 
-If multiple AsciiDoc files are used without '_', the content of each file is appended in EHB in alphabetical order of the file names.
+If multiple AsciiDoc files are used without '_', the content of each file is appended in EHANDBOOK in alphabetical order of the file names.
 
  Syntax for inlining files: include::_fileName.extension[]
  
 include::./../../include/_anotherFile.asciidoc[]
 
-=== Inclusion of formated Source Code, e.g. C-Code
+=== Inclusion of Formatted Source Code, e.g. C-Code
 
  Syntax for inlining source files: 
  [source,c] 
@@ -193,7 +195,7 @@ include::./../../include/_anotherFile.asciidoc[]
  include::filename.extension[]
  ----
 
-Will look in EHB as:
+Will look in EHANDBOOK as:
 
 [source,c]
 
@@ -201,7 +203,7 @@ Will look in EHB as:
 include::./../../include/add.c[]
 ----
 
-*EHANDBOOK:* Syntax highlighting is not supported in EHB.
+*EHANDBOOK:* Syntax highlighting is not supported in EHANDBOOK.
 
 == Links
 
@@ -228,19 +230,18 @@ A link to an external file works like this:
 
 file://C:/ETAS/EHANDBOOK-NAVIGATOR9.1/demo/EHANDBOOK_FlexECU_Demo.pdf
 
-By click on the link, the file will be opened with the associated tool outside of EHB-NAV.
+By click on the link, the file will be opened with the associated tool outside of EHANDBOOK-NAV.
 
 AsciiDoc also detects and autolinks standard email addresses:
 
 Email us at sales.de@etas.com for any inquiries.
 
-*EHANDBOOK:* Only absolute file paths are supported in EHB.
+*EHANDBOOK:* Only absolute file paths are supported in EHANDBOOK.
 
-=== Cutomize Link Text
+=== Customize Link Text
 
 The appearance of the link can be configured. 
-This happens by appending text or parameters, enclosed by a pair of square brackets.
-
+This is done by appending text or parameters, enclosed by a pair of square brackets.
 
 ==== Customize URL and File Link Text
 
@@ -265,8 +266,8 @@ file://C:/ETAS/EHANDBOOK-NAVIGATOR9.1/demo/EHANDBOOK_FlexECU_Demo.pdf[Show Me]
 
 ==== Customize Mailto Text
 
-For mailto two parameters are used inside the brackets. The first parameter defines the text, which is shown as the link. 
-The second parameter defines the text, which will appear in the subject field of your mail program.  
+For mailto, two parameters are used inside the brackets. The first parameter defines the text that is shown as the link. 
+The second parameter defines the text that will appear in the subject field of your mail program.  
 
 mailto:sales.de@etas.com[Contact ETAS,Request for Quotation]
 
@@ -279,8 +280,8 @@ mailto:sales.de@etas.com[,Request for Quotation]
 
 The general link syntax is \link:<target>[<attrlist>]
 
-The link macro is required, if the link does not start with a scheme recognized by AsciiDoc
-This also happens, if the link contains any space characters. in this case, the space must be encoded by %20 or &#32 ;
+The link macro is required if the link does not start with a scheme recognized by AsciiDoc.
+This is also necessary if the link contains any space characters. In this case, the space must be encoded by %20 or &#32;
 
 \link:file:///c:/ETAS/EHANDBOOK-NAVIGATOR9.1/documentation/EHANDBOOK-NAVIGATOR%20Getting%20Started.pdf [Get Started] 
 
@@ -323,7 +324,7 @@ Image type svg
 @endlatex
 ....
 
-== UML Graphics
+== UML Diagrams
 
 === Sequence Diagram
 
@@ -500,7 +501,7 @@ WB is Waiting
 @enduml
 ....
 
-More information could be found in  https://asciidoctor.org/docs/asciidoctor-diagram/
+More information can be found in  https://asciidoctor.org/docs/asciidoctor-diagram/
 
 
 
