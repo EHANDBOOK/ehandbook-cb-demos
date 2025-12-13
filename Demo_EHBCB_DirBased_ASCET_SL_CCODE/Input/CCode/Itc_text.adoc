@@ -2,7 +2,7 @@
 
 == Function Overview
 
-ehbfunctionoverview::ASCET[Function Overview diagram for component with C-Code model]
+ehbfunctionoverview::CCode[Function Overview diagram for component with C-Code implementation]
 
 == Function Description
 

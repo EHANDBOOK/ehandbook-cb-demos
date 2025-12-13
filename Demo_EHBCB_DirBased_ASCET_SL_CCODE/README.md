@@ -52,9 +52,10 @@ This demo showcases the power of the directory-based build to automatically dete
     * `Lcc_InOut.xlsx`: An Excel file for the function's interface.
     * `Lcc_text.adoc`: An AsciiDoc file for documentation.
   * **`CCode/`**: Contains the artifacts for the C-Code-based function.
-    * The actual C-Code is typically located elsewhere and configured in the build process, but the folder contains the documentation and interface definitions.
-    * `Fmc_InOut.xlsx`: Excel file for the interface.
-    * `Fmc_text.adoc`: AsciiDoc file for documentation.
+    * `ccode_Itc_InjectionTime.c`: The C source file.
+    * `ccode_Itc_InjectionTime.h`: The C header file.
+    * `Itc_InOut.xlsx`: Excel file for the interface.
+    * `Itc_text.adoc`: AsciiDoc file for documentation.
 * **`Output/`**: This is the destination folder where the generated EHANDBOOK will be saved.
 * **`build.bat`**: This script runs the EHANDBOOK Container-Build process. It relies on the directory structure and file types in the `Input` folder to correctly build the container.
 
