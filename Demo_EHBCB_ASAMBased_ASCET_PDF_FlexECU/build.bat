@@ -6,6 +6,6 @@ cls
 -n "Demo_EHBCB_ASAMBased_ASCET_PDF_FlexECU" ^
 -gensvg ^
 -nomatlab ^
--styling ".\styling" ^
+-styling ".\styling"
 
 pause
