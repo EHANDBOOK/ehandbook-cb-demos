@@ -42,7 +42,7 @@ This demo shows how to build a container for an AUTOSAR software component (`Epm
 
 ### Directory Structure
 
-* **`FlexECUDemo_Matlab/`**: This is the main input directory for the build.
+* **`Input/`**: This is the main input directory for the build.
   * **`CPT_Epm/`**: Contains the Simulink model (`.slx` file) for the `Epm` component.
   * **`*.arxml`**: A set of AUTOSAR XML files that describe the software components, compositions, data types, and interfaces. These are processed by the build to understand the AUTOSAR architecture.
   * **`Documentation.adoc`**: An AsciiDoc file for including additional documentation.
@@ -56,7 +56,7 @@ The `build.bat` script uses the following command:
 %EHB_CB_PATH%\eHandbookCB.exe ^
 -i ".\\Input" ^
 -o ".\\Output" ^
--n "Demo_EHBCB_DirBased_AUTOSAR_MATLAB" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU" ^
 -gensvg
 ```
 
