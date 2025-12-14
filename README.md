@@ -11,7 +11,6 @@ Additional information on EHANDBOOK Container-Build can be found in the comprehe
   - [Clone Repository](#clone-repository)
   - [Setup](#setup)
 - [How to Run a Demo](#how-to-run-a-demo)
-- [Repository Structure](#repository-structure)
 - [AI-Generated Code Notice](#ai-generated-code-notice)
 
 ## What You'll Need
@@ -19,9 +18,7 @@ Additional information on EHANDBOOK Container-Build can be found in the comprehe
 Before you begin, ensure you have:
 
 - ✅ **EHANDBOOK Container-Build tools** (latest version recommended)
-- ✅ **EHANDBOOK-UGG tools** (if running UGG demos)
 - ✅ **MATLAB/Simulink** (R2021a or later, required for Simulink demos)
-- ✅ **Docker** (for running the containerized build environment)
 - ✅ **Git** (for cloning the repository)
 - ⏱️ **Estimated setup time:** 15-20 minutes
 
@@ -38,8 +35,8 @@ After cloning the repository, you first should adapt the file `set_tool_paths.ba
 **Example configuration:**
 
 ```batch
-set EHB_CB_PATH=C:\ETAS\EHANDBOOK-Container-Build_10.0.0-Windows
-set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-UGG_10.0.0-Windows
+set EHB_CB_PATH=C:\ETAS\EHANDBOOK-Container-Build_13.5.0_Windows
+set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-Container-Build_13.5.0_Windows
 set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
 ```
 
