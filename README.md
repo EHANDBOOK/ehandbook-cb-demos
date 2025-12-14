@@ -66,6 +66,8 @@ Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK C
 
 This repository is organized into demo folders, each showcasing specific features or use cases.
 
+The table below lists all available demos, grouped by the **EHB-CB Approach** (e.g., Directory-Based, ASAM-Based). Each entry includes a link to the demo's `README.md`, a download link for the generated output, a short description, the technology used, and the skill level.
+
 | # | Demo | Download .ehb | Description | EHB-CB Approach | Technology/Use Case | Skill Level |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1  | [Demo_EHBCB_DirBased_ASCET_SL_CCODE](./Demo_EHBCB_DirBased_ASCET_SL_CCODE/README.md) | [Download](./Demo_EHBCB_DirBased_ASCET_SL_CCODE/Output/Demo_EHBCB_DirBased_ASCET_SL_CCODE.ehb) | Generates a single container from mixed sources: ASCET model, Simulink model, and C-Code. | Directory-Based | `ASCET`, `Simulink`, `C-Code` | Advanced |
