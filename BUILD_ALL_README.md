@@ -1,6 +1,6 @@
 # Build All Demos
 
-This directory contains scripts to build all eHandbook-CB demo projects automatically.
+This directory contains scripts to build all EHANDBOOK Container-Build demo projects automatically.
 
 ## Prerequisites
 
@@ -12,11 +12,13 @@ Before running any build script, ensure that:
 ### Setting Environment Variables
 
 **For PowerShell:**
+
 ```powershell
 .\set_tool_paths.ps1
 ```
 
 **For Command Prompt:**
+
 ```batch
 set_tool_paths.bat
 ```
@@ -30,11 +32,13 @@ set_tool_paths.bat
 A simple batch script that builds all demos sequentially.
 
 **Usage:**
+
 ```batch
 build_all_demos.bat
 ```
 
 **Features:**
+
 - Builds all demos with `build.bat` files
 - Creates a timestamped log file
 - Shows summary of successful, failed, and skipped builds
@@ -45,11 +49,13 @@ build_all_demos.bat
 An advanced PowerShell script with more options and better error handling.
 
 **Basic Usage:**
+
 ```powershell
 .\build_all_demos.ps1
 ```
 
 **Advanced Options:**
+
 ```powershell
 # Build demos in parallel (faster)
 .\build_all_demos.ps1 -Parallel
@@ -65,11 +71,13 @@ An advanced PowerShell script with more options and better error handling.
 ```
 
 **Parameters:**
+
 - `-Parallel`: Build demos in parallel for faster execution (uses 4 threads)
 - `-Filter`: Pattern to filter which demos to build (default: `"Demo_*"`)
 - `-ContinueOnError`: Continue building remaining demos even if some fail
 
 **Features:**
+
 - Sequential or parallel execution
 - Filter demos by name pattern
 - Colored console output
@@ -80,18 +88,20 @@ An advanced PowerShell script with more options and better error handling.
 ## Output
 
 Both scripts create a timestamped log file in the format:
-```
+
+```plain
 build_all_demos_YYYYMMDD_HHMMSS.log
 ```
 
 The log contains:
+
 - Build status for each demo
 - Error messages for failed builds
 - Summary with counts and timing
 
 ## Example Output
 
-```
+```plain
 ============================================================================
 Building eHandbook-CB Demos
 ============================================================================
@@ -129,16 +139,21 @@ All demos built successfully!
 ## Troubleshooting
 
 ### EHB_CB_PATH not set
+
 If you see an error about `EHB_CB_PATH` not being set:
+
 1. **PowerShell**: Run `.\set_tool_paths.ps1` (the build script will auto-load this if it exists)
 2. **Batch**: Run `set_tool_paths.bat` then run the batch build script
 3. Or manually set the environment variable to your eHandbookCB installation path:
+
    ```powershell
    $env:EHB_CB_PATH = "C:\Path\To\eHandbookCB"
    ```
 
 ### PowerShell execution policy
+
 If you can't run the PowerShell script due to execution policy:
+
 ```powershell
 # Temporarily allow script execution
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
@@ -146,11 +161,13 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 ```
 
 Or run it explicitly:
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\build_all_demos.ps1
 ```
 
 ### Build failures
+
 - Check the log file for detailed error messages
 - Try building the failed demo individually to see full output
 - Ensure all required tools and dependencies are installed
@@ -159,11 +176,13 @@ powershell -ExecutionPolicy Bypass -File .\build_all_demos.ps1
 ## Tips
 
 1. **Use parallel builds** for faster execution when building all demos:
+
    ```powershell
    .\build_all_demos.ps1 -Parallel
    ```
 
 2. **Test a subset** of demos first:
+
    ```powershell
    .\build_all_demos.ps1 -Filter "*Simple*"
    ```
@@ -171,6 +190,7 @@ powershell -ExecutionPolicy Bypass -File .\build_all_demos.ps1
 3. **Check logs** for detailed error information if builds fail
 
 4. **Clean outputs** before rebuilding if needed:
+
    ```powershell
    Get-ChildItem -Directory -Filter "Demo_*" | ForEach-Object {
        Remove-Item "$($_.FullName)\Output\*" -Recurse -Force -ErrorAction SilentlyContinue
