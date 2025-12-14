@@ -1,13 +1,16 @@
 # EHANDBOOK Container-Build Demos
 
-This repository contains a comprehensive set of demos showcasing the capabilities of EHANDBOOK Container-Build (EHB-CB), a tool for automatically generating technical documentation from various source formats including Simulink models, C-Code, AUTOSAR specifications, and more.
+This repository contains a set of demos showcasing the capabilities of EHANDBOOK Container-Build (EHB-CB), a tool for automatically generating technical documentation in EHANDBOOK format from various source formats including Simulink models, C-Code, AUTOSAR specifications, and more.
 
-Additional information on EHANDBOOK Container-Build can be found in the comprehensive documentation at <https://docs.etas.com/ehandbook/ehandbook/container_build.html>.
+Visit <http://ehandbook.etas.com> for a general overview on the ETAS EHANDBOOK solution.
+
+Detailed information on EHANDBOOK Container-Build can be found in the documentation at <https://docs.etas.com/ehandbook/ehandbook/container_build.html>.
 
 ## Table of Contents
 
 - [What You'll Need](#what-youll-need)
-- [Getting Started](#getting-started)
+- [Product Evaluations](#product-evaluations)
+- [Getting Started](#getting-started)  
   - [Clone Repository](#clone-repository)
   - [Setup](#setup)
 - [How to Run a Demo](#how-to-run-a-demo)
@@ -18,9 +21,16 @@ Additional information on EHANDBOOK Container-Build can be found in the comprehe
 Before you begin, ensure you have:
 
 - ✅ **EHANDBOOK Container-Build tools** (latest version recommended)
-- ✅ **MATLAB/Simulink** (R2021a or later, required for Simulink demos)
+- ✅ **EHANDBOOK-NAVIGATOR tool** for viewing generated EHB Containers (latest version recommended)
+- ✅ **MATLAB/Simulink** (R2021a or later, optional for Simulink demos)
 - ✅ **Git** (for cloning the repository)
 - ⏱️ **Estimated setup time:** 15-20 minutes
+
+## Product Evaluations
+
+ETAS offers time-limited evaluations for EHANDBOOK products free of charge.
+
+Visit [https://license.etas.com](https://license.etas.com) and navigate to **Product Evaluation** or go to the [product evaluation page](https://license.etas.com/LandingPage/htm/evalproducts.jsp?lang=English) directly.
 
 ## Getting Started
 
