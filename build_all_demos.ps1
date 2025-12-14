@@ -103,7 +103,7 @@ Write-Host "Found $($demoDirs.Count) demo(s) to build" -ForegroundColor Cyan
 Write-Host ""
 
 # Function to build a single demo
-function Build-Demo {
+function Invoke-DemoBuild {
     param(
         [Parameter(Mandatory=$true)]
         [System.IO.DirectoryInfo]$DemoDir,
@@ -161,7 +161,7 @@ if ($Parallel) {
         $logFilePath = $using:logFile
         
         # Load the function in parallel context
-        function Build-Demo {
+        function Invoke-DemoBuild {
             param($DemoDir, $LogFile)
             
             $result = @{
@@ -202,7 +202,7 @@ if ($Parallel) {
             return $result
         }
         
-        Build-Demo -DemoDir $demo -LogFile $logFilePath
+        Invoke-DemoBuild -DemoDir $demo -LogFile $logFilePath
     } -ThrottleLimit 4
     
     # Process results
@@ -241,7 +241,7 @@ else {
         $logEntry += "Processing: $($demoDir.Name)`n"
         $logEntry | Out-File -FilePath $logFile -Append
         
-        $result = Build-Demo -DemoDir $demoDir -LogFile $logFile
+        $result = Invoke-DemoBuild -DemoDir $demoDir -LogFile $logFile
         
         if ($result.Skipped) {
             Write-Host "[SKIPPED] $($result.Name) - $($result.ErrorMessage)" -ForegroundColor Yellow
