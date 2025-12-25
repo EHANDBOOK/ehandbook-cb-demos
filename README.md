@@ -51,7 +51,12 @@ Visit [https://license.etas.com](https://license.etas.com) and navigate to **Pro
 
 ### Clone Repository
 
-A guide on how to setup SSH for cloning the repository can be found here: <https://confluence.etas-dev.com/display/ETASDEVU/SSH+Git+Access+to+Bitbucket#SSHGitAccesstoBitbucket-Createpublicandprivatekeypair>.
+Clone the repository using Git:
+
+```bash
+git clone https://github.com/EHANDBOOK/ehandbook-cb-demos.git
+cd ehandbook-cb-demos
+```
 
 ### Setup
 

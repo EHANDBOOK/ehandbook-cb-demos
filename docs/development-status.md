@@ -19,7 +19,7 @@ This document tracks ongoing tasks, known issues, and future improvements for th
 
 ## Future Improvements
 
-- [ ] Update information for how to clone the repository in README.md (public GitHub)
+- ✅ Update information for how to clone the repository in README.md (public GitHub)
 - [ ] Find a public GitHub repo where to publish the examples
 - [ ] Add Code of Conduct (see <https://github.com/etas/edms-examples?tab=coc-ov-file>)
 - [ ] Add License (should be ETAS proprietary license, see <https://github.com/etas/edms-examples?tab=License-1-ov-file>)
