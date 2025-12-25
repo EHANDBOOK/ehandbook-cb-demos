@@ -6,14 +6,29 @@ Visit <http://ehandbook.etas.com> for a general overview on the ETAS EHANDBOOK s
 
 Detailed information on EHANDBOOK Container-Build can be found in the documentation at <https://docs.etas.com/ehandbook/ehandbook/container_build.html>.
 
+## What Each Demo Contains
+
+Each demo folder is self-contained and includes:
+
+- **README.md** – Comprehensive documentation covering:
+  - Description of what the demo illustrates
+  - Key features showcased
+  - Step-by-step instructions on how to run the demo
+  - Directory and file structure of input data and configurations
+- **build.bat** – Batch script for building the demo
+- **Input/** – Source files and configuration data specific to the demo
+- **Output/** – Pre-built EHANDBOOK Container (`.ehb` file) that can be explored immediately with EHANDBOOK-NAVIGATOR
+
 ## Table of Contents
 
+- [What Each Demo Contains](#what-each-demo-contains)
 - [What You'll Need](#what-youll-need)
 - [Product Evaluations](#product-evaluations)
 - [Getting Started](#getting-started)  
   - [Clone Repository](#clone-repository)
   - [Setup](#setup)
 - [How to Run a Demo](#how-to-run-a-demo)
+- [Demo Overview](#demo-overview)
 - [AI-Generated Code Notice](#ai-generated-code-notice)
 
 ## What You'll Need
