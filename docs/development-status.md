@@ -10,10 +10,10 @@ This document tracks ongoing tasks, known issues, and future improvements for th
 - ✅ For any PPTX, only publish the corresponding PDF
 - ✅ Reorganized development documentation into `.github/` and `docs/` folders
 - ✅ Remove the demo: Demo_EHBCB_DirBased_PDF (PDF to SVG conversion is not a good approach)
+- ✅ Do not distribute the TargetLink library (property of dSPACE) - Demo removed
 
 ## In Progress / Pending
 
-- [ ] Do not distribute the TargetLink library (property of dSPACE)
 - [ ] Check if Simulink model of Dir_Based_EHBCB_Simulink_Example is ETAS property and can be released
 - [ ] Cross-check and fix AR demos: ASAM_Based_EHBCB and ASAM_Based_EHBCB_Simulink
 

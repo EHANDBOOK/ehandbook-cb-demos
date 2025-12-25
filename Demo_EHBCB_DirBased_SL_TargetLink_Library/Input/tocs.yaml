@@ -1,7 +1,0 @@
-docuUnits:  
-  - id: TargetLink
-    displayName: "TargetLink Library"
-tocs:
-  - displayName: EHB TargetLink Demo
-    contents:
-    - idRef: TargetLink
