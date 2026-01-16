@@ -1,0 +1,3 @@
+*.fsx linguist-language=XML
+*.mdx linguist-language=XML
+*.ccx linguist-language=XML
