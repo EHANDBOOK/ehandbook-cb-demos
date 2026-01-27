@@ -1,0 +1,14 @@
+= Function Documentation 
+
+== Function Overview 
+
+Here you get an overview of this module:
+
+ehbfunctionoverview::Amf[Function OverviewAmf] 
+
+== Function Description 
+
+The following model screenshot shows the first level subsystem of the function.
+
+ehbmodelref::Amf/Amf_mdl[Amf/Amf_mdl] 
+

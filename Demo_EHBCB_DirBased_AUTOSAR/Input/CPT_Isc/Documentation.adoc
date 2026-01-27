@@ -1,0 +1,70 @@
+ehbfunctionoverview::CPT_Isc[Component Overview for CPT_Isc]
+
+ehbmodelref::IdleSpeedController/Main[IdleSpeedController/Main]
+
+== Module der Motorsteuerung
+
+In der Motorsteuerung sind die grundlegenden Module zum Betreiben eines Motors vorhanden. In diesem Kapitel werden neu implementierte Module beschrieben sowie Änderungen an bereits Vorhandenen. Zum Beispiel werden die zusätzlich benötigten Sensoren und Aktuatoren sowie weitere Module in die Motorsteuerung integriert. Das vorhandene Modell wird in Kapitel 2.8 genauer beschrieben.
+
+=== Regler Übersicht
+Die Motorsteuerung hat die Aufgabe bestimmte Betriebszustände zu regeln. Dafür sind mehrere Regler notwendig, die in reihe und parallel geschaltet sind.
+
+image::isc_png_1.png[]
+
+In Abbildung 4-1 ist eine Übersicht über die Reglerstruktur des Luftpfades dargestellt, sowie die Berechnung der Einspritzzeit und des Zündwinkels. Damit wird im Normalbetrieb aus dem Momentenwunsch des Fahrers ein Sollsaugrohrdruck berechnet. Auf Grund dieses Saugrohrdruckes berechnet die Motorsteuerung mit Hilfe des Saugrohrdruckreglers eine Solldrosselklappenstellung, welche dann vom Drosselklappenregler eingeregelt wird. Wird ein größerer Saugrohrdruck benötigt als saugmotorisch bereitgestellt werden kann, wird der Wastegateregler aktiv und die Drosselklappe wird 100% geöffnet. Über die Stellung des Wastegates (Bypassventil des Turboladers) wird der Saugrohrdruck geregelt.
+
+image::isc_png_2.png[]
+
+Ist der Motor in Leerlaufbetrieb (Abbildung 4-2), wird die Sollleerlaufdrehzahl mit Hilfe des Leerlaufreglers geregelt. Der Regler hat dabei zwei Stellgrößen die beeinflusst werden. Zum einen wird der Saugrohrdruck über die Drosselklappenstellung beeinflusst und zum anderen wird der Zündwinkel und hiermit das Moment beeinflusst.
+
+=== Leerlaufregler [Leerlaufregler]
+
+Der Leerlaufregler befindet sich im Funktionsmodul IdleSpeedController (Isc). In diesem Modul werden die Korrekturgrößen berechnet, welche zur Regelung der Leerlaufdrehzahl notwendig sind. Außerdem werden die Bedingungen für den aktiven Leerlaufregler abgefragt.
+
+Bedingungen für aktive Leerlaufregelung:
+
+Die Leerlaufregelung darf nur in bestimmten Betriebszuständen des Motors aktiv sein. In der Motorsteuerung sind daher Bedingungen zu erfüllen. Zum einen ist die Regelung nur aktiv, sobald die Drehzahl in einem bestimmten Bereich liegt. Mit den Parametern Isc_rpmIdleCtrlActivMin und Isc_rpmIdleCtrlActivMax sind diese Grenzen parametrierbar. Zum anderen wird mit dem Parameter Isc_facEgasMin die maximale Gaspedalstellung, bei der die Regelung noch aktiv ist, parametriert. Zusätzlich wird bei aktivem Starter (Stc_flgStarterActive = true) oder manuell über das Label Isc_flgIdleSpeedCtrlEnable = false (Standardeinstellung ist true) die Regelung deaktiviert.
+
+image::isc_png_3.png[]
+
+Berechnung der Korrekturgrößen:
+
+Der Leerlaufregler regelt die Drehzahl über 2 Verstellgrößen. Zum einen über die Drosselklappe und zum anderen über die Zündwinkeladaption.
+
+In der Motorsteuerung wird dazu ein Proportional- und ein Integral-Anteil gebildet. Die Drosselklappe ist dabei nur vom I-Anteil1 beeinflusst. Der Zündwinkel dagegen zusätzlich vom schnellen P-Anteil2. Die Verstärkungsfaktoren der beiden Anteile werden in Abhängigkeit der Differenz von Soll-Motordrehzahl und Ist- Motordrehzahl gebildet. Je größer die Differenz ist, desto höher sind die Verstärkungsfaktoren. Parametrierbar sind diese Verstärkungsfaktoren in den Kennfeldern Isc_facPPart_CUR (P-Anteil) und Isc_facIPart_CUR (I-Anteil).
+
+image::isc_png_4.png[]
+
+Der P-Anteil ( Isc_IdleSpdCtrlPPart ) entspricht dem aus Isc_facPPart_CUR gebildeten Verstärkungsfaktor. Beim I-Anteil ( Isc_IdleSpdCtrlIPart ) wird der Verstärkungsfaktor Isc_facIPart_CUR als Eingang des Integrators verwendet. Die Grenzen des Integrators werden mit den Parametern Isc_IPartMax und Isc_IPartMin nach oben und unten begrenzt. Delta T des Integrators wird auf 0,01s gesetzt, da diese Funktion im 10ms Raster ausgeführt wird.
+
+Eine Art Vorsteuerung bildet der Stabilisierungsfaktor Isc_facIdleSpdStab , der auf das Schleppmoment des Motors multipliziert wird. Dieser Faktor wird gebildet aus der Soll-Leerlaufdrehzahl und der Ist-Motordrehzahl und bewirkt eine Anhebung der Momentenanforderung, je niedriger die Motordrehzahl desto höher der Faktor und damit die Momentenanforderung.
+
+image::isc_png_5.png[]
+
+Figure 8. Integrator [Integrator.Main]
+Open Interactive Model
+Wird keine Momentenanforderung durch Betätigen des Gaspedals gestellt, sinkt die Drehzahl des Motors ab, solange bis der Leerlaufregler die gewünschte Drehzahl einregelt. Um ein sanfteres Einregelverhalten zu erreichen, wird der Leerlaufregler bereits über der Soll-Leerlaufdrehzahl aktiviert. Die Solldrehzahl, die zum Aktivierungszeitpunkt des Leerlaufreglers der Motordrehzahl entspricht, wird dann über einen Integrator verzögert abgesenkt bis die gewünschte Leerlaufdrehzahl erreicht ist.
+
+image::isc_png_6.png[]
+
+Im Folgenden wird erläutert wie der Leerlaufregler funktioniert und auf welche Größen er Einfluss hat. In Abbildung 4-5 ist dargestellt wie der P- und der I-Anteil des Leerlaufreglers auf den Saugrohrdruck einwirken. Aus dem Sollsaugrohrdruck der in der Momentenstruktur berechnet wird, wird ein "schneller“ und ein "langsamer“ Saugrohrdruck gebildet. Auf den „schnellen“ Saugrohrdruck, der auf den Zündwinkel wirkt, werden sowohl P- als auch I-Anteil addiert. Auf den "langsamen" Saugrohrdruck werden der I-Anteil und die Momentenreserve (vorgegeben über T2t_pManiRes ) addiert. Dadurch wird der Zündwinkel wesentlich schneller geregelt als die Drosselklappe, was zur Folge hat, dass eine plötzliche Lastmomentänderung über den Zündwinkel ausgeglichen wird bis die Drosselklappe nachfolgt.
+
+image::isc_png_7.png[]
+
+Aus dem "schnellen" Saugrohrdruck und dem Ist-Saugrohrdruck wird in Abbildung 4-6 der minimale Saugrohrdruck, der durch den Saugrohdrucksensor begrenzt wird, subtrahiert und anschließend der Quotient gebildet. Dies ergibt den Zündwinkelwirkungsgrad, der notwendig ist die Drehzahl stabil zu regeln. Durch das Zündwinkelwirkungsgrad-Kennfeld wird aus dem Wirkungsgrad, der Differenz Zündwinkel berechnet und vom vorgesteuerten Zündwinkel abgezogen. Eine Simulation des Leerlaufreglers gegen LABCAR ist in Kapitel 6.1 beschrieben.
+
+=== Schubbetrieb [Schubbetrieb]
+
+Im Schubbetrieb wird kein abgegebenes Moment des Motors benötigt. Da der Saugrohrdruck nie auf null gehen kann und der Motor mit einem stöchiometrischen Luft-Kraftstoffverhältnis betrieben wird, gibt der Motor trotzdem ein Moment ab. Deshalb soll nach einer bestimmten Zeit, nach Erfüllung der Bedingungen, die Einspritzung abgeschaltet werden. Die Einspritzung wird nicht sofort unterbrochen, da ein zu starkes Ruckeln des Motors vermieden werden soll. Während der aktiven Schubabschaltung ist der Lambdaregler inaktiv geschaltet.
+
+image::isc_png_8.png[]
+
+Bedingungen für die Aktivierung der Schubabschaltung (Abbildung 4-8):
+
+* EGas1-Stellung parametrierbar über Isc_facEgasMin
+* Drehzahl über der Schwellendrehzahl des Leerlaufreglers(Isc_rpmIdleCtrlActivMax)
+* Schubabschaltung freigegeben ( Isc_FuelCutoffEnable = "true")
+
+Die verzögerte Aktivierung der Schubabschaltung erfolgt über einen Counter. Dieser wird aktiv, sobald die Bedingungen erfüllt sind. Ist die Schubabschaltung nicht aktiv, wird der Counter zurückgesetzt. Mit Hilfe des Parameters Isc_FuelCutoffDelay wird die Zeitverzögerung der Schubabschaltung in Sekunden vorgegeben. Ist die Verzögerung erreicht, wird Isc_flgFuelCutoff auf "true" gesetzt.
+
+Sobald der Motor im Schubmodus ist, wird mit Hilfe von Isc_flgFuelCutoff die Lambdaregelung deaktiviert und die Einspritzung unterbrochen.

@@ -1,0 +1,14 @@
+ehbfunctionoverview::CPT_Iac[Component Overview for CPT_Iac]
+
+ehbmodelref::IgnitionAngle/Main[IgnitionAngle/Main]
+
+== Zündwinkel
+
+Im Modul Zündwinkel (IngnitionAngle) wird aus der Drehzahl Epm_rpmEngSpd und der re- lativen Füllung Amf_facRelAir zum einen der Basiszündwinkel Iac_degIgnBase bestimmt und zum anderen der optimale Zündwinkel Iac_degMinAdvBestTq . Der Basiszündwinkel beschreibt den Winkel des höchsten Drehmoments, bei dem gerade noch kein Klopfen auftritt. Er wird über das Kennfeld Iac_rpmEngSpdfacRelAir2degBase_MAP berechnet und kann anschließend zur Sicherheit mit dem Offset Iac_degIgnOptOffset nach spät verschoben werden, bevor der einzustellende Zündwinkel Iac_degIgn als Nachricht weiter- gegeben wird. Hierbei bedeutet, im Gegensatz zur Smartmotorsteuerung, ein positiver Wert, dass die Zündung vor dem oberen Zündtotpunkt stattfindet, ein negativer Winkel danach, d. h. durch die Grundparametrierung des Offsets Iac_degIgnOptOffset mit -5,0°KW wird der Zündwinkel nach spät gezogen.
+
+Über das Kennfeld Iac_rpmEngSpdfacRelAir2degMinAdvBestTq_MAP wird der optimale Zündwinkel bestimmt, d. h. der Winkel, bei dem der Motor unter den vorherrschenden Bedingungen das höchste Drehmoment abgeben würde. Die Zündung darf in der Regel nicht bei diesem Winkel stattfinden, da unter Umständen erhebliches Klopfverhalten auftritt und der Motor in kürzester Zeit zerstört wird. Beide Kennfelder sind direkt dem Funktionsrahmen der Smartmotorsteuerung entnommen.
+
+Die Auswertung der Funktion Iac_calc erfolgt im Synchron-Raster. Durch das Flag Iac_flgIgnCutoffReq kann die Zündung manuell aus- und eingeschaltet werden. Sonst wird zu keinem Zeitpunkt die Zündung ausgeschalten, d. h. auch bei Aussetzung der Eispritzung wird weiterhin gezündet.
+
+*Hint:*
+Vermutlich aufgrund eines Fehlers in der Basissoftware wird, nach einer erfolgreichen Synchronisation des Motors, kein Zündsignal ausgegeben, solange nicht mindestens einmal die Einspritzung eingeschaltet war. Danach kann die Zündung bis zum nächsten Verlust der Synchronisation unabhängig von der Einspritzung aus- und eingeschaltet werden, auch wenn diese nicht einspritzt.

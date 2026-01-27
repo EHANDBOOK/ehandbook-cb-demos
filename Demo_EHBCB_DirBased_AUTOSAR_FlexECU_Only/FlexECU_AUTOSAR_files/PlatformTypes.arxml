@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00049.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="2e1b3bc9-f67e-4917-a329-39612105aff6">
+      <SHORT-NAME>AUTOSAR_Platform</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="3ff0ab3e-c78d-442a-9dcd-d1267b29a3d4">
+          <SHORT-NAME>BaseTypes</SHORT-NAME>
+          <LONG-NAME>
+            <L-4 L="EN">AUTOSAR platform types</L-4>
+          </LONG-NAME>
+          <ELEMENTS>
+            <SW-BASE-TYPE UUID="4b58cc56-edf0-482e-8d73-01b1902c6ac5">
+              <SHORT-NAME>boolean</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="fbf8977f-eb24-4408-b851-59b4577e31bc">
+              <SHORT-NAME>float32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="e7aeaf2e-e407-4be0-95e8-0500ef6d147f">
+              <SHORT-NAME>float64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="96573782-524c-4603-a843-6632f86da059">
+              <SHORT-NAME>sint16</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE>
+              <SHORT-NAME>sint16_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">signed integer at least 15 bit + 1 bit sign</L-4>
+              </LONG-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00024</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be  at least 15 bit + 1 bit sign.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <MEM-ALIGNMENT>32</MEM-ALIGNMENT>
+              <NATIVE-DECLARATION />
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="a60517cb-a91b-4302-816c-9126ab10b7d3">
+              <SHORT-NAME>sint32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE>
+              <SHORT-NAME>sint32_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">signed integer at least 31 bit + 1 bit sign</L-4>
+              </LONG-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00025</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 31 bit + 1 bit sign.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <MEM-ALIGNMENT>32</MEM-ALIGNMENT>
+              <NATIVE-DECLARATION />
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="b539896a-2a79-4d8a-a455-00ea97fcbaac">
+              <SHORT-NAME>sint64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="4d187825-fb12-4a8a-b3df-867cbb6240f9">
+              <SHORT-NAME>sint8</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE>
+              <SHORT-NAME>sint8_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">signed integer at least 7 bit + 1 bit sign</L-4>
+              </LONG-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00023</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 7 bit + 1 bit sign.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+              <MEM-ALIGNMENT>32</MEM-ALIGNMENT>
+              <NATIVE-DECLARATION />
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="78e9eb25-ada8-49be-9adc-a3f4d17ab825">
+              <SHORT-NAME>uint16</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE>
+              <SHORT-NAME>uint16_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">unsigned integer at least 16 bit</L-4>
+              </LONG-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00021</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 16 bit unsigned.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <MEM-ALIGNMENT>32</MEM-ALIGNMENT>
+              <NATIVE-DECLARATION />
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="e3babc78-e898-42a1-adef-382665a3a0ed">
+              <SHORT-NAME>uint32</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE>
+              <SHORT-NAME>uint32_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">unsigned integer at least 32 bit</L-4>
+              </LONG-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00022</SHORT-NAME>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 32 bit unsigned.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <MEM-ALIGNMENT>32</MEM-ALIGNMENT>
+              <NATIVE-DECLARATION />
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="b1c4bd23-bbbd-42cf-b0d2-a20adef1838b">
+              <SHORT-NAME>uint64</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>64</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE UUID="e17fc71a-7078-4c81-9a7d-dbefcae2c69e">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE>
+              <SHORT-NAME>uint8_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">unsigned integer at least 8 bit</L-4>
+              </LONG-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00020</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 8 bit unsigned.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+              <MEM-ALIGNMENT>32</MEM-ALIGNMENT>
+              <NATIVE-DECLARATION />
+            </SW-BASE-TYPE>
+            <SW-BASE-TYPE>
+              <SHORT-NAME>void</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">void to be used as pointer target</L-4>
+              </LONG-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>0</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>VOID</BASE-TYPE-ENCODING>
+              <NATIVE-DECLARATION>void</NATIVE-DECLARATION>
+            </SW-BASE-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="0b5a93d5-55a9-4025-801d-f03eb1372a76">
+          <SHORT-NAME>DataConstraints</SHORT-NAME>
+          <LONG-NAME>
+            <L-4 L="EN">AUTOSAR platform types</L-4>
+          </LONG-NAME>
+          <ELEMENTS>
+            <DATA-CONSTR UUID="3ce1d693-9653-467f-b57f-ee3379502c49">
+              <SHORT-NAME>DataConstr_boolean</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>1</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>1</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="ff00c2d7-54f3-4c85-8078-de391f26120c">
+              <SHORT-NAME>DataConstr_sint16</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>-32768</LOWER-LIMIT>
+                    <UPPER-LIMIT>32767</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>-32768</LOWER-LIMIT>
+                    <UPPER-LIMIT>32767</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="35b7e406-b5d5-4fa4-8cf8-2aa6667151ff">
+              <SHORT-NAME>DataConstr_sint32</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>-2147483648</LOWER-LIMIT>
+                    <UPPER-LIMIT>2147483647</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>-2147483648</LOWER-LIMIT>
+                    <UPPER-LIMIT>2147483647</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="82199666-8ce6-4d84-b006-7389df42a00d">
+              <SHORT-NAME>DataConstr_sint64</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>-9223372036854775808</LOWER-LIMIT>
+                    <UPPER-LIMIT>9223372036854775807</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>-9223372036854775808</LOWER-LIMIT>
+                    <UPPER-LIMIT>9223372036854775807</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="fb8472fe-1844-4e16-a63c-8e28b64f4250">
+              <SHORT-NAME>DataConstr_sint8</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>-128</LOWER-LIMIT>
+                    <UPPER-LIMIT>127</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>-128</LOWER-LIMIT>
+                    <UPPER-LIMIT>127</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="0be70ae5-1857-498d-8538-e860d7f42828">
+              <SHORT-NAME>DataConstr_uint16</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>65535</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>65535</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="3eed5a86-8226-4ecb-9b27-9abb8bec11d1">
+              <SHORT-NAME>DataConstr_uint32</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>4294967295</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>4294967295</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="5674fad2-e84d-4a39-9a13-69a1adf079cc">
+              <SHORT-NAME>DataConstr_uint64</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>18446744073709551615</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>18446744073709551615</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="d5c017f9-0a4a-43cd-ae48-4c23b141e559">
+              <SHORT-NAME>DataConstr_uint8</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <PHYS-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>255</UPPER-LIMIT>
+                  </PHYS-CONSTRS>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT>0</LOWER-LIMIT>
+                    <UPPER-LIMIT>255</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="ffa5ff50-c336-4daf-a023-cbdc4a007050">
+          <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
+          <LONG-NAME>
+            <L-4 L="EN">AUTOSAR platform types</L-4>
+          </LONG-NAME>
+          <ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE UUID="e3198bbf-137a-44b2-a263-7b27295b65f7">
+              <SHORT-NAME>boolean</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/boolean</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_boolean</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="6a697dee-dcdc-4fe9-bf19-ebb74cb49d5e">
+              <SHORT-NAME>float32</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/float32</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="309b42ea-763e-4632-8300-e10141ec4563">
+              <SHORT-NAME>float64</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/float64</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="12a596a3-a73b-40dd-82e3-b210984713d2">
+              <SHORT-NAME>sint16</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/sint16</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_sint16</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE>
+              <SHORT-NAME>sint16_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">signed integer at least 15 bit + 1 bit sign</L-4>
+              </LONG-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00024</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be  at least 15 bit + 1 bit sign.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/sint16_least</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-EMITTER>platform</TYPE-EMITTER>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="beaa1367-d434-451b-a332-925ef6f9645e">
+              <SHORT-NAME>sint32</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/sint32</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_sint32</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE>
+              <SHORT-NAME>sint32_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">signed integer at least 31 bit + 1 bit sign</L-4>
+              </LONG-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00025</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 31 bit + 1 bit sign.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/sint32_least</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-EMITTER>platform</TYPE-EMITTER>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="763f5577-d6fe-49dd-9814-df1628870b88">
+              <SHORT-NAME>sint64</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/sint64</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_sint64</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="a6a493b7-5a75-4c0b-82ae-b82e5d1f8453">
+              <SHORT-NAME>sint8</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/sint8</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_sint8</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE>
+              <SHORT-NAME>sint8_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">signed integer at least 7 bit + 1 bit sign</L-4>
+              </LONG-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00023</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 7 bit + 1 bit sign.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/sint8_least</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-EMITTER>platform</TYPE-EMITTER>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="0e4b8f6d-ef32-4761-a9c2-3cd8d525579b">
+              <SHORT-NAME>uint16</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint16</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_uint16</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE>
+              <SHORT-NAME>uint16_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">unsigned integer at least 16 bit</L-4>
+              </LONG-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00021</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 16 bit unsigned.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint16_least</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-EMITTER>platform</TYPE-EMITTER>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="d5e22b8d-a55c-493f-aa36-6ec8bc79a600">
+              <SHORT-NAME>uint32</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint32</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_uint32</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE>
+              <SHORT-NAME>uint32_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">unsigned integer at least 32 bit</L-4>
+              </LONG-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00022</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 32 bit unsigned.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint32_least</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-EMITTER>platform</TYPE-EMITTER>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="62e9e4bc-8f6f-42aa-ad81-2707e0433cf0">
+              <SHORT-NAME>uint64</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint64</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_uint64</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <DYNAMIC-ARRAY-SIZE-PROFILE />
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE UUID="d1d7af86-4bef-4df3-a006-d259b2a303f9">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint8</BASE-TYPE-REF>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstraints/DataConstr_uint8</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE>
+            <IMPLEMENTATION-DATA-TYPE>
+              <SHORT-NAME>uint8_least</SHORT-NAME>
+              <LONG-NAME>
+                <L-4 L="EN">unsigned integer at least 8 bit</L-4>
+              </LONG-NAME>
+              <CATEGORY>VALUE</CATEGORY>
+              <INTRODUCTION>
+                <TRACE>
+                  <SHORT-NAME>SWS_Platform_00020</SHORT-NAME>
+                  <CATEGORY>SPECIFICATION_ITEM</CATEGORY>
+                  <P>
+                    <L-1 L="EN">This standard AUTOSAR type shall be at least 8 bit unsigned.</L-1>
+                  </P>
+                </TRACE>
+              </INTRODUCTION>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint8_least</BASE-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-EMITTER>platform</TYPE-EMITTER>
+            </IMPLEMENTATION-DATA-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

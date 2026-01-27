@@ -1,0 +1,20 @@
+{
+	"exact": {
+		"before_entity_after": "entity",
+		"before_childEntity1": "childEntity1",
+		"childEntity2_after": "childEntity2",
+		"entity_pivot_1": "entity",
+		"link1_changed": "link1",
+		"changed_link2": "link2",
+		"$*ab_port1": "port1",
+		"port2_after": "port2",
+		"changed_component1": "component1",
+		"component2_changed": "component2"
+	},
+	"pattern": {
+		"prefix_(.*)_suffix": "$1",
+		"prefix_(.*)": "$1",
+		"(.*)_suffix": "$1",
+		"(.*)_middle_(.*)": "$1_$2"
+	}
+}

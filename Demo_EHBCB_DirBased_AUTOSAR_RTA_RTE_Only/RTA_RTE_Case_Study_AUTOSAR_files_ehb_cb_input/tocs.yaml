@@ -1,0 +1,18 @@
+docuUnits:
+- id: "SenderInstance"
+  displayName: "SenderInstance"
+- id: "ReceiverInstance"
+  displayName: "ReceiverInstance"
+- id: "Compo"
+  displayName: "Compo"
+tocs:
+- displayName: "Alphabetic order View"
+  contents:
+  - idRef: "ReceiverInstance"
+  - idRef: "SenderInstance"
+- displayName: "Composition View"
+  contents:
+  - idRef: "Compo"
+    contents:
+    - idRef: "SenderInstance"
+    - idRef: "ReceiverInstance"

@@ -1,0 +1,11 @@
+= Function Documentation
+
+== Function Overview
+
+ehbfunctionoverview::ASCET[Function Overview diagram for component with ASCET model]
+
+== Function Description
+
+Interactive model screenshot derived from ASCET 6 model:
+
+ehbmodelref::FuelMass/Main[main]

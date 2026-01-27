@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+
+<!-- 
+Copyright 2010 - 2012 ETAS GmbH.
+  -->
+<AUTOSAR xmlns='http://autosar.org/schema/r4.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd'>
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>TGen_CaseStudy1</SHORT-NAME>
+      <ELEMENTS>
+        <DATA-TYPE-MAPPING-SET>
+          <SHORT-NAME>dtm1</SHORT-NAME>
+          <DATA-TYPE-MAPS />
+          <MODE-REQUEST-TYPE-MAPS>
+            <MODE-REQUEST-TYPE-MAP>
+              <IMPLEMENTATION-DATA-TYPE-REF DEST='IMPLEMENTATION-DATA-TYPE'>/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
+              <MODE-GROUP-REF DEST='MODE-DECLARATION-GROUP'>/TGen_CaseStudy1/mg1</MODE-GROUP-REF>
+            </MODE-REQUEST-TYPE-MAP>
+          </MODE-REQUEST-TYPE-MAPS>
+        </DATA-TYPE-MAPPING-SET>
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>SenderComponent</SHORT-NAME>
+          <DESC />
+          <PORTS>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>OutputPort</SHORT-NAME>
+              <PROVIDED-COM-SPECS />
+              <PROVIDED-INTERFACE-TREF DEST='SENDER-RECEIVER-INTERFACE'>/TGen_CaseStudy1/CaseStudyInterface</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>OutputModes</SHORT-NAME>
+              <PROVIDED-COM-SPECS>
+                <MODE-SWITCH-SENDER-COM-SPEC>
+                  <MODE-GROUP-REF DEST='MODE-DECLARATION-GROUP-PROTOTYPE'>/TGen_CaseStudy1/CaseStudyModes/mdg1</MODE-GROUP-REF>
+                  <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                </MODE-SWITCH-SENDER-COM-SPEC>
+              </PROVIDED-COM-SPECS>
+              <PROVIDED-INTERFACE-TREF DEST='MODE-SWITCH-INTERFACE'>/TGen_CaseStudy1/CaseStudyModes</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>IBSenderComponent</SHORT-NAME>
+              <CONSTANT-MEMORYS />
+              <DATA-TYPE-MAPPING-REFS>
+                <DATA-TYPE-MAPPING-REF DEST='DATA-TYPE-MAPPING-SET'>/TGen_CaseStudy1/dtm1</DATA-TYPE-MAPPING-REF>
+              </DATA-TYPE-MAPPING-REFS>
+              <EXCLUSIVE-AREAS />
+              <STATIC-MEMORYS />
+              <EVENTS>
+                <TIMING-EVENT>
+                  <SHORT-NAME>PollPeriod</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST='RUNNABLE-ENTITY'>/TGen_CaseStudy1/SenderComponent/IBSenderComponent/OSTriggered</START-ON-EVENT-REF>
+                  <PERIOD>1.0</PERIOD>
+                </TIMING-EVENT>
+              </EVENTS>
+              <EXPLICIT-INTER-RUNNABLE-VARIABLES />
+              <IMPLICIT-INTER-RUNNABLE-VARIABLES />
+              <PER-INSTANCE-MEMORYS>
+                <PER-INSTANCE-MEMORY>
+                  <SHORT-NAME>ExecutionCount</SHORT-NAME>
+                  <TYPE>ExecutionCountType</TYPE>
+                  <TYPE-DEFINITION>SInt16</TYPE-DEFINITION>
+                </PER-INSTANCE-MEMORY>
+              </PER-INSTANCE-MEMORYS>
+              <PER-INSTANCE-PARAMETERS />
+              <PORT-API-OPTIONS />
+              <RUNNABLES>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>OSTriggered</SHORT-NAME>
+                  <ASYNCHRONOUS-SERVER-CALL-RESULT-POINTS />
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-SEND-POINTS>
+                    <VARIABLE-ACCESS>
+                      <SHORT-NAME>dsp_OutputPort_CaseStudyData</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST='P-PORT-PROTOTYPE'>/TGen_CaseStudy1/SenderComponent/OutputPort</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST='DATA-PROTOTYPE'>/TGen_CaseStudy1/CaseStudyInterface/CaseStudyData</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-SEND-POINTS>
+                  <INTERNAL-TRIGGERING-POINTS />
+                  <MODE-SWITCH-POINTS>
+                    <MODE-SWITCH-POINT>
+                      <SHORT-NAME>msp_OutputModes_mdg1</SHORT-NAME>
+                      <MODE-GROUP-IREF>
+                        <CONTEXT-P-PORT-REF DEST='P-PORT-PROTOTYPE'>/TGen_CaseStudy1/SenderComponent/OutputModes</CONTEXT-P-PORT-REF>
+                        <TARGET-MODE-GROUP-REF DEST='MODE-DECLARATION-GROUP-PROTOTYPE'>/TGen_CaseStudy1/CaseStudyModes/mdg1</TARGET-MODE-GROUP-REF>
+                      </MODE-GROUP-IREF>
+                    </MODE-SWITCH-POINT>
+                  </MODE-SWITCH-POINTS>
+                  <READ-LOCAL-VARIABLES />
+                  <SYMBOL>Sender_OSTriggered</SYMBOL>
+                  <WAIT-POINTS />
+                  <WRITTEN-LOCAL-VARIABLES />
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SERVICE-DEPENDENCYS />
+              <SHARED-PARAMETERS />
+              <SUPPORTS-MULTIPLE-INSTANTIATION>true</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION>
+          <SHORT-NAME>IMPSenderComponent</SHORT-NAME>
+          <BEHAVIOR-REF DEST='SWC-INTERNAL-BEHAVIOR'>/TGen_CaseStudy1/SenderComponent/IBSenderComponent</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>ReceiverComponent</SHORT-NAME>
+          <DESC />
+          <PORTS>
+            <R-PORT-PROTOTYPE>
+              <SHORT-NAME>InputPort</SHORT-NAME>
+              <REQUIRED-COM-SPECS />
+              <REQUIRED-INTERFACE-TREF DEST='SENDER-RECEIVER-INTERFACE'>/TGen_CaseStudy1/CaseStudyInterface</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+            <R-PORT-PROTOTYPE>
+              <SHORT-NAME>InputModes</SHORT-NAME>
+              <REQUIRED-COM-SPECS />
+              <REQUIRED-INTERFACE-TREF DEST='MODE-SWITCH-INTERFACE'>/TGen_CaseStudy1/CaseStudyModes</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+          <INTERNAL-BEHAVIORS>
+            <SWC-INTERNAL-BEHAVIOR>
+              <SHORT-NAME>IBReceiverComponent</SHORT-NAME>
+              <CONSTANT-MEMORYS />
+              <DATA-TYPE-MAPPING-REFS>
+                <DATA-TYPE-MAPPING-REF DEST='DATA-TYPE-MAPPING-SET'>/TGen_CaseStudy1/dtm1</DATA-TYPE-MAPPING-REF>
+              </DATA-TYPE-MAPPING-REFS>
+              <EXCLUSIVE-AREAS />
+              <STATIC-MEMORYS />
+              <EVENTS>
+                <DATA-RECEIVED-EVENT>
+                  <SHORT-NAME>InputPort_CaseStudyData_Event</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST='RUNNABLE-ENTITY'>/TGen_CaseStudy1/ReceiverComponent/IBReceiverComponent/InputPort_CaseStudyData</START-ON-EVENT-REF>
+                  <DATA-IREF>
+                    <CONTEXT-R-PORT-REF DEST='R-PORT-PROTOTYPE'>/TGen_CaseStudy1/ReceiverComponent/InputPort</CONTEXT-R-PORT-REF>
+                    <TARGET-DATA-ELEMENT-REF DEST='VARIABLE-DATA-PROTOTYPE'>/TGen_CaseStudy1/CaseStudyInterface/CaseStudyData</TARGET-DATA-ELEMENT-REF>
+                  </DATA-IREF>
+                </DATA-RECEIVED-EVENT>
+                <SWC-MODE-SWITCH-EVENT>
+                  <SHORT-NAME>mse1</SHORT-NAME>
+                  <START-ON-EVENT-REF DEST='RUNNABLE-ENTITY'>/TGen_CaseStudy1/ReceiverComponent/IBReceiverComponent/initialize</START-ON-EVENT-REF>
+                  <ACTIVATION>ON-ENTRY</ACTIVATION>
+                  <MODE-IREFS>
+                    <MODE-IREF>
+                      <CONTEXT-PORT-REF DEST='R-PORT-PROTOTYPE'>/TGen_CaseStudy1/ReceiverComponent/InputModes</CONTEXT-PORT-REF>
+                      <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST='MODE-DECLARATION-GROUP-PROTOTYPE'>/TGen_CaseStudy1/CaseStudyModes/mdg1</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                      <TARGET-MODE-DECLARATION-REF DEST='MODE-DECLARATION'>/TGen_CaseStudy1/mg1/imode</TARGET-MODE-DECLARATION-REF>
+                    </MODE-IREF>
+                  </MODE-IREFS>
+                </SWC-MODE-SWITCH-EVENT>
+              </EVENTS>
+              <EXPLICIT-INTER-RUNNABLE-VARIABLES />
+              <IMPLICIT-INTER-RUNNABLE-VARIABLES />
+              <PER-INSTANCE-MEMORYS />
+              <PER-INSTANCE-PARAMETERS />
+              <PORT-API-OPTIONS />
+              <RUNNABLES>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>InputPort_CaseStudyData</SHORT-NAME>
+                  <ASYNCHRONOUS-SERVER-CALL-RESULT-POINTS />
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                    <VARIABLE-ACCESS>
+                      <SHORT-NAME>drp_InputPort_CaseStudyData</SHORT-NAME>
+                      <ACCESSED-VARIABLE>
+                        <AUTOSAR-VARIABLE-IREF>
+                          <PORT-PROTOTYPE-REF DEST='R-PORT-PROTOTYPE'>/TGen_CaseStudy1/ReceiverComponent/InputPort</PORT-PROTOTYPE-REF>
+                          <TARGET-DATA-PROTOTYPE-REF DEST='DATA-PROTOTYPE'>/TGen_CaseStudy1/CaseStudyInterface/CaseStudyData</TARGET-DATA-PROTOTYPE-REF>
+                        </AUTOSAR-VARIABLE-IREF>
+                      </ACCESSED-VARIABLE>
+                    </VARIABLE-ACCESS>
+                  </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                  <INTERNAL-TRIGGERING-POINTS />
+                  <READ-LOCAL-VARIABLES />
+                  <SYMBOL>Receiver_InputPort_CaseStudyData</SYMBOL>
+                  <WAIT-POINTS />
+                  <WRITTEN-LOCAL-VARIABLES />
+                </RUNNABLE-ENTITY>
+                <RUNNABLE-ENTITY>
+                  <SHORT-NAME>initialize</SHORT-NAME>
+                  <ASYNCHRONOUS-SERVER-CALL-RESULT-POINTS />
+                  <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                  <INTERNAL-TRIGGERING-POINTS />
+                  <READ-LOCAL-VARIABLES />
+                  <SYMBOL>Receiver_initialize</SYMBOL>
+                  <WAIT-POINTS />
+                  <WRITTEN-LOCAL-VARIABLES />
+                </RUNNABLE-ENTITY>
+              </RUNNABLES>
+              <SERVICE-DEPENDENCYS />
+              <SHARED-PARAMETERS />
+              <SUPPORTS-MULTIPLE-INSTANTIATION>true</SUPPORTS-MULTIPLE-INSTANTIATION>
+            </SWC-INTERNAL-BEHAVIOR>
+          </INTERNAL-BEHAVIORS>
+        </APPLICATION-SW-COMPONENT-TYPE>
+        <SWC-IMPLEMENTATION>
+          <SHORT-NAME>IMPReceiverComponent</SHORT-NAME>
+          <BEHAVIOR-REF DEST='SWC-INTERNAL-BEHAVIOR'>/TGen_CaseStudy1/ReceiverComponent/IBReceiverComponent</BEHAVIOR-REF>
+        </SWC-IMPLEMENTATION>
+        <SENDER-RECEIVER-INTERFACE>
+          <SHORT-NAME>CaseStudyInterface</SHORT-NAME>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE>
+              <SHORT-NAME>CaseStudyData</SHORT-NAME>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL />
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-TREF DEST='IMPLEMENTATION-DATA-TYPE'>/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+          <INVALIDATION-POLICYS />
+        </SENDER-RECEIVER-INTERFACE>
+        <MODE-SWITCH-INTERFACE>
+          <SHORT-NAME>CaseStudyModes</SHORT-NAME>
+          <MODE-GROUP>
+            <SHORT-NAME>mdg1</SHORT-NAME>
+            <TYPE-TREF DEST='MODE-DECLARATION-GROUP'>/TGen_CaseStudy1/mg1</TYPE-TREF>
+          </MODE-GROUP>
+        </MODE-SWITCH-INTERFACE>
+        <MODE-DECLARATION-GROUP>
+          <SHORT-NAME>mg1</SHORT-NAME>
+          <CATEGORY>ALPHABETIC_ORDER</CATEGORY>
+          <INITIAL-MODE-REF DEST='MODE-DECLARATION'>/TGen_CaseStudy1/mg1/imode</INITIAL-MODE-REF>
+          <MODE-DECLARATIONS>
+            <MODE-DECLARATION>
+              <SHORT-NAME>imode</SHORT-NAME>
+            </MODE-DECLARATION>
+            <MODE-DECLARATION>
+              <SHORT-NAME>run_mode</SHORT-NAME>
+            </MODE-DECLARATION>
+          </MODE-DECLARATIONS>
+        </MODE-DECLARATION-GROUP>
+        <ECU-INSTANCE>
+          <SHORT-NAME>ECUI_intra</SHORT-NAME>
+          <CONNECTORS>
+            <CAN-COMMUNICATION-CONNECTOR>
+              <SHORT-NAME>comCon1</SHORT-NAME>
+              <ECU-COMM-PORT-INSTANCES />
+            </CAN-COMMUNICATION-CONNECTOR>
+          </CONNECTORS>
+        </ECU-INSTANCE>
+        <SYSTEM>
+          <SHORT-NAME>sys_intra</SHORT-NAME>
+          <MAPPINGS>
+            <SYSTEM-MAPPING>
+              <SHORT-NAME>mapping</SHORT-NAME>
+              <DATA-MAPPINGS />
+              <SW-IMPL-MAPPINGS />
+              <SW-MAPPINGS>
+                <SWC-TO-ECU-MAPPING>
+                  <SHORT-NAME>map_ECUI_intra</SHORT-NAME>
+                  <COMPONENT-IREFS>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST='ROOT-SW-COMPOSITION-PROTOTYPE'>/TGen_CaseStudy1/sys_intra/mySWComp</CONTEXT-COMPOSITION-REF>
+                      <TARGET-COMPONENT-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/SenderInstance</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                    <COMPONENT-IREF>
+                      <CONTEXT-COMPOSITION-REF DEST='ROOT-SW-COMPOSITION-PROTOTYPE'>/TGen_CaseStudy1/sys_intra/mySWComp</CONTEXT-COMPOSITION-REF>
+                      <TARGET-COMPONENT-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/ReceiverInstance</TARGET-COMPONENT-REF>
+                    </COMPONENT-IREF>
+                  </COMPONENT-IREFS>
+                  <ECU-INSTANCE-REF DEST='ECU-INSTANCE'>/TGen_CaseStudy1/ECUI_intra</ECU-INSTANCE-REF>
+                </SWC-TO-ECU-MAPPING>
+              </SW-MAPPINGS>
+            </SYSTEM-MAPPING>
+          </MAPPINGS>
+          <ROOT-SOFTWARE-COMPOSITIONS>
+            <ROOT-SW-COMPOSITION-PROTOTYPE>
+              <SHORT-NAME>mySWComp</SHORT-NAME>
+              <CALIBRATION-PARAMETER-VALUE-SET-REFS />
+              <SOFTWARE-COMPOSITION-TREF DEST='COMPOSITION-SW-COMPONENT-TYPE'>/TGen_CaseStudy1/Compo</SOFTWARE-COMPOSITION-TREF>
+            </ROOT-SW-COMPOSITION-PROTOTYPE>
+          </ROOT-SOFTWARE-COMPOSITIONS>
+        </SYSTEM>
+        <COMPOSITION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>Compo</SHORT-NAME>
+          <PORTS />
+          <COMPONENTS>
+            <SW-COMPONENT-PROTOTYPE>
+              <SHORT-NAME>SenderInstance</SHORT-NAME>
+              <TYPE-TREF DEST='APPLICATION-SW-COMPONENT-TYPE'>/TGen_CaseStudy1/SenderComponent</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+            <SW-COMPONENT-PROTOTYPE>
+              <SHORT-NAME>ReceiverInstance</SHORT-NAME>
+              <TYPE-TREF DEST='APPLICATION-SW-COMPONENT-TYPE'>/TGen_CaseStudy1/ReceiverComponent</TYPE-TREF>
+            </SW-COMPONENT-PROTOTYPE>
+          </COMPONENTS>
+          <CONNECTORS>
+            <ASSEMBLY-SW-CONNECTOR>
+              <SHORT-NAME>cnx_1</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/SenderInstance</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST='P-PORT-PROTOTYPE'>/TGen_CaseStudy1/SenderComponent/OutputPort</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/ReceiverInstance</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST='R-PORT-PROTOTYPE'>/TGen_CaseStudy1/ReceiverComponent/InputPort</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+            <ASSEMBLY-SW-CONNECTOR>
+              <SHORT-NAME>cnx_2</SHORT-NAME>
+              <PROVIDER-IREF>
+                <CONTEXT-COMPONENT-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/SenderInstance</CONTEXT-COMPONENT-REF>
+                <TARGET-P-PORT-REF DEST='P-PORT-PROTOTYPE'>/TGen_CaseStudy1/SenderComponent/OutputModes</TARGET-P-PORT-REF>
+              </PROVIDER-IREF>
+              <REQUESTER-IREF>
+                <CONTEXT-COMPONENT-REF DEST='SW-COMPONENT-PROTOTYPE'>/TGen_CaseStudy1/Compo/ReceiverInstance</CONTEXT-COMPONENT-REF>
+                <TARGET-R-PORT-REF DEST='R-PORT-PROTOTYPE'>/TGen_CaseStudy1/ReceiverComponent/InputModes</TARGET-R-PORT-REF>
+              </REQUESTER-IREF>
+            </ASSEMBLY-SW-CONNECTOR>
+          </CONNECTORS>
+        </COMPOSITION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

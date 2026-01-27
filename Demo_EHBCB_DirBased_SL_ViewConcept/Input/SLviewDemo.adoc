@@ -1,0 +1,15 @@
+= Function Documentation
+
+== Function Overview
+
+ehbfunctionoverview::Input[Function Overview]
+
+== Function Description
+
+A screenshot of the first, non-protected subsystem.
+
+ehbmodelref::"SLviewDemo"[Non-protected subsystem]
+
+A screenshot of the second, know-how protected subsystem.
+
+ehbmodelref::"SLviewDemo/Subsystem"[Protected subsystem (hidden in EXTERNAL view)]

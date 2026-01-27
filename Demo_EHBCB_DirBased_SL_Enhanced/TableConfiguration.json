@@ -1,0 +1,182 @@
+{
+	"chapter": "Model Parameters & Variables",
+	"tables": [
+		{
+			"title": "System Constant",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_system_constant"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Access",
+					"id": "ehb_access"
+				},
+				{
+					"title": "Long name",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Physical",
+					"id": "SW-VALUES-PHYS"
+				},
+				{
+					"title": "Coded",
+					"id": "SW-VALUES-CODED"
+				}
+			]
+		},
+		{
+			"title": "Parameter Table",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_parameter"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name",
+					"width": "20%"
+				},
+				{
+					"title": "Access",
+					"id": "ehb_data_type",
+					"width": "10%"
+				},
+				{
+					"title": "Long name",
+					"id": "ehb_desc",
+					"width": "20%"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode",
+					"width": "10%"
+				},
+				{
+					"title": "unit",
+					"id": "Unit",
+					"width": "10%"
+				},
+				{
+					"title": "min",
+					"id": "Min",
+					"width": "5%"
+				},
+				{
+					"title": "max",
+					"id": "Max",
+					"width": "5%"
+				},
+				{
+					"title": "initial value",
+					"id": "InitValue",
+					"width": "10%"
+				},
+				{
+					"title": "Type",
+					"id": "Type",
+					"width": "10%"
+				}
+			]
+		},
+		{
+			"title": "Variable Table",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_variable"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name",
+					"width": "20%"
+				},
+				{
+					"title": "Access",
+					"id": "ehb_data_type",
+					"width": "10%"
+				},
+				{
+					"title": "Long name",
+					"id": "ehb_desc",
+					"width": "20%"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode",
+					"width": "10%"
+				},
+								{
+					"title": "unit",
+					"id": "Unit",
+					"width": "10%"
+				},
+				{
+					"title": "min",
+					"id": "Min",
+					"width": "5%"
+				},
+				{
+					"title": "max",
+					"id": "Max",
+					"width": "5%"
+				},
+				{
+					"title": "Type",
+					"id": "Type",
+					"width": "10%"
+				}
+			]
+		},
+		{
+			"title": "Class Instance",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_CLASS_INSTANCE"
+				}
+			],
+			"columns": [
+				{
+					"title": "Class instance",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Class",
+					"id": "SW-CLASS-REF"
+				},
+				{
+					"title": "Implementation",
+					"id": "SW-CLASS-ATTR-IMPL-REF"
+				},
+				{
+					"title": "Description",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Reference",
+					"id": "ehb_reference"
+				}
+			]
+		}
+	]
+}

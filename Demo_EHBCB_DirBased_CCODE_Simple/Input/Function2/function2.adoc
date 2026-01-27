@@ -1,0 +1,36 @@
+= Function Documentation
+
+== Function Overview
+
+Starter Calculation
+
+Here comes a function diagram:
+
+ehbfunctionoverview::Function2[Function2 Overview Diagram]
+
+== Function Description
+
+=== Starting the Engine
+
+During the starting process of an internal combustion engine, the starter is actuated with the help of terminal 50. It cranks the engine to a speed at which it can independently accelerate to idle speed. The starting process must be recognized by the engine control unit so that it can make certain adjustments.
+
+C-Code visualizations as interactive model screenshots
+
+ehbmodelref::func2.c/add[add]
+
+=== Controller Overview
+
+The engine control unit has the task of regulating certain operating states. This requires several controllers that are connected in series and in parallel.
+
+image::regler.png[]
+
+If the engine is in idle mode, the target idle speed is regulated by the idle speed controller. The controller influences two manipulated variables. On the one hand, the intake manifold pressure is influenced by the throttle valve position, and on the other hand, the ignition angle and thus the torque are influenced.
+
+== Source Code Listing
+
+[source,c]
+----
+include::Func2.c[]
+----
+
+

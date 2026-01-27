@@ -1,0 +1,51 @@
+{
+	"ASCET-DEVELOPER": {
+		"elementNameFirst": false,
+		"includePackageName": false
+	},
+	"ASCET": {
+		"elementNameFirst": false,
+		"includeModuleName": false,
+		"includeProjectName": false,
+		"includeClassInstanceName": true
+	},
+	"Simulink": {
+		"blockRules": [
+			{
+				"selectors": [
+					{
+						"parameter": "BlockType",
+						"value": "Inport"
+					}
+				],
+				"replacements": [
+					{
+						"parameter": "Name",
+						"regex": "(.*)",
+						"replacement": "$1__TestSuffix"
+					}
+				],
+				"uniqueName": "Test_prefix.${Name}"
+			}
+		],
+		"nonVirtualBusRules": [
+			{
+				"busNameSelector": {
+					"value": "signalBus"
+				},
+				"busElementNameSelector": {
+					"regex": "signal__(.*)"
+				},
+				"busNameReplacement": {
+					"regex": "prefix_(.*)_suffix",
+					"replacement": "$1"
+				},
+				"busElementNameReplacement": {
+					"regex": "(.*)__(.*)",
+					"replacement": "$1"
+				},
+				"uniqueName": "${busNameReplacement}.${busElementNameReplacement}"
+			}
+		]
+	}
+}

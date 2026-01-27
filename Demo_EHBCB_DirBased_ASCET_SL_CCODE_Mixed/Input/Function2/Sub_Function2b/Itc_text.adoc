@@ -1,0 +1,20 @@
+= Function Documentation
+
+== Function Overview
+
+Here comes a function diagram:
+
+ehbfunctionoverview::Sub_Function2b[Function1 Overview Diagram]
+
+== Function Description
+
+C-Code visualizations as interactive model screenshots
+
+ehbmodelref::ccode_Itc_InjectionTime.c/INJECTIONTIME_IMPL_Itc_calc[INJECTIONTIME_IMPL_Itc_calc]
+
+== Source Code Listing
+
+[source,c]
+----
+include::ccode_Itc_InjectionTime.c[]
+----

@@ -1,0 +1,9 @@
+ehbfunctionoverview::CPT_Icc[Component Overview for CPT_Icc]
+
+ehbmodelref::InterCoolerControl/Main[InterCoolerControl/Main]
+
+== Steuerung des Ladeluftkühlers
+
+Der Ladeluftkühler hat die Aufgabe die Luft nach dem Verdichten durch den Turbolader abzukühlen. Je kälter die Luft, desto höher ist die Luftdichte. Dadurch wird eine höhere Luftfüllung im Brennraum erreicht. Außerdem wird die Klopfneigung des Motors reduziert.
+
+Die Steuerung des Ladeluftkühlers sorgt dafür, dass ab einer bestimmten Ansaugtemperatur der Lüfter angeschaltet wird. Die Temperatur wird mit dem Saugrohrtemperatursensor (in K) gemessen. Die Einschalttemperatur wird im Parameter ICC_atManiOn und die Ausschalttemperatur im Parameter ICC_atManiOff vorgegeben. Durch Vorgabe einer höheren Einschalttemperatur als die Ausschalttemperatur entsteht eine Hysterese, so dass der Lüfter nicht zu oft ein- und ausgeschaltet wird. Die Variable ICC_flgInterCooler aktiviert den Ladeluftkühler.

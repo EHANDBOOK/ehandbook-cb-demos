@@ -1,0 +1,4008 @@
+<!DOCTYPE CATALOG PUBLIC "-//ASAM//DTD CONTAINER CATALOG:V3.0.0:LAI:IAI:CC.DTD//EN" "catalog_V3_0_0.sl.dtd">
+
+<CATALOG F-CM-TOOL-ID="$Id: catalog_V3_0_0.sl.dtd,v 1.1 2004/07/27 17:13:16 beweiche Exp $">
+	<SHORT-NAME />
+	<AREF ID-REF="EHB_Container" />
+	<ABLOCKS>
+		<ABLOCK ID="EHB_Container">
+			<SHORT-NAME>ehbContainer</SHORT-NAME>
+			<DESC />
+			<SDGS>
+				<SDG GID="global">
+					<SD GID="view">DETAILED</SD>
+					<SD GID="project_class">PVER</SD>
+					<SD GID="project_longname">ETAS FlexECU-G1 0.7l 3 cyl. Turbo</SD>
+					<SD GID="project_shortname">EHB_Demo_Container</SD>
+					<SD GID="project_date">2021-11-02 09:00</SD>
+					<SD GID="Project_variant">V9.3.0</SD>
+					<SD GID="Project_revision">3</SD>
+					<SD GID="info_pver">EHANDBOOK Demo</SD>
+					<SD GID="doc_class">SWCALDOC</SD>
+					<SD GID="language">DE</SD>
+					<SD GID="hide_component">true</SD>
+					<SD GID="condition">true</SD>
+					<SD GID="confidential_level_2">false</SD>
+					<SD GID="doctype_text">Software and Calibration Documentation</SD>
+					<SD GID="legal_note">This document contains confidential information. Disclosure is prohibited without the written consent of ETAS GmbH.</SD>
+					<!-- Add the path to the MATLAB/Simulink library required for model conversion.
+					<SD GID="MATLAB_LIB_PATH">YOUR_DRIVE:\YOUR_PATH_TO_MATLAB_LIBRARY</SD> -->
+				</SDG>
+			</SDGS>
+			<AREFS>
+				<AREF ID-REF="ID_00001">global_AUTOSAR_data</AREF>
+				<AREF ID-REF="ID_00000">fcAlpha_axl</AREF>				
+				<!--						
+				<AREF ID-REF="ID_00002">fcAlpha_mdl</AREF>
+				<AREF ID-REF="ID_00003">architectureView_mdl</AREF>
+				-->
+				<AREF ID-REF="ID_00004">globalCdfCdfx</AREF>
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_00000">
+			<SHORT-NAME>fcAlpha_axl</SHORT-NAME>
+			<LONG-NAME />
+			<DESC>Software Component View ASCET Models (alphabetical order)</DESC>
+			<CATEGORY>TOC</CATEGORY>
+			<AREFS>				
+				<AREF ID-REF="ID_11111" />
+				<AREF ID-REF="ID_02000" />
+				<AREF ID-REF="ID_04000" />
+				<AREF ID-REF="ID_03000" />
+				<AREF ID-REF="ID_18000" />
+				<AREF ID-REF="ID_12000" />
+				<AREF ID-REF="ID_17000" />
+				<AREF ID-REF="ID_06000" />
+				<AREF ID-REF="ID_08000" />
+				<AREF ID-REF="ID_14000" />
+				<AREF ID-REF="ID_13000" />
+				<AREF ID-REF="ID_07000" />
+				<AREF ID-REF="ID_05000" />
+				<AREF ID-REF="ID_11000" />
+				<AREF ID-REF="ID_01000" />
+				<AREF ID-REF="ID_15000" />
+				<AREF ID-REF="ID_10000" />
+				<AREF ID-REF="ID_09000" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_00002">
+			<SHORT-NAME>fcAlpha_mdl</SHORT-NAME>
+			<LONG-NAME />
+			<DESC>Software Component View Simulink Models (alphabetical order)</DESC>
+			<CATEGORY>TOC</CATEGORY>
+			<AREFS>
+				<AREF ID-REF="ID_11111" />
+				<AREF ID-REF="ID_002000" />
+				<AREF ID-REF="ID_004000" />
+				<AREF ID-REF="ID_003000" />
+				<AREF ID-REF="ID_012000" />
+				<AREF ID-REF="ID_017000" />
+				<AREF ID-REF="ID_006000" />
+				<AREF ID-REF="ID_008000" />
+				<AREF ID-REF="ID_014000" />
+				<AREF ID-REF="ID_013000" />
+				<AREF ID-REF="ID_007000" />
+				<AREF ID-REF="ID_005000" />
+				<AREF ID-REF="ID_011000" />
+				<AREF ID-REF="ID_001000" />
+				<AREF ID-REF="ID_015000" />
+				<AREF ID-REF="ID_010000" />
+				<AREF ID-REF="ID_009000" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_00003">
+			<SHORT-NAME>architectureView_mdl</SHORT-NAME>
+			<LONG-NAME />
+			<DESC>SW architecture view (Simulink models)</DESC>
+			<CATEGORY>TOC</CATEGORY>
+			<AREFS>
+				<AREF ID-REF="ID_001000" />
+				<AREF ID-REF="ID_0000301" />
+				<AREF ID-REF="ID_0000302" />
+				<AREF ID-REF="ID_002000" />
+			</AREFS>
+		</ABLOCK>
+
+
+		<ABLOCK ID="ID_11111">
+			<SHORT-NAME>EHANDBOOKFlexECUDemo</SHORT-NAME>
+			<LONG-NAME>About EHANDBOOK FlexECU Demo</LONG-NAME>
+			<DESC>About EHANDBOOK FlexECU Demo</DESC>
+			<AREFS>
+				<AREF ID-REF="ID_1111101" />
+				<AREF ID-REF="ID_00000112" />
+				<!--<AREF ID-REF="ID_EHB_InfoPage_Attachments" />-->
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_1111101">
+			<SHORT-NAME>eHandbook_Info_Page_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">EHANDBOOK_Info_Page\docs_pdfs.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_00000112">
+			<SHORT-NAME>Ehandbook_Solution_Fig_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">EHANDBOOK_Info_Page\ETAS_eHandbook_solution___Components.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_EHB_InfoPage_Attachments">
+			<SHORT-NAME>EHB_InfoPage_Attachments</SHORT-NAME>
+			<CATEGORY>ATTACHMENTS</CATEGORY>
+			<FILES>
+				<FILE>.\..\..\attachments\EHB_InfoPage\A journey of discovery through ECU software.pdf</FILE>
+				<FILE>.\..\..\attachments\EHB_InfoPage\EHANDBOOK_FlexECU_Demo.a2l</FILE>
+				<FILE>.\..\..\attachments\EHB_InfoPage\EHANDBOOK_FlexECU_Demo.hex</FILE>
+				<FILE>.\..\..\attachments\EHB_InfoPage\EHANDBOOK_FlexECU_Demo.exp</FILE>
+				<FILE>.\..\..\attachments\EHB_InfoPage\Excel.xlsx</FILE>
+				<FILE>.\..\..\attachments\EHB_InfoPage\PowerPoint.pptx</FILE>
+				<FILE>.\..\..\attachments\EHB_InfoPage\Word.docx</FILE>																								
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_18000">
+			<SHORT-NAME>CPT_CAN_Calibration_in_Gasoline_FlexECU</SHORT-NAME>
+			<LONG-NAME>CAN Calibration in Gasoline FlexECU</LONG-NAME>
+			<DESC>CAN Calibration in Gasoline FlexECU</DESC>
+			<!--<CATEGORY>FC</CATEGORY>-->
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">CAN Calibration in Gasoline FlexECU</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_1111102" />
+				<AREF ID-REF="ID_1111103" />
+				<AREF ID-REF="ID_1111104" />
+				<AREF ID-REF="ID_00000113" />
+				<AREF ID-REF="ID_00000114" />
+				<AREF ID-REF="ID_00000115" />
+				<AREF ID-REF="ID_00000116" />
+				<AREF ID-REF="ID_00000117" />
+				<AREF ID-REF="ID_00000118" />
+				<AREF ID-REF="ID_00000119" />
+				<AREF ID-REF="ID_00000120" />
+				<AREF ID-REF="ID_00000121" />
+				<AREF ID-REF="ID_00000122" />
+				<AREF ID-REF="ID_00000123" />
+				<AREF ID-REF="ID_00000124" />
+				<!--<AREF ID-REF="CanXfn" />-->
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="CanXfn">
+			<SHORT-NAME>CAN Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_CAN_Calibration_in_Gasoline_FlexECU</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_1111102">
+			<SHORT-NAME>can2_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Can\_doc\can2.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_1111103">
+			<SHORT-NAME>CAN_CATS_Epm_nEng.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_1111104</SD>
+					<SD GID="submodel-path">CAN_CATS_Epm_nEng/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Can\_pic\can_screen1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_1111104">
+			<SHORT-NAME>CAN_CATS_Epm_nEng.axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Can\CAN_CATS_Epm_nEng.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_00000113">
+			<SHORT-NAME>can_pic1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic1.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000114">
+			<SHORT-NAME>can_pic2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic2.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000115">
+			<SHORT-NAME>can_pic3</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic3.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000116">
+			<SHORT-NAME>can_pic4</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic4.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000117">
+			<SHORT-NAME>can_pic5</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic5.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000118">
+			<SHORT-NAME>can_pic6</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic6.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000119">
+			<SHORT-NAME>can_pic7</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic7.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000120">
+			<SHORT-NAME>can_pic8</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic8.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000121">
+			<SHORT-NAME>can_pic9</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic9.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000122">
+			<SHORT-NAME>can_pic10</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic10.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000123">
+			<SHORT-NAME>can_pic11</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic11.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_00000124">
+			<SHORT-NAME>can_pic12</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Can\_pic\can_pic12.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_0000301">
+			<SHORT-NAME>Air Path</SHORT-NAME>
+			<LONG-NAME>Air Path</LONG-NAME>
+			<DESC>Air Path</DESC>
+			<CATEGORY>GC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Air Path</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_003000" />
+				<AREF ID-REF="ID_004000" />
+				<AREF ID-REF="ID_005000" />
+				<AREF ID-REF="ID_006000" />
+				<AREF ID-REF="ID_007000" />
+				<AREF ID-REF="ID_007067" />
+				<AREF ID-REF="ID_007077" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_007067">
+			<SHORT-NAME>Function Overview for Air Path</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Amf_mdl</SD>
+					<SD GID="component">CPT_Afr_mdl</SD>
+					<SD GID="component">CPT_Lcc_mdl</SD>
+					<SD GID="component">CPT_Fmc_mdl</SD>
+					<SD GID="component">CPT_Itc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_007077">
+			<SHORT-NAME>air_path_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Amf_mdl\_doc\air_path.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_0000302">
+			<SHORT-NAME>Torque Path</SHORT-NAME>
+			<LONG-NAME>Torque Path</LONG-NAME>
+			<DESC>Torque Path</DESC>
+			<CATEGORY>GC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Torque Path</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_008000" />
+				<AREF ID-REF="ID_009000" />
+				<AREF ID-REF="ID_010000" />
+				<AREF ID-REF="ID_011000" />
+				<AREF ID-REF="ID_012000" />
+				<AREF ID-REF="ID_012067" />
+				<AREF ID-REF="ID_012077" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_012067">
+			<SHORT-NAME>Function Overview for Torque Path</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Iac_mdl</SD>
+					<SD GID="component">CPT_Tqs_mdl</SD>
+					<SD GID="component">CPT_T2t_mdl</SD>
+					<SD GID="component">CPT_Opm_mdl</SD>
+					<SD GID="component">CPT_Cc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_012077">
+			<SHORT-NAME>torque_path_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Iac_mdl\_doc\torque_path.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- START FC1 : Sensors -->
+
+		<ABLOCK ID="ID_01000">
+			<SHORT-NAME>CPT_Sensors</SHORT-NAME>
+			<LONG-NAME>Sensor Value Treatment</LONG-NAME>
+			<DESC>Sensors - Sensor Value Treatment</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Sensors : Sensor Value Treatment</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_01001" />
+				<AREF ID-REF="ID_01003" />
+				<AREF ID-REF="ID_01004" />
+				<AREF ID-REF="ID_01005" />
+				<AREF ID-REF="ID_01006" />
+				<AREF ID-REF="SensorsXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="SensorsXfn">
+			<SHORT-NAME>Sensors Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Sensors</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_01001">
+			<SHORT-NAME>sensors_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Sensors\_doc\sensors.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_01002">
+			<SHORT-NAME>sensors_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Sensors\_doc\sensors.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_01003">
+			<SHORT-NAME>Sensors.Main.Sensors</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_01004</SD>
+					<SD GID="submodel-path">Sensors</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Sensors\_pic\sensors_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_01004">
+			<SHORT-NAME>sensors_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Sensors\sensors.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_01005">
+			<SHORT-NAME>sensors_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Sensors\_pic\sensors_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_01006">
+			<SHORT-NAME>sensors_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Sensors\_pic\sensors_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC1 : Sensors -->
+
+		<!-- START FC2 : Actuators -->
+
+		<ABLOCK ID="ID_02000">
+			<SHORT-NAME>CPT_Actuators</SHORT-NAME>
+			<LONG-NAME>Actuators Value Treatment</LONG-NAME>
+			<DESC>Actuators - Actuators Value Treatment</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Actuators : Actuators Value Treatment</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_02003" />
+				<AREF ID-REF="ID_02004" />
+				<AREF ID-REF="ID_02005" />
+				<AREF ID-REF="ID_02006" />
+				<AREF ID-REF="ActuatorsXfn" />
+			</AREFS>
+		</ABLOCK>
+		<ABLOCK ID="ActuatorsXfn">
+			<SHORT-NAME>Actuators Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Actuators</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_02002">
+			<SHORT-NAME>actuators_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Actuators\_doc\actuators.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_02003">
+			<SHORT-NAME>Actuators.Main.Actuators</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_02004</SD>
+					<SD GID="submodel-path">Actuators</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Actuators\_pic\actuators_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_02004">
+			<SHORT-NAME>actuators_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Actuators\actuators.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_02005">
+			<SHORT-NAME>actuators_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Actuators\_pic\actuators_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_02006">
+			<SHORT-NAME>actuators_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Actuators\_pic\actuators_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC2 : Actuators -->
+
+		<!-- START FC3 : Amf -->
+
+		<ABLOCK ID="ID_03000">
+			<SHORT-NAME>CPT_Amf</SHORT-NAME>
+			<LONG-NAME>Air Mass Flow</LONG-NAME>
+			<DESC>Amf - Air Mass Flow</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Amf : Air Mass Flow</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_03001" />
+				<AREF ID-REF="ID_03009" />
+				<AREF ID-REF="ID_03003" />
+				<AREF ID-REF="ID_03004" />
+				<AREF ID-REF="ID_03005" />
+				<AREF ID-REF="ID_03006" />
+				<AREF ID-REF="ID_03007" />
+				<AREF ID-REF="ID_03008" />
+				<AREF ID-REF="AmfXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="AmfXfn">
+			<SHORT-NAME>Amf Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Amf</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03001">
+			<SHORT-NAME>amf_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Amf\_doc\amf.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03009">
+			<SHORT-NAME>amf_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Amf\_doc\amfccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03002">
+			<SHORT-NAME>amf_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Amf\_doc\amf.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03003">
+			<SHORT-NAME>AirMassFlow.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_03004</SD>
+					<SD GID="submodel-path">AirMassFlow/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Amf\_pic\amf_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03004">
+			<SHORT-NAME>amf_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="AXL">Amf\amf.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03005">
+			<SHORT-NAME>amf_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Amf\_pic\amf_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03006">
+			<SHORT-NAME>amf_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Amf\_pic\amf_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03007">
+			<SHORT-NAME>amf_png_3</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Amf\_pic\amf_png_3.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_03008">
+			<SHORT-NAME>Amf_ccode</SHORT-NAME>
+			<LONG-NAME>Amf_ccode </LONG-NAME>
+			<DESC>Amf_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Amf\Amf_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC3 : Amf -->
+
+		<!-- START FC4 : Afr -->
+
+		<ABLOCK ID="ID_04000">
+			<SHORT-NAME>CPT_Afr</SHORT-NAME>
+			<LONG-NAME>Air Fuel Ratio</LONG-NAME>
+			<DESC>Afr - Air Fuel Ratio</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Afr : Air Fuel Ratio</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_04001" />
+				<AREF ID-REF="ID_04008" />
+				<AREF ID-REF="ID_04003" />
+				<AREF ID-REF="ID_04004" />
+				<AREF ID-REF="ID_04005" />
+				<AREF ID-REF="ID_04006" />
+				<AREF ID-REF="ID_04007" />
+				<AREF ID-REF="AfrXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="AfrXfn">
+			<SHORT-NAME>Afr Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Afr</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_04007">
+			<SHORT-NAME>Afr_ccode</SHORT-NAME>
+			<LONG-NAME>Afr_ccode </LONG-NAME>
+			<DESC>Afr_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Afr\Afr_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+
+		<ABLOCK ID="ID_04001">
+			<SHORT-NAME>afr_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Afr\_doc\afr.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_04008">
+			<SHORT-NAME>afr_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Afr\_doc\afrccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_04002">
+			<SHORT-NAME>afr_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Afr\_doc\afr.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_04003">
+			<SHORT-NAME>AirFuelRatio.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_04004</SD>
+					<SD GID="submodel-path">AirFuelRatio/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Afr\_pic\afr_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_04004">
+			<SHORT-NAME>afr_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="AXL">Afr\afr.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_04005">
+			<SHORT-NAME>afr_jpg_1</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Afr\_pic\afr_jpg_1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_04006">
+			<SHORT-NAME>afr_jpg_2</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Afr\_pic\afr_jpg_2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC4 : Afr -->
+
+		<!-- START FC5 : Lcc -->
+
+		<ABLOCK ID="ID_05000">
+			<SHORT-NAME>CPT_Lcc</SHORT-NAME>
+			<LONG-NAME>Lambda Correction Calculation</LONG-NAME>
+			<DESC>Lcc - Lambda Correction Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Lcc : Lambda Correction Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_05001" />
+				<AREF ID-REF="ID_05006" />
+				<AREF ID-REF="ID_05003" />
+				<AREF ID-REF="ID_05004" />
+				<AREF ID-REF="ID_05005" />
+				<AREF ID-REF="ID_05007" />
+				<AREF ID-REF="ID_05009" />
+				<AREF ID-REF="ID_050012" />
+				<AREF ID-REF="LccXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="LccXfn">
+			<SHORT-NAME>Lcc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Lcc</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05001">
+			<SHORT-NAME>lcc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Lcc\_doc\lcc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05006">
+			<SHORT-NAME>lcc_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Lcc\_doc\lccccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05002">
+			<SHORT-NAME>lcc_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Lcc\_doc\lcc.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05003">
+			<SHORT-NAME>LambdaControl.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_05004</SD>
+					<SD GID="submodel-path">LambdaControl/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Lcc\_pic\lcc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05004">
+			<SHORT-NAME>lcc_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="AXL">Lcc\lcc.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05007">
+			<SHORT-NAME>LambdaControl.Main.Two-point-controller</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_05004</SD>
+					<SD GID="submodel-path">LambdaControl/Main/Two-point-controller</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Lcc\_pic\TwoPointController.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05009">
+			<SHORT-NAME>LambdaControl.Main.PID-Controller</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_05004</SD>
+					<SD GID="submodel-path">LambdaControl/Main/PID-Controller</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Lcc\_pic\PIDController.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050012">
+			<SHORT-NAME>PID_Limit_AWU.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_05004</SD>
+					<SD GID="submodel-path">LambdaControl/Main/PID-Controller/null5/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Lcc\_pic\PIDLimit.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_05005">
+			<SHORT-NAME>lcc_ccode</SHORT-NAME>
+			<LONG-NAME>lcc_ccode </LONG-NAME>
+			<DESC>lcc_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Lcc\Lcc_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC5 : Lcc -->
+
+		<!-- START FC6 : Fmc -->
+
+		<ABLOCK ID="ID_06000">
+			<SHORT-NAME>CPT_Fmc</SHORT-NAME>
+			<LONG-NAME>Fuel Mass Calculation</LONG-NAME>
+			<DESC>Fmc - Fuel Mass Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Fmc : Fuel Mass Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_06001" />
+				<AREF ID-REF="ID_06008" />
+				<AREF ID-REF="ID_06003" />
+				<AREF ID-REF="ID_06004" />
+				<AREF ID-REF="ID_06005" />
+				<AREF ID-REF="ID_06006" />
+				<AREF ID-REF="ID_06007" />
+				<AREF ID-REF="FmcXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="FmcXfn">
+			<SHORT-NAME>Fmc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Fmc</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06001">
+			<SHORT-NAME>fmc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Fmc\_doc\fmc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06008">
+			<SHORT-NAME>fmc_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Fmc\_doc\fmcccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06002">
+			<SHORT-NAME>fmc_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Fmc\_doc\fmc.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06003">
+			<SHORT-NAME>FuelMass.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_06004</SD>
+					<SD GID="submodel-path">FuelMass/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Fmc\_pic\fmc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06004">
+			<SHORT-NAME>fmc_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="AXL">Fmc\fmc.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06005">
+			<SHORT-NAME>fmc_jpg_1</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Fmc\_pic\fmc_jpg_1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06006">
+			<SHORT-NAME>fmc_jpg_2</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Fmc\_pic\fmc_jpg_2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_06007">
+			<SHORT-NAME>Fmc_ccode</SHORT-NAME>
+			<LONG-NAME>Fmc_ccode </LONG-NAME>
+			<DESC>Fmc_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Fmc\Fmc_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+		<!-- END FC6 : Fmc -->
+
+		<!-- START FC7 : Itc -->
+
+		<ABLOCK ID="ID_07000">
+			<SHORT-NAME>CPT_Itc</SHORT-NAME>
+			<LONG-NAME>Injection Time Calculation</LONG-NAME>
+			<DESC>Itc - Injection Time Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Itc : Injection Time Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_07001" />
+				<AREF ID-REF="ID_07007" />
+				<AREF ID-REF="ID_07003" />
+				<AREF ID-REF="ID_07004" />
+				<AREF ID-REF="ID_07005" />
+				<AREF ID-REF="ID_07006" />
+				<AREF ID-REF="ItcXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ItcXfn">
+			<SHORT-NAME>Itc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Itc</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_07001">
+			<SHORT-NAME>itc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Itc\_doc\itc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_07007">
+			<SHORT-NAME>itc_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Itc\_doc\itcccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_07002">
+			<SHORT-NAME>itc_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Itc\_doc\itc.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_07003">
+			<SHORT-NAME>InjectionTime.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_07004</SD>
+					<SD GID="submodel-path">InjectionTime/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Itc\_pic\itc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_07004">
+			<SHORT-NAME>itc_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="AXL">Itc\itc.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_07005">
+			<SHORT-NAME>itc_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Itc\_pic\itc_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_07006">
+			<SHORT-NAME>Itc_ccode</SHORT-NAME>
+			<LONG-NAME>Itc_ccode </LONG-NAME>
+			<DESC>Itc_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Itc\Itc_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC7 : Itc -->
+
+		<!-- START FC8 : Iac -->
+
+		<ABLOCK ID="ID_08000">
+			<SHORT-NAME>CPT_Iac</SHORT-NAME>
+			<LONG-NAME>Ignition Angle Calculation</LONG-NAME>
+			<DESC>Iac - Ignition Angle Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Iac : Ignition Angle Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_08001" />
+				<AREF ID-REF="ID_08006" />
+				<AREF ID-REF="ID_08003" />
+				<AREF ID-REF="ID_08004" />
+				<AREF ID-REF="ID_08005" />
+				<AREF ID-REF="IacXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="IacXfn">
+			<SHORT-NAME>Iac Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Iac</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_08001">
+			<SHORT-NAME>iac_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Iac\_doc\iac.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_08006">
+			<SHORT-NAME>iac_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Iac\_doc\iacccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_08002">
+			<SHORT-NAME>iac_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Iac\_doc\iac.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_08003">
+			<SHORT-NAME>IgnitionAngle.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_08004</SD>
+					<SD GID="submodel-path">IgnitionAngle/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Iac\_pic\iac_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_08004">
+			<SHORT-NAME>iac_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="AXL">Iac\iac.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_08005">
+			<SHORT-NAME>Iac_ccode</SHORT-NAME>
+			<LONG-NAME>Iac_ccode </LONG-NAME>
+			<DESC>Iac_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Iac\Iac_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC8 : Iac -->
+
+		<!-- START FC9 : Tqs -->
+
+		<ABLOCK ID="ID_09000">
+			<SHORT-NAME>CPT_Tqs</SHORT-NAME>
+			<LONG-NAME>Torque Structure</LONG-NAME>
+			<DESC>Tqs - Torque Structure</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Tqs : Torque Structure</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_09001" />
+				<AREF ID-REF="ID_09011" />
+				<AREF ID-REF="ID_09003" />
+				<AREF ID-REF="ID_09004" />
+				<AREF ID-REF="ID_09005" />
+				<AREF ID-REF="ID_09006" />
+				<AREF ID-REF="ID_09007" />
+				<AREF ID-REF="ID_09008" />
+				<AREF ID-REF="ID_09009" />
+				<AREF ID-REF="ID_09010" />
+				<AREF ID-REF="ID_09012" />
+				<AREF ID-REF="TqsXfn" />
+				<!--<AREF ID-REF="ID_Tqs_Attachments" />-->
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="TqsXfn">
+			<SHORT-NAME>Tqs Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Tqs</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09001">
+			<SHORT-NAME>tqs_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Tqs\_doc\tqs.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09011">
+			<SHORT-NAME>tqs_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Tqs\_doc\tqsccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09002">
+			<SHORT-NAME>tqs_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Tqs\_doc\tqs.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09003">
+			<SHORT-NAME>TorqueStructure.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_09004</SD>
+					<SD GID="submodel-path">TorqueStructure/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Tqs\_pic\tqs_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09004">
+			<SHORT-NAME>tqs_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="AXL">Tqs\tqs.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09012">
+			<SHORT-NAME>TorqueStructure.Main.EngSpdControl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_09004</SD>
+					<SD GID="submodel-path">TorqueStructure/Main/EngSpdControl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Tqs\_pic\EngSpdControl.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09005">
+			<SHORT-NAME>tqs_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs\_pic\tqs_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09006">
+			<SHORT-NAME>tqs_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs\_pic\tqs_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09007">
+			<SHORT-NAME>tqs_png_3</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs\_pic\tqs_png_3.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09008">
+			<SHORT-NAME>tqs_png_4</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs\_pic\tqs_png_4.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09009">
+			<SHORT-NAME>tqs_png_5</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs\_pic\tqs_png_5.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_09010">
+			<SHORT-NAME>Tqs_ccode</SHORT-NAME>
+			<LONG-NAME>Tqs_ccode </LONG-NAME>
+			<DESC>Tqs_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Tqs\Tqs_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+		
+		<ABLOCK ID="ID_Tqs_Attachments">
+			<SHORT-NAME>Tqs_Attachments</SHORT-NAME>
+			<CATEGORY>ATTACHMENTS</CATEGORY>
+			<FILES>
+				<FILE>.\..\..\attachments\Tqs\Tqs_Initial_Calibration_Values.dcm</FILE>
+				<FILE>.\..\..\attachments\Tqs\Tqs_Variables_List.lab</FILE>
+			</FILES>			
+		</ABLOCK>
+
+		<!-- END FC9 : Tqs -->
+
+		<!-- START FC10 : T2t -->
+
+		<ABLOCK ID="ID_10000">
+			<SHORT-NAME>CPT_T2t</SHORT-NAME>
+			<LONG-NAME>Torque to throttle calculation</LONG-NAME>
+			<DESC>T2t - Torque to throttle calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">T2t : Torque to throttle calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_10001" />
+				<AREF ID-REF="ID_10008" />
+				<AREF ID-REF="ID_10003" />
+				<AREF ID-REF="ID_10004" />
+				<AREF ID-REF="ID_10005" />
+				<AREF ID-REF="ID_10006" />
+				<AREF ID-REF="ID_10007" />
+				<AREF ID-REF="ID_10009" />
+				<AREF ID-REF="ID_10012" />
+				<AREF ID-REF="T2tXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="T2tXfn">
+			<SHORT-NAME>T2t Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_T2t</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10001">
+			<SHORT-NAME>t2t_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">T2t\_doc\t2t.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10008">
+			<SHORT-NAME>t2t_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">T2t\_doc\t2tccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10002">
+			<SHORT-NAME>t2t_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">T2t\_doc\t2t.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10003">
+			<SHORT-NAME>Torque2Throttle.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_10004</SD>
+					<SD GID="submodel-path">Torque2Throttle/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">T2t\_pic\t2t_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10004">
+			<SHORT-NAME>t2t_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">T2t\t2t.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10009">
+			<SHORT-NAME>Torque2Throttle.Main.ThrottleValveControl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_10004</SD>
+					<SD GID="submodel-path">Torque2Throttle/Main/ThrottleValveControl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">T2t\_pic\ThrottleValveControl.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10012">
+			<SHORT-NAME>Torque2Throttle.Main.WastegateControl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_10004</SD>
+					<SD GID="submodel-path">Torque2Throttle/Main/WastegateControl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">T2t\_pic\WastegateControl.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10005">
+			<SHORT-NAME>t2t_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">T2t\_pic\t2t_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10006">
+			<SHORT-NAME>t2t_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">T2t\_pic\t2t_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_10007">
+			<SHORT-NAME>T2t_ccode</SHORT-NAME>
+			<LONG-NAME>T2t_ccode </LONG-NAME>
+			<DESC>T2t_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">T2t\T2t_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC10 : T2t -->
+
+		<!-- START FC11 : Opm -->
+
+		<ABLOCK ID="ID_11000">
+			<SHORT-NAME>CPT_Opm</SHORT-NAME>
+			<LONG-NAME>Operation Mode</LONG-NAME>
+			<DESC>Opm - Operation Mode</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Opm : Operation Mode</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_11001" />
+				<AREF ID-REF="ID_11007" />
+				<AREF ID-REF="ID_11003" />
+				<AREF ID-REF="ID_11004" />
+				<AREF ID-REF="ID_11006" />
+				<AREF ID-REF="ID_11008" />
+				<AREF ID-REF="OpmXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="OpmXfn">
+			<SHORT-NAME>Opm Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Opm</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_11001">
+			<SHORT-NAME>opm_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Opm\_doc\opm.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_11007">
+			<SHORT-NAME>opm_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Opm\_doc\opmccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_11002">
+			<SHORT-NAME>opm_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Opm\_doc\opm.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_11003">
+			<SHORT-NAME>OperationMode.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_11004</SD>
+					<SD GID="submodel-path">OperationMode/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Opm\_pic\opm_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_11004">
+			<SHORT-NAME>opm_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Opm\opm.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_11008">
+			<SHORT-NAME>sm_OpMode.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_11004</SD>
+					<SD GID="submodel-path">sm_OpMode/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Opm\_pic\opm_screen1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_11006">
+			<SHORT-NAME>opm_ccode</SHORT-NAME>
+			<LONG-NAME>opm_ccode </LONG-NAME>
+			<DESC>opm_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Opm\Opm_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC11 : Opm -->
+
+		<!-- START FC12 : Dummy -->
+
+		<ABLOCK ID="ID_12000">
+			<SHORT-NAME>CPT_Cc</SHORT-NAME>
+			<LONG-NAME>Component Control</LONG-NAME>
+			<DESC>CC - Component Control</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Dummy : Component Control</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_12001" />
+				<AREF ID-REF="ID_12006" />
+				<AREF ID-REF="ID_12003" />
+				<AREF ID-REF="ID_12004" />
+				<AREF ID-REF="ID_12005" />
+				<AREF ID-REF="DummyXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="DummyXfn">
+			<SHORT-NAME>Dummy Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Cc</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_12001">
+			<SHORT-NAME>dummy_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Dummy\_doc\dummy.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_12006">
+			<SHORT-NAME>dummy_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Dummy\_doc\dummyccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_12002">
+			<SHORT-NAME>dummy_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Dummy\_doc\dummy.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_12003">
+			<SHORT-NAME>Dummy.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_12004</SD>
+					<SD GID="submodel-path">Dummy/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Dummy\_pic\dummy_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_12004">
+			<SHORT-NAME>dummy_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Dummy\dummy.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_12005">
+			<SHORT-NAME>dummy_ccode</SHORT-NAME>
+			<LONG-NAME>dummy_ccode </LONG-NAME>
+			<DESC>dummy_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">dummy\dummy_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC12 : Dummy -->
+
+		<!-- START FC13 : Isc -->
+
+		<ABLOCK ID="ID_13000">
+			<SHORT-NAME>CPT_Isc</SHORT-NAME>
+			<LONG-NAME>Idle Speed Control</LONG-NAME>
+			<DESC>Isc - Idle Speed Control</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">FC1 : Functional Component 1</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_13001" />
+				<AREF ID-REF="ID_13014" />
+				<AREF ID-REF="ID_13003" />
+				<AREF ID-REF="ID_13004" />
+				<AREF ID-REF="ID_13005" />
+				<AREF ID-REF="ID_13006" />
+				<AREF ID-REF="ID_13007" />
+				<AREF ID-REF="ID_13008" />
+				<AREF ID-REF="ID_13009" />
+				<AREF ID-REF="ID_13010" />
+				<AREF ID-REF="ID_13011" />
+				<AREF ID-REF="ID_13012" />
+				<AREF ID-REF="ID_13013" />
+				<AREF ID-REF="ID_13015" />
+				<AREF ID-REF="IscXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="IscXfn">
+			<SHORT-NAME>Isc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Isc</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13001">
+			<SHORT-NAME>isc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Isc\_doc\isc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13014">
+			<SHORT-NAME>isc_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Isc\_doc\iscccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13002">
+			<SHORT-NAME>isc_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Isc\_doc\isc.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13003">
+			<SHORT-NAME>IdleSpeedController.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_13004</SD>
+					<SD GID="submodel-path">IdleSpeedController/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Isc\_pic\isc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13004">
+			<SHORT-NAME>isc_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Isc\isc.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13015">
+			<SHORT-NAME>IdleSpeedController.Main.Integrator.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_13004</SD>
+					<SD GID="submodel-path">IdleSpeedController/Main/Integrator/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Isc\_pic\isc_screen1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13005">
+			<SHORT-NAME>isc_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13006">
+			<SHORT-NAME>isc_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13007">
+			<SHORT-NAME>isc_png_3</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_3.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13008">
+			<SHORT-NAME>isc_png_4</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_4.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13009">
+			<SHORT-NAME>isc_png_5</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_5.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13010">
+			<SHORT-NAME>isc_png_6</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_6.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13011">
+			<SHORT-NAME>isc_png_7</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_7.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_13012">
+			<SHORT-NAME>isc_png_8</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc\_pic\isc_png_8.png</FILE>
+			</FILES>
+		</ABLOCK>
+		<ABLOCK ID="ID_13013">
+			<SHORT-NAME>Isc_ccode</SHORT-NAME>
+			<LONG-NAME>Isc_ccode </LONG-NAME>
+			<DESC>Isc_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Isc\Isc_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC13 : Isc -->
+
+		<!-- START FC14 : Icc -->
+
+		<ABLOCK ID="ID_14000">
+			<SHORT-NAME>CPT_Icc</SHORT-NAME>
+			<LONG-NAME>Inter Cooler Calculation</LONG-NAME>
+			<DESC>Icc - Inter Cooler Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Icc : Inter Cooler Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_14001" />
+				<AREF ID-REF="ID_14007" />
+				<AREF ID-REF="ID_14003" />
+				<AREF ID-REF="ID_14004" />
+				<AREF ID-REF="ID_14006" />
+				<AREF ID-REF="IccXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="IccXfn">
+			<SHORT-NAME>Icc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Icc</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_14001">
+			<SHORT-NAME>icc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Icc\_doc\icc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_14007">
+			<SHORT-NAME>icc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Icc\_doc\Iccccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_14002">
+			<SHORT-NAME>icc_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Icc\_doc\icc.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_14003">
+			<SHORT-NAME>InterCoolerControl.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_14004</SD>
+					<SD GID="submodel-path">InterCoolerControl/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Icc\_pic\icc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_14004">
+			<SHORT-NAME>icc_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Icc\icc.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_14006">
+			<SHORT-NAME>Icc_ccode</SHORT-NAME>
+			<LONG-NAME>Icc_ccode </LONG-NAME>
+			<DESC>Icc_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Icc\Icc_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC14 : Icc -->
+
+		<!-- START FC15 : Stc -->
+
+		<ABLOCK ID="ID_15000">
+			<SHORT-NAME>CPT_Stc</SHORT-NAME>
+			<LONG-NAME>Starter Calculation</LONG-NAME>
+			<DESC>Stc - Starter Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Stc : Starter Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_15001" />
+				<AREF ID-REF="ID_15008" />
+				<AREF ID-REF="ID_15003" />
+				<AREF ID-REF="ID_15004" />
+				<AREF ID-REF="ID_15005" />
+				<AREF ID-REF="ID_15006" />
+				<AREF ID-REF="ID_15007" />
+				<AREF ID-REF="StcXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="StcXfn">
+			<SHORT-NAME>Stc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Stc</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15001">
+			<SHORT-NAME>stc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Stc\_doc\stc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15008">
+			<SHORT-NAME>stc_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Stc\_doc\stcccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15002">
+			<SHORT-NAME>stc_mdx</SHORT-NAME>
+			<CATEGORY>TDATA-S</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDX">Stc\_doc\stc.mdx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15003">
+			<SHORT-NAME>StarterControl.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_15004</SD>
+					<SD GID="submodel-path">StarterControl/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Stc\_pic\stc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15004">
+			<SHORT-NAME>stc_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="AXL">Stc\stc.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15005">
+			<SHORT-NAME>stc_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Stc\_pic\stc_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15006">
+			<SHORT-NAME>stc_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Stc\_pic\stc_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_15007">
+			<SHORT-NAME>Stc_ccode</SHORT-NAME>
+			<LONG-NAME>Stc_ccode </LONG-NAME>
+			<DESC>Stc_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Stc\Stc_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC15 : Stc -->
+
+		<ABLOCK ID="ID_00001">
+			<SHORT-NAME>Arxml_Ablock</SHORT-NAME>
+			<CATEGORY>SWCompo</CATEGORY>
+			<FILES>
+				<FILE TYPE="ARXML">_global_arxml\Interfaces.arxml</FILE>
+				<FILE TYPE="ARXML">_global_arxml\Compositions.arxml</FILE>
+				<FILE TYPE="ARXML">_global_arxml\Sensors_Comp.arxml</FILE>
+				<FILE TYPE="ARXML">_global_arxml\Actuators_Comp.arxml</FILE>
+				<FILE TYPE="ARXML">_global_arxml\FlexECUDemoApplicationSoftware.arxml</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_00004">
+			<SHORT-NAME>globalCdfCdfx</SHORT-NAME>
+			<LONG-NAME>globalCdfCdfx longname</LONG-NAME>
+			<CATEGORY>TDATA</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>1.9.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="CDF">_global\CDM.CDFX</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- EPM -->
+
+		<ABLOCK ID="ID_17000">
+			<SHORT-NAME>CPT_Epm</SHORT-NAME>
+			<LONG-NAME>Engine Position Management</LONG-NAME>
+			<DESC>Epm - Engine Position Management</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Epm : Engine Position Management</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_17001" />
+				<AREF ID-REF="ID_17002" />
+				<AREF ID-REF="ID_17003" />
+				<AREF ID-REF="ID_17005" />
+				<AREF ID-REF="ID_17004" />
+				<AREF ID-REF="EpmXfn" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="EpmXfn">
+			<SHORT-NAME>Epm Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Epm</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_17001">
+			<SHORT-NAME>epm_axl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+
+			<FILES>
+				<FILE TYPE="AXL">Epm\Epm.axl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_17002">
+			<SHORT-NAME>Epm_dummy.Main</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_17001</SD>
+					<SD GID="submodel-path">Epm_dummy/Main</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Epm\_pic\Epm_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_17003">
+			<SHORT-NAME>epm_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Epm\_doc\epm.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_17005">
+			<SHORT-NAME>epm_ccode</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Epm\_doc\epmccode.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_17004">
+			<SHORT-NAME>epm_ccode</SHORT-NAME>
+			<LONG-NAME>epm_ccode </LONG-NAME>
+			<DESC>epm_ccode </DESC>
+			<CATEGORY>C-CODE</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.5.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="C-CODE">Epm\Epm_ccode.zip</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- MDL -->
+		<!-- MDL -->
+		<!-- MDL -->
+
+		<ABLOCK ID="ID_001000">
+			<SHORT-NAME>CPT_Sensors_mdl</SHORT-NAME>
+			<LONG-NAME>Sensor Value Treatment</LONG-NAME>
+			<DESC>Sensors - Sensor Value Treatment</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Sensors : Sensor Value Treatment</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_010011" />
+				<AREF ID-REF="ID_010033" />
+				<AREF ID-REF="ID_010044" />
+				<AREF ID-REF="ID_010055" />
+				<AREF ID-REF="ID_010066" />
+				<AREF ID-REF="ID_010067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_010067">
+			<SHORT-NAME>Sensors Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Sensors_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_010011">
+			<SHORT-NAME>sensors_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Sensors_mdl\_doc\sensors.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_010044">
+			<SHORT-NAME>sensors_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">Sensors_mdl\Sensors.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_010033">
+			<SHORT-NAME>Sensors.Sensors_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_010044</SD>
+					<SD GID="submodel-path">Sensors/Sensors_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Sensors_mdl\_pic\sensors_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_010055">
+			<SHORT-NAME>sensors_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Sensors_mdl\_pic\sensors_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_010066">
+			<SHORT-NAME>sensors_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Sensors_mdl\_pic\sensors_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC1 : Sensors -->
+
+		<ABLOCK ID="ID_002000">
+			<SHORT-NAME>CPT_Actuators_mdl</SHORT-NAME>
+			<LONG-NAME>Actuators Value Treatment</LONG-NAME>
+			<DESC>Actuators - Actuators Value Treatment</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Actuators : Actuators Value Treatment</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_020011" />
+				<AREF ID-REF="ID_020033" />
+				<AREF ID-REF="ID_020044" />
+				<AREF ID-REF="ID_020055" />
+				<AREF ID-REF="ID_020066" />
+				<AREF ID-REF="ID_020067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_020067">
+			<SHORT-NAME>Actuators Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Actuators_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_020011">
+			<SHORT-NAME>actuators_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Actuators_mdl\_doc\actuators.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_020044">
+			<SHORT-NAME>actuators_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">Actuators_mdl\Actuators.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_020033">
+			<SHORT-NAME>Actuators.Actuators_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_020044</SD>
+					<SD GID="submodel-path">Actuators/Actuators_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Actuators_mdl\_pic\actuators_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_020055">
+			<SHORT-NAME>actuators_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Actuators_mdl\_pic\actuators_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_020066">
+			<SHORT-NAME>actuators_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Actuators_mdl\_pic\actuators_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC2 : Actuators -->
+
+		<ABLOCK ID="ID_003000">
+			<SHORT-NAME>CPT_Amf_mdl</SHORT-NAME>
+			<LONG-NAME>Air Mass Flow</LONG-NAME>
+			<DESC>Amf - Air Mass Flow</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Amf : Air Mass Flow</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_030011" />
+				<AREF ID-REF="ID_030033" />
+				<AREF ID-REF="ID_030044" />
+				<AREF ID-REF="ID_030055" />
+				<AREF ID-REF="ID_030066" />
+				<AREF ID-REF="ID_030067" />
+				<AREF ID-REF="ID_030077" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_030067">
+			<SHORT-NAME>Amf Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Amf_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_030044">
+			<SHORT-NAME>amf_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="MDL">Amf_mdl\Amf.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_030033">
+			<SHORT-NAME>Amf.Amf_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_030044</SD>
+					<SD GID="submodel-path">Amf/Amf_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Amf_mdl\_pic\amf_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_030011">
+			<SHORT-NAME>amf_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Amf_mdl\_doc\amf.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_030055">
+			<SHORT-NAME>amf_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Amf_mdl\_pic\amf_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_030066">
+			<SHORT-NAME>amf_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Amf_mdl\_pic\amf_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_030077">
+			<SHORT-NAME>amf_png_3</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Amf_mdl\_pic\amf_png_3.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC3 : Amf -->
+
+		<ABLOCK ID="ID_004000">
+			<SHORT-NAME>CPT_Afr_mdl</SHORT-NAME>
+			<LONG-NAME>Air Fuel Ratio</LONG-NAME>
+			<DESC>Afr - Air Fuel Ratio</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Afr : Air Fuel Ratio</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_040011" />
+				<AREF ID-REF="ID_040033" />
+				<AREF ID-REF="ID_040044" />
+				<AREF ID-REF="ID_040055" />
+				<AREF ID-REF="ID_040066" />
+				<AREF ID-REF="ID_040067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_040067">
+			<SHORT-NAME>Afr Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Afr_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_040011">
+			<SHORT-NAME>afr_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Afr_mdl\_doc\afr.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_040044">
+			<SHORT-NAME>afr_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="MDL">Afr_mdl\Afr.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_040033">
+			<SHORT-NAME>Afr.Afr_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_040044</SD>
+					<SD GID="submodel-path">Afr/Afr_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Afr_mdl\_pic\afr_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_040055">
+			<SHORT-NAME>afr_jpg_1</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Afr_mdl\_pic\afr_jpg_1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_040066">
+			<SHORT-NAME>afr_jpg_2</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Afr_mdl\_pic\afr_jpg_2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC4 : Afr -->
+
+		<ABLOCK ID="ID_005000">
+			<SHORT-NAME>CPT_Lcc_mdl</SHORT-NAME>
+			<LONG-NAME>Lambda Correction Calculation</LONG-NAME>
+			<DESC>Lcc - Lambda Correction Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Lcc : Lambda Correction Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_050011" />
+				<AREF ID-REF="ID_050033" />
+				<AREF ID-REF="ID_050044" />
+				<AREF ID-REF="ID_050055" />
+				<AREF ID-REF="ID_050067" />
+				<AREF ID-REF="ID_050077" />
+				<AREF ID-REF="ID_050099" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050067">
+			<SHORT-NAME>Lcc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Lcc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050044">
+			<SHORT-NAME>Lcc.Lcc_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="MDL">Lcc_mdl\Lcc.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050033">
+			<SHORT-NAME>Lcc.Lcc_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_050044</SD>
+					<SD GID="submodel-path">Lcc/Lcc_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Lcc_mdl\_pic\lcc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050055">
+			<SHORT-NAME>Lcc.Lcc_mdl.Two-point-controller</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_050044</SD>
+					<SD GID="submodel-path">Lcc/Lcc_mdl/Two-point-controller</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Lcc_mdl\_pic\Lcc_screen1.2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050077">
+			<SHORT-NAME>Lcc.Lcc_mdl.PID-Controller</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_050044</SD>
+					<SD GID="submodel-path">Lcc/Lcc_mdl/PID-Controller</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Lcc_mdl\_pic\Lcc_screen1.3.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050099">
+			<SHORT-NAME>Lcc.Lcc_mdl.PID-Controller.PID_Limit_AWU</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_050044</SD>
+					<SD GID="submodel-path">Lcc/Lcc_mdl/PID-Controller/PID_Limit_AWU</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Lcc_mdl\_pic\Lcc_screen1.4.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050011">
+			<SHORT-NAME>lcc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Lcc_mdl\_doc\lcc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC5 : Lcc -->
+
+		<ABLOCK ID="ID_006000">
+			<SHORT-NAME>CPT_Fmc_mdl</SHORT-NAME>
+			<LONG-NAME>Fuel Mass Calculation</LONG-NAME>
+			<DESC>Fmc - Fuel Mass Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Fmc : Fuel Mass Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_060011" />
+				<AREF ID-REF="ID_060033" />
+				<AREF ID-REF="ID_060044" />
+				<AREF ID-REF="ID_060055" />
+				<AREF ID-REF="ID_060066" />
+				<AREF ID-REF="ID_060067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_060067">
+			<SHORT-NAME>Fmc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Fmc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_060011">
+			<SHORT-NAME>fmc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Fmc_mdl\_doc\fmc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_060044">
+			<SHORT-NAME>fmc_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="MDL">Fmc_mdl\Fmc.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_060033">
+			<SHORT-NAME>Fmc.Fmc_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_060044</SD>
+					<SD GID="submodel-path">Fmc/Fmc_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Fmc_mdl\_pic\fmc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_060055">
+			<SHORT-NAME>fmc_jpg_1</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Fmc_mdl\_pic\fmc_jpg_1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_060066">
+			<SHORT-NAME>fmc_jpg_2</SHORT-NAME>
+			<LONG-NAME />
+			<DESC></DESC>
+			<CATEGORY>PIC-G</CATEGORY>
+			<FILES>
+				<FILE TYPE="JPG">Fmc_mdl\_pic\fmc_jpg_2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC6 : Fmc -->
+
+		<ABLOCK ID="ID_007000">
+			<SHORT-NAME>CPT_Itc_mdl</SHORT-NAME>
+			<LONG-NAME>Injection Time Calculation</LONG-NAME>
+			<DESC>Itc - Injection Time Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Itc : Injection Time Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_070011" />
+				<AREF ID-REF="ID_070033" />
+				<AREF ID-REF="ID_070044" />
+				<AREF ID-REF="ID_070055" />
+				<AREF ID-REF="ID_070067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_070067">
+			<SHORT-NAME>Itc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Itc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_070011">
+			<SHORT-NAME>itc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Itc_mdl\_doc\itc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_070044">
+			<SHORT-NAME>itc_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="MDL">Itc_mdl\Itc.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_070033">
+			<SHORT-NAME>Itc.Itc_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_070044</SD>
+					<SD GID="submodel-path">Itc/Itc_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Itc_mdl\_pic\itc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_070055">
+			<SHORT-NAME>itc_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Itc_mdl\_pic\itc_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC7 : Itc -->
+
+		<ABLOCK ID="ID_008000">
+			<SHORT-NAME>CPT_Iac_mdl</SHORT-NAME>
+			<LONG-NAME>Ignition Angle Calculation</LONG-NAME>
+			<DESC>Iac - Ignition Angle Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Iac : Ignition Angle Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_080011" />
+				<AREF ID-REF="ID_080033" />
+				<AREF ID-REF="ID_080044" />
+				<AREF ID-REF="ID_080067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_080067">
+			<SHORT-NAME>Iac Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Iac_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_080011">
+			<SHORT-NAME>iac_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Iac_mdl\_doc\iac.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_080044">
+			<SHORT-NAME>iac_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="MDL">Iac_mdl\Iac.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_080033">
+			<SHORT-NAME>Iac.Iac_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_080044</SD>
+					<SD GID="submodel-path">Iac/Iac_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Iac_mdl\_pic\iac_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC8 : Iac -->
+
+		<ABLOCK ID="ID_009000">
+			<SHORT-NAME>CPT_Tqs_mdl</SHORT-NAME>
+			<LONG-NAME>Torque Structure</LONG-NAME>
+			<DESC>Tqs - Torque Structure</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Tqs : Torque Structure</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_090011" />
+				<AREF ID-REF="ID_090033" />
+				<AREF ID-REF="ID_090044" />
+				<AREF ID-REF="ID_090055" />
+				<AREF ID-REF="ID_090066" />
+				<AREF ID-REF="ID_090067" />
+				<AREF ID-REF="ID_090077" />
+				<AREF ID-REF="ID_090088" />
+				<AREF ID-REF="ID_090099" />
+				<AREF ID-REF="ID_090111" />
+				<!--<AREF ID-REF="ID_Tqs_mdl_Attachments" />-->
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090067">
+			<SHORT-NAME>Tqs Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Tqs_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090011">
+			<SHORT-NAME>tqs_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Tqs_mdl\_doc\tqs.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090044">
+			<SHORT-NAME>tqs_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+			</ADMIN-DATA>
+			<FILES>
+				<FILE TYPE="MDL">Tqs_mdl\Tqs.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090033">
+			<SHORT-NAME>Tqs.Tqs_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_090044</SD>
+					<SD GID="submodel-path">Tqs/Tqs_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Tqs_mdl\_pic\tqs_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090111">
+			<SHORT-NAME>Tqs.Tqs_mdl.EngSpdControl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_090044</SD>
+					<SD GID="submodel-path">Tqs/Tqs_mdl/EngSpdControl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Tqs_mdl\_pic\Tqs_screen1.2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090055">
+			<SHORT-NAME>tqs_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs_mdl\_pic\tqs_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090066">
+			<SHORT-NAME>tqs_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs_mdl\_pic\tqs_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090077">
+			<SHORT-NAME>tqs_png_3</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs_mdl\_pic\tqs_png_3.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090088">
+			<SHORT-NAME>tqs_png_4</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs_mdl\_pic\tqs_png_4.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_090099">
+			<SHORT-NAME>tqs_png_5</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Tqs_mdl\_pic\tqs_png_5.png</FILE>
+			</FILES>
+		</ABLOCK>
+		
+		<ABLOCK ID="ID_Tqs_mdl_Attachments">
+			<SHORT-NAME>Tqs_Attachments</SHORT-NAME>
+			<CATEGORY>ATTACHMENTS</CATEGORY>
+			<FILES>
+				<FILE>.\..\..\attachments\Tqs\Tqs_Initial_Calibration_Values.dcm</FILE>
+				<FILE>.\..\..\attachments\Tqs\Tqs_Variables_List.lab</FILE>
+			</FILES>			
+		</ABLOCK>		
+
+		<!-- END FC9 : Tqs -->
+
+		<ABLOCK ID="ID_010000">
+			<SHORT-NAME>CPT_T2t_mdl</SHORT-NAME>
+			<LONG-NAME>Torque to throttle calculation</LONG-NAME>
+			<DESC>T2t - Torque to throttle calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">T2t : Torque to throttle calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_100011" />
+				<AREF ID-REF="ID_100033" />
+				<AREF ID-REF="ID_100044" />
+				<AREF ID-REF="ID_100055" />
+				<AREF ID-REF="ID_100066" />
+				<AREF ID-REF="ID_100067" />
+				<AREF ID-REF="ID_100077" />
+				<AREF ID-REF="ID_100099" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100067">
+			<SHORT-NAME>T2t Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_T2t_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100011">
+			<SHORT-NAME>t2t_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">T2t_mdl\_doc\t2t.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100044">
+			<SHORT-NAME>t2t_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">T2t_mdl\T2t.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100033">
+			<SHORT-NAME>T2t.T2t_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_100044</SD>
+					<SD GID="submodel-path">T2t/T2t_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">T2t_mdl\_pic\t2t_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100077">
+			<SHORT-NAME>T2t.T2t_mdl.ThrottleValveControl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_100044</SD>
+					<SD GID="submodel-path">T2t/T2t_mdl/ThrottleValveControl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">T2t_mdl\_pic\T2t_screen1.2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100099">
+			<SHORT-NAME>T2t.T2t_mdl.WastegateControl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_100044</SD>
+					<SD GID="submodel-path">T2t/T2t_mdl/WastegateControl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">T2t_mdl\_pic\T2t_screen1.3.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100055">
+			<SHORT-NAME>t2t_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">T2t_mdl\_pic\t2t_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_100066">
+			<SHORT-NAME>t2t_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">T2t_mdl\_pic\t2t_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC10 : T2t -->
+
+		<ABLOCK ID="ID_011000">
+			<SHORT-NAME>CPT_Opm_mdl</SHORT-NAME>
+			<LONG-NAME>Operation Mode</LONG-NAME>
+			<DESC>Opm - Operation Mode</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Opm : Operation Mode</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_110011" />
+				<AREF ID-REF="ID_110033" />
+				<AREF ID-REF="ID_110044" />
+				<AREF ID-REF="ID_110055" />
+				<AREF ID-REF="ID_110067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_110067">
+			<SHORT-NAME>Opm Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Opm_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_110011">
+			<SHORT-NAME>opm_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Opm_mdl\_doc\opm.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_110044">
+			<SHORT-NAME>opm_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">Opm_mdl\Opm.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_110033">
+			<SHORT-NAME>opm</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_110044</SD>
+					<SD GID="submodel-path">opm</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Opm_mdl\_pic\opm_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_110055">
+			<SHORT-NAME>Opm.OpMode</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_110044</SD>
+					<SD GID="submodel-path">Opm/OpMode</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Opm_mdl\_pic\Opm_screen1.1.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC11 : Opm -->
+
+		<ABLOCK ID="ID_012000">
+			<SHORT-NAME>CPT_Cc_mdl</SHORT-NAME>
+			<LONG-NAME>Component Control</LONG-NAME>
+			<DESC>CC - Component Control</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Dummy : Component Control</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_120011" />
+				<AREF ID-REF="ID_120033" />
+				<AREF ID-REF="ID_120067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_120067">
+			<SHORT-NAME>Dummy Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Cc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_120011">
+			<SHORT-NAME>dummy_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">dummy_mdl\_doc\dummy.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_120033">
+			<SHORT-NAME>Dummy.Dummy_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_120044</SD>
+					<SD GID="submodel-path">Dummy/Dummy_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">dummy_mdl\_pic\dummy_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC12 : Dummy -->
+
+		<ABLOCK ID="ID_013000">
+			<SHORT-NAME>CPT_Isc_mdl</SHORT-NAME>
+			<LONG-NAME>Idle Speed Control</LONG-NAME>
+			<DESC>Isc - Idle Speed Control</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">FC1 : Functional Component 1</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_130011" />
+				<AREF ID-REF="ID_130033" />
+				<AREF ID-REF="ID_130044" />
+				<AREF ID-REF="ID_130055" />
+				<AREF ID-REF="ID_130066" />
+				<AREF ID-REF="ID_130067" />
+				<AREF ID-REF="ID_130077" />
+				<AREF ID-REF="ID_130088" />
+				<AREF ID-REF="ID_130099" />
+				<AREF ID-REF="ID_130100" />
+				<AREF ID-REF="ID_130111" />
+				<AREF ID-REF="ID_130122" />
+				<AREF ID-REF="ID_130133" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130067">
+			<SHORT-NAME>Isc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Isc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130011">
+			<SHORT-NAME>isc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Isc_mdl\_doc\isc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130044">
+			<SHORT-NAME>isc_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">Isc_mdl\Isc.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130033">
+			<SHORT-NAME>Isc.Isc_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_130044</SD>
+					<SD GID="submodel-path">Isc/Isc_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Isc_mdl\_pic\isc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130133">
+			<SHORT-NAME>Isc.Isc_mdl.P_and_I_Calculation.Integrator</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_130044</SD>
+					<SD GID="submodel-path">Isc/Isc_mdl/P_and_I_Calculation/Integrator</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="JPG">Isc_mdl\_pic\Isc_screen2.jpg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130055">
+			<SHORT-NAME>isc_png_1</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc_mdl\_pic\isc_png_1.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130066">
+			<SHORT-NAME>isc_png_2</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc_mdl\_pic\isc_png_2.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130077">
+			<SHORT-NAME>Isc.Isc_mdl.CalcIdleConditions</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_130044</SD>
+					<SD GID="submodel-path">Isc/Isc_mdl/CalcIdleConditions</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="PNG">Isc_mdl\_pic\isc_mdl_calcIdleConditions.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130088">
+			<SHORT-NAME>Isc.Isc_mdl.P_and_I_Calculation</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_130044</SD>
+					<SD GID="submodel-path">Isc/Isc_mdl/P_and_I_Calculation</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Isc_mdl\_pic\isc_mdl_p_and_calculation.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130099">
+			<SHORT-NAME>isc_png_5</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc_mdl\_pic\isc_png_5.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130100">
+			<SHORT-NAME>isc_png_6</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc_mdl\_pic\isc_png_6.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130111">
+			<SHORT-NAME>isc_png_7</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Isc_mdl\_pic\isc_png_7.png</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_130122">
+			<SHORT-NAME>Isc.Isc_mdl.Schubabschaltung</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_130044</SD>
+					<SD GID="submodel-path">Isc/Isc_mdl/Schubabschaltung</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Isc_mdl\_pic\isc_mdl_Schubabschaltung.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC13 : Isc -->
+
+		<ABLOCK ID="ID_014000">
+			<SHORT-NAME>CPT_Icc_mdl</SHORT-NAME>
+			<LONG-NAME>Inter Cooler Calculation</LONG-NAME>
+			<DESC>Icc - Inter Cooler Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Icc : Inter Cooler Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_140011" />
+				<AREF ID-REF="ID_140033" />
+				<AREF ID-REF="ID_140044" />
+				<AREF ID-REF="ID_140067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_140067">
+			<SHORT-NAME>Icc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Icc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_140011">
+			<SHORT-NAME>icc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Icc_mdl\_doc\icc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_140044">
+			<SHORT-NAME>icc_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">Icc_mdl\Icc.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_140033">
+			<SHORT-NAME>Icc.ICC_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_140044</SD>
+					<SD GID="submodel-path">Icc/ICC_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Icc_mdl\_pic\icc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC14 : Icc -->
+
+		<ABLOCK ID="ID_015000">
+			<SHORT-NAME>CPT_Stc_mdl</SHORT-NAME>
+			<LONG-NAME>Starter Calculation</LONG-NAME>
+			<DESC>Stc - Starter Calculation</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Stc : Starter Calculation</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_150011" />
+				<AREF ID-REF="ID_150033" />
+				<AREF ID-REF="ID_150044" />
+				<AREF ID-REF="ID_150055" />
+				<AREF ID-REF="ID_150066" />
+				<AREF ID-REF="ID_150067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_150067">
+			<SHORT-NAME>Stc Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Stc_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_150011">
+			<SHORT-NAME>stc_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Stc_mdl\_doc\stc.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_150044">
+			<SHORT-NAME>stc_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">Stc_mdl\Stc.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_150033">
+			<SHORT-NAME>Stc.Stc_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_150044</SD>
+					<SD GID="submodel-path">Stc/Stc_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Stc_mdl\_pic\stc_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_150055">
+			<SHORT-NAME>stc_mdl_teil1.svg</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="PNG">Stc_mdl\_pic\stc_mdl_teil1.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_150066">
+			<SHORT-NAME>stc_mdl_teil2.svg</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<FILES>
+				<FILE TYPE="SVG">Stc_mdl\_pic\stc_mdl_teil2.svg</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<!-- END FC15 : Stc -->
+
+		<ABLOCK ID="ID_017000">
+			<SHORT-NAME>CPT_Epm_mdl</SHORT-NAME>
+			<LONG-NAME>Engine Position Management</LONG-NAME>
+			<DESC>Epm - Engine Position Management</DESC>
+			<CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+					<DOC-REVISION>
+						<REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+					</DOC-REVISION>
+				</DOC-REVISIONS>
+				<SDGS>
+					<SDG GID="meta">
+						<SD GID="Description">Epm : Engine Position Management</SD>
+					</SDG>
+				</SDGS>
+			</ADMIN-DATA>
+			<AREFS>
+				<AREF ID-REF="ID_170011" />
+				<AREF ID-REF="ID_170033" />
+				<AREF ID-REF="ID_170044" />
+				<AREF ID-REF="ID_170067" />
+			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_170067">
+			<SHORT-NAME>Epm Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Epm_mdl</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+
+		<ABLOCK ID="ID_170011">
+			<SHORT-NAME>epm_fsx</SHORT-NAME>
+			<CATEGORY>TDOC</CATEGORY>
+			<FILES>
+				<FILE TYPE="FSX">Epm_mdl\_doc\epm.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_170033">
+			<SHORT-NAME>epm_mdl</SHORT-NAME>
+			<CATEGORY>MODEL</CATEGORY>
+			<FILES>
+				<FILE TYPE="MDL">Epm_mdl\Epm.mdl</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_170044">
+			<SHORT-NAME>Epm.Epm_mdl</SHORT-NAME>
+			<CATEGORY>PIC-D</CATEGORY>
+			<SDGS>
+				<SDG GID="modeldata">
+					<SD GID="model">ID_170033</SD>
+					<SD GID="submodel-path">Epm/Epm_mdl</SD>
+				</SDG>
+			</SDGS>
+			<FILES>
+				<FILE TYPE="SVG">Epm_mdl\_pic\epm_asSVG.svg</FILE>
+			</FILES>
+		</ABLOCK>
+	</ABLOCKS>
+</CATALOG>

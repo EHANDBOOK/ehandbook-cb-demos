@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-0.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ParameterInterfaces</SHORT-NAME>
+      <ELEMENTS>
+        <PARAMETER-INTERFACE>
+          <SHORT-NAME>PIF_Tqs</SHORT-NAME>
+          <IS-SERVICE>false</IS-SERVICE>
+          <PARAMETERS>
+            <PARAMETER-DATA-PROTOTYPE>
+              <SHORT-NAME>Tqs_flgTorqueReqOverride</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</TYPE-TREF>
+            </PARAMETER-DATA-PROTOTYPE>
+            <PARAMETER-DATA-PROTOTYPE>
+              <SHORT-NAME>Tqs_tqReqMan</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</TYPE-TREF>
+            </PARAMETER-DATA-PROTOTYPE>
+          </PARAMETERS>
+        </PARAMETER-INTERFACE>
+        <PARAMETER-INTERFACE>
+          <SHORT-NAME>PIF_Fmc</SHORT-NAME>
+          <IS-SERVICE>false</IS-SERVICE>
+          <PARAMETERS>
+            <PARAMETER-DATA-PROTOTYPE>
+              <SHORT-NAME>Fmc_flgFuelMassCorrEnable</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</TYPE-TREF>
+            </PARAMETER-DATA-PROTOTYPE>
+            <PARAMETER-DATA-PROTOTYPE>
+              <SHORT-NAME>Fmc_flgFuelMassOverride</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</TYPE-TREF>
+            </PARAMETER-DATA-PROTOTYPE>
+            <PARAMETER-DATA-PROTOTYPE>
+              <SHORT-NAME>Fmc_tiTFuelMassCorr</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</TYPE-TREF>
+            </PARAMETER-DATA-PROTOTYPE>
+            <PARAMETER-DATA-PROTOTYPE>
+              <SHORT-NAME>Fmc_facKFuelMassCorr</SHORT-NAME>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</TYPE-TREF>
+            </PARAMETER-DATA-PROTOTYPE>
+          </PARAMETERS>
+        </PARAMETER-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

@@ -1,0 +1,13 @@
+ehbfunctionoverview::Sensors[Function Overview for Sensors]
+
+== Sensors/Sensors_mdl
+
+ehbmodelref::Sensors/Sensors_mdl[Sensors/Sensors_mdl]
+
+In the modules for sensor technology, raw data is read out from sensors via the basic software interface classes and converted into physical quantities by calculation or via characteristic curves and made available as messages for all other modules.
+
+All signals are checked for plausibility and an error flag is set in the event of an error. In addition, it is monitored whether the function call of the basic software interface class is successful. The error flags of the individual component modules of the sensor system are collected and passed on as a message to the function module Operation mode.
+
+
+
+

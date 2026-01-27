@@ -1,0 +1,22 @@
+docuUnits:  
+  - id: RTA_RTE_CaseStudy
+    displayName: RTA-RTE Case Study
+  - id: SenderInstance
+    displayName: "Sender Instance"
+  - id: ReceiverInstance
+    displayName: "Receiver Instance"
+  - id: RTE_API
+    displayName: "RTE API"
+  - id: SWC_A
+    displayName: "Software Component A"
+tocs:
+  - displayName: RTA-RTE Case Study
+    contents:
+    - idRef: RTA_RTE_CaseStudy
+      contents:
+      - idRef: SenderInstance
+      - idRef: ReceiverInstance
+    - idRef: RTE_API      
+  - displayName: AUTOSAR (Clasic) RTE API
+    contents:
+    - idRef: RTE_API

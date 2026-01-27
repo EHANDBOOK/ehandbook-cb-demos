@@ -1,0 +1,19 @@
+ehbfunctionoverview::CPT_Afr[Component Overview for CPT_Afr]
+
+ehbmodelref::AirFuelRatio/Main[AirFuelRatio/Main]
+
+== Luft-Kraftstoff-Verhältnis
+
+Im Modul Luft-Kraftstoff-Verhältnis (AirFuelRatio) wird auf Basis eines vorgegebenen Lambdawertes das benötigte Verhältnis von Luft zu Kraftstoff berechnet. Dazu wird über das Kennfeld Afr_rpmEngSpdfacRelAir2facLambdaReqBase_MAP aus der Drehzahl Epm_rpmEngSpd und der relativen Füllung Amf_facRelAir ein Basiswert für Lambda ermittelt und anschließend mit Korrekturen beaufschlagt. Die Grundparametrierung aus Erfahrung heraus liegt hier über alle Drehzahlbereiche im Teillastbereich, d. h. bei relativen Füllungen unter 80%, bei λ= 1.0 und im Volllastbereich über 120% bei λ= 0.7. Im Übergangsbereich dazwischen findet eine lineare Interpolation statt.
+
+Korrigiert wird zum einen abhängig von der Kühlmitteltemperatur Ctc_atCool, die über die Kennlinie Afr_atCool2facLambdaReqCorr_CUR eingerechnet wird. Bei kaltem Motor findet eine Gemischanfettung zur Erwärmung des Motors statt, die ab rund 50°C zu Null wird. Zum anderen kann eine Frischlufttemperaturabhängige (Mtc_atMani über Afr_atMani2facLambdaReqCorr_CUR ) Anfettung oder Abmagerung durchführt werden. Dieses Kennfeld ist von Grund auf mit Null bedatet. Der so errechnete Lambdawert kann durch setzen des Flags Afr_flgLambdaReqOverride manuell mit Afr_facLambdaReqMan überschrieben werden, bevor er als Nachricht exportiert wird. <<img_01>> zeigt die Berechnungen zum Lambdawert.
+
+Weiterhin wird aus dem Lambdawert durch Multiplikation mit dem stöchiometrischen Faktor Afr_facStoich das Luft-Kraftstoff-Verhältnis Afr_facRatio errechnet <<img_02>>. Auch hier besteht die Möglichkeit, den errechneten Wert manuell mit Afr_facRatioMan zu überschreiben (setzen des Flags Afr_flgRatioOverride ), bevor er als Nachricht exportiert wird. Die Auswertung der Funktion Afr_calc erfolgt im Synchron-Raster.
+
+.Gleichung 1
+[#img_01]
+image::afr_jpg_1.jpg[]
+
+.Gleichung 2
+[#img_02]
+image::afr_jpg_2.jpg[]

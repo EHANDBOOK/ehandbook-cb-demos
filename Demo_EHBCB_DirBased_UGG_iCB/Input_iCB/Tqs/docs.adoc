@@ -1,0 +1,10 @@
+= Torque Structure
+
+== Model Screenshots
+
+This is the main screenshot of the model.
+
+ehbmodelref::TorqueStructure/Main[TorqueStructure/Main]
+
+ehbmodelref::TorqueStructure/Main/EngSpdControl[TorqueStructure/Main/EngSpdControl]
+

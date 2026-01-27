@@ -1,0 +1,33 @@
+
+== Component Overview
+ehbfunctionoverview::CPT_MasterSWC[Component Overview for CPT_MasterSWC]
+
+== Graphical visualization of Runnable Entities
+
+ehbmodelref::CPT_MasterSWC/CPT_MasterSWC/RE_RunTest[CPT_MasterSWC/CPT_MasterSWC/RE_RunTest]
+
+ehbmodelref::CPT_MasterSWC/CPT_MasterSWC/RE_TimeTest[CPT_MasterSWC/CPT_MasterSWC/RE_TimeTest]
+
+ehbmodelref::CPT_MasterSWC/CPT_MasterSWC/E2EPW_Write_ASWC_E2E_Tx[CPT_MasterSWC/CPT_MasterSWC/E2EPW_Write_ASWC_E2E_Tx]
+
+ehbmodelref::CPT_MasterSWC/CPT_MasterSWC/E2EPW_Read_ASWC_E2E_Rx[CPT_MasterSWC/CPT_MasterSWC/E2EPW_Read_ASWC_E2E_Rx]
+
+== Implementation
+
+=== SWC implementation for MasterSWC
+[source,c]
+--- 
+include::MasterSWC.c[SWC implementation for MasterSWC]
+---
+
+=== SWC header file for MasterSWC
+[source,c]
+---
+include::MasterSWC.h[]
+---
+
+=== Memory mappings for MasterSWC
+[source,c]
+---
+include::MasterSWC_MemMap.h[]
+---

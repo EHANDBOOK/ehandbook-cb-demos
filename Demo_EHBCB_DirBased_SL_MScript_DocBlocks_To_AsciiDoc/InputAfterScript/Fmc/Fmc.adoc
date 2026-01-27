@@ -1,0 +1,11 @@
+ehbfunctionoverview::Fmc[Function Overview for Fmc]
+
+== Fmc/Fmc_mdl
+
+ehbmodelref::Fmc/Fmc_mdl[Fmc/Fmc_mdl]
+
+In the module FuelMass the required fuel mass Fmc_mFuel_Sim for the combustion is calculated. For this, the ration of air mass in the cylinder Amf_mAirPerStr_Sim and the air-fuel-ratio Afr_facRatio_Sim is calculated and multiplied with the correction factor Lcc_facLambdaCorr_Sim from the lambda control.
+
+
+
+

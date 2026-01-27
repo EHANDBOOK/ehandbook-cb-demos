@@ -1,0 +1,12 @@
+= RTE API
+
+The RTE access macros can be styled with icons to make the interactive model more understandable. 
+
+ehbmodelref::"RTE_API/RTE_API/Runnable"[RTE_API/RTE_API/Runnable]
+
+== C-Code configuration for AUTOSAR (Classic) RTE API
+
+[source,xml]
+----
+include::.\..\..\CCodeConfig\ccode_config.xml[]
+----

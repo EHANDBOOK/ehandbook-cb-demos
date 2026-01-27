@@ -1,0 +1,5 @@
+= About EHANDBOOK AUTOSAR Only Demo
+
+This EHANDBOOK Container only contains information derived from AUTOSAR (Classic) .arxml files.
+
+ehbfunctionoverview::"CPT_Tqs"[CPT_Tqs]

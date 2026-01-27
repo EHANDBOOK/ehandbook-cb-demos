@@ -1,0 +1,42 @@
+= Function Documentation
+
+== Function Overview
+
+This document describes a simple C-Code function that performs basic arithmetic operations. The function takes two integer inputs, **in1** and **in2**, and produces two outputs, **sig1** and **sig2**, based on a series of calculations.
+
+ehbfunctionoverview::Function1[Function1 Overview Diagram]
+
+== Function Description
+
+The core logic is contained within the **main** function, which utilizes several helper functions for arithmetic operations. The interactive model below visualizes the call structure and data flow within the **main** function.
+
+C-Code visualizations as interactive model screenshots
+
+ehbmodelref::test.c/main[main]
+
+=== Core Operations
+
+The function executes the following sequence of operations:
+
+1.  **Addition:** The **add** function is called to sum the two input values, **in1** and **in2**. The result is stored in a local variable **loc1**.
+2.  **Subtraction:** The **sub** function is called to subtract **in1** from the result of the addition (**loc1**). The result is stored in **loc2**.
+3.  **Multiplication:** The **mul** function is called to multiply **loc1** and **loc2**. The result is assigned to the output signal **sig1**.
+4.  **Division:** The **div** function is called to divide **loc1** by **loc2**. The result is assigned to the output signal **sig2**.
+
+=== Helper Functions
+
+The module includes two local helper functions:
+
+*   **add(summand1, summand2)**: Returns the sum of two integers.
+*   **sub(minuend, subtrahend)**: Returns the difference between two integers.
+
+The functions **mul** and **div** are expected to be provided by an external library or another source file.
+
+== Source Code Listing
+
+The complete source code for this function is provided below for reference.
+
+[source,c]
+----
+include::test.c[]
+----

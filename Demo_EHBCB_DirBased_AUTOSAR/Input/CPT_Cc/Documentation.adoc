@@ -1,0 +1,18 @@
+ehbfunctionoverview::CPT_Cc[Component Overview for CPT_Cc]
+
+ehbmodelref::Dummy/Main[Dummy/Main]
+
+Component Control stellt einen Platzhalter für alle noch nicht vollständig integrierten Komponentenansteuerungen dar. Hier werden Parameter als Nachrichten weitergereicht um die Aktuatorikmodule zubedienen.
+
+Dazu gehören:
+
+* das Tastverhältnis des Umschaltventils Sekundärluft dummy_facAirPumpRate
+* das Tastverhältnis des Umschaltventils Druckgeber dummy_facChOverVlvRate
+* der Zustand (true/false) des Hauptrelais dummy_stMainRelais
+* der Zustand (true/false) der Kraftstoffpumpe dummy_stFuelPump
+* der Zustand (true/false) des Ladeluftkühlers dummy_stIntercooler
+* der Zustand (true/false) der Sekundärluftpumpe dummy_stAirInjReacPump
+
+Außerdem ist es zu Test- und Demonstrationszwecken möglich durch Setzen des Flags dummy_flgT2tOverride auf einen direkten Durchgriff des Egas-Stellers zur Drosselklappe umzuschalten, d. h., die Positionsanforderung dummy_facThrValveReq an die Drosselklappe entspricht eins zu eins der Position des Egas-Stellers Egc_facEgas. Im Regelfall kommt diese Stellgröße aus der Funktion Momentenumrechnung (T2t_facThrValveReq).
+
+Die Auswertung der Funktion dummy_calc erfolgt im 100ms-Raster.

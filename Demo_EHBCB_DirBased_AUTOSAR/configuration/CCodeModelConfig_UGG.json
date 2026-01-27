@@ -1,0 +1,9 @@
+{
+  "C-CODE": {
+    "functionMetaDataFile": "../CCodeConfig.xml",
+    "viewFile": "../CCodeViews.xml"
+  },
+  "MDX": [
+    "../../EhbTestContainer/FlexECU_ASAM_MDX/_global/FlexEcu_Demo_pavast_V01.xml"
+  ]
+}
