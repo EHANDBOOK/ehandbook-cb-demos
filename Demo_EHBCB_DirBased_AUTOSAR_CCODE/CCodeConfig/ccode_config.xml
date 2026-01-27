@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functionmetadata:FunctionMetadataRoot xmi:version="2.0" xmlns:functionmetadata="http://www.etas.com/ehandbook/functionmetadata" xmlns:xmi="http://www.omg.org/XMI">
+	<globalConfiguration generateHierarchies="true" inlineFunctions="true" libraryPath="../lib" maxIterationForDataflowAnalysis="50000" simplifyDiagram="true"/>
+	<!---->
+	<!--
+
+	-->
+	<!--END : AUTOSAR RTE API -->
+	<!--END : Basic Function Definition -->
+	<!--END : Decorate 1D/2D interpolation routines with icons for curves/maps -->
+	<!--START : AUTOSAR RTE API -->
+	<!--START : Basic Function Definition -->
+	<!--START : Decorate 1D/2D interpolation routines with icons for curves/maps -->
+	<function comment="Access a reference to the RTE manager buffer used for implicit writes on a senderreceiver communication using “data” semantics." imageURI="images/AR_PPort.png" name="Rte_IWriteRef(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="AUTOSAR Per-Instance Memory Access" imageURI="images/autosar.png" name="Rte_Pim(.*)">
+		<argument isInstance="false" isReference="false" name="input" portLocation="LEFT"/>
+	</function>
+	<function comment="Call of operation at client/server port" imageURI="images/AR_ClientPort.png" name="Rte_Call(.*)">
+		<argument isInstance="false" isReference="false" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="false" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="true" name="input" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Curve" imageURI="images/curve2.png" name="myIntpol1D">
+		<argument isInstance="false" isReference="false" name="input" portLocation="LEFT"/>
+		<argument isInstance="true" isReference="false" name="curve_name" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Description: Initiates a mode switch transition within a “mode graph”." imageURI="images/AR_RteSwitch.png" name="Rte_Switch(.*)">
+		<argument isInstance="false" isReference="false" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="false" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Description: Rte_Tick_Timeouts ticks the Rte_Tout_Counter and sets any necessary OS events when alarms expire." imageURI="images/AR_RteTick_Timeouts.png" name="Rte_Tick_Timeouts(.*)"/>
+	<function comment="Description: Rte_Write initiates sender-receiver communication using “QUEUED” semantics." imageURI="images/AR_PPort.png" name="Rte_Send(.*)">
+		<argument isInstance="false" isReference="false" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="false" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Description: Rte_Write initiates sender-receiver communication using “UNQUEUED” semantics." imageURI="images/AR_PPort.png" name="Rte_Write(.*)">
+		<argument isInstance="false" isReference="false" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="false" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Description: This function is invoked (typically by the ECU state manager or possibly by user code) to start the RTE." imageURI="images/AR_RteStart.png" name="Rte_Start(.*)"/>
+	<function comment="Description: This function is invoked (typically by the ECU state manager or possibly by user code) to stop the RTE." imageURI="images/AR_RteStop.png" name="Rte_Stop(.*)"/>
+	<function comment="Description: Trigger the execution for all runnables whose ExternalTriggerOccurredEvent is associated with the trigger." imageURI="images/AR_Result.png" name="Rte_Result(.*)"/>
+	<function comment="Description: Trigger the execution for all runnables whose ExternalTriggerOccurredEvent is associated with the trigger." imageURI="images/AR_Trigger.png" name="Rte_Trigger(.*)"/>
+	<function comment="Description: Trigger the execution for all runnables whose InternalTriggerOccurredEvent is associated with the trigger." imageURI="images/AR_Trigger.png" name="Rte_IrTrigger(.*)"/>
+	<function comment="get a member of a struct or union" imageURI="images/GetMember2.png" name="GetMember">
+		<argument name="base" portLocation="BOTTOM"/>
+	</function>
+	<function comment="get the value of an array at position 'index'" imageURI="images/GetIndexDeref2.png" name="GetIndexDeref">
+		<argument name="base" portLocation="BOTTOM"/>
+		<argument name="index" portLocation="BOTTOM"/>
+	</function>
+	<function comment="get the value stored at a pointer's address" imageURI="images/GetDeref2.png" name="GetDeref">
+		<argument name="base" portLocation="LEFT"/>
+	</function>
+	<function comment="LED Icon" imageURI="images/light_off.png" name="LED_OFF"/>
+	<function comment="LED Icon" imageURI="images/light_on.png" name="LED_ON"/>
+	<function comment="LED Icon" imageURI="images/light_test.png" name="LED_TEST"/>
+	<function comment="Map" imageURI="images/map2.png" name="myIntpol2D">
+		<argument isInstance="false" isReference="false" name="input1" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="false" name="input2" portLocation="LEFT"/>
+		<argument isInstance="true" isReference="false" name="map_name" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Perform an explicit read on a sender-receiver communication using “data” semantics." imageURI="images/AR_RPort.png" name="Rte_DRead(.*)">
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Perform an explicit read on a sender-receiver communication using “data” semantics." imageURI="images/AR_RPort.png" name="Rte_Read(.*)">
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Perform an explicit read on a sender-receiver communication using “event” semantics." imageURI="images/AR_RPort.png" name="Rte_Receive(.*)">
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Perform an implicit read on a sender-receiver communication using non-queued semantics." imageURI="images/AR_RPort.png" name="Rte_IRead(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Perform an implicit write on a sender-receiver communication using “data” semantics." imageURI="images/AR_PPort.png" name="Rte_IWrite(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Provide read access to an inter-runnable variable with an EXPLICIT communication approach." imageURI="images/AR_IrvRPort.png" name="Rte_IrvRead(.*)">
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Provide read access to an inter-runnable variable with an IMPLICIT communication approach." imageURI="images/AR_IrvRPort.png" name="Rte_IrvIRead(.*)">
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Provide write access to an inter-runnable variable with an EXPLICIT communication approach." imageURI="images/AR_IrvPPort.png" name="Rte_IrvWrite(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="Provide write access to an inter-runnable variable." imageURI="images/AR_IrvPPort.png" name="Rte_IrvIWrite(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="LEFT"/>
+		<argument isInstance="false" isReference="true" name="Rte_instance" portLocation="BOTTOM"/>
+	</function>
+	<function comment="set a member of a struct or union" imageURI="images/SetMember2.png" name="SetMember">
+		<argument name="base" portLocation="BOTTOM"/>
+		<argument name="value" portLocation="LEFT"/>
+	</function>
+	<function comment="set the value at a pointer's address" imageURI="images/SetDeref2.png" name="SetDeref">
+		<argument isInstance="true" isReference="true" name="base" portLocation="INVISIBLE"/>
+		<argument isInstance="true" isReference="true" name="value" portLocation="INVISIBLE"/>
+	</function>
+	<function comment="set the value of an array at position 'index'" imageURI="images/SetIndexDeref2.png" name="SetIndexDeref">
+		<argument name="base" portLocation="BOTTOM"/>
+		<argument name="index" portLocation="BOTTOM"/>
+		<argument name="value" portLocation="LEFT"/>
+	</function>
+	<function comment="The Rte_CData API provides access to per-instance and shared calibration parameters declared within a software component." imageURI="images/AR_CalParam.png" name="Rte_CData(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="BOTTOM"/>
+	</function>
+	<function comment="The Rte_Enter API call is invoked by an application software component to define the start of an exclusive area." imageURI="images/AR_RteEnter.png" name="Rte_Enter(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="BOTTOM"/>
+	</function>
+	<function comment="The Rte_Exit API call is invoked by an application software component to define the end of an exclusive area." imageURI="images/AR_RteExit.png" name="Rte_Exit(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="BOTTOM"/>
+	</function>
+	<function comment="The Rte_IFeedback API call provides access to transmission acknowledgement notifications for a sender-receiver communication." imageURI="images/AR_Feedback.png" name="Rte_IFeedback(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="BOTTOM"/>
+	</function>
+	<function comment="The Rte_Prm API provides access to calibration data within calibration components." imageURI="images/AR_CalParam.png" name="Rte_Prm(.*)">
+		<argument isInstance="false" isReference="true" name="input" portLocation="BOTTOM"/>
+	</function>
+</functionmetadata:FunctionMetadataRoot>

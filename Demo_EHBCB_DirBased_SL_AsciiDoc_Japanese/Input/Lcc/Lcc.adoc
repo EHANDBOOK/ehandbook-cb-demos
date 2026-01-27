@@ -1,0 +1,33 @@
+= Lcc - ラムダ補正計算
+
+== Overview
+
+ehbfunctionoverview::Lcc[Lccの機能概要]
+
+== ラムダ補正
+
+2 種類のラムダ コントロールがエンジン コントロールに組み込まれています。 一方は 2 点コントローラー、もう一方は PID コントローラーとして設計された連続コントローラーです。 可能な限り最良の結果を得るために、2 つの制御コンセプトがテストされます。 制御対象システムにはむだ時間が含まれるため、PID コントローラーもパラメーター化が困難です。 使用されるラムダ プローブは、リッチとリーンの混合組成も認識する広帯域プローブです。 そのため、2点コントローラーでリッチとリーンをドライブすることも可能です。
+
+== ラムダセンサー検出
+
+このモジュールは、ラムダ制御の試運転専用です。 実際のラムダ取得が基本ソフトウェアによってサポートされるまで、取得にはアナログ入力が使用されます。 このアナログ電圧信号は、マップ内のラムダ値に変換され、Lamsoni変数に書き込まれます。
+
+== アクティブラムダ制御の条件
+
+ラムダ制御は、通常の操作でアクティブです。 例外は、噴射が行われないオーバーラン (Isc_flgFuelCutoff) と、開始プロセス中 (Stc_flgFuelCorrActive) です。 まず、噴射量を制御し、次にラムダプローブを予熱して操作の準備を整える必要があります。 Lcc_flgSwitch2PIDController パラメータを使用して、PID 制御と 2 点制御を切り替えます。
+
+ehbmodelref::"Lcc/Lcc_mdl"[Lcc.Lcc_mdl]
+
+== 2 点コントローラー
+
+2 点コントローラーは積分器を介して動作します。たとえば、ラムダ 1 が制御され、ラムダ プローブがリーン値を出力する場合 (ラムダ > 1)、噴射が非常に大きくなり、リッチ ラムダ値が存在する (ラムダが 1 未満) まで、補正係数が増加します。次に、ラムダ値が再びリーンになるまで、補正係数が下方に補正されます。これはプログラムで次のように設定されます。 ラムダ値はラムダ ターゲット値と比較されます。ラムダ値が大きい場合は論理 0 が出力され、逆の場合は論理 1 が出力されます。状態が変化するとすぐに、使用される積分器が初期化され、開始値が設定されます。この開始値は、積分器出力と補正係数 (Lcc_facInitValue) の合計に対応します。補正係数は、制御のダイナミクスを増加させます。積分器入力は Lcc_EngSpd2facIntegrator_CUR マップから形成され、速度に依存します。積分器の出力は、Lcc_LambdaCorrMinTPC と Lcc_LambdaCorrMaxTPC によって制限されます。
+
+ehbmodelref::"Lcc/Lcc_mdl/Two-point-controller"[Two-point controller]
+
+== PID ルール
+
+PID コントローラーの入力は、ラムダ値とラムダ目標値の差から形成されます。 P、I、および D コンポーネント 1 は、エンジン速度とインテークマニホールドの圧力に依存します。 増幅率は、Lcc_facKLambdaCorrPID_MAP (P コンポーネント)、Lcc_tiTnLambdaCorrPID_MAP (I コンポーネント)、および Lcc_tiTvLambdaCorrPID_MAP (D コンポーネント) に格納されます。 PID コントローラーは、T2t_ThrValveReqCorrMin と T2t_ThrValveReqCorrMax を使用して補正係数も制限します。
+
+ehbmodelref::"Lcc/Lcc_mdl/PID-Controller"[PID controller]
+
+ehbmodelref::"Lcc/Lcc_mdl/PID-Controller/PID_Limit_AWU"[PID controller implementation]

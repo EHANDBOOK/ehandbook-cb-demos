@@ -1,0 +1,12 @@
+[
+  {
+      "exported": {
+          "port": "result",
+          "component": "Function1"
+      },
+      "imported": {
+          "port": "a",
+          "component": "Function2"
+      }
+  }
+]

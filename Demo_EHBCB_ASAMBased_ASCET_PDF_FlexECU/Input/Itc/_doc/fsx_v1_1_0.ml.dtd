@@ -1,0 +1,1976 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--DOCTYPE MSRSW [
+*******************************************************************
+ASAM Automotive Electronics - Functional Specification Exchange Format 1.1.0 [FSX 1.1.0]
+
+CONTACT: If you want to read more about ASAM Automotive Electronics and their documentation
+check out the website below:
+
+http://www.asam.net/
+
+COPYRIGHT: Copyright 2010 ASAM e.V
+All rights reserved.
+
+
+DISCLAIMER OF WARRANTY
+
+ALTHOUGH THIS XML MODEL WAS CREATED WITH THE UTMOST CARE IT CANNOT
+BE GUARANTEED THAT IT IS COMPLETELY FREE OF ERRORS OR INCONSISTENCIES.
+ASAM E.V. MAKES NO REPRESENTATIONS OR WARRANTIES WITH RESPECT TO THE
+CONTENTS OR USE OF THIS XML MODEL, AND SPECIFICALLY DISCLAIMS ANY
+EXPRESSED OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+PARTICULAR PURPOSE. NEITHER ASAM NOR THE AUTHOR(S) THEREFORE ACCEPT
+ANY LIABILITY FOR DAMAGES OR OTHER CONSEQUENCES THAT ARISE FROM THE
+USE OF THIS XML MODEL AND IT'S DOCUMENTATION.
+ASAM E.V. RESERVES THE RIGHT TO REVISE THIS PUBLICATION AND TO MAKE
+CHANGES TO ITS CONTENT, AT ANY TIME, WITHOUT OBLIGATION TO NOTIFY
+ANY PERSON OR ENTITY OF SUCH REVISIONS OR CHANGES.
+
+Contributed by Herbert Klein (XI-Works)
+
+$Id:$
+
+*******************************************************************
+-->
+<!ELEMENT ABS  (#PCDATA) >
+
+<!ATTLIST ABS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ADDRESS  (#PCDATA) >
+
+<!ATTLIST ADDRESS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ADMIN-DATA  (LANGUAGE?,USED-LANGUAGES?,DOC-REVISIONS?,SDGS?) >
+
+<!ATTLIST ADMIN-DATA
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ANNOTATION  (LABEL?,ANNOTATION-ORIGIN,ANNOTATION-TEXT) >
+
+<!ATTLIST ANNOTATION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ANNOTATION-ORIGIN  (#PCDATA) >
+
+<!ATTLIST ANNOTATION-ORIGIN
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ANNOTATION-TEXT  (P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST ANNOTATION-TEXT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ANNOTATIONS  (ANNOTATION*) >
+
+<!ATTLIST ANNOTATIONS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT AREA   EMPTY  >
+
+<!ATTLIST AREA
+               ACCESSKEY  CDATA    #IMPLIED 
+               ALT  CDATA    #IMPLIED 
+               CLASS  CDATA    #IMPLIED 
+               COORDS  CDATA    #IMPLIED 
+               HREF  CDATA    #IMPLIED 
+               NOHREF (NOHREF)   #IMPLIED 
+               ONBLUR  CDATA    #IMPLIED 
+               ONCLICK  CDATA    #IMPLIED 
+               ONDBLCLICK  CDATA    #IMPLIED 
+               ONFOCUS  CDATA    #IMPLIED 
+               ONKEYDOWN  CDATA    #IMPLIED 
+               ONKEYPRESS  CDATA    #IMPLIED 
+               ONKEYUP  CDATA    #IMPLIED 
+               ONMOUSEDOWN  CDATA    #IMPLIED 
+               ONMOUSEMOVE  CDATA    #IMPLIED 
+               ONMOUSEOUT  CDATA    #IMPLIED 
+               ONMOUSEOVER  CDATA    #IMPLIED 
+               ONMOUSEUP  CDATA    #IMPLIED 
+               SHAPE (RECT | CIRCLE | POLY | DEFAULT)  "RECT"
+               SI  NMTOKENS    #IMPLIED 
+               STYLE  CDATA    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               TABINDEX  CDATA    #IMPLIED 
+               TITLE  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT BR   EMPTY  >
+
+<!ATTLIST BR
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT CATEGORY  (#PCDATA) >
+
+<!ATTLIST CATEGORY
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT CHANGE  (L-2+) >
+
+<!ATTLIST CHANGE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT CHAPTER  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,INTRODUCTION?,
+               ANNOTATIONS?,(P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | TRACE | 
+               STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST CHAPTER
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT CITY  (#PCDATA) >
+
+<!ATTLIST CITY
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COLSPEC   EMPTY  >
+
+<!ATTLIST COLSPEC
+               ALIGN (LEFT | RIGHT | CENTER | JUSTIFY)   #IMPLIED 
+               COLNAME  NMTOKEN    #IMPLIED 
+               COLNUM  NMTOKEN    #IMPLIED 
+               COLSEP  NMTOKEN    #IMPLIED 
+               COLWIDTH  CDATA    #IMPLIED 
+               ROWSEP  NMTOKEN    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COMMENT  (#PCDATA) >
+
+<!ATTLIST COMMENT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COMPANY-DATA  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,ROLES?,
+               TEAM-MEMBERS?,COMPANY-SPECIFIC-INFO?) >
+
+<!ATTLIST COMPANY-DATA
+               F-ID-CLASS  NMTOKEN    #FIXED "COMPANY-DATA"
+               F-NAMESPACE  NMTOKENS    #FIXED "TEAM-MEMBER"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COMPANY-DATA-REF  (#PCDATA) >
+
+<!ATTLIST COMPANY-DATA-REF
+               F-ID-CLASS  NMTOKEN    #FIXED "COMPANY-DATA"
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COMPANY-DATAS  (COMPANY-DATA+) >
+
+<!ATTLIST COMPANY-DATAS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COMPANY-REVISION-INFO  (COMPANY-DATA-REF,REVISION-LABEL?,
+               REVISION-LABEL-P-1?,REVISION-LABEL-P-2?,STATE?) >
+
+<!ATTLIST COMPANY-REVISION-INFO
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COMPANY-REVISION-INFOS  (COMPANY-REVISION-INFO+) >
+
+<!ATTLIST COMPANY-REVISION-INFOS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COMPANY-SPECIFIC-INFO  (RELATED-DOCS?,SDGS?) >
+
+<!ATTLIST COMPANY-SPECIFIC-INFO
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT COND  (P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | LABELED-LIST | 
+               NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST COND
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT CONFLICTS  (P | VERBATIM | LIST | DEF-LIST | LABELED-LIST | FORMULA | 
+               FIGURE | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST CONFLICTS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DATE  (#PCDATA) >
+
+<!ATTLIST DATE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DEF  (P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | LABELED-LIST | 
+               NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST DEF
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DEF-ITEM  (SHORT-NAME,LONG-NAME?,DEF,VARIATION-POINT?) >
+
+<!ATTLIST DEF-ITEM
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "DEF-ITEM"
+               HELP-ENTRY  CDATA    #IMPLIED 
+               ID  ID    #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DEF-LIST  (DEF-ITEM+,VARIATION-POINT?) >
+
+<!ATTLIST DEF-LIST
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DEPARTMENT  (#PCDATA) >
+
+<!ATTLIST DEPARTMENT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DEPENDENCIES  (P | VERBATIM | LIST | DEF-LIST | LABELED-LIST | FORMULA | 
+               FIGURE | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST DEPENDENCIES
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DESC  (L-2+) >
+
+<!ATTLIST DESC
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DESCRIPTION  (P | VERBATIM | LIST | DEF-LIST | LABELED-LIST | FORMULA | 
+               FIGURE | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST DESCRIPTION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DOC-REVISION  (REVISION-LABEL?,REVISION-LABEL-P-1?,REVISION-LABEL-P-2?,
+               STATE?,ISSUED-BY?,TEAM-MEMBER-REF?,DATE?,COMPANY-REVISION-INFOS?,
+               MODIFICATIONS?) >
+
+<!ATTLIST DOC-REVISION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DOC-REVISIONS  (DOC-REVISION+) >
+
+<!ATTLIST DOC-REVISIONS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT DOMAIN  (#PCDATA) >
+
+<!ATTLIST DOMAIN
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT E  (#PCDATA | SUB | SUP)* >
+
+<!ATTLIST E
+               COLOR  CDATA    #IMPLIED 
+               FONT (MONO | DEFAULT)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               TYPE (BOLD | ITALIC | BOLDITALIC | PLAIN)  "BOLD"
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT EMAIL  (#PCDATA) >
+
+<!ATTLIST EMAIL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ENTRY  (P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | LABELED-LIST | 
+               NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST ENTRY
+               ALIGN (LEFT | RIGHT | CENTER | JUSTIFY)   #IMPLIED 
+               COLNAME  NMTOKEN    #IMPLIED 
+               COLSEP  NMTOKEN    #IMPLIED 
+               MOREROWS  NMTOKEN   "0"
+               NAMEEND  NMTOKEN    #IMPLIED 
+               NAMEST  NMTOKEN    #IMPLIED 
+               ROTATE  NMTOKEN   "0"
+               ROWSEP  NMTOKEN    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               SPANNAME  NMTOKEN    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VALIGN (TOP | BOTTOM | MIDDLE)  "TOP"
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT FAX  (#PCDATA) >
+
+<!ATTLIST FAX
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT FIGURE  (FIGURE-CAPTION?,L-GRAPHIC*,VERBATIM?,VARIATION-POINT?) >
+
+<!ATTLIST FIGURE
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               FRAME (TOP | BOTTOM | TOPBOT | ALL | SIDES | NONE)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               PGWIDE (PGWIDE | NO-PGWIDE)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT FIGURE-CAPTION  (SHORT-NAME,LONG-NAME?) >
+
+<!ATTLIST FIGURE-CAPTION
+               F-ID-CLASS  NMTOKEN    #FIXED "FIGURE"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT FORMULA  (FORMULA-CAPTION?,L-GRAPHIC*,VERBATIM?,TEX-MATH?,GENERIC-MATH?,
+               VARIATION-POINT?) >
+
+<!ATTLIST FORMULA
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT FORMULA-CAPTION  (SHORT-NAME,LONG-NAME?) >
+
+<!ATTLIST FORMULA-CAPTION
+               F-ID-CLASS  NMTOKEN    #FIXED "FORMULA"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT FT  (#PCDATA | TT | E | SUB | SUP)* >
+
+<!ATTLIST FT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT GENERIC-MATH  (L-10+) >
+
+<!ATTLIST GENERIC-MATH
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT GRAPHIC  (SHORT-LABEL?,CATEGORY?,REVISION-LABELS?,DOMAIN?) >
+
+<!ATTLIST GRAPHIC
+               EDIT-HEIGHT  CDATA    #IMPLIED 
+               EDIT-WIDTH  CDATA    #IMPLIED 
+               EDITFIT (AS-IS | FIT-TO-TEXT | FIT-TO-PAGE | LIMIT-TO-TEXT | 
+               LIMIT-TO-PAGE | ROTATE-90-CW | ROTATE-90-CW-FIT-TO-TEXT | 
+               ROTATE-90-CW-LIMIT-TO-TEXT | ROTATE-90-CCW | 
+               ROTATE-90-CCW-FIT-TO-TEXT | ROTATE-90-CCW-LIMIT-TO-TEXT | ROTATE-180 | 
+               ROTATE-180-LIMIT-TO-TEXT)  "AS-IS"
+               EDITSCALE  CDATA    #IMPLIED 
+               FILENAME  CDATA    #IMPLIED 
+               FIT (AS-IS | FIT-TO-TEXT | FIT-TO-PAGE | LIMIT-TO-TEXT | 
+               LIMIT-TO-PAGE | ROTATE-90-CW | ROTATE-90-CW-FIT-TO-TEXT | 
+               ROTATE-90-CW-LIMIT-TO-TEXT | ROTATE-90-CCW | 
+               ROTATE-90-CCW-FIT-TO-TEXT | ROTATE-90-CCW-LIMIT-TO-TEXT | ROTATE-180 | 
+               ROTATE-180-LIMIT-TO-TEXT)  "AS-IS"
+               GENERATOR  NMTOKEN    #IMPLIED 
+               HEIGHT  CDATA    #IMPLIED 
+               HTML-FIT (AS-IS | FIT-TO-TEXT | FIT-TO-PAGE | LIMIT-TO-TEXT | 
+               LIMIT-TO-PAGE | ROTATE-90-CW | ROTATE-90-CW-FIT-TO-TEXT | 
+               ROTATE-90-CW-LIMIT-TO-TEXT | ROTATE-90-CCW | 
+               ROTATE-90-CCW-FIT-TO-TEXT | ROTATE-90-CCW-LIMIT-TO-TEXT | ROTATE-180 | 
+               ROTATE-180-LIMIT-TO-TEXT)  "AS-IS"
+               HTML-HEIGHT  CDATA    #IMPLIED 
+               HTML-SCALE  CDATA    #IMPLIED 
+               HTML-WIDTH  CDATA    #IMPLIED 
+               NOTATION  CDATA    #IMPLIED 
+               SCALE  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               WIDTH  CDATA    #IMPLIED  >
+
+<!ELEMENT HOMEPAGE  (#PCDATA) >
+
+<!ATTLIST HOMEPAGE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT IE  (#PCDATA | SUP | SUB)* >
+
+<!ATTLIST IE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT IMPORTANCE  (#PCDATA) >
+
+<!ATTLIST IMPORTANCE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT INDENT-SAMPLE  (L-2+) >
+
+<!ATTLIST INDENT-SAMPLE
+               ITEM-LABEL-POS (NO-NEWLINE | NEWLINE | NEWLINE-IF-NECESSARY)  
+               "NO-NEWLINE"
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT INTRODUCTION  (P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST INTRODUCTION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ISSUED-BY  (#PCDATA) >
+
+<!ATTLIST ISSUED-BY
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ITEM  ((P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | LABELED-LIST | 
+               NOTE | TRACE | STRUCTURED-REQ)*,VARIATION-POINT?) >
+
+<!ATTLIST ITEM
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ITEM-LABEL  (L-2+) >
+
+<!ATTLIST ITEM-LABEL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT L-1  (#PCDATA | TT | BR | XREF | XREF-TARGET | E | FT | SUP | SUB | IE | 
+               STD | XDOC | XFILE)* >
+
+<!ATTLIST L-1
+               L (FOR-ALL | AA | AB | AF | AM | AR | AS | AY | AZ | BA | BE | BG | 
+               BH | BI | BN | BO | BR | CA | CO | CS | CY | DA | DE | DZ | EL | EN | 
+               EO | ES | ET | EU | FA | FI | FJ | FO | FR | FY | GA | GD | GL | GN | 
+               GU | HA | HI | HR | HU | HY | IA | IE | IK | IN | IS | IT | IW | JA | 
+               JI | JW | KA | KK | KL | KM | KN | KO | KS | KU | KY | LA | LN | LO | 
+               LT | LV | MG | MI | MK | ML | MN | MO | MR | MS | MT | MY | NA | NE | 
+               NL | NO | OC | OM | OR | PA | PL | PS | PT | QU | RM | RN | RO | RU | 
+               RW | SA | SD | SG | SH | SI | SK | SL | SM | SN | SO | SQ | SR | SS | 
+               ST | SU | SV | SW | TA | TE | TG | TH | TI | TK | TL | TN | TO | TR | 
+               TS | TT | TW | UK | UR | UZ | VI | VO | WO | XH | YO | ZH | ZU)  
+                #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT L-10  (#PCDATA) >
+
+<!ATTLIST L-10
+               L (FOR-ALL | AA | AB | AF | AM | AR | AS | AY | AZ | BA | BE | BG | 
+               BH | BI | BN | BO | BR | CA | CO | CS | CY | DA | DE | DZ | EL | EN | 
+               EO | ES | ET | EU | FA | FI | FJ | FO | FR | FY | GA | GD | GL | GN | 
+               GU | HA | HI | HR | HU | HY | IA | IE | IK | IN | IS | IT | IW | JA | 
+               JI | JW | KA | KK | KL | KM | KN | KO | KS | KU | KY | LA | LN | LO | 
+               LT | LV | MG | MI | MK | ML | MN | MO | MR | MS | MT | MY | NA | NE | 
+               NL | NO | OC | OM | OR | PA | PL | PS | PT | QU | RM | RN | RO | RU | 
+               RW | SA | SD | SG | SH | SI | SK | SL | SM | SN | SO | SQ | SR | SS | 
+               ST | SU | SV | SW | TA | TE | TG | TH | TI | TK | TL | TN | TO | TR | 
+               TS | TT | TW | UK | UR | UZ | VI | VO | WO | XH | YO | ZH | ZU)  
+                #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               xml:space (default | preserve)  "preserve" >
+
+<!ELEMENT L-2  (#PCDATA | BR | TT | XREF | XREF-TARGET | E | FT | SUP | SUB | IE)* >
+
+<!ATTLIST L-2
+               L (FOR-ALL | AA | AB | AF | AM | AR | AS | AY | AZ | BA | BE | BG | 
+               BH | BI | BN | BO | BR | CA | CO | CS | CY | DA | DE | DZ | EL | EN | 
+               EO | ES | ET | EU | FA | FI | FJ | FO | FR | FY | GA | GD | GL | GN | 
+               GU | HA | HI | HR | HU | HY | IA | IE | IK | IN | IS | IT | IW | JA | 
+               JI | JW | KA | KK | KL | KM | KN | KO | KS | KU | KY | LA | LN | LO | 
+               LT | LV | MG | MI | MK | ML | MN | MO | MR | MS | MT | MY | NA | NE | 
+               NL | NO | OC | OM | OR | PA | PL | PS | PT | QU | RM | RN | RO | RU | 
+               RW | SA | SD | SG | SH | SI | SK | SL | SM | SN | SO | SQ | SR | SS | 
+               ST | SU | SV | SW | TA | TE | TG | TH | TI | TK | TL | TN | TO | TR | 
+               TS | TT | TW | UK | UR | UZ | VI | VO | WO | XH | YO | ZH | ZU)  
+                #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT L-4  (#PCDATA | TT | E | SUP | SUB | IE)* >
+
+<!ATTLIST L-4
+               L (FOR-ALL | AA | AB | AF | AM | AR | AS | AY | AZ | BA | BE | BG | 
+               BH | BI | BN | BO | BR | CA | CO | CS | CY | DA | DE | DZ | EL | EN | 
+               EO | ES | ET | EU | FA | FI | FJ | FO | FR | FY | GA | GD | GL | GN | 
+               GU | HA | HI | HR | HU | HY | IA | IE | IK | IN | IS | IT | IW | JA | 
+               JI | JW | KA | KK | KL | KM | KN | KO | KS | KU | KY | LA | LN | LO | 
+               LT | LV | MG | MI | MK | ML | MN | MO | MR | MS | MT | MY | NA | NE | 
+               NL | NO | OC | OM | OR | PA | PL | PS | PT | QU | RM | RN | RO | RU | 
+               RW | SA | SD | SG | SH | SI | SK | SL | SM | SN | SO | SQ | SR | SS | 
+               ST | SU | SV | SW | TA | TE | TG | TH | TI | TK | TL | TN | TO | TR | 
+               TS | TT | TW | UK | UR | UZ | VI | VO | WO | XH | YO | ZH | ZU)  
+                #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT L-5  (#PCDATA | E | TT | XREF | BR)* >
+
+<!ATTLIST L-5
+               L (FOR-ALL | AA | AB | AF | AM | AR | AS | AY | AZ | BA | BE | BG | 
+               BH | BI | BN | BO | BR | CA | CO | CS | CY | DA | DE | DZ | EL | EN | 
+               EO | ES | ET | EU | FA | FI | FJ | FO | FR | FY | GA | GD | GL | GN | 
+               GU | HA | HI | HR | HU | HY | IA | IE | IK | IN | IS | IT | IW | JA | 
+               JI | JW | KA | KK | KL | KM | KN | KO | KS | KU | KY | LA | LN | LO | 
+               LT | LV | MG | MI | MK | ML | MN | MO | MR | MS | MT | MY | NA | NE | 
+               NL | NO | OC | OM | OR | PA | PL | PS | PT | QU | RM | RN | RO | RU | 
+               RW | SA | SD | SG | SH | SI | SK | SL | SM | SN | SO | SQ | SR | SS | 
+               ST | SU | SV | SW | TA | TE | TG | TH | TI | TK | TL | TN | TO | TR | 
+               TS | TT | TW | UK | UR | UZ | VI | VO | WO | XH | YO | ZH | ZU)  
+                #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               xml:space (default | preserve)  "preserve" >
+
+<!ELEMENT L-GRAPHIC  (GRAPHIC,MAP?) >
+
+<!ATTLIST L-GRAPHIC
+               L (FOR-ALL | AA | AB | AF | AM | AR | AS | AY | AZ | BA | BE | BG | 
+               BH | BI | BN | BO | BR | CA | CO | CS | CY | DA | DE | DZ | EL | EN | 
+               EO | ES | ET | EU | FA | FI | FJ | FO | FR | FY | GA | GD | GL | GN | 
+               GU | HA | HI | HR | HU | HY | IA | IE | IK | IN | IS | IT | IW | JA | 
+               JI | JW | KA | KK | KL | KM | KN | KO | KS | KU | KY | LA | LN | LO | 
+               LT | LV | MG | MI | MK | ML | MN | MO | MR | MS | MT | MY | NA | NE | 
+               NL | NO | OC | OM | OR | PA | PL | PS | PT | QU | RM | RN | RO | RU | 
+               RW | SA | SD | SG | SH | SI | SK | SL | SM | SN | SO | SQ | SR | SS | 
+               ST | SU | SV | SW | TA | TE | TG | TH | TI | TK | TL | TN | TO | TR | 
+               TS | TT | TW | UK | UR | UZ | VI | VO | WO | XH | YO | ZH | ZU)  
+                #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LABEL  (L-4+) >
+
+<!ATTLIST LABEL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LABEL-1  (#PCDATA | TT | E | SUP | SUB | IE)* >
+
+<!ATTLIST LABEL-1
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LABELED-ITEM  (ITEM-LABEL,(P | VERBATIM | FIGURE | FORMULA | LIST | 
+               DEF-LIST | LABELED-LIST | NOTE | TRACE | STRUCTURED-REQ)*,
+               VARIATION-POINT?) >
+
+<!ATTLIST LABELED-ITEM
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LABELED-LIST  (INDENT-SAMPLE?,LABELED-ITEM+,VARIATION-POINT?) >
+
+<!ATTLIST LABELED-LIST
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LANGUAGE  (#PCDATA) >
+
+<!ATTLIST LANGUAGE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LIST  (ITEM+,VARIATION-POINT?) >
+
+<!ATTLIST LIST
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               TYPE (UNNUMBER | NUMBER)  "UNNUMBER"
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LOCS  (NAMELOC+) >
+
+<!ATTLIST LOCS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LONG-NAME  (L-4+) >
+
+<!ATTLIST LONG-NAME
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT LONG-NAME-1  (#PCDATA | TT | E | SUP | SUB | IE)* >
+
+<!ATTLIST LONG-NAME-1
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MAP  (AREA+) >
+
+<!ATTLIST MAP
+               CLASS  CDATA    #IMPLIED 
+               NAME  NMTOKEN    #IMPLIED 
+               ONCLICK  CDATA    #IMPLIED 
+               ONDBLCLICK  CDATA    #IMPLIED 
+               ONKEYDOWN  CDATA    #IMPLIED 
+               ONKEYPRESS  CDATA    #IMPLIED 
+               ONKEYUP  CDATA    #IMPLIED 
+               ONMOUSEDOWN  CDATA    #IMPLIED 
+               ONMOUSEMOVE  CDATA    #IMPLIED 
+               ONMOUSEOUT  CDATA    #IMPLIED 
+               ONMOUSEOVER  CDATA    #IMPLIED 
+               ONMOUSEUP  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               STYLE  CDATA    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               TITLE  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MATCHING-CRITERION-REF  (#PCDATA) >
+
+<!ATTLIST MATCHING-CRITERION-REF
+               BASE  CDATA    #IMPLIED 
+               DEST (POST-BUILD-VARIANT-CRITERION)   #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "SW-VCD-CRITERION"
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MATCHING-DCI  (LABEL?,SHORT-LABEL?,URL?,REMARK?) >
+
+<!ATTLIST MATCHING-DCI
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MATCHING-DCIS  (MATCHING-DCI+) >
+
+<!ATTLIST MATCHING-DCIS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MAX  (#PCDATA) >
+
+<!ATTLIST MAX
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MIN  (#PCDATA) >
+
+<!ATTLIST MIN
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MODIFICATION  (CHANGE,REASON?) >
+
+<!ATTLIST MODIFICATION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MODIFICATIONS  (MODIFICATION+) >
+
+<!ATTLIST MODIFICATIONS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-ARG  (#PCDATA) >
+
+<!ATTLIST MSR-QUERY-ARG
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-CHAPTER  (MSR-QUERY-PROPS,MSR-QUERY-RESULT-CHAPTER?) >
+
+<!ATTLIST MSR-QUERY-CHAPTER
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-NAME  (#PCDATA) >
+
+<!ATTLIST MSR-QUERY-NAME
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-P-1  (MSR-QUERY-PROPS,MSR-QUERY-RESULT-P-1?) >
+
+<!ATTLIST MSR-QUERY-P-1
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-PROPS  (MSR-QUERY-NAME,MSR-QUERY-ARG*,COMMENT?) >
+
+<!ATTLIST MSR-QUERY-PROPS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-RESULT-CHAPTER  (CHAPTER*) >
+
+<!ATTLIST MSR-QUERY-RESULT-CHAPTER
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-RESULT-P-1  (P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TRACE | STRUCTURED-REQ | TABLE)* >
+
+<!ATTLIST MSR-QUERY-RESULT-P-1
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-RESULT-TOPIC-1  (TOPIC-1*) >
+
+<!ATTLIST MSR-QUERY-RESULT-TOPIC-1
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT MSR-QUERY-TOPIC-1  (MSR-QUERY-PROPS,MSR-QUERY-RESULT-TOPIC-1?) >
+
+<!ATTLIST MSR-QUERY-TOPIC-1
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED  >
+
+<!ELEMENT MSRSW  (SHORT-NAME?,CATEGORY?,PROJECT-DATA?,ADMIN-DATA?,INTRODUCTION?,
+               SW-SYSTEMS?,MATCHING-DCIS?,SDGS?,LOCS?) >
+
+<!ATTLIST MSRSW
+               CREATOR  CDATA    #IMPLIED 
+               CREATOR-VERSION  CDATA    #IMPLIED 
+               F-CM-TOOL-ID  CDATA    #FIXED 
+               "$Id: fsx_v1_1_0.ml.dtd,v 1.2 2010/06/29 16:38:29 ep003 Exp $"
+               
+               F-DTD-BUILD  CDATA    #FIXED "11"
+               F-DTD-VERSION  CDATA    #FIXED "3.1.0"
+               F-PUBID  CDATA    #FIXED 
+               "-//ASAM//DTD MSR SOFTWARE DTD:V3.1.0:LAI:IAI:XML:ML:MSRSW.DTD//EN"
+               
+               PUBID  CDATA   
+               "-//ASAM//DTD FUNCTIONAL SPECIFICATION EXCHANGE FORMAT:V1.1.0:LAI:IAI:XML:ML.FSX110.DTD//EN"
+               
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT NAMELOC  (SHORT-NAME,LONG-NAME?,NMLIST) >
+
+<!ATTLIST NAMELOC
+               EXT-ID-CLASS  NMTOKEN    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "EXTERNAL"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT NMLIST  (#PCDATA) >
+
+<!ATTLIST NMLIST
+               DOCORSUB  CDATA    #IMPLIED 
+               NAMETYPE (ENTITY | ELEMENT)  "ELEMENT"
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT NOTE  (LABEL?,(P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TRACE | STRUCTURED-REQ)+,VARIATION-POINT?) >
+
+<!ATTLIST NOTE
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               NOTE-TYPE (CAUTION | HINT | TIP | INSTRUCTION | EXAMPLE | EXERCISE | 
+               OTHER)  "HINT"
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT NUMBER  (#PCDATA) >
+
+<!ATTLIST NUMBER
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT OVERALL-PROJECT  (LABEL,DESC?) >
+
+<!ATTLIST OVERALL-PROJECT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT P  (L-1+,VARIATION-POINT?) >
+
+<!ATTLIST P
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT PHONE  (#PCDATA) >
+
+<!ATTLIST PHONE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT POSITION  (#PCDATA) >
+
+<!ATTLIST POSITION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT POST-BUILD-VARIANT-CONDITION  (MATCHING-CRITERION-REF,VALUE) >
+
+<!ATTLIST POST-BUILD-VARIANT-CONDITION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT POST-BUILD-VARIANT-CONDITIONS  (POST-BUILD-VARIANT-CONDITION*) >
+
+<!ATTLIST POST-BUILD-VARIANT-CONDITIONS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT PRM  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,INTRODUCTION?,
+               ANNOTATIONS?,PRM-CHAR+) >
+
+<!ATTLIST PRM
+               F-ID-CLASS  NMTOKEN    #FIXED "PRM"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               UUID  CDATA    #IMPLIED  >
+
+<!ELEMENT PRM-CHAR  (COND?,((((ABS,TOL) | (MIN,TYP,MAX)),PRM-UNIT) | TEXT),REMARK?) >
+
+<!ATTLIST PRM-CHAR
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT PRM-UNIT  (#PCDATA | SUB | SUP)* >
+
+<!ATTLIST PRM-UNIT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT PRMS  (LABEL?,PRM+) >
+
+<!ATTLIST PRMS
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT PROJECT  (LABEL,DESC?,COMPANY-DATAS?) >
+
+<!ATTLIST PROJECT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT PROJECT-DATA  (OVERALL-PROJECT?,PROJECT) >
+
+<!ATTLIST PROJECT-DATA
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT PUBLISHER  (#PCDATA) >
+
+<!ATTLIST PUBLISHER
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT RATIONALE  (P | VERBATIM | LIST | DEF-LIST | LABELED-LIST | FORMULA | 
+               FIGURE | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST RATIONALE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT REASON  (L-2+) >
+
+<!ATTLIST REASON
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT REFERRABLE-REF  (#PCDATA) >
+
+<!ATTLIST REFERRABLE-REF
+               BASE  CDATA    #IMPLIED 
+               DEST  NMTOKEN    #IMPLIED 
+               EXT-ID-CLASS  CDATA    #IMPLIED 
+               ID-CLASS  NMTOKEN    #REQUIRED 
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT RELATED-DOC  (XDOC,DESC?) >
+
+<!ATTLIST RELATED-DOC
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT RELATED-DOCS  (RELATED-DOC+) >
+
+<!ATTLIST RELATED-DOCS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT REMARK  (P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | LABELED-LIST | 
+               NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST REMARK
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT REVISION-LABEL  (#PCDATA) >
+
+<!ATTLIST REVISION-LABEL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT REVISION-LABEL-P-1  (#PCDATA) >
+
+<!ATTLIST REVISION-LABEL-P-1
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT REVISION-LABEL-P-2  (#PCDATA) >
+
+<!ATTLIST REVISION-LABEL-P-2
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT REVISION-LABELS  (REVISION-LABEL+) >
+
+<!ATTLIST REVISION-LABELS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ROLE  (L-10+) >
+
+<!ATTLIST ROLE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ROLES  (ROLE+) >
+
+<!ATTLIST ROLES
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ROW  (ENTRY+,VARIATION-POINT?) >
+
+<!ATTLIST ROW
+               ROWSEP  NMTOKEN    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VALIGN (TOP | BOTTOM | MIDDLE)  "TOP"
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SD  (#PCDATA) >
+
+<!ATTLIST SD
+               GID  NMTOKEN    #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SDG  (SDG-CAPTION?,SDG-CAPTION-REF?,(SD | SDG | SDX-REF)*) >
+
+<!ATTLIST SDG
+               GID  CDATA    #REQUIRED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SDG-CAPTION  (SHORT-NAME,LONG-NAME?,DESC?) >
+
+<!ATTLIST SDG-CAPTION
+               F-ID-CLASS  NMTOKEN    #FIXED "SDG"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SDG-CAPTION-REF  (#PCDATA) >
+
+<!ATTLIST SDG-CAPTION-REF
+               BASE  CDATA    #IMPLIED 
+               DEST (SDG-CAPTION)   #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "SDG"
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SDGS  (SDG+) >
+
+<!ATTLIST SDGS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SDX-REF  (#PCDATA) >
+
+<!ATTLIST SDX-REF
+               BASE  CDATA    #IMPLIED 
+               DEST  NMTOKEN    #IMPLIED 
+               ID-CLASS  NMTOKEN    #REQUIRED 
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SHORT-LABEL  (#PCDATA) >
+
+<!ATTLIST SHORT-LABEL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SHORT-NAME  (#PCDATA) >
+
+<!ATTLIST SHORT-NAME
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT STATE  (#PCDATA) >
+
+<!ATTLIST STATE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT STD  (SHORT-NAME,LONG-NAME-1?,SUBTITLE?,STATE?,DATE?,URL?,POSITION?) >
+
+<!ATTLIST STD
+               F-ID-CLASS  NMTOKEN    #FIXED "STD"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT STRUCTURED-REQ  (SHORT-NAME,LONG-NAME?,CATEGORY,TRACE-REFS?,DATE,
+               ISSUED-BY,TYPE,IMPORTANCE,DESCRIPTION?,RATIONALE?,DEPENDENCIES?,
+               USE-CASE?,CONFLICTS?,SUPPORTING-MATERIAL?,REMARK?,VARIATION-POINT?) >
+
+<!ATTLIST STRUCTURED-REQ
+               F-ID-CLASS  NMTOKEN    #FIXED "STRUCTURED-REQ"
+               ID  ID    #IMPLIED 
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               S  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SUB  (#PCDATA) >
+
+<!ATTLIST SUB
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SUBTITLE  (#PCDATA) >
+
+<!ATTLIST SUBTITLE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SUP  (#PCDATA) >
+
+<!ATTLIST SUP
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SUPPORTING-MATERIAL  (P | VERBATIM | LIST | DEF-LIST | LABELED-LIST | 
+               FORMULA | FIGURE | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST SUPPORTING-MATERIAL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-CALIBRATION-NOTES  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,(P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | TRACE | 
+               STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST SW-CALIBRATION-NOTES
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-CARB-DOC  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,(P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | TRACE | 
+               STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST SW-CARB-DOC
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-COMPONENT-SPEC  (SW-COMPONENTS?,SW-ROOT-FEATURES?,CHAPTER*) >
+
+<!ATTLIST SW-COMPONENT-SPEC
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-COMPONENTS  (SW-FEATURE+) >
+
+<!ATTLIST SW-COMPONENTS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-DIAGNOSIS-NOTES  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,ANNOTATIONS?,(P | VERBATIM | FIGURE | FORMULA | LIST | 
+               DEF-LIST | LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | 
+               TRACE | STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST SW-DIAGNOSIS-NOTES
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,ANNOTATIONS?,SW-FEATURE-VARIANT?,SW-FEATURE-DEF?,
+               SW-FEATURE-DESC?,SW-TEST-DESC?,SW-CALIBRATION-NOTES?,
+               SW-MAINTENANCE-NOTES?,SW-DIAGNOSIS-NOTES?,SW-CARB-DOC?,
+               SW-FEATURE-DECOMPOSITION?,SW-FEATURE-VARIANT-OF?,CHAPTER*,
+               VARIATION-POINT?) >
+
+<!ATTLIST SW-FEATURE
+               F-ID-CLASS  NMTOKEN    #FIXED "SW-FEATURE"
+               F-NAMESPACE  NMTOKENS    #FIXED 
+               "BASE-TYPE CHAPTER COMPU-METHOD DATA-CONSTR DEF-ITEM FIGURE FORMULA PHYSICAL-DIMENSION PRM SDG STD STRUCTURED-REQ SW-ADDR-METHOD SW-AXIS-TYPE SW-CALPRM SW-CALPRM-PROTOTYPE SW-CLASS SW-CLASS-ATTR-IMPL SW-CLASS-INSTANCE SW-CLASS-PROTOTYPE SW-CODE-SYNTAX SW-FEATURE-INTERFACE SW-FEATURE-VARIANT SW-GENERIC-AXIS-PARAM-TYPE SW-RECORD-LAYOUT SW-SERVICE SW-SERVICE-ARG SW-SERVICE-PROTOTYPE SW-SERVICE-RETURN SW-SYSTEMCONST SW-TEMPLATE SW-VARIABLE SW-VARIABLE-PROTOTYPE SYNOPSIS TABLE TOPIC TRACEABLE-TEXT UNIT UNIT-GROUP XDOC XFILE XREF-TARGET"
+               
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE-DECOMPOSITION  (SW-SUBCOMPONENT*) >
+
+<!ATTLIST SW-FEATURE-DECOMPOSITION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE-DEF  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,ANNOTATIONS?,(P | VERBATIM | FIGURE | FORMULA | LIST | 
+               DEF-LIST | LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | 
+               TRACE | STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST SW-FEATURE-DEF
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE-DESC  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,ANNOTATIONS?,(P | VERBATIM | FIGURE | FORMULA | LIST | 
+               DEF-LIST | LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | 
+               TRACE | STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST SW-FEATURE-DESC
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE-REF  (#PCDATA) >
+
+<!ATTLIST SW-FEATURE-REF
+               F-ID-CLASS  NMTOKEN    #FIXED "SW-FEATURE"
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE-VARIANT  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?) >
+
+<!ATTLIST SW-FEATURE-VARIANT
+               F-ID-CLASS  NMTOKEN    #FIXED "SW-FEATURE-VARIANT"
+               
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE-VARIANT-OF  (SW-SYSCOND?,SW-FEATURE-VARIANT-REF?) >
+
+<!ATTLIST SW-FEATURE-VARIANT-OF
+               SI  NMTOKENS    #IMPLIED 
+               SYSCOND  CDATA    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-FEATURE-VARIANT-REF  (#PCDATA) >
+
+<!ATTLIST SW-FEATURE-VARIANT-REF
+               F-ID-CLASS  NMTOKEN    #FIXED "SW-FEATURE-VARIANT"
+               
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               SYSCOND  CDATA    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-MAINTENANCE-NOTES  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,ANNOTATIONS?,(P | VERBATIM | FIGURE | FORMULA | LIST | 
+               DEF-LIST | LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | 
+               TRACE | STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST SW-MAINTENANCE-NOTES
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-ROOT-FEATURES  (SW-FEATURE-REF*) >
+
+<!ATTLIST SW-ROOT-FEATURES
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-SUBCOMPONENT  (SW-SYSCOND?,SW-FEATURE-REF?,SW-FEATURE-VARIANT-REF?) >
+
+<!ATTLIST SW-SUBCOMPONENT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-SYSCOND  (#PCDATA | SYSC-REF)* >
+
+<!ATTLIST SW-SYSCOND
+               BINDING-TIME (CODE-GENERATION-TIME | LINK-TIME | PRE-COMPILE-TIME | 
+               SYSTEM-DESIGN-TIME)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-SYSTEM  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,ANNOTATIONS?,SW-COMPONENT-SPEC?) >
+
+<!ATTLIST SW-SYSTEM
+               F-ID-CLASS  NMTOKEN    #FIXED "SW-SYSTEM"
+               F-NAMESPACE  NMTOKENS    #FIXED 
+               "BASE-TYPE CHAPTER COMPU-METHOD CONF-ITEM CONF-RULE DATA-CONSTR DEF-ITEM FIGURE FORMULA PHYSICAL-DIMENSION PRM SDG STD STRUCTURED-REQ SW-ADDR-METHOD SW-AXIS-TYPE SW-CALIBRATION-METHOD SW-CALPRM SW-CALPRM-PROTOTYPE SW-CLASS SW-CLASS-ATTR-IMPL SW-CLASS-INSTANCE SW-CLASS-PROTOTYPE SW-CODE-SYNTAX SW-COLLECTION SW-CPU-MEM-SEG SW-EVENT SW-EVENT-SOURCE SW-FEATURE SW-FEATURE-INTERFACE SW-FEATURE-VARIANT SW-GENERIC-AXIS-PARAM-TYPE SW-INSTANCE SW-INSTANCE-TREE SW-OPER-MODE SW-RECORD-LAYOUT SW-SERVICE SW-SERVICE-ARG SW-SERVICE-PROTOTYPE SW-SERVICE-RETURN SW-SYSTEMCONST SW-TASK SW-TEMPLATE SW-USER-ACCESS-CASE SW-USER-GROUP SW-VARIABLE SW-VARIABLE-PROTOTYPE SW-VCD-CRITERION SYNOPSIS TABLE TOPIC TRACEABLE-TEXT UNIT-GROUP UNIT XDOC XFILE XREF-TARGET"
+               
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-SYSTEMS  (SW-SYSTEM*) >
+
+<!ATTLIST SW-SYSTEMS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SW-TEST-DESC  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,
+               INTRODUCTION?,ANNOTATIONS?,(P | VERBATIM | FIGURE | FORMULA | LIST | 
+               DEF-LIST | LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | 
+               TRACE | STRUCTURED-REQ)*,(TOPIC-1 | MSR-QUERY-TOPIC-1)*,(CHAPTER | 
+               MSR-QUERY-CHAPTER)*,VARIATION-POINT?) >
+
+<!ATTLIST SW-TEST-DESC
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "CHAPTER"
+               ID  ID    #IMPLIED 
+               UUID  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT SYSC-REF  (#PCDATA) >
+
+<!ATTLIST SYSC-REF
+               BASE  CDATA    #IMPLIED 
+               DEST (SW-SYSTEMCONST)   #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "SW-SYSTEMCONST"
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TABLE  (TABLE-CAPTION?,TGROUP+,VARIATION-POINT?) >
+
+<!ATTLIST TABLE
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               COLSEP  NMTOKEN    #IMPLIED 
+               FLOAT (FLOAT | NO-FLOAT)   #IMPLIED 
+               FRAME (TOP | BOTTOM | TOPBOT | ALL | SIDES | NONE)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               ORIENT (PORT | LAND)   #IMPLIED 
+               PGWIDE  NMTOKEN    #IMPLIED 
+               ROWSEP  NMTOKEN    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               TABSTYLE  NMTOKEN    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TABLE-CAPTION  (SHORT-NAME,LONG-NAME?) >
+
+<!ATTLIST TABLE-CAPTION
+               F-ID-CLASS  NMTOKEN    #FIXED "TABLE"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TBODY  (ROW+) >
+
+<!ATTLIST TBODY
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VALIGN (TOP | MIDDLE | BOTTOM)  "TOP"
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TEAM-MEMBER  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ROLES?,DEPARTMENT?,
+               ADDRESS?,ZIP?,CITY?,PHONE?,FAX?,EMAIL?,HOMEPAGE?,TEAM-MEMBER-REFS?) >
+
+<!ATTLIST TEAM-MEMBER
+               F-ID-CLASS  NMTOKEN    #FIXED "TEAM-MEMBER"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TEAM-MEMBER-REF  (#PCDATA) >
+
+<!ATTLIST TEAM-MEMBER-REF
+               F-ID-CLASS  NMTOKEN    #FIXED "TEAM-MEMBER"
+               ID-REF  IDREF    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TEAM-MEMBER-REFS  (TEAM-MEMBER-REF+) >
+
+<!ATTLIST TEAM-MEMBER-REFS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TEAM-MEMBERS  (TEAM-MEMBER*) >
+
+<!ATTLIST TEAM-MEMBERS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TEX-MATH  (L-10+) >
+
+<!ATTLIST TEX-MATH
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TEXT  (#PCDATA) >
+
+<!ATTLIST TEXT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TFOOT  (ROW+) >
+
+<!ATTLIST TFOOT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VALIGN (TOP | MIDDLE | BOTTOM)  "TOP"
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TGROUP  (COLSPEC*,THEAD?,TFOOT?,TBODY) >
+
+<!ATTLIST TGROUP
+               ALIGN (LEFT | RIGHT | CENTER | JUSTIFY)  "LEFT"
+               COLS  NMTOKEN    #REQUIRED 
+               COLSEP  NMTOKEN    #IMPLIED 
+               ROWSEP  NMTOKEN    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT THEAD  (ROW+) >
+
+<!ATTLIST THEAD
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VALIGN (TOP | MIDDLE | BOTTOM)  "TOP"
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TOL  (#PCDATA) >
+
+<!ATTLIST TOL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TOOL  (#PCDATA) >
+
+<!ATTLIST TOOL
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TOOL-VERSION  (#PCDATA) >
+
+<!ATTLIST TOOL-VERSION
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TOPIC-1  (SHORT-NAME,LONG-NAME?,DESC?,CATEGORY?,ADMIN-DATA?,INTRODUCTION?,
+               ANNOTATIONS?,(P | VERBATIM | FIGURE | FORMULA | LIST | DEF-LIST | 
+               LABELED-LIST | NOTE | TABLE | PRMS | MSR-QUERY-P-1 | TRACE | 
+               STRUCTURED-REQ)*,VARIATION-POINT?) >
+
+<!ATTLIST TOPIC-1
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               F-ID-CLASS  NMTOKEN    #FIXED "TOPIC"
+               HELP-ENTRY  CDATA    #IMPLIED 
+               ID  ID    #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED 
+               UUID  CDATA    #IMPLIED  >
+
+<!ELEMENT TRACE  (SHORT-NAME,LONG-NAME?,CATEGORY,TRACE-REFS?,(P | VERBATIM | LIST | 
+               DEF-LIST | LABELED-LIST | FORMULA | FIGURE | NOTE | TRACE | 
+               STRUCTURED-REQ)*,VARIATION-POINT?) >
+
+<!ATTLIST TRACE
+               F-ID-CLASS  NMTOKEN    #FIXED "TRACEABLE-TEXT"
+               ID  ID    #IMPLIED 
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               S  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TRACE-REF  (#PCDATA) >
+
+<!ATTLIST TRACE-REF
+               ID-CLASS (TRACEABLE-TEXT | STRUCTURAL-REQ)   #REQUIRED 
+               ID-REF  IDREF    #IMPLIED 
+               BASE  CDATA    #IMPLIED 
+               DEST (STRUCTURED-REQ | TRACEABLE | TRACEABLE-TEXT)   #IMPLIED  >
+
+<!ELEMENT TRACE-REFS  (TRACE-REF*) >
+
+<!ATTLIST TRACE-REFS
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TT  (#PCDATA) >
+
+<!ATTLIST TT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               TYPE  NMTOKEN    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TYP  (#PCDATA) >
+
+<!ATTLIST TYP
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT TYPE  (#PCDATA) >
+
+<!ATTLIST TYPE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT URL  (#PCDATA) >
+
+<!ATTLIST URL
+               MIME-TYPE  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT USE-CASE  (P | VERBATIM | LIST | DEF-LIST | LABELED-LIST | FORMULA | 
+               FIGURE | NOTE | TRACE | STRUCTURED-REQ)* >
+
+<!ATTLIST USE-CASE
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT USED-LANGUAGES  (L-10+) >
+
+<!ATTLIST USED-LANGUAGES
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT VALUE  (#PCDATA | SYSC-REF)* >
+
+<!ATTLIST VALUE
+               BINDING-TIME (CODE-GENERATION-TIME | LINK-TIME | PRE-COMPILE-TIME | 
+               SYSTEM-DESIGN-TIME)   #IMPLIED 
+               SD  CDATA    #IMPLIED 
+               SHORT-LABEL  CDATA    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT VARIATION-POINT  (SHORT-LABEL?,DESC?,SW-SYSCOND?,
+               POST-BUILD-VARIANT-CONDITIONS?,SDG?) >
+
+<!ATTLIST VARIATION-POINT
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT VERBATIM  (L-5+,VARIATION-POINT?) >
+
+<!ATTLIST VERBATIM
+               BREAK (BREAK | NO-BREAK)   #IMPLIED 
+               ALLOW-BREAK  NMTOKEN   "1"
+               FLOAT (FLOAT | NO-FLOAT)   #IMPLIED 
+               HELP-ENTRY  CDATA    #IMPLIED 
+               KEEP-WITH-PREVIOUS (KEEP | NO-KEEP)   #IMPLIED 
+               PGWIDE (PGWIDE | NO-PGWIDE)   #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT XDOC  (SHORT-NAME,LONG-NAME-1?,NUMBER?,STATE?,DATE?,PUBLISHER?,URL?,
+               POSITION?) >
+
+<!ATTLIST XDOC
+               F-ID-CLASS  NMTOKEN    #FIXED "XDOC"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT XFILE  (SHORT-NAME,LONG-NAME-1?,URL?,TOOL?,TOOL-VERSION?) >
+
+<!ATTLIST XFILE
+               F-ID-CLASS  NMTOKEN    #FIXED "XFILE"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT XREF  (LABEL-1?,REFERRABLE-REF) >
+
+<!ATTLIST XREF
+               SHOW-CONTENT (SHOW-CONTENT | NO-SHOW-CONTENT)  "NO-SHOW-CONTENT"             
+               SHOW-RESOURCE-LONG-NAME (SHOW-LONG-NAME | NO-SHOW-LONG-NAME)  
+                 "SHOW-LONG-NAME"
+               SHOW-RESOURCE-NUMBER (SHOW-NUMBER | NO-SHOW-NUMBER)  "SHOW-NUMBER"
+               SHOW-RESOURCE-PAGE (SHOW-PAGE | NO-SHOW-PAGE)  "SHOW-PAGE"
+               SHOW-RESOURCE-SHORT-NAME (SHOW-SHORT-NAME | NO-SHOW-SHORT-NAME)
+                 "SHOW-SHORT-NAME"
+               SHOW-RESOURCE-TYPE (SHOW-TYPE | NO-SHOW-TYPE)  "SHOW-TYPE"        
+               SHOW-RESOURCE-CATEGORY (SHOW-CATEGORY | NO-SHOW-CATEGORY)
+                 "NO-SHOW-CATEGORY"
+               SHOW-SEE (SHOW-SEE | NO-SHOW-SEE)  "NO-SHOW-SEE"
+               SHOW-RESOURCE-ALIAS-NAME (SHOW-ALIAS | NO-SHOW-ALIAS) 
+                 "NO-SHOW-ALIAS"
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT XREF-TARGET  (SHORT-NAME,LONG-NAME-1?) >
+
+<!ATTLIST XREF-TARGET
+               F-ID-CLASS  NMTOKEN    #FIXED "XREF-TARGET"
+               ID  ID    #IMPLIED 
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!ELEMENT ZIP  (#PCDATA) >
+
+<!ATTLIST ZIP
+               SI  NMTOKENS    #IMPLIED 
+               S  CDATA    #IMPLIED 
+               T  CDATA    #IMPLIED 
+               VIEW  CDATA    #IMPLIED  >
+
+<!--]-->

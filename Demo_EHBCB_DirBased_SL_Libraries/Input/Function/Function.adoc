@@ -1,0 +1,29 @@
+= Function
+
+== Function Overview
+
+ehbfunctionoverview::"Function"["Function"]
+
+This is the documentation for function.
+
+== Description
+
+The function calculates provides two services:
+
+1. The calculation of the sum of two inputs a and b
+2. The product of two further inputs, x1 and x2
+
+== Structure
+
+The services are realized in two subsystems which are included as so-called *referenced models*.
+
+ehbmodelref::"Function"["Function"]
+
+== Example blocks from Simulink libary
+
+The function also includes a subsystem with a few blocks with a complex graphical rendering from the Simulink library. 
+To represent the blocks adequately in EHANDBOOK, EHANDBOOK Container-Build generates icons with the help of MATLAB connection and applies them on top of the blocks.
+While generating icon graphics for blocks does take some time, this provides very good graphical representation and readability. 
+
+ehbmodelref::"Function/Example blocks from Simulink libary"[Function/Example blocks from Simulink libary]
+

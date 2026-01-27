@@ -1,0 +1,11 @@
+{
+	"GlobalView": {
+		"HideContents": [
+			{
+				"BlockType": "Reference",
+				"Simulink.Mask": "true"
+			}
+		],
+		"ModelDepth": 5
+	}
+}

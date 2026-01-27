@@ -1,0 +1,113 @@
+<!DOCTYPE CATALOG PUBLIC "-//ASAM//DTD CONTAINER CATALOG:V3.0.0:LAI:IAI:CC.DTD//EN" "catalog_V3_0_0.sl.dtd">
+
+<CATALOG F-CM-TOOL-ID="$Id: catalog_V3_0_0.sl.dtd,v 1.1 2004/07/27 17:13:16 beweiche Exp $">
+    <SHORT-NAME/>
+    <AREF ID-REF="EHB_Container"/>
+    <ABLOCKS>
+        <ABLOCK ID="EHB_Container">
+            <SHORT-NAME>ehbContainer</SHORT-NAME>
+            <DESC/>
+            <SDGS>
+                <SDG GID="global">                   
+                    <SD GID="view">DETAILED</SD>   
+					<SD GID="project_class">PVER</SD>
+                    <SD GID="project_longname">ETAS FlexECU-G1 0.7l 3 cyl. Turbo</SD>
+                    <SD GID="project_shortname">EHB_Demo_Container</SD>
+                    <SD GID="Project_variant">V400</SD>
+                    <SD GID="Project_revision">3</SD>
+                    <SD GID="doc_class">SWCALDOC</SD>
+                    <SD GID="language">EN</SD>
+                    <SD GID="hide_component">true</SD>
+                    <SD GID="condition">true</SD>
+                    <SD GID="confidential_level_2">false</SD>                    
+                    <SD GID="legal_note">This document contains confidential information. Disclosure is prohibited without the written consent of ETAS GmbH.</SD>
+                </SDG>
+            </SDGS>
+            <AREFS>
+                <AREF ID-REF="ID_00000">fcAlpha</AREF>  				 
+            </AREFS>
+        </ABLOCK>
+		
+        <ABLOCK ID="ID_00000">
+            <SHORT-NAME>fcAlpha</SHORT-NAME>
+            <LONG-NAME/>
+            <DESC>Function View (alphabetical order)</DESC>
+            <CATEGORY>TOC</CATEGORY>       
+            <AREFS>
+				<AREF ID-REF="ID_005000"/>
+            </AREFS>
+        </ABLOCK>
+		
+		<!-- START FC : Iac -->
+		<ABLOCK ID="ID_005000">
+            <SHORT-NAME>Iac_mdl</SHORT-NAME>
+            <LONG-NAME>Ignition Angle Calculation</LONG-NAME>
+            <DESC>Iac - Ignition Angle Calculation</DESC>
+            <CATEGORY>FC</CATEGORY>
+			<ADMIN-DATA>
+				<DOC-REVISIONS>
+                    <DOC-REVISION>
+                        <REVISION-LABEL>3.22.0;1</REVISION-LABEL>
+                    </DOC-REVISION>
+                </DOC-REVISIONS>
+				<SDGS>
+                    <SDG GID="meta">                 
+                        <SD GID="Description">Iac : Ignition Angle Calculation</SD>              
+                    </SDG>
+                </SDGS>
+			</ADMIN-DATA>
+            <AREFS>
+                <AREF ID-REF="ID_050011"/>
+                <AREF ID-REF="ID_050022"/> 
+                <AREF ID-REF="ID_050033"/>
+                <AREF ID-REF="ID_050044"/>
+            </AREFS>
+        </ABLOCK>
+
+		<ABLOCK ID="ID_050011">
+			<SHORT-NAME>iac_fsx</SHORT-NAME>			
+			<CATEGORY>TDOC</CATEGORY>			
+			<FILES>
+				<FILE TYPE="FSX">Iac_mdl\_doc\iac.fsx</FILE>
+			</FILES>
+		</ABLOCK>
+
+		<ABLOCK ID="ID_050022">
+          	<SHORT-NAME>iac_mdx</SHORT-NAME>			
+            <CATEGORY>TDATA-S</CATEGORY>         
+            <FILES>
+                <FILE TYPE="MDX">Iac_mdl\_doc\iac.mdx</FILE>
+            </FILES>
+        </ABLOCK>
+
+		<ABLOCK ID="ID_050033">
+             <SHORT-NAME>Iac.Iac_mdl</SHORT-NAME>
+            <CATEGORY>PIC-D</CATEGORY>
+            <SDGS>
+                <SDG GID="modeldata">
+                    <SD GID="model">ID_050044</SD>
+                    <SD GID="submodel-path">Iac/Iac_mdl</SD>
+                </SDG>
+            </SDGS>
+            <FILES>
+                <FILE TYPE="JPG">Iac_mdl\_pic\iac_asSVG.svg</FILE>
+            </FILES>
+        </ABLOCK>
+		
+		<ABLOCK ID="ID_050044">
+           <SHORT-NAME>iac_mdl</SHORT-NAME>
+            <CATEGORY>MODEL</CATEGORY>
+			<ADMIN-DATA>
+                <DOC-REVISIONS>
+                    <DOC-REVISION>
+                        <REVISION-LABEL>2.2.0;0</REVISION-LABEL>
+                    </DOC-REVISION>
+                </DOC-REVISIONS>
+            </ADMIN-DATA>
+            <FILES>
+                <FILE TYPE="MDL">Iac_mdl\Iac.mdl</FILE>
+            </FILES>
+        </ABLOCK>
+		
+	</ABLOCKS>
+</CATALOG>

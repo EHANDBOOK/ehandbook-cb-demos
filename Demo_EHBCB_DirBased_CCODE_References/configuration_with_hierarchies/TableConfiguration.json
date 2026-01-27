@@ -1,0 +1,137 @@
+{
+	"chapter": "Systemconstant-Parameter-Variable-Classinstance-Structure",
+	"tables": [
+		{
+			"title": "System Constant",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_system_constant"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Access",
+					"id": "ehb_access"
+				},
+				{
+					"title": "Long name",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Physical",
+					"id": "SW-VALUES-PHYS"
+				},
+				{
+					"title": "Coded",
+					"id": "SW-VALUES-CODED"
+				}
+			]
+		},
+		{
+			"title": "Parameter",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_parameter"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Access",
+					"id": "ehb_access"
+				},
+				{
+					"title": "Long name",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Type",
+					"id": "ehb_category"
+				}
+			]
+		},
+		{
+			"title": "Variable",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_variable"
+				}
+			],
+			"columns": [
+				{
+					"title": "Name",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Access",
+					"id": "ehb_access"
+				},
+				{
+					"title": "Long name",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Type",
+					"id": "ehb_category"
+				}
+			]
+		},
+		{
+			"title": "Class Instance",
+			"filters": [
+				{
+					"id": "ehb_element_type",
+					"value": "ehb_CLASS_INSTANCE"
+				}
+			],
+			"columns": [
+				{
+					"title": "Class instance",
+					"id": "ehb_name"
+				},
+				{
+					"title": "Class",
+					"id": "SW-CLASS-REF"
+				},
+				{
+					"title": "Implementation",
+					"id": "SW-CLASS-ATTR-IMPL-REF"
+				},
+				{
+					"title": "Description",
+					"id": "ehb_desc"
+				},
+				{
+					"title": "Mode",
+					"id": "ehb_mode"
+				},
+				{
+					"title": "Reference",
+					"id": "ehb_reference"
+				}
+			]
+		}
+	]
+}

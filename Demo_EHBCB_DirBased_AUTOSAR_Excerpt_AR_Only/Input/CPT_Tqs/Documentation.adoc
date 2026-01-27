@@ -1,0 +1,53 @@
+= Tqs
+
+ehbfunctionoverview::"CPT_Tqs"[CPT_Tqs]
+
+== AUTOSAR-based "labels"
+
+The following text contains some "labels" that are also present in the AUTOSAR specification files.
+These could be subject to auto-tagging.
+
+This is a list of ports: 
+
+* RP_Amf
+* RP_Egc
+* RP_Epm
+* RP_Ctc
+* RP_Isc
+* PP_Tqs
+
+This is a list of ports and their interface elements: 
+
+* RP_Egc
+** Egc_facEgas
+** Egc_flgError
+* RP_Epm
+** Epm_rpmEngSpd
+* RP_Ctc
+** Ctc_atCool
+** Ctc_flgError
+* RP_Isc
+** Isc_facIdleSpdStab
+* RP_Amf
+** Amf_facRelAir
+** Amf_mAirPerStr
+* PP_Tqs
+** Stc_tqReq
+
+This is a list of ports and interface elements where the port name is prefixed to the interface element name: 
+
+* RP_Egc
+** RP_Egc.Egc_facEgas
+** RP_Egc.Egc_flgError
+* RP_Epm
+** RP_Epm.Epm_rpmEngSpd
+* RP_Ctc
+** RP_Ctc.Ctc_atCool
+** RP_Ctc.Ctc_flgError
+* RP_Isc
+** RP_Isc.Isc_facIdleSpdStab
+* RP_Amf
+** RP_Amf.Amf_facRelAir
+** RP_Amf.Amf_mAirPerStr
+* PP_Tqs
+** PP_Tqs.Stc_tqReq

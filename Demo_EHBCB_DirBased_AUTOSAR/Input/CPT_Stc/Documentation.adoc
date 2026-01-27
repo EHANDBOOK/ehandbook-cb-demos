@@ -1,0 +1,27 @@
+ehbfunctionoverview::CPT_Stc[Component Overview for CPT_Stc]
+
+== Starten des Motors [Starten des Motors]
+
+Bei einem Startvorgang eines Verbrennungsmotors wird mit Hilfe der Klemme 50 der Anlasser betätigt. Er schleppt den Motor auf eine Drehzahl bei der er selbstständig auf die Leerlaufdrehzahl beschleunigen kann. Der Startvorgang muss von der Motorsteuerung erkannt werden, damit diese bestimmte Anpassungen vornehmen kann.
+
+Bedingungen für den Motorstart:
+
+* Drehzahl kleiner Stc_rpmEngSpedMax
+* Motor in normalem Betriebszustand ( Opm_idxMode )
+* Startersignal (Klemme 50)
+
+.Programmausschnitt Startvorgang 
+image::stc_png_1.png[]
+
+Bei Erkennung eines Startvorgangs wird die variable Stc_stStarter gesetzt. Dadurch wird der Flip Flop Baustein (RSFlipFlop) solange gesetzt, bis eine bestimmte Drehzahl überschritten wird (parametrierbar über Stc_EngSpdStartOverdrive). Durch Setzten dieser Variable wird erstens die Drosselklappenstellung mit dem Parameter T2t_ThrPosStart auf einen während des Startvorgangs festen Wert gestellt. Der Saugrohrdruck sollte dabei nahe dem Umgebungsdruck liegen, um genügend Moment für den Hochlauf des Motors zu erzeugen. Zweitens ist es notwendig, die Einspritzmenge mittels des Parameterkennfeldes Stc_facFuelCorr_MAP im Vergleich zum Normalbetrieb zu erhöhen, um den Wandfilmeffekt auszugleichen. Dieser entsteht dadurch, dass der eingespritzte Kraftstoff nicht komplett verdampft, sondern an den kalten Zylinderwänden kondensiert. Der kondensierte Kraftstoff bleibt unverbrannt, da kein zündfähiges Gemisch vorhanden ist. Je kälter der Motor beim Startvorgang ist, desto höher muss die Einspritzmenge gewählt werden, um den Motor starten zu können. Dies kann die bis zu 8-fache Menge an Kraftstoff erfordern, die bei warmem Motor nötig wäre. Das Kennfeld ( Stc_facFuelCorr_MAP ) ist abhängig von der Zeit nach Motorstart und der Kühlwassertemperatur des Motors. Eine Simulation des Startvorgangs gegen LABCAR ist in Kapitel 6.1 beschrieben.
+
+=== Katalysator heizen nach Motorstart [Katalysator heizen nach Motorstart]
+
+Nach Beendigung des Startvorgangs erfolgt die Übergabe an den Katalysator Heizvorgang. Das ist der Fall, sobald der Parameter Stc_StarterHold gesetzt und die Mindestdrehzahl Stc_EngSpdSetCatalyserHeating erreicht ist. Damit wird der Flip Flop Baustein (RSFF_1) auf 1 gesetzt und bleibt bis zum Ende der Katalysatorheizzeit aktiv. Die Heizzeit wird durch einen Counter berechnet, welcher gesetzt wird, sobald die Katalysatorheizphase aktiv ist. Im Parameter Stc_CatalyserHeatingDelay wird die Länge der Katalysatorheizphase in Sekunden angegeben.
+
+.Aktivierung und Steuerung Katalysator heizen 
+image::stc_png_2.png[]
+
+Zum Heizen des Katalysators soll die Leerlaufdrehzahl angehoben und der Zündwinkel nach spät gestellt werden. Der Ablauf des Vorgangs wird dabei zeitgesteuert. Zur Erhöhung der Leerlaufdrehzahl wird mit Hilfe des Kennfelds Isc_CatHeatTime2HeatingSpeed Zeitabhängig (Stc_CatalyserHeatingTime) die jeweils parametrierte Soll-Leerlaufdrehzahl ausgegeben. Mittels des Parameters Stc_flgCatalyserHeating wird die übliche Soll-Leerlaufdrehzahl überschrieben.
+
+Der Zündwinkel wird nicht direkt adaptiert, sondern über die Anhebung des "langsamen Saugrohrdrucks". Dadurch wird über die Drosselklappe ein höherer Saugrohrdruck eingeregelt, was zur Folge hat, dass der Zündwinkelwirkungsgrad niedriger und somit der Zündwinkel nach spät gestellt wird. Der Verlauf des Saugrohrdruckes über der Zeit ( Stc_CatalyserHeatingTime ) wird über das Kennfeld T2t_CatHeatTime2pManiRes gesteuert. Eine Simulation der Funktion des Katalysatorheizen gegen LABCAR ist in Kapitel 6.1 beschrieben.

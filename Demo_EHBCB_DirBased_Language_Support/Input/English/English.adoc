@@ -1,0 +1,5 @@
+== English
+
+The efficient calibration of electronically controlled vehicle functions requires a comprehensive understanding of the logical structure and mutual dependencies of the functions. This in turn is dependent on having ECU software documentation that is easy to understand and to handle. In the case of complex projects, conventional software documentation formats fall short of these requirements.
+
+The award-winning ETAS EHANDBOOK solution provides new tools for the documentation of ECU software, with the ability to display the logic of the functions interactively and graphically at different levels of abstraction. EHANDBOOK is an easier, faster, and smarter approach to handling the extensive documentation that arises during calibration.

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewConcept>
+   <SimulinkID>SLviewDemo:5</SimulinkID>
+   <Detailed>
+      <AsLine>[false]</AsLine>
+      <Invisible>[false]</Invisible>
+      <HideContents>[false]</HideContents>
+   </Detailed>
+   <Internal>
+      <AsLine>[false]</AsLine>
+      <Invisible>[false]</Invisible>
+      <HideContents>[false]</HideContents>
+   </Internal>
+   <External>
+      <AsLine>[false]</AsLine>
+      <Invisible>[false]</Invisible>
+      <HideContents>[false]</HideContents>
+   </External>
+</ViewConcept>

@@ -1,0 +1,34 @@
+docuUnits:
+  - id: swc1
+    displayName: "Software Component 1"
+  - id: swc2
+    displayName: "Software Component 2"
+  - id: swc3
+    displayName: "Software Component 3"
+  - id: swc4
+    displayName: "Software Component 4"        
+  - id: compo1
+    displayName: "Composition 1"
+  - id: compo2
+    displayName: "Composition 2"
+  - id: ecu
+    displayName: "ECU"    
+tocs:
+  - displayName: "Alphabetic list of software components"
+    contents:
+    - idRef: swc1
+    - idRef: swc2
+    - idRef: swc3
+    - idRef: swc4
+  - displayName: "Software architecture"
+    contents:
+    - idRef: ecu
+      contents:
+      - idRef: compo1
+        contents:
+        - idRef: swc1
+        - idRef: swc2
+      - idRef: compo2
+        contents:
+        - idRef: swc3
+        - idRef: swc4

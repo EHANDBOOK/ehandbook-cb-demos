@@ -1,0 +1,16 @@
+= ReceiverInstance
+
+ehbfunctionoverview::"ReceiverInstance"["ReceiverInstance"]
+
+== Algorithms
+
+ehbmodelref::"ReceiverInstance/ReceiverInstance/Receiver_initialize"[ReceiverInstance/ReceiverInstance/Receiver_initialize]
+
+ehbmodelref::"ReceiverInstance/ReceiverInstance/Receiver_InputPort_CaseStudyData"[ReceiverInstance/ReceiverInstance/Receiver_InputPort_CaseStudyData]
+
+== Source Code Listings
+
+[source,c]
+----
+include::receiver.c[]
+----

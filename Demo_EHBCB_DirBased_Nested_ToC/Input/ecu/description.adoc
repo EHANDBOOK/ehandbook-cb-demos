@@ -1,0 +1,8 @@
+= Description
+
+This is the description for the ECU.
+
+The ECU comprises two compositions:
+
+* compo1
+* compo2

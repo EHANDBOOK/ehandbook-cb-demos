@@ -1,0 +1,7 @@
+docuUnits:  
+  - id: Input
+    displayName: "EHANDBOOK Language Support"
+tocs:
+  - displayName: Table of Contents
+    contents:
+    - idRef: Input

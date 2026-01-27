@@ -1,0 +1,30 @@
+{
+	"Simulink": {
+		"blockRules": [
+			{
+				"selectors": [
+					{
+						"parameter": "BlockType",
+						"value": "Inport"
+					},
+					{
+						"parameter": "BlockType",
+						"value": "Outport"
+					}
+				],
+				"replacements": [
+					{
+						"parameter": "Name",
+						"regex": "(.*)_Sim",
+						"replacement": "$1"
+					}
+				],
+				"uniqueName": "${Name}"
+			}
+		]
+	},
+	"AUTOSAR": {
+		"includeSwcInstanceName": false,
+		"includePortName": false
+	}
+}

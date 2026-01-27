@@ -1,0 +1,26 @@
+ehbfunctionoverview::CPT_Epm[Component Overview for CPT_Epm]
+
+ehbmodelref::Epm_dummy/Main[Epm_dummy/Main]
+
+== Functionality
+
+The EPM software module provides the interface to the physical CAM and CRANK position sensors.
+
+The EPM module provides:
+
+* Calculation of the engine speed and acceleration from the crankshaft signal
+* Generation of the angle-synchronous interrupts
+* Calibration of the crankshaft and camshaft patterns
+* Calibration of the actual number of cylinders
+* Calibration of the physical firing order of the engine
+* Calibration of the orientation between crank, cam, and TDC
+
+== Reference/Calibrated Position during adaptation and start
+
+During engine start-up the CAM shafts must be in reference/calibrated (default/un-shifted) position. While minor shifts of the phasing is acceptable, wide variations from the calibrated position may lead to the inability to reach synchronization and run the engine. VVT requires that adaptation is only done while attached CAMs are in the reference/calibrated position.
+
+*Hint:*
+
+It is strongly recommended to minimize all computations performed by the AppSw until EPM initialization is completed. AppSw can monitor the status of the message EpmSyn_stCasEval for transition to the state “SWTOFF_CASPOS” which indicated plausibility checks of CAM and CRANK have completed.
+
+Similar comment during the initial CAM adaptation after synch is reached if VVT is to be utilized sooner.

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functionmetadata:FunctionMetadataRoot xmi:version="2.0" xmlns:functionmetadata="http://www.etas.com/ehandbook/functionmetadata" xmlns:xmi="http://www.omg.org/XMI">
+
+	<globalConfiguration inlineFunctions="true" libraryPath="../CCodeLib"/>
+	
+	<!-- Icon decoration template-->
+	<!--
+	<function name="<regular expression pattern>" imageURI="images/<image>.jpg" comment="<some comment>">		
+		<argument name="input" portLocation="LEFT"/>
+	</function>	
+	-->
+
+	<function comment="add" imageURI="images/add.jpg" name="add">
+		<argument name="input1" portLocation="LEFT"/>
+		<argument name="input2" portLocation="BOTTOM"/>
+	</function>
+	<function comment="div" imageURI="images/divide.jpg" name="div">
+		<argument name="input1" portLocation="LEFT"/>
+		<argument name="input2" portLocation="BOTTOM"/>
+	</function>
+	<function comment="mul" imageURI="images/multiply.jpg" name="mul">
+		<argument name="input1" portLocation="LEFT"/>
+		<argument name="input2" portLocation="BOTTOM"/>
+	</function>
+	<function comment="sub" imageURI="images/subtract.jpg" name="sub">
+		<argument name="input1" portLocation="LEFT"/>
+		<argument name="input2" portLocation="BOTTOM"/>
+	</function>
+	
+</functionmetadata:FunctionMetadataRoot>

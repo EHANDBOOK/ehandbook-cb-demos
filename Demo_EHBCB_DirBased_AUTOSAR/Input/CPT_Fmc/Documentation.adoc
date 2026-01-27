@@ -1,0 +1,17 @@
+ehbfunctionoverview::CPT_Fmc[Component Overview for CPT_Fmc]
+
+ehbmodelref::FuelMass/Main[FuelMass/Main]
+
+== Einspritzmenge
+
+Im Modul Einspritzmenge (FuelMass) wird die zur Verbrennung benötigte Kraftstoffmasse Fmc_mFuel berechnet. Dazu wird zunächst der Quotient aus der Luftmasse im Zylinder Amf_mAirPerStr und dem Luft-Kraftstoff-Verhältnis Afr_facRatio gebildet und mit dem Korrekturwert Lcc_facLambdaCorr aus der Lambdaregelung multipliziert.
+
+Da bei Saugrohreinspritzung im Gegensatz zur Direkteinspritzung zusätzlich verschiedene ungewünschte Effekte auftreten, wieWandfilm, Verzugszeit, usw., wird zur Verbesserung der Dynamik bei Lastwechseln eine zusätzliche Korrektur Fmc_mFuelCorr der Einspritzmenge durchgeführt. Dazu wird ein Differenzierer mit anschließendem Abklingverhalten verwendet. Je größer die Änderung der Einspritzmenge ist, desto stärker reagiert das DT1-Glied. Dadurch wird beispielsweise erreicht, dass bei einer Erhöhung der Luftmasse, was eine Erhöhung der Kraftstoffmenge zur Folge hat, zusätzlich Kraftstoff eingespritzt wird, der die Wandfilmeffekte im Saugrohr ausgleicht. Über die folgenden Einspritzungen wird diese Menge reduziert, um wieder den gewünschten λ-Wert zu erreichen.
+
+Die Auswertung der Funktion Fmc_calc erfolgt im Synchron-Raster, wodurch die Abtastzeit des DT1-Glieds drehzahlabhängig ist. Dabei erfolgt pro Zylinder eine Auswertung jede zweite Umdrehung, also insgesamt drei Auswertungen über 720°KW. Die Bildung des Maximums von Drehzahl und Eins dient einzig der Sicherheit. Es wird eine Division durch Null vermieden, wobei bei einer Drehzahl von Null nie ein Synchron-Interrupt ausgelöst wird und damit nie eine Auswertung der Funktion erfolgt. Gleichung 5.10 zeigt die Berechnung der Abtastzeit des DT1-Glieds.
+
+Die Berechnung der einzuspritzenden Kraftstoffmasse ergibt sich damit, wie in Gleichung 5.9 beschrieben. Durch das Flag Fmc_flgFuelMassOverride kann die Einspritzmenge manuell mit Fmc_mFuelMan überschrieben werden, bevor sie als Nachricht weitergereicht wird.
+
+image::fmc_jpg_1.JPG[]
+
+image::fmc_jpg_2.JPG[]
