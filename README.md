@@ -272,7 +272,7 @@ Illustrates support for multiple languages in the output.
 **[Demo_EHBCB_DirBased_Custom_Tocs](./Demo_EHBCB_DirBased_Custom_Tocs/README.md)** · `Intermediate`  
 Shows how to create custom table of contents structures.  
 📦 Technologies: `Customization` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_Custom_Tocs/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_Custom_ToCs/Output/Demo_EHBCB_DirBased_Custom_Tocs.ehb)
+[📖 Documentation](./Demo_EHBCB_DirBased_Custom_Tocs/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_Custom_Tocs/Output/Demo_EHBCB_DirBased_Custom_Tocs.ehb)
 
 **[Demo_EHBCB_DirBased_Nested_ToC](./Demo_EHBCB_DirBased_Nested_ToC/README.md)** · `Intermediate`  
 Creates deeply nested, hierarchical Tables of Contents using a tocs.yaml file.  
