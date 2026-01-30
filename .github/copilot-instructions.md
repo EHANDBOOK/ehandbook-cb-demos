@@ -61,7 +61,6 @@ This is the **EHANDBOOK Container-Build Demos** repository, containing 30+ demos
 | `.github/copilot-instructions.md` | This file – guidance for Copilot agents |
 | `docs/demo-template.md` | Template for creating new demo README files |
 | `docs/building-all-demos.md` | Documentation about batch building all demos |
-| `docs/development-status.md` | Ongoing tasks and known issues |
 | `set_tool_paths.bat` | Script to set required environment variables |
 | `build_all_demos.bat` / `build_all_demos.ps1` | Scripts to build all demos at once |
 | `README.md` | Main repository documentation (public-facing) |
@@ -97,4 +96,4 @@ This is the **EHANDBOOK Container-Build Demos** repository, containing 30+ demos
 
 ---
 
-**Last Updated:** December 2025
+**Last Updated:** January 2026
