@@ -313,7 +313,7 @@ Generates an EHANDBOOK Container and PDF for a complex multi-component project w
 <summary><strong>Toolbox Integrations (2 demos)</strong></summary>
 
 **[Demo_EHBCB_AddOn_ASCET_Toolbox](./Demo_EHBCB_AddOn_ASCET_Toolbox/README.md)** · `Intermediate`  
-Placeholder: No README.md available.  
+Documents the EHANDBOOK Container-Build Add-On for ASCET Toolbox.
 📦 Technologies: `ASCET` · 🔧 Add-On  
 [📖 Documentation](./Demo_EHBCB_AddOn_ASCET_Toolbox/README.md)
 
