@@ -86,12 +86,12 @@ This script sets the required environment variables pointing to the tool install
 
 You are empowered to:
 
-✅ **Modify demo files** to fix issues or improve examples  
-✅ **Create new demos** following repository conventions  
-✅ **Run build scripts** to validate changes  
-✅ **Validate outputs** to ensure demos work correctly  
-✅ **Update documentation** to keep it accurate and helpful  
-✅ **Suggest improvements** to the repository structure or processes  
+✅ **Modify demo files** to fix issues or improve examples
+✅ **Create new demos** following repository conventions
+✅ **Run build scripts** to validate changes
+✅ **Validate outputs** to ensure demos work correctly
+✅ **Update documentation** to keep it accurate and helpful
+✅ **Suggest improvements** to the repository structure or processes
 
 ## 🎓 Understanding Demos
 
