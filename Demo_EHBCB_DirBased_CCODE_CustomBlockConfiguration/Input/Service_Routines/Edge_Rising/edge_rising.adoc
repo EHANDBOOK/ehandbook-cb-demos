@@ -1,0 +1,35 @@
+# Overview
+
+This example demonstrates how a rising-edge service routine can be rendered without and with icon decoration.
+
+## C-Code example
+
+[source,c]
+----
+include::edge_rising.c[]
+----
+
+## Graphical representation without icon
+
+ehbmodelref::"Edge_Rising/Edge_Rising/process1"[Edge_Rising/Edge_Rising/process1]
+
+Expected result:
+
+- *edgeRising_V1* appears as a regular function call.
+
+## Configuration example
+
+[source,xml]
+----
+<function name="edgeRising_V2" imageURI="images/edge_rising.jpg" comment="Rising edge" >
+    <argument index="0" name="in" portLocation="LEFT"/>
+</function>
+----
+
+## Graphical representation with icon
+
+ehbmodelref::"Edge_Rising/Edge_Rising/process2"[Edge_Rising/Edge_Rising/process2]
+
+Expected result:
+
+- *edgeRising_V2* is decorated with the boolean service-routine rising-edge icon.

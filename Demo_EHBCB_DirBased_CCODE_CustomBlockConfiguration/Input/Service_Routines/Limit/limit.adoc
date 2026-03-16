@@ -1,0 +1,38 @@
+# Overview
+
+This example demonstrates how a limit service routine can be rendered without and with icon decoration.
+
+## C-Code example
+
+[source,c]
+----
+include::limit.c[]
+----
+
+## Graphical representation without icon
+
+ehbmodelref::"Limit/Limit/process1"[Limit/Limit/process1]
+
+Expected result:
+
+- *SrvF_Limit_V1* appears as a regular function call.
+
+## Configuration example
+
+[source,xml]
+----
+<function imageURI="images/SrvF_Limit.png" name="SrvF_Limit(_.*)?" unifiedName="Srv_Limit">
+    <argument index="0" name="x" portLocation="LEFT" isInstance="false" isReference="false"/>
+    <argument index="1" name="min" portLocation="TOP" isInstance="false" isReference="false"/>
+    <argument index="2" name="max" portLocation="TOP" isInstance="false" isReference="false"/>
+</function>
+----
+
+## Graphical representation with icon
+
+ehbmodelref::"Limit/Limit/process2"[Limit/Limit/process2]
+
+Expected result:
+
+- *SrvF_Limit_V2* is decorated with the float service-routine limit icon.
+- Limit parameters are shown on top ports.

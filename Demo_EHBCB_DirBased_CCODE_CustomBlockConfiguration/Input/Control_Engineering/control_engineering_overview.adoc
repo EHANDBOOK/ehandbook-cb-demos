@@ -1,0 +1,19 @@
+# Overview
+
+This chapter summarizes examples of control-engineering blocks and their icon decoration in EHANDBOOK.
+
+The included examples cover dynamic transfer behavior, nonlinear characteristics, and limiting/timing behavior.
+
+Each subsection provides:
+
+- a C-Code example
+- a graphical representation without configuration
+- a configuration snippet for icon and port mapping
+- a graphical representation with configuration
+
+## Subsections
+
+- link:ehb:text://Transfer_Functions[Transfer Functions]
+- link:ehb:text://Maps_and_Curves[Maps and Curves]
+- link:ehb:text://Limits_and_Rate_Limiter[Limits and Rate Limiter]
+- link:ehb:text://Logic_and_Timing[Logic and Timing]

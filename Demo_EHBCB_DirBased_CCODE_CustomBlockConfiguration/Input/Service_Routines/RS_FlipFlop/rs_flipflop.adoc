@@ -1,0 +1,36 @@
+# Overview
+
+This example demonstrates how an RS flip-flop service routine can be rendered without and with icon decoration.
+
+## C-Code example
+
+[source,c]
+----
+include::rs_flipflop.c[]
+----
+
+## Graphical representation without icon
+
+ehbmodelref::"RS_FlipFlop/RS_FlipFlop/process1"[RS_FlipFlop/RS_FlipFlop/process1]
+
+Expected result:
+
+- *rsff_V1* appears as a regular function call.
+
+## Configuration example
+
+[source,xml]
+----
+<function name="rsff_V2" imageURI="images/SrvB_RSFF.png" comment="RS flip-flop" >
+    <argument index="0" name="set" portLocation="TOP"/>
+    <argument index="1" name="reset" portLocation="TOP"/>
+</function>
+----
+
+## Graphical representation with icon
+
+ehbmodelref::"RS_FlipFlop/RS_FlipFlop/process2"[RS_FlipFlop/RS_FlipFlop/process2]
+
+Expected result:
+
+- *rsff_V2* is decorated with the boolean service-routine RS flip-flop icon.
