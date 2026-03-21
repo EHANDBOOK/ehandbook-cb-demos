@@ -10,6 +10,7 @@
 * Custom C-Code block rendering via `CCodeConfig/CCodeConfig.xml`.
 * Function-specific metadata such as custom icon assignment (`imageURI`) and semantic labels (`comment`).
 * Port and argument layout control (`argument`, `index`, `portLocation`, `isInstance`, `isReference`).
+* Dedicated chapter for function argument configuration combinations (`Function Configuration Options`).
 * Regex-based matching for function families (for example `DT1_.*_compute_V2`).
 * Custom table of contents structure via `Input/tocs.yaml`.
 * Branded output styling with the `-styling` option.
@@ -32,7 +33,7 @@
 ## 🔬 Explore the Output
 
 * After the build completes, open the generated `.ehb` in the `Output/` folder with EHANDBOOK-NAVIGATOR.
-* Navigate through topics like **Maps and Curves**, **Transfer Functions**, **Logic and Timing**, and **Service Routines**.
+* Navigate through topics like **Function Configuration Options**, **Maps and Curves**, **Transfer Functions**, **Logic and Timing**, and **Service Routines**.
 * Inspect C-Code diagrams to see custom visual blocks (for example map/curve, edge detection, and limit functions) represented with configured icons and port layout.
 * Compare how generic C functions appear versus functions explicitly configured in `CCodeConfig.xml`.
 

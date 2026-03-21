@@ -92,6 +92,34 @@
 		<argument index="3" name="T" portLocation="TOP" isInstance="false" isReference="false"/>
 	</function>
 
+	<function name="portTop" imageURI="images/ETAS_Logo_Blue3.png" comment="Port location TOP" >
+		<argument index="0" name="in" portLocation="TOP"/>
+	</function>
+
+	<function name="portLeft" imageURI="images/ETAS_Logo_Blue3.png" comment="Port location LEFT" >
+		<argument index="0" name="in" portLocation="LEFT"/>
+	</function>
+
+	<function name="portBottom" imageURI="images/ETAS_Logo_Blue3.png" comment="Port location BOTTOM" >
+		<argument index="0" name="in" portLocation="BOTTOM"/>
+	</function>
+
+	<function name="portInvisible" imageURI="images/ETAS_Logo_Blue3.png" comment="Port location INVISIBLE" >
+		<argument index="0" name="in" portLocation="INVISIBLE"/>
+	</function>
+
+	<function name="instanceName" imageURI="images/ETAS_Logo_Blue3.png" comment="isInstance=true" >
+		<argument index="0" name="instanceId" isInstance="true"/>
+	</function>
+
+	<function name="referenceArg" imageURI="images/ETAS_Logo_Blue3.png" comment="isReference=true" >
+		<argument index="0" name="refValue" isReference="true"/>
+	</function>
+
+	<function name="instanceReference" imageURI="images/ETAS_Logo_Blue3.png" comment="isInstance=true and isReference=true" >
+		<argument index="0" name="instanceRef" isInstance="true" isReference="true"/>
+	</function>
+
 	<!--END : Customer Specific Function Definition -->
     
 	<!--START : Customer Specific Function to Operator Mapping -->

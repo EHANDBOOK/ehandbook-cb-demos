@@ -1,6 +1,8 @@
 docuUnits:
   - id: Introduction
     displayName: "C-Code Block Visualization in EHANDBOOK"
+  - id: Function_Config_Options
+    displayName: "Function Configuration Options"    
   - id: Control_Engineering
     displayName: "Control Engineering"
   - id: C_Code_Programming
@@ -28,6 +30,7 @@ tocs:
   - displayName: "C-Code Block Visualization in EHANDBOOK"
     contents:
       - idRef: Introduction
+      - idRef: Function_Config_Options      
       - idRef: C_Code_Programming
       - idRef: Control_Engineering
         contents:

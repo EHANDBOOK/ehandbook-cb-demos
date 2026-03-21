@@ -1,0 +1,209 @@
+# Overview
+
+This chapter explains configuration options for C function arguments in 'CCodeConfig.xml'.
+
+The examples are intentionally minimal and structured in two groups:
+
+1. Port location variants only ('TOP', 'LEFT', 'BOTTOM', 'INVISIBLE')
+2. Flag behavior examples ('isInstance', 'isReference')
+
+Semantics used in this chapter:
+
+- 'isInstance="true"': the argument is used as instance name of the block.
+- 'isReference="true"': the argument is passed as reference.
+
+## 1) Port location variants
+
+Port location controls where an argument's port appears on the block.
+By default, all arguments are displayed as input ports on the left.
+These examples show how to override this default placement.
+
+### Without configuration
+
+[source,c]
+----
+void process1_port_default() {
+    float in;
+    float out = portTop_raw(in);
+}
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process1_port_default"[Function_Config_Options/Function_Config_Options/process1_port_default]
+
+### With configuration
+
+#### TOP
+
+[source,c]
+----
+void process2_port_top() {
+    float in;
+    float out = portTop(in);
+}
+----
+
+[source,xml]
+----
+<function name="portTop" imageURI="images/ETAS_Logo_Blue.png" >
+    <argument index="0" name="in" portLocation="TOP"/>
+</function>
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process2_port_top"[Function_Config_Options/Function_Config_Options/process2_port_top]
+
+#### LEFT
+
+[source,c]
+----
+void process2_port_left() {
+    float in;
+    float out = portLeft(in);
+}
+----
+
+[source,xml]
+----
+<function name="portLeft" imageURI="images/ETAS_Logo_Blue.png" >
+    <argument index="0" name="in" portLocation="LEFT"/>
+</function>
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process2_port_left"[Function_Config_Options/Function_Config_Options/process2_port_left]
+
+#### BOTTOM
+
+[source,c]
+----
+void process2_port_bottom() {
+    float in;
+    float out = portBottom(in);
+}
+----
+
+[source,xml]
+----
+<function name="portBottom" imageURI="images/ETAS_Logo_Blue.png" >
+    <argument index="0" name="in" portLocation="BOTTOM"/>
+</function>
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process2_port_bottom"[Function_Config_Options/Function_Config_Options/process2_port_bottom]
+
+#### INVISIBLE
+
+[source,c]
+----
+void process2_port_invisible() {
+    float in;
+    float out = portInvisible(in);
+}
+----
+
+[source,xml]
+----
+<function name="portInvisible" imageURI="images/ETAS_Logo_Blue.png" >
+    <argument index="0" name="in" portLocation="INVISIBLE"/>
+</function>
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process2_port_invisible"[Function_Config_Options/Function_Config_Options/process2_port_invisible]
+
+Expected result:
+
+- The same one-port function appears with four different port placements.
+- 'INVISIBLE' hides the port from the block interface.
+
+## 2) 'isInstance' and 'isReference' examples
+
+These examples also use one argument to isolate the flag behavior.
+
+### Without configuration
+
+[source,c]
+----
+void process1_instance_name() {
+    float instanceId;
+    float out = instanceName_raw(instanceId);
+}
+
+void process1_reference_arg() {
+    float refValue;
+    float out = referenceArg_raw(&refValue);
+}
+
+void process1_instance_reference() {
+    float instanceRef;
+    float out = instanceReference_raw(&instanceRef);
+}
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process1_instance_name"[Function_Config_Options/Function_Config_Options/process1_instance_name]
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process1_reference_arg"[Function_Config_Options/Function_Config_Options/process1_reference_arg]
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process1_instance_reference"[Function_Config_Options/Function_Config_Options/process1_instance_reference]
+
+### With configuration
+
+#### 'isInstance=true'
+
+[source,c]
+----
+void process2_instance_name() {
+    float instanceId;
+    float out = instanceName(instanceId);
+}
+----
+
+[source,xml]
+----
+<function name="instanceName" imageURI="images/ETAS_Logo_Blue.png" >
+    <argument index="0" name="instanceId" isInstance="true"/>
+</function>
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process2_instance_name"[Function_Config_Options/Function_Config_Options/process2_instance_name]
+
+#### 'isReference=true'
+
+[source,c]
+----
+void process2_reference_arg() {
+    float refValue;
+    float out = referenceArg(&refValue);
+}
+----
+
+[source,xml]
+----
+<function name="referenceArg" imageURI="images/ETAS_Logo_Blue.png" >
+    <argument index="0" name="refValue" isReference="true"/>
+</function>
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process2_reference_arg"[Function_Config_Options/Function_Config_Options/process2_reference_arg]
+
+#### 'isInstance=true' and 'isReference=true'
+
+[source,c]
+----
+void process2_instance_reference() {
+    float instanceRef;
+    float out = instanceReference(&instanceRef);
+}
+----
+
+[source,xml]
+----
+<function name="instanceReference" imageURI="images/ETAS_Logo_Blue.png" >
+    <argument index="0" name="instanceRef" isInstance="true" isReference="true"/>
+</function>
+----
+
+ehbmodelref::"Function_Config_Options/Function_Config_Options/process2_instance_reference"[Function_Config_Options/Function_Config_Options/process2_instance_reference]
+
+Expected result:
+
+- 'isInstance=true' changes how the argument is used for block instance naming.
+- 'isReference=true' marks the argument as reference-passed.
+- The combined example shows both behaviors at once.
