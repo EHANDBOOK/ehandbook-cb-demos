@@ -1,0 +1,75 @@
+# Overview
+
+This example demonstrates how edge-detection and timer functions can be configured to improve logical readability in generated diagrams.
+
+The C code uses separate process functions so that each logic/timing block can be inspected independently.
+
+## C-Code example
+
+[source,c]
+----
+include::logic_and_timing.c[]
+----
+
+## Graphical representation without configuration
+
+### Rising edge detection
+
+ehbmodelref::"Logic_and_Timing/Logic_and_Timing/process1_edge_rising"[Logic_and_Timing/Logic_and_Timing/process1_edge_rising]
+
+### Falling edge detection
+
+ehbmodelref::"Logic_and_Timing/Logic_and_Timing/process1_edge_falling"[Logic_and_Timing/Logic_and_Timing/process1_edge_falling]
+
+### Timer
+
+ehbmodelref::"Logic_and_Timing/Logic_and_Timing/process1_timer"[Logic_and_Timing/Logic_and_Timing/process1_timer]
+
+Expected result:
+
+- *risingEdgeDetector_V1*, *fallingEdgeDetector_V1*, and *timer_V1* appear as regular function calls.
+- The blocks are not connected, which makes each behavior easier to inspect separately.
+
+## Configuration example
+
+[source,xml]
+----
+<function name="edgeRising_V2" imageURI="images/edge_rising.jpg" comment="Rising edge" >
+    <argument index="0" name="in" portLocation="LEFT"/>
+</function>
+
+<function name="edgeFalling_V2" imageURI="images/edge_falling.jpg" comment="Falling edge" >
+    <argument index="0" name="in" portLocation="LEFT"/>
+</function>
+
+<function name="timer_V2" imageURI="images/timer.jpg" comment="Timer" >
+    <argument index="0" name="in" portLocation="LEFT"/>
+    <argument index="1" name="duration" portLocation="TOP"/>
+</function>
+----
+
+Configuration semantics:
+
+- *LEFT* is used for the main signal input.
+- *TOP* is used for timing parameters such as *duration*.
+- Separate functions and icons make the logic/timing intent easier to identify.
+
+## Graphical representation with configuration
+
+### Rising edge detection
+
+ehbmodelref::"Logic_and_Timing/Logic_and_Timing/process2_edge_rising"[Logic_and_Timing/Logic_and_Timing/process2_edge_rising]
+
+### Falling edge detection
+
+ehbmodelref::"Logic_and_Timing/Logic_and_Timing/process2_edge_falling"[Logic_and_Timing/Logic_and_Timing/process2_edge_falling]
+
+### Timer
+
+ehbmodelref::"Logic_and_Timing/Logic_and_Timing/process2_timer"[Logic_and_Timing/Logic_and_Timing/process2_timer]
+
+Expected result:
+
+- *edgeRising_V2* is rendered with the rising-edge icon.
+- *edgeFalling_V2* is rendered with the falling-edge icon.
+- *timer_V2* is rendered with the timer icon and exposes *duration* as a top input.

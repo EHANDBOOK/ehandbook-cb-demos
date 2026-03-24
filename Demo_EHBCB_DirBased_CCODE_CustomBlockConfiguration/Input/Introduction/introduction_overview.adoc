@@ -1,0 +1,71 @@
+# Overview
+
+This documentation explains how C-Code functions are transformed into meaningful graphical blocks in EHANDBOOK by using a dedicated C-Code configuration.
+
+The guide combines:
+
+- configuration concepts
+- practical C-Code examples
+- icon decoration and block-port semantics
+- chapter organization via custom table of contents
+
+The objective is to help users move from generic function-call visualization to structured, engineering-oriented documentation views.
+
+Additional information on configuration of C-Code visualization can be found in the EHANDBOOK Container-Build documentation:
+
+https://docs.etas.com/ehandbook/ehandbook/how-to-guides/EHANDBOOK_Container-Build_User_Guide_Advanced_Features.html#ccode-configuration
+
+## Purpose of this Guide
+
+In real projects, raw C-Code function calls alone are often not sufficient for fast understanding.
+By mapping selected function patterns to dedicated icons and semantic ports, documentation becomes easier to read for calibration engineers, software developers, and system architects.
+
+This guide shows how to:
+
+- define function metadata mappings
+- assign icons to block families
+- structure arguments by semantic port locations
+- organize content chapters with custom TOCs
+
+## Scope
+
+The examples in this documentation cover three major domains:
+
+- *C-Code Programming* (memory/access primitives)
+- *Control Engineering* (filters, transfer functions, maps/curves, logic/timing, limiting)
+- *Service Routines* (typed service blocks, e.g. *SrvB* and *SrvF*)
+
+## Documentation Structure
+
+The chapter structure is designed to support both onboarding and technical reference usage.
+
+- *C-Code Programming* demonstrates low-level access/memory blocks such as member access, address-of, dereference, and indexed access.
+- *Control Engineering* covers dynamic and nonlinear building blocks, including DT1-related transfer behavior, filtering, and characteristic maps.
+- *Service Routines* focuses on typed routine visualization and examples for boolean and float-oriented routines.
+
+## How to Use this Documentation
+
+Each example chapter follows a consistent pattern:
+
+- C-Code snippet
+- reference to generated model view
+- XML configuration snippet for icon mapping
+- expected visualization outcome
+
+This allows direct comparison between code intent and resulting visual representation.
+
+## Expected Outcome
+
+After working through this guide, readers should be able to:
+
+- set up and maintain C-Code visualization mappings
+- create new decorated block examples consistently
+- classify and organize block types for navigation
+
+## Prerequisites
+
+- EHANDBOOK Container-Build environment configured for directory-based input
+- project-specific C-Code configuration file available
+- basic familiarity with C functions and control-engineering terminology
+
+With these conventions and examples, the documentation can be extended systematically for additional block families and project-specific coding patterns.

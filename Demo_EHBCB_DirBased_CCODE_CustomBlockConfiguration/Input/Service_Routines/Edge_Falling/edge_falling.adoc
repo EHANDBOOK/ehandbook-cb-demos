@@ -1,0 +1,35 @@
+# Overview
+
+This example demonstrates how a falling-edge service routine can be rendered without and with icon decoration.
+
+## C-Code example
+
+[source,c]
+----
+include::edge_falling.c[]
+----
+
+## Graphical representation without icon
+
+ehbmodelref::"Edge_Falling/Edge_Falling/process1"[Edge_Falling/Edge_Falling/process1]
+
+Expected result:
+
+- *edgeFalling_V1* appears as a regular function call.
+
+## Configuration example
+
+[source,xml]
+----
+<function name="edgeFalling_V2" imageURI="images/edge_falling.jpg" comment="Falling edge" >
+    <argument index="0" name="in" portLocation="LEFT"/>
+</function>
+----
+
+## Graphical representation with icon
+
+ehbmodelref::"Edge_Falling/Edge_Falling/process2"[Edge_Falling/Edge_Falling/process2]
+
+Expected result:
+
+- *edgeFalling_V2* is decorated with the boolean service-routine falling-edge icon.

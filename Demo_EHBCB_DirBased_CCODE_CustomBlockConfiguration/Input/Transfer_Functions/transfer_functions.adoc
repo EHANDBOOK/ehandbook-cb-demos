@@ -1,0 +1,51 @@
+# Overview
+
+This example demonstrates how a DT1 transfer-function implementation can be visualized with dedicated metadata in EHANDBOOK diagrams.
+
+The C code contains two variants:
+
+- *process1* uses a first-order lag function without dedicated metadata mapping.
+- *process2* uses a DT1 function name that matches configured DT1 metadata.
+
+## C-Code example
+
+[source,c]
+----
+include::transfer_functions.c[]
+----
+
+## Graphical representation without configuration
+
+ehbmodelref::"Transfer_Functions/Transfer_Functions/process1"[Transfer_Functions/Transfer_Functions/process1]
+
+Expected result:
+
+- *DT1_Filter_compute_V1* appears as a regular function call.
+- DT1-specific argument semantics are not visualized explicitly.
+
+## Configuration example
+
+[source,xml]
+----
+<function imageURI="images/DT1.png" name="DT1_.*_compute_V2">
+    <argument index="0" name="in" portLocation="LEFT" isInstance="false" isReference="false"/>
+    <argument index="1" name="Ta" portLocation="TOP" isInstance="false" isReference="false"/>
+    <argument index="2" name="K" portLocation="TOP" isInstance="false" isReference="false"/>
+    <argument index="3" name="T" portLocation="TOP" isInstance="false" isReference="false"/>
+</function>
+----
+
+Configuration semantics:
+
+- *in* is the main signal input on the left side.
+- *Ta*, *K*, and *T* are control/calibration parameters on top ports.
+- The *DT1_.*_compute_V2* pattern maps DT1 compute functions to the DT1 icon.
+
+## Graphical representation with configuration
+
+ehbmodelref::"Transfer_Functions/Transfer_Functions/process2"[Transfer_Functions/Transfer_Functions/process2]
+
+Expected result:
+
+- *DT1_Filter_compute_V2* is rendered as a DT1 block using *images/DT1.png*.
+- Ports are arranged semantically as signal input (left) plus parameters (top).
