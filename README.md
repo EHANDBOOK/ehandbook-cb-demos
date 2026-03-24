@@ -24,7 +24,7 @@ Each demo folder is self-contained and includes:
 - [What Each Demo Contains](#what-each-demo-contains)
 - [What You'll Need](#what-youll-need)
 - [Product Evaluations](#product-evaluations)
-- [Getting Started](#getting-started)  
+- [Getting Started](#getting-started)
   - [Clone Repository](#clone-repository)
   - [Setup](#setup)
 - [How to Run a Demo](#how-to-run-a-demo)
@@ -179,7 +179,7 @@ Demonstrates generating an EHANDBOOK container using ASAM-based input formats fo
 ### 💻 C-Code Demos
 
 <details>
-<summary><strong>C-Code Documentation (2 demos)</strong></summary>
+<summary><strong>C-Code Documentation (3 demos)</strong></summary>
 
 **[Demo_EHBCB_DirBased_CCODE_Simple](./Demo_EHBCB_DirBased_CCODE_Simple/README.md)** · `Beginner`  
 A fundamental example of documenting a simple C-code project.  
@@ -190,6 +190,11 @@ A fundamental example of documenting a simple C-code project.
 Demonstrates handling of code hierarchies and references in a C-Code project.  
 📦 Technologies: `C-Code` · 📁 Directory-Based  
 [📖 Documentation](./Demo_EHBCB_DirBased_CCODE_References/README.md) · [⬇️ Download With Hierarchies](./Demo_EHBCB_DirBased_CCODE_References/Output/Demo_EHBCB_DirBased_CCODE_References_With_Hierarchies.ehb) · [⬇️ Download Without Hierarchies](./Demo_EHBCB_DirBased_CCODE_References/Output/Demo_EHBCB_DirBased_CCODE_References_Without_Hierarchies.ehb)
+
+**[Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration](./Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration/README.md)** · `Intermediate`  
+Demonstrates customizing of block visualization in a C-Code project.  
+📦 Technologies: `C-Code` · 📁 Directory-Based  
+[📖 Documentation](./Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration/Output/Demo_EHBCB_DirBased_CCODE_ConfigExample.ehb)
 
 </details>
 

@@ -1,0 +1,17 @@
+# Overview
+
+This chapter contains compact examples for decorating service-routine C-Code functions with dedicated icons in EHANDBOOK diagrams.
+
+Each subsection provides:
+
+- a C-Code example
+- a graphical representation without icon decoration
+- a configuration snippet for icon mapping
+- a graphical representation with icon decoration
+
+## Subsections
+
+- link:ehb:text://Edge_Rising[Edge Rising]
+- link:ehb:text://Edge_Falling[Edge Falling]
+- link:ehb:text://RS_FlipFlop[RS Flip-Flop]
+- link:ehb:text://Limit[Limit]

@@ -1,0 +1,57 @@
+# Overview
+
+This example demonstrates how C-Code functions that implement 1D or 2D interpolation routines can be configured so they are visualized as blocks with the correct icons and port layout.
+
+The C code contains two variants:
+
+- *process1* uses interpolation functions without dedicated metadata mapping.
+- *process2* uses interpolation functions that are matched by configuration entries and therefore rendered as curve/map blocks.
+
+## C-Code example
+
+[source,c]
+----
+include::maps_and_curves.c[]
+---- 
+
+Note: this C snippet is focused on visualization behavior. Variables are intentionally minimal to highlight how interpolation calls are recognized and rendered.
+
+## Graphical representation without configuration
+
+ehbmodelref::"Maps_and_Curves/Maps_and_Curves/process1"[Maps_and_Curves/Maps_and_Curves/process1]
+
+Expected result:
+
+- Interpolation calls appear as regular function calls.
+- No dedicated curve/map icon mapping is applied.
+
+## Configuration example
+
+[source,xml]
+----
+<function name="interpolate1D_V2" imageURI="images/curve.png" comment="Curve" >
+    <argument name="curve_data" portLocation="BOTTOM" isInstance="true" isReference="true"/>
+    <argument name="input" portLocation="LEFT"/>
+</function>
+
+<function name="interpolate2D_V2" imageURI="images/map.png" comment="Map" >
+    <argument name="map_data" portLocation="BOTTOM" isInstance="true" isReference="true"/>
+    <argument name="input1" portLocation="LEFT"/>
+    <argument name="input2" portLocation="LEFT"/>
+</function>	
+---- 
+
+Configuration semantics:
+
+- *isInstance="true"* and *isReference="true"* mark map/curve data arguments as referenced instance data.
+- *portLocation="BOTTOM"* places data-instance inputs at the bottom of the block.
+- *portLocation="LEFT"* places runtime signal inputs on the left side.
+
+## Graphical representation with configuration
+
+ehbmodelref::"Maps_and_Curves/Maps_and_Curves/process2"[Maps_and_Curves/Maps_and_Curves/process2]
+
+Expected result:
+
+- *interpolate1D_V2* is rendered as a Curve block with a bottom data port and a left input port.
+- *interpolate2D_V2* is rendered as a Map block with one bottom data port and two left input ports.

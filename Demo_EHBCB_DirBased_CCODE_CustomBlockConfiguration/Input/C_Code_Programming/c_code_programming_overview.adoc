@@ -1,0 +1,41 @@
+# Overview
+
+This example demonstrates C-Code access/memory primitives that are visualized as dedicated icon blocks.
+
+The C code separates the access/memory operations into focused process functions for easier inspection.
+
+Covered blocks:
+
+- *GetMember*
+- *GetAddr*
+- *GetIndexDeref*
+- *GetDeref*
+- *SetMember*
+- *SetDeref*
+- *SetIndexDeref*
+
+## C-Code example
+
+[source,c]
+----
+include::c_code_programming.c[]
+----
+
+## Graphical representation with configuration
+
+### Address and member access
+
+ehbmodelref::"C_Code_Programming/C_Code_Programming/process_address_and_member_access"[C_Code_Programming/C_Code_Programming/process_address_and_member_access]
+
+### Pointer and indexed read access
+
+ehbmodelref::"C_Code_Programming/C_Code_Programming/process_pointer_and_index_read"[C_Code_Programming/C_Code_Programming/process_pointer_and_index_read]
+
+### Write access
+
+ehbmodelref::"C_Code_Programming/C_Code_Programming/process_write_access"[C_Code_Programming/C_Code_Programming/process_write_access]
+
+Expected result:
+
+- All listed access/memory operations are rendered as dedicated icon blocks.
+- Read operations and write operations are distinguishable by their specific block symbols.

@@ -1,0 +1,46 @@
+docuUnits:
+  - id: Introduction
+    displayName: "C-Code Block Visualization in EHANDBOOK"
+  - id: Function_Config_Options
+    displayName: "Function Configuration Options"    
+  - id: Control_Engineering
+    displayName: "Control Engineering"
+  - id: C_Code_Programming
+    displayName: "C-Code Programming"
+  - id: Maps_and_Curves
+    displayName: "Maps and Curves"
+  - id: Transfer_Functions
+    displayName: "Transfer Functions"
+  - id: Logic_and_Timing
+    displayName: "Logic and Timing"
+  - id: Limits_and_Rate_Limiter
+    displayName: "Limits and Rate Limiter"
+  - id: Service_Routines
+    displayName: "Service Routines"
+  - id: Edge_Rising
+    displayName: "Edge Rising (SrvB)"
+  - id: Edge_Falling
+    displayName: "Edge Falling (SrvB)"
+  - id: RS_FlipFlop
+    displayName: "RS Flip-Flop (SrvB)"
+  - id: Limit
+    displayName: "Limit (SrvF)"
+
+tocs:
+  - displayName: "C-Code Block Visualization in EHANDBOOK"
+    contents:
+      - idRef: Introduction
+      - idRef: Function_Config_Options      
+      - idRef: C_Code_Programming
+      - idRef: Control_Engineering
+        contents:
+          - idRef: Transfer_Functions
+          - idRef: Maps_and_Curves
+          - idRef: Limits_and_Rate_Limiter
+          - idRef: Logic_and_Timing
+      - idRef: Service_Routines
+        contents:
+          - idRef: Edge_Rising
+          - idRef: Edge_Falling
+          - idRef: RS_FlipFlop
+          - idRef: Limit

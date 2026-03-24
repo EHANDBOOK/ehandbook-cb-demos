@@ -1,0 +1,64 @@
+# Overview
+
+This example demonstrates how saturation and rate-limiter functions can be configured so the resulting diagrams expose limit and slope parameters in a consistent way.
+
+The C code uses separate process functions so that saturation and rate limiting can be inspected independently.
+
+## C-Code example
+
+[source,c]
+----
+include::limits_and_rate_limiter.c[]
+----
+
+## Graphical representation without configuration
+
+### Saturation
+
+ehbmodelref::"Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process1_saturation"[Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process1_saturation]
+
+### Rate limiter
+
+ehbmodelref::"Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process1_rate_limiter"[Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process1_rate_limiter]
+
+Expected result:
+
+- *saturation_V1* and *rateLimiter_V1* appear as regular function calls.
+- Limit/slope parameters are not visually emphasized via dedicated port placement metadata.
+
+## Configuration example
+
+[source,xml]
+----
+<function name="saturation_V2" imageURI="images/SrvF_Limit.png" comment="Saturation" >
+    <argument index="0" name="x" portLocation="LEFT"/>
+    <argument index="1" name="min" portLocation="TOP"/>
+    <argument index="2" name="max" portLocation="TOP"/>
+</function>
+
+<function name="rateLimiter_V2" imageURI="images/SrvF_Limit.png" comment="Rate limiter" >
+    <argument index="0" name="in" portLocation="LEFT"/>
+    <argument index="1" name="rise" portLocation="TOP"/>
+    <argument index="2" name="fall" portLocation="TOP"/>
+</function>
+----
+
+Configuration semantics:
+
+- Main signal paths are mapped to *LEFT* ports.
+- Calibration constraints (*min*, *max*, *rise*, *fall*) are mapped to *TOP* ports.
+
+## Graphical representation with configuration
+
+### Saturation
+
+ehbmodelref::"Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process2_saturation"[Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process2_saturation]
+
+### Rate limiter
+
+ehbmodelref::"Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process2_rate_limiter"[Limits_and_Rate_Limiter/Limits_and_Rate_Limiter/process2_rate_limiter]
+
+Expected result:
+
+- *saturation_V2* and *rateLimiter_V2* are rendered with limiter-style metadata and semantic port layout.
+- Threshold and slope parameters are visually grouped on top ports.

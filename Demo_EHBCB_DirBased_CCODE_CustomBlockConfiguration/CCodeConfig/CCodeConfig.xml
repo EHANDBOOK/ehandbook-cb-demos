@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functionmetadata:FunctionMetadataRoot xmi:version="2.0" xmlns:functionmetadata="http://www.etas.com/ehandbook/functionmetadata" xmlns:xmi="http://www.omg.org/XMI">
+
+	<globalConfiguration libraryPath="../lib" inlineFunctions="true" simplifyDiagram="true" generateHierarchies="false" maxIterationForDataflowAnalysis="50000"/>
+	
+	<!--START : Basic Function Definition -->
+	<function comment="get a member of a struct or union" imageURI="images/GetMember.png" name="GetMember">
+		<argument index="0" name="base" portLocation="BOTTOM"/>
+	</function>
+	<function comment="get the address of a variable" imageURI="images/GetAddressOf.png" name="GetAddr">
+		<argument index="0" name="base" portLocation="LEFT"/>
+	</function>
+	<function comment="get the value of an array at position 'index'" imageURI="images/GetIndexDeref.png" name="GetIndexDeref">
+		<argument index="0" name="base" portLocation="BOTTOM"/>
+		<argument index="1" name="index" portLocation="BOTTOM"/>
+	</function>
+	<function comment="get the value stored at a pointer's address" imageURI="images/GetDeref.png" name="GetDeref">
+		<argument index="0" name="base" portLocation="LEFT"/>
+	</function>
+	<function comment="set a member of a struct or union" imageURI="images/SetMember.png" name="SetMember">
+		<argument index="0" name="base" portLocation="BOTTOM"/>
+		<argument index="1" name="value" portLocation="LEFT"/>
+	</function>
+	<function comment="set the value at a pointer's address" imageURI="images/SetDeref.png" name="SetDeref">
+		<argument index="0" name="base" portLocation="BOTTOM"/>
+		<argument index="1" name="value" portLocation="LEFT"/>
+	</function>
+	<function comment="set the value of an array at position 'index'" imageURI="images/SetIndexDeref.png" name="SetIndexDeref">
+		<argument index="0" name="base" portLocation="BOTTOM"/>
+		<argument index="1" name="index" portLocation="BOTTOM"/>
+		<argument index="2" name="value" portLocation="LEFT"/>
+	</function>
+	<!--END : Basic Function Definition -->
+	
+	<!--START : Customer Specific Function Definition -->
+	<function name="interpolate1D_V2" imageURI="images/curve.png" comment="Curve" >
+		<argument name="curve_data" portLocation="BOTTOM" isInstance="true" isReference="true"/>
+		<argument name="input" portLocation="LEFT"/>
+	</function>
+
+	<function name="interpolate2D_V2" imageURI="images/map.png" comment="Map" >
+		<argument name="map_data" portLocation="BOTTOM" isInstance="true" isReference="true"/>
+		<argument name="input1" portLocation="LEFT"/>
+		<argument name="input2" portLocation="LEFT"/>
+	</function>	
+
+	<function name="rsff_V2" imageURI="images/SrvB_RSFF.png" comment="RS flip-flop" >
+		<argument index="0" name="set" portLocation="LEFT"/>
+		<argument index="1" name="reset" portLocation="LEFT"/>
+	</function>
+
+	<function name="counter_V2" imageURI="images/CounterE.png" comment="Counter" >
+		<argument index="0" name="in" portLocation="LEFT"/>
+		<argument index="1" name="maxCount" portLocation="TOP"/>
+	</function>
+
+	<function name="edgeRising_V2" imageURI="images/edge_rising.jpg" comment="Rising edge" >
+		<argument index="0" name="in" portLocation="LEFT"/>
+	</function>
+
+	<function name="edgeFalling_V2" imageURI="images/edge_falling.jpg" comment="Falling edge" >
+		<argument index="0" name="in" portLocation="LEFT"/>
+	</function>
+
+	<function name="timer_V2" imageURI="images/timer.jpg" comment="Timer" >
+		<argument index="0" name="in" portLocation="LEFT"/>
+		<argument index="1" name="duration" portLocation="TOP"/>
+	</function>
+
+	<function name="saturation_V2" imageURI="images/SrvF_Limit.png" comment="Saturation" >
+		<argument index="0" name="x" portLocation="LEFT"/>
+		<argument index="1" name="min" portLocation="TOP"/>
+		<argument index="2" name="max" portLocation="TOP"/>
+	</function>
+
+	<function name="rateLimiter_V2" imageURI="images/SrvF_Limit.png" comment="Rate limiter" >
+		<argument index="0" name="in" portLocation="LEFT"/>
+		<argument index="1" name="rise" portLocation="TOP"/>
+		<argument index="2" name="fall" portLocation="TOP"/>
+	</function>	
+
+	<function name="SrvF_Limit_V2" imageURI="images/SrvF_Limit.png" comment="Limit" unifiedName="Srv_Limit">
+		<argument index="0" name="x" portLocation="LEFT" isInstance="false" isReference="false"/>
+		<argument index="1" name="min" portLocation="TOP" isInstance="false" isReference="false"/>
+		<argument index="2" name="max" portLocation="TOP" isInstance="false" isReference="false"/>
+	</function>		
+
+	<function name="DT1_.*_compute_V2" imageURI="images/DT1.png" >
+		<argument index="0" name="in" portLocation="LEFT" isInstance="false" isReference="false"/>
+		<argument index="1" name="Ta" portLocation="TOP" isInstance="false" isReference="false"/>
+		<argument index="2" name="K" portLocation="TOP" isInstance="false" isReference="false"/>
+		<argument index="3" name="T" portLocation="TOP" isInstance="false" isReference="false"/>
+	</function>
+
+	<function name="portTop" imageURI="images/ETAS_Logo_Blue_Icon.png" comment="Port location TOP" >
+		<argument index="0" name="in" portLocation="TOP"/>
+	</function>
+
+	<function name="portLeft" imageURI="images/ETAS_Logo_Blue_Icon.png" comment="Port location LEFT" >
+		<argument index="0" name="in" portLocation="LEFT"/>
+	</function>
+
+	<function name="portBottom" imageURI="images/ETAS_Logo_Blue_Icon.png" comment="Port location BOTTOM" >
+		<argument index="0" name="in" portLocation="BOTTOM"/>
+	</function>
+
+	<function name="portInvisible" imageURI="images/ETAS_Logo_Blue_Icon.png" comment="Port location INVISIBLE" >
+		<argument index="0" name="in" portLocation="INVISIBLE"/>
+	</function>
+
+	<function name="instanceName" imageURI="images/ETAS_Logo_Blue_Icon.png" comment="isInstance=true" >
+		<argument index="0" name="instanceId" isInstance="true"/>
+	</function>
+
+	<function name="referenceArg" imageURI="images/ETAS_Logo_Blue_Icon.png" comment="isReference=true" >
+		<argument index="0" name="refValue" isReference="true"/>
+	</function>
+
+	<function name="instanceReference" imageURI="images/ETAS_Logo_Blue_Icon.png" comment="isInstance=true and isReference=true" >
+		<argument index="0" name="instanceRef" isInstance="true" isReference="true"/>
+	</function>
+
+	<!--END : Customer Specific Function Definition -->
+    
+	<!--START : Customer Specific Function to Operator Mapping -->
+	<!--<function name="(SRV_)?ABS_.*" operator="ABS"/>-->
+    <!--END : Customer Specific Function to Operator Mapping -->
+    
+	<!--START : List of macros that shall not be resolved -->
+	<!--<ignorableMacro regexp="ACCUMULATOR_[US].*"/>-->	
+	<!--END : List of macros that shall not be resolved -->
+    
+	<!--START : List of FCs that shall be inlined -->
+	<!--<includedFC name="ABKGEL"/>-->	
+	<!--END : List of FCs that shall be inlined -->
+
+</functionmetadata:FunctionMetadataRoot>
