@@ -94,7 +94,7 @@ Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK C
 
 ## Demo Overview
 
-This repository is organized into demo folders, each showcasing specific features or use cases. Browse **33+ demos** organized by technology and use case below.
+This repository is organized into demo folders, each showcasing specific features or use cases. Browse **34 demos** organized by technology and use case below.
 
 ---
 
@@ -322,9 +322,10 @@ Documents the EHANDBOOK Container-Build Add-On for ASCET Toolbox.
 📦 Technologies: `ASCET` · 🔧 Add-On  
 [📖 Documentation](./Demo_EHBCB_AddOn_ASCET_Toolbox/README.md)
 
-**[Demo_EHBCB_AddOn_SL_Toolbox](./Demo_EHBCB_AddOn_SL_Toolbox/)** · `Intermediate`  
-Placeholder: No README.md available.  
-📦 Technologies: `Simulink` · 🔧 Add-On
+**[Demo_EHBCB_AddOn_SL_Toolbox](./Demo_EHBCB_AddOn_SL_Toolbox/README.md)** · `Intermediate`  
+Demonstrates the EHANDBOOK Container-Build Add-On for Simulink Toolbox, showing how to generate documentation directly from Simulink models via the integrated toolbox.  
+📦 Technologies: `Simulink` · 🔧 Add-On  
+[📖 Documentation](./Demo_EHBCB_AddOn_SL_Toolbox/README.md)
 
 </details>
 
