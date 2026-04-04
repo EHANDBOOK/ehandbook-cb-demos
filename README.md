@@ -94,7 +94,7 @@ Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK C
 
 ## Demo Overview
 
-This repository is organized into demo folders, each showcasing specific features or use cases. Browse **34 demos** organized by technology and use case below.
+This repository is organized into demo folders, each showcasing specific features or use cases. Browse **35+ demos** organized by technology and use case below.
 
 ---
 
@@ -283,6 +283,25 @@ Shows how to create custom table of contents structures.
 Creates deeply nested, hierarchical Tables of Contents using a tocs.yaml file.  
 📦 Technologies: `Customization` · 📁 Directory-Based  
 [📖 Documentation](./Demo_EHBCB_DirBased_Nested_ToC/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_Nested_ToC/Output/Demo_EHBCB_DirBased_Nested_ToC.ehb)
+
+</details>
+
+---
+
+### 🔐 Security & Features
+
+<details>
+<summary><strong>Container Encryption (2 demos)</strong></summary>
+
+**[Demo_EHBCB_DirBased_Encrypted_Container_Simple](./Demo_EHBCB_DirBased_Encrypted_Container_Simple/README.md)** · `Beginner`  
+This demo shows how to generate and encrypt an EHANDBOOK container using a plaintext password supplied directly in the build script with the `-epwd` flag.  
+📦 Technologies: `Encryption` · 📁 Directory-Based  
+[📖 Documentation](./Demo_EHBCB_DirBased_Encrypted_Container_Simple/README.md)
+
+**[Demo_EHBCB_DirBased_Encrypted_Container_File](./Demo_EHBCB_DirBased_Encrypted_Container_File/README.md)** · `Intermediate`  
+This demo shows how to generate and encrypt an EHANDBOOK container by reading the password from a text file using the `-epwdf` flag, a more secure approach for production builds.  
+📦 Technologies: `Encryption` · 📁 Directory-Based  
+[📖 Documentation](./Demo_EHBCB_DirBased_Encrypted_Container_File/README.md)
 
 </details>
 
