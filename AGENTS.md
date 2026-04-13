@@ -50,10 +50,10 @@ Before running any builds or validating outputs, ensure these tools are properly
    - Check installation: Run `eHandbookCB.exe -help`
    - Verify license availability before building
 
-2. **Unified Graphics Generator (graphicsGen.exe)**
+2. **Unified Graphics Generator (graphicGen.exe)**
    - Used for generating interactive models and SVG graphics from ASCET and Simulink models or C-Code.
      Used for incremental build approach with pre-generated artefacts.
-   - Check installation: Run `graphicsGen.exe -help`
+   - Check installation: Run `graphicGen.exe -help`
    - Verify license availability before building
 
 ### Getting CLI Options
@@ -65,7 +65,7 @@ To discover available command-line options for the tools:
 eHandbookCB.exe -help
 
 # For Unified Graphics Generator
-graphicsGen.exe -help
+graphicGen.exe -help
 ```
 
 ### Environment Setup

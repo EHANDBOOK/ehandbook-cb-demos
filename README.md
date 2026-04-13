@@ -94,7 +94,7 @@ Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK C
 
 ## Demo Overview
 
-This repository is organized into demo folders, each showcasing specific features or use cases. Browse **33+ demos** organized by technology and use case below.
+This repository is organized into demo folders, each showcasing specific features or use cases. Browse **35+ demos** organized by technology and use case below.
 
 ---
 
@@ -288,6 +288,25 @@ Creates deeply nested, hierarchical Tables of Contents using a tocs.yaml file.
 
 ---
 
+### 🔐 Security & Features
+
+<details>
+<summary><strong>Container Encryption (2 demos)</strong></summary>
+
+**[Demo_EHBCB_DirBased_Encrypted_Container_Simple](./Demo_EHBCB_DirBased_Encrypted_Container_Simple/README.md)** · `Beginner`  
+This demo shows how to generate and encrypt an EHANDBOOK container using a plaintext password supplied directly in the build script with the `-epwd` flag.  
+📦 Technologies: `Encryption` · 📁 Directory-Based  
+[📖 Documentation](./Demo_EHBCB_DirBased_Encrypted_Container_Simple/README.md)
+
+**[Demo_EHBCB_DirBased_Encrypted_Container_File](./Demo_EHBCB_DirBased_Encrypted_Container_File/README.md)** · `Intermediate`  
+This demo shows how to generate and encrypt an EHANDBOOK container by reading the password from a text file using the `-epwdf` flag, a more secure approach for production builds.  
+📦 Technologies: `Encryption` · 📁 Directory-Based  
+[📖 Documentation](./Demo_EHBCB_DirBased_Encrypted_Container_File/README.md)
+
+</details>
+
+---
+
 ### 📋 ASAM-Based Demos
 
 <details>
@@ -322,9 +341,10 @@ Documents the EHANDBOOK Container-Build Add-On for ASCET Toolbox.
 📦 Technologies: `ASCET` · 🔧 Add-On  
 [📖 Documentation](./Demo_EHBCB_AddOn_ASCET_Toolbox/README.md)
 
-**[Demo_EHBCB_AddOn_SL_Toolbox](./Demo_EHBCB_AddOn_SL_Toolbox/)** · `Intermediate`  
-Placeholder: No README.md available.  
-📦 Technologies: `Simulink` · 🔧 Add-On
+**[Demo_EHBCB_AddOn_SL_Toolbox](./Demo_EHBCB_AddOn_SL_Toolbox/README.md)** · `Intermediate`  
+Demonstrates the EHANDBOOK Container-Build Add-On for Simulink Toolbox, showing how to generate documentation directly from Simulink models via the integrated toolbox.  
+📦 Technologies: `Simulink` · 🔧 Add-On  
+[📖 Documentation](./Demo_EHBCB_AddOn_SL_Toolbox/README.md)
 
 </details>
 
