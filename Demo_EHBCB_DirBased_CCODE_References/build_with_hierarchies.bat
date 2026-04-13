@@ -4,7 +4,7 @@ cls
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_CCODE_References_With_Hierarchies" ^
--ccodemeta ".\configuration\CCodeConfig.xml" ^
+-ccodemeta ".\configuration_with_hierarchies\CCodeConfig.xml" ^
 -gensvg
 
 pause

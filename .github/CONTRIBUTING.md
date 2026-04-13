@@ -130,6 +130,29 @@ Demo_EHBCB_[Type]_[Technologies]_[Feature]/
 - Optionally include a PDF if the demo demonstrates PDF generation.
 - Create this folder by running the `build.bat` script.
 
+### Exceptions: Add-On and Multi-Step Demos
+
+Some demos deviate from the standard structure due to their nature:
+
+#### Add-On Toolbox Demos
+Add-on demos (e.g., `Demo_EHBCB_AddOn_ASCET_Toolbox`, `Demo_EHBCB_AddOn_SL_Toolbox`) are executed from within external tools (ASCET, Simulink) rather than via command-line scripts. These demos:
+
+- **Do NOT include** `build.bat` or `build.ps1` scripts
+- **Include** a comprehensive `README.md` with step-by-step instructions and screenshots showing how to use the toolbox
+- **Include** example input files (e.g., `.axl`, `.slx`) but NOT an `Input/` folder structure
+- **Include** an `Output/` folder with pre-built `.ehb` output for users to explore
+
+**Example:** See `Demo_EHBCB_AddOn_ASCET_Toolbox/README.md` for the pattern.
+
+#### Multi-Step Build Demos
+Some demos use multi-step builds (e.g., `Demo_EHBCB_DirBased_UGG_iCB` with `step1_` and `step2_` scripts) or variant builds (e.g., `Demo_EHBCB_DirBased_CCODE_References` with `build_with_hierarchies.bat` and `build_without_hierarchies.bat`). These demos:
+
+- **Include** multiple `build.bat` files (or `build_variant.bat` files) instead of a single script
+- **Document** each build variant in the README, explaining the difference and when to use each
+- **Include** an `Output/` folder with pre-built results for each variant
+
+**Example:** See `Demo_EHBCB_DirBased_CCODE_References/README.md` for the pattern.
+
 ## Getting Help
 
 If you have questions:

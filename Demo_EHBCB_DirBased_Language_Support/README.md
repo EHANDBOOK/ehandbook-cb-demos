@@ -80,23 +80,3 @@ While EHANDBOOK-NAVIGATOR typically renders Asian languages correctly out of the
 By setting the appropriate `font-family` for each language, you ensure that the generated PDF can correctly display all characters.
 
 For more details, see the [official documentation](https://docs.etas.com/ehandbook/ehandbook/how-to-guides/how-to-support-asian-languages-in-ehb-generated-pdf-documents.html).
-
-
-### Build Script: `build.bat`
-
-The `build.bat` script uses the following command:
-
-```batch
-%EHB_CB_PATH%\eHandbookCB.exe ^
--i ".\Input" ^
--o ".\Output" ^
--n "Demo_EHBCB_DirBased_Language_Support" ^
--styling ".\styling" ^
--pdf
-```
-
-* `-i ".\Input"`: Specifies the input directory containing all source artifacts.
-* `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
-* `-n "Demo_EHBCB_DirBased_Language_Support"`: Sets the name of the output file.
-* `-styling ".\styling"`: Applies custom styling from the specified directory.
-* `-pdf`: Generates a PDF document from the container content.
