@@ -5,7 +5,7 @@ cls
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_Custom_Tocs" ^
 -gensvg ^
--styling ".\styling" ^
+-styling ".\styling"
 
 pause
 

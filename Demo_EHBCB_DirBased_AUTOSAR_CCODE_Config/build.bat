@@ -5,6 +5,6 @@ cls
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config" ^
 -gensvg ^
--ccodemeta ".\CCodeConfig\ccode_config.xml" ^
+-ccodemeta ".\CCodeConfig\ccode_config.xml"
 
 pause
