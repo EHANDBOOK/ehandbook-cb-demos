@@ -127,6 +127,46 @@ More information can be found in  https://asciidoctor.org/docs/asciidoc-syntax-q
 *EHANDBOOK:* Only simple tables are supported in EHANDBOOK (equal columns and rows, no nesting).
 The sortable headers and the filter line is added by EHANDBOOK automatically.
 
+=== Tables with Custom Styling
+
+Custom table CSS classes can be assigned in AsciiDoc to adapt the visual appearance of tables in EHANDBOOK. This allows headers, columns, or other table elements to follow project-specific branding defined in the CSS styling files.
+
+This can be achieved by adding the CSS class name to the table syntax in AsciiDoc. The CSS class must be defined in the CSS styling file provided via -styling option.
+
+Table with CSS classes with custom styling has the following syntax:
+
+ [.custom-table-style]
+ |===
+ |TableHead1 |TableHead2 |TableHead3
+
+ |Cell in column 1, row 1
+ |Cell in column 2, row 1
+ |Cell in column 3, row 1
+ |===
+
+
+[.custom-table-style]
+|===
+|TableHead1 |TableHead2 |TableHead3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+The following CSS snippet styles the table header and highlights the first column.
+
+
+.custom-table-style th {
+	background-color: #fec001;
+	color: #000000;
+	font-weight: bold;
+}
+
+.custom-table-style td:first-child {
+	color: #7d4e75;
+	font-weight: 600;
+}
 
 == Images in EHANDBOOK
 

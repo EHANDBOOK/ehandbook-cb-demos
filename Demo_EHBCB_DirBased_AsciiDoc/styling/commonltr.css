@@ -18,3 +18,14 @@ body {
 .horizontalRule {
 	border-top: 1px solid #164293;
 }
+
+.custom-table-style th {
+	background-color: #fec001;
+	color: #000000;
+	font-weight: bold;
+}
+
+.custom-table-style td:first-child {
+	color: #7d4e75;
+	font-weight: 600;
+}

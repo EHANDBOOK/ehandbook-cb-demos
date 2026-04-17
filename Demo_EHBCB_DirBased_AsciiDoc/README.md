@@ -9,6 +9,7 @@
 * Directory-based input structure for a documentation-centric build.
 * Processing of AsciiDoc (`.adoc`) files as the primary content source.
 * A comprehensive example of AsciiDoc syntax for formatted text, lists, and tables.
+* Tables styled with custom CSS to fit your exact needs.
 * Embedding pre-existing images (e.g., `.svg`) into the documentation.
 * Creating interactive links from images to model elements within the EHANDBOOK.
 * Generating model overview images directly from AsciiDoc commands.
