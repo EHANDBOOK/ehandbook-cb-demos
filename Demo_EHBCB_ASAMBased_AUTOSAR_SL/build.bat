@@ -9,6 +9,6 @@ cls
 -gensvg ^
 -styling ".\styling" ^
 -rootlevel ".\configuration\rootlevel.json" ^
--labelamendment ".\configuration\labelamendment.json"
+-labelamendment ".\configuration\LabelAmendment.json"
 
 pause
