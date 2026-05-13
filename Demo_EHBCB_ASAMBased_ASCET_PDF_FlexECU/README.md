@@ -7,7 +7,7 @@
 ## ✨ Features Showcased
 
 * ASAM-based input data structure for a large, multi-component project
-* Processing of both ASCET and  models within a single build
+* Processing of ASCET models within a single build
 * Generation of a PDF document from the container content
 * Application of custom styling to the PDF output
 
