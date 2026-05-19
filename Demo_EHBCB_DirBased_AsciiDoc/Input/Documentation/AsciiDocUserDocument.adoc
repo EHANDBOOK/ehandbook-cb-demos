@@ -124,8 +124,86 @@ Will look in EHANDBOOK as:
 
 More information can be found in  https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables
 
-*EHANDBOOK:* Only simple tables are supported in EHANDBOOK (equal columns and rows, no nesting).
+*EHANDBOOK:* simple tables as well as advanced table layouts including merged rows, merged columns, and nested tables are supported now
 The sortable headers and the filter line is added by EHANDBOOK automatically.
+
+=== Advanced Table Support
+
+EHANDBOOK now supports advanced AsciiDoc table layouts including:
+
+- Merged columns using colspan syntax
+- Merged rows using rowspan syntax
+- Combined row and column spans
+- Nested tables
+- Complex Pandoc-generated table layouts
+
+=== Simple Column Span
+
+[cols="1,1,1"]
+|===
+|A |B |C
+
+2+|Merged Column
+|C2
+
+|A3
+|B3
+|C3
+|===
+
+=== Simple Row Span
+
+[cols="1,1,1"]
+|===
+|A |B |C
+
+.2+|Row Span
+|B2
+|C2
+
+|B3
+|C3
+|===
+
+=== Combined Row and Column Span
+
+[cols="1,1,1,1"]
+|===
+|A |B |C |D
+
+2.2+|Big Span
+|C2
+|D2
+
+|C3
+|D3
+
+|A4
+|B4
+|C4
+|D4
+|===
+
+=== Nested Table
+
+[cols="1,1"]
+|===
+|Outer 1
+
+a|
+[cols="1,1"]
+!===
+!Nested A !Nested B
+
+!1
+!2
+!===
+
+|Outer 2
+|Outer 3
+|===
+
+*EHANDBOOK:* Complex table structures including merged cells and nested tables are now preserved correctly during rendering.
 
 === Tables with Custom Styling
 
