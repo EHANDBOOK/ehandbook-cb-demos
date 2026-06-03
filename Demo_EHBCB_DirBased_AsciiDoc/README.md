@@ -15,6 +15,7 @@
 * Creating interactive links from images to model elements within the EHANDBOOK.
 * Generating model overview images directly from AsciiDoc commands.
 * Application of custom container styling.
+* Support for text color styling using standard AsciiDoc color roles, including usage within paragraphs, links, lists, tables, superscript, and subscript text.
 
 ---
 

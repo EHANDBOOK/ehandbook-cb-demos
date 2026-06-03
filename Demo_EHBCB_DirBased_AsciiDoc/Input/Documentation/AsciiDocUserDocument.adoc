@@ -622,13 +622,93 @@ WB is Waiting
 More information can be found in  https://asciidoctor.org/docs/asciidoctor-diagram/
 
 
+=== Text Color Support
 
+This section showcases the text color support available in EHANDBOOK for AsciiDoc content. Color roles can be used to highlight text and can be combined with common formatting such as bold, italic, links, lists, tables, superscript, and subscript.
 
+==== Supported Colors
 
+The following examples demonstrate a subset of the supported colors. Additional supported colors include aqua, black, fuchsia, gray, lime, maroon, navy, olive, silver, teal, white, and yellow.
 
+==== Basic Colors
 
+[green]#Green text#
 
+[red]#Red text#
 
+[blue]#Blue text#
 
+[purple]#Purple text#
 
+[teal]#Teal text#
 
+==== Inline Text Coloring
+
+This paragraph contains [red]#red#, [green]#green#, and [blue]#blue# text.
+
+Important messages can be highlighted using [purple]#purple# text, while informational content can use [teal]#teal# text.
+
+==== Bold Text
+
+[purple]#*Important Warning*#
+
+[green]#*Operation Completed Successfully*#
+
+==== Italic Text
+
+[blue]#*Additional Information*#
+
+[purple]#*Review Required*#
+
+==== Links
+
+For more information, visit link:https://ehandbook.etas.com/docs/ehandbook/ehb-cb-references/spec-asciidoc-format.html[[Teal]#AsciiDoc Specification#].
+
+==== Lists
+
+* [red]#High Priority#
+* [green]#Completed#
+* [blue]#Information#
+* [purple]#Review Required#
+
+==== Numbered Lists
+
+. [red]#Open issue#
+. [green]#Resolved issue#
+. [blue]#Informational item#
+
+==== Table Example
+
+|===
+|Status |Description
+
+|[red]#ERROR#
+|An error occurred during processing
+
+|[green]#SUCCESS#
+|Operation completed successfully
+
+|[blue]#INFO#
+|Informational message
+
+|[purple]#REVIEW#
+|Requires user review
+|===
+
+==== Superscript
+
+[blue]#x^2^#
+
+[green]#y^3^#
+
+==== Subscript
+
+[blue]#H~2~O#
+
+[green]#CO~2~#
+
+==== Combined Examples
+
+This sentence contains [red]#red text#, [green]#*bold green text*#, and [blue]#*italic blue text*#.
+
+The formula [purple]#x^2^# and the chemical notation [teal]#H~2~O# demonstrate color support together with superscript and subscript formatting.
