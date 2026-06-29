@@ -15,8 +15,6 @@ REM ============================================================
 -n "Demo_EHBCB_DirBased_Encrypted_Container_File" ^
 -epwdf ".\password.txt" ^
 -gensvg ^
--nomatlab ^
--debugreq ^
--noclean
+-nomatlab
 
 pause
