@@ -11,6 +11,7 @@
 * **Simulink Library Support:** Processing additional Simulink libraries (`.slx` files) that are part of the project.
 * **No-MATLAB Connection:** Generating the container without requiring a MATLAB installation, which significantly speeds up the build process. While this speeds up the build process, the generated interactive models and SVG images have less details (e.g., no mask images).
 * **SVG Generation:** Automatically generating SVG image screenshots from the interactive model.
+* **Commented Element Rendering Support:** Rendering commented Simulink and Stateflow blocks, states, transitions, signal lines, and labels in gray-out mode with support for both explicit (`comment.xplicit`) and implicit (`comment.implicit`) comment annotations.
 
 ---
 
@@ -35,6 +36,7 @@
   * The "Model Parameters & Variables" chapter contains custom-structured tables.
   * The model view may hide certain details (like the contents of subsystems) as defined by the view concept.
   * The model will have correctly resolved links to the blocks from the `simlib` library.
+  * Commented Simulink and Stateflow elements are rendered in gray-out mode with faded labels, transitions, signal lines, and OR-state rendering behavior.
 
 ---
 

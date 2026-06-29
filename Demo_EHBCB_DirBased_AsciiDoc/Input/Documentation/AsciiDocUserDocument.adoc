@@ -124,9 +124,127 @@ Will look in EHANDBOOK as:
 
 More information can be found in  https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#tables
 
-*EHANDBOOK:* Only simple tables are supported in EHANDBOOK (equal columns and rows, no nesting).
+*EHANDBOOK:* simple tables as well as advanced table layouts including merged rows, merged columns, and nested tables are supported now
 The sortable headers and the filter line is added by EHANDBOOK automatically.
 
+=== Advanced Table Support
+
+EHANDBOOK now supports advanced AsciiDoc table layouts including:
+
+- Merged columns using colspan syntax
+- Merged rows using rowspan syntax
+- Combined row and column spans
+- Nested tables
+- Complex Pandoc-generated table layouts
+
+=== Simple Column Span
+
+[cols="1,1,1"]
+|===
+|A |B |C
+
+2+|Merged Column
+|C2
+
+|A3
+|B3
+|C3
+|===
+
+=== Simple Row Span
+
+[cols="1,1,1"]
+|===
+|A |B |C
+
+.2+|Row Span
+|B2
+|C2
+
+|B3
+|C3
+|===
+
+=== Combined Row and Column Span
+
+[cols="1,1,1,1"]
+|===
+|A |B |C |D
+
+2.2+|Big Span
+|C2
+|D2
+
+|C3
+|D3
+
+|A4
+|B4
+|C4
+|D4
+|===
+
+=== Nested Table
+
+[cols="1,1"]
+|===
+|Outer 1
+
+a|
+[cols="1,1"]
+!===
+!Nested A !Nested B
+
+!1
+!2
+!===
+
+|Outer 2
+|Outer 3
+|===
+
+*EHANDBOOK:* Complex table structures including merged cells and nested tables are now preserved correctly during rendering.
+
+=== Tables with Custom Styling
+
+Custom table CSS classes can be assigned in AsciiDoc to adapt the visual appearance of tables in EHANDBOOK. This allows headers, columns, or other table elements to follow project-specific branding defined in the CSS styling files.
+
+This can be achieved by adding the CSS class name to the table syntax in AsciiDoc. The CSS class must be defined in the CSS styling file provided via -styling option.
+
+Table with CSS classes with custom styling has the following syntax:
+
+ [.custom-table-style]
+ |===
+ |TableHead1 |TableHead2 |TableHead3
+
+ |Cell in column 1, row 1
+ |Cell in column 2, row 1
+ |Cell in column 3, row 1
+ |===
+
+
+[.custom-table-style]
+|===
+|TableHead1 |TableHead2 |TableHead3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+The following CSS snippet styles the table header and highlights the first column.
+
+
+.custom-table-style th {
+	background-color: #fec001;
+	color: #000000;
+	font-weight: bold;
+}
+
+.custom-table-style td:first-child {
+	color: #7d4e75;
+	font-weight: 600;
+}
 
 == Images in EHANDBOOK
 
@@ -504,13 +622,93 @@ WB is Waiting
 More information can be found in  https://asciidoctor.org/docs/asciidoctor-diagram/
 
 
+=== Text Color Support
 
+This section showcases the text color support available in EHANDBOOK for AsciiDoc content. Color roles can be used to highlight text and can be combined with common formatting such as bold, italic, links, lists, tables, superscript, and subscript.
 
+==== Supported Colors
 
+The following examples demonstrate a subset of the supported colors. Additional supported colors include aqua, black, fuchsia, gray, lime, maroon, navy, olive, silver, teal, white, and yellow.
 
+==== Basic Colors
 
+[green]#Green text#
 
+[red]#Red text#
 
+[blue]#Blue text#
 
+[purple]#Purple text#
 
+[teal]#Teal text#
 
+==== Inline Text Coloring
+
+This paragraph contains [red]#red#, [green]#green#, and [blue]#blue# text.
+
+Important messages can be highlighted using [purple]#purple# text, while informational content can use [teal]#teal# text.
+
+==== Bold Text
+
+[purple]#*Important Warning*#
+
+[green]#*Operation Completed Successfully*#
+
+==== Italic Text
+
+[blue]#*Additional Information*#
+
+[purple]#*Review Required*#
+
+==== Links
+
+For more information, visit link:https://ehandbook.etas.com/docs/ehandbook/ehb-cb-references/spec-asciidoc-format.html[[Teal]#AsciiDoc Specification#].
+
+==== Lists
+
+* [red]#High Priority#
+* [green]#Completed#
+* [blue]#Information#
+* [purple]#Review Required#
+
+==== Numbered Lists
+
+. [red]#Open issue#
+. [green]#Resolved issue#
+. [blue]#Informational item#
+
+==== Table Example
+
+|===
+|Status |Description
+
+|[red]#ERROR#
+|An error occurred during processing
+
+|[green]#SUCCESS#
+|Operation completed successfully
+
+|[blue]#INFO#
+|Informational message
+
+|[purple]#REVIEW#
+|Requires user review
+|===
+
+==== Superscript
+
+[blue]#x^2^#
+
+[green]#y^3^#
+
+==== Subscript
+
+[blue]#H~2~O#
+
+[green]#CO~2~#
+
+==== Combined Examples
+
+This sentence contains [red]#red text#, [green]#*bold green text*#, and [blue]#*italic blue text*#.
+
+The formula [purple]#x^2^# and the chemical notation [teal]#H~2~O# demonstrate color support together with superscript and subscript formatting.
