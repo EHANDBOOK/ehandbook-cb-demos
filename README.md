@@ -98,6 +98,20 @@ This repository is organized into demo folders, each showcasing specific feature
 
 ---
 
+### 🧩 ASCET6 Demos
+
+<details>
+<summary><strong>ASCET6 Documentation (1 demo)</strong></summary>
+
+**[Demo_EHBCB_DirBased_ASCET_ThrottleValveControl](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/README.md)** · `Advanced`  
+Shows how to setup a Directory Based Ehandbook Container Build for an ASCET6 AXL Model file.   
+📦 Technologies: `ASCET` · 📁 Directory-Based  
+[📖 Documentation](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/ThrottleValveControl_ehbcb_out/ThrottleValveControl.ehb)
+
+</details>
+
+---
+
 ### 🔀 Mixed Models & Advanced Integration
 
 <details>
