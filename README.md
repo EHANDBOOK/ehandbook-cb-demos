@@ -90,6 +90,13 @@ Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK C
 4. Wait for the build to complete
 5. Find the generated output in the `Output/` folder within the demo directory
 
+**Note:**
+
+1. Run `set_tool_paths.bat` and `build.bat` in the **same** command prompt or PowerShell terminal session.
+2. The environment variables set by `set_tool_paths.bat` are available **only for the current terminal session**.
+3. If you open a new command prompt or PowerShell window, run `set_tool_paths.bat` again before executing `build.bat`.
+4. Otherwise, the required tool paths may not be detected, and the container build may fail.
+
 **Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
 
 ## Demo Overview
