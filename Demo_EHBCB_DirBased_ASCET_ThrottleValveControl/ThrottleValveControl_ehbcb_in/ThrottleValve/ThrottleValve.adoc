@@ -1,0 +1,18 @@
+= Function Documentation
+
+== Function Overview ThrottleValve
+
+ehbfunctionoverview::"ThrottleValve"[ThrottleValve]
+
+== Function Description Diagram Main
+
+ehbmodelref::"ThrottleValve/Main"[ThrottleValve/Main]
+
+=== Hierarchy ThrottleValveOutput
+ehbmodelref::"ThrottleValve/Main/ThrottleValveOutput"[ThrottleValve/Main/ThrottleValveOutput]
+
+=== Hierarchy ThrottleValvePosition
+ehbmodelref::"ThrottleValve/Main/ThrottleValvePosition"[ThrottleValve/Main/ThrottleValvePosition]
+
+=== Hierarchy ThrottleValveControl
+ehbmodelref::"ThrottleValve/Main/ThrottleValveControl"[ThrottleValve/Main/ThrottleValveControl]

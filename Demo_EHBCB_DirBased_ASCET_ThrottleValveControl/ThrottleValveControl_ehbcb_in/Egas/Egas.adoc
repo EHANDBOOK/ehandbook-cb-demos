@@ -1,0 +1,9 @@
+= Function Documentation
+
+== Function Overview Egas
+
+ehbfunctionoverview::"Egas"[Egas]
+
+== Function Description Diagram Main
+
+ehbmodelref::"Egas/Main"[Egas/Main]
