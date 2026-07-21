@@ -6,42 +6,42 @@
 
 ## ✨ Features Showcased
 
-* **Container encryption** with file-based password management
-* **Password file** approach using `-epwdf` for improved security
-* **Separation of concerns** — passwords isolated from build scripts
-* **SVG graphic generation** for enhanced documentation
-* **Production-ready workflow** for automated and secure builds
+- **Container encryption** with file-based password management
+- **Password file** approach using `-epwdf` for improved security
+- **Separation of concerns** — passwords isolated from build scripts
+- **SVG graphic generation** for enhanced documentation
+- **Production-ready workflow** for automated and secure builds
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-   * Ensure you have run the `set_tool_paths.bat` script in the repository root.
-   * A command prompt or terminal (Windows)
+   - Ensure you have run the `set_tool_paths.bat` script in the repository root.
+   - A command prompt or terminal (Windows)
 
 2. **Setup:**
-   * Create a `password.txt` file in the demo root folder.
-   * Add a single line containing your password (e.g., `SecurePassword123`).
-   * Save and close the file.
+   - Create a `password.txt` file in the demo root folder.
+   - Add a single line containing your password (e.g., `SecurePassword123`).
+   - Save and close the file.
 
 3. **Build:**
-   * Open a command prompt.
-   * Navigate to this directory (`Demo_EHBCB_DirBased_Encrypted_Container_File`).
-   * Execute the `build.bat` script.
+   - Open a command prompt.
+   - Navigate to this directory (`Demo_EHBCB_DirBased_Encrypted_Container_File`).
+   - Execute the `build.bat` script.
 
 4. **Result:**
-   * An encrypted `.ehb` file is generated in the `Output/` folder.
-   * The container is protected with the password from `password.txt`.
+   - An encrypted `.ehb` file is generated in the `Output/` folder.
+   - The container is protected with the password from `password.txt`.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After a successful build, navigate to the `Output/` folder.
-* Locate the generated `.ehb` file.
-* The container is encrypted and will require the password to open in EHANDBOOK-NAVIGATOR.
-* Attempt to open it with EHANDBOOK-NAVIGATOR and enter the password you specified in `password.txt`.
+- After a successful build, navigate to the `Output/` folder.
+- Locate the generated `.ehb` file.
+- The container is encrypted and will require the password to open in EHANDBOOK-NAVIGATOR.
+- Attempt to open it with EHANDBOOK-NAVIGATOR and enter the password you specified in `password.txt`.
 
 **Note:** You can change the password by editing `Input/password.txt` and rebuilding — no need to modify the build script.
 
@@ -51,13 +51,13 @@
 
 ### Directory Structure
 
-* `password.txt`: Single-line text file containing the encryption password (in demo root).
-* `Input/`: Contains mixed source files from ASCET, Simulink, and C-Code.
-  * `ASCET/` — ASCET model and documentation
-  * `Simulink/` — Simulink model files
-  * `CCode/` — C-Code source files
-* `Output/`: Destination for the generated encrypted EHANDBOOK container.
-* `build.bat`: Batch script that invokes `eHandbookCB.exe` with password-file encryption.
+- `password.txt`: Single-line text file containing the encryption password (in demo root).
+- `Input/`: Contains mixed source files from ASCET, Simulink, and C-Code.
+  - `ASCET/` — ASCET model and documentation
+  - `Simulink/` — Simulink model files
+  - `CCode/` — C-Code source files
+- `Output/`: Destination for the generated encrypted EHANDBOOK container.
+- `build.bat`: Batch script that invokes `eHandbookCB.exe` with password-file encryption.
 
 ### Configuration Deep Dive
 
@@ -74,16 +74,16 @@
 **Why `-epwdf`?**
 
 The `-epwdf` flag reads encryption passwords from an external file. This approach offers several advantages:
-* **Security:** Passwords are not embedded in build scripts or version control.
-* **Flexibility:** Change passwords without modifying the build script.
-* **Automation:** CI/CD pipelines can inject passwords at build time without exposing them in scripts.
-* **Team Workflows:** Password files can be managed separately (e.g., in secure vaults, environment variables).
+- **Security:** Passwords are not embedded in build scripts or version control.
+- **Flexibility:** Change passwords without modifying the build script.
+- **Automation:** CI/CD pipelines can inject passwords at build time without exposing them in scripts.
+- **Team Workflows:** Password files can be managed separately (e.g., in secure vaults, environment variables).
 
 **Password File Format:**
 
 The `password.txt` file should contain:
-* A single line with the password (no extra spaces or line breaks).
-* Example: `MySecurePassword123`
+- A single line with the password (no extra spaces or line breaks).
+- Example: `MySecurePassword123`
 
 ---
 
@@ -115,9 +115,9 @@ This keeps passwords out of source control while maintaining full automation.
 
 ## See Also
 
-* **Demo_EHBCB_DirBased_Encrypted_Container_Simple** — Use `-epwd` for inline passwords (simpler, less secure).
-* **CLAUDE.md** — Repository documentation and eHandbookCB.exe flag reference.
-* **EHANDBOOK docs:** https://docs.etas.com/ehandbook/ehandbook/container_build.html
+- **Demo_EHBCB_DirBased_Encrypted_Container_Simple** — Use `-epwd` for inline passwords (simpler, less secure).
+- **CLAUDE.md** — Repository documentation and eHandbookCB.exe flag reference.
+- **EHANDBOOK docs:** https://docs.etas.com/ehandbook/ehandbook/container_build.html
 
 
 ---
@@ -142,7 +142,7 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 
@@ -150,6 +150,5 @@ The `config.txt` file includes the following build arguments for CB SaaS eHandbo
 
 ```text
 -epwdf ".\password.txt"
--gensvg
 -nomatlab
 ```

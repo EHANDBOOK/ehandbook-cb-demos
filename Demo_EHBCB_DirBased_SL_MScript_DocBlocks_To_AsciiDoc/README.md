@@ -6,10 +6,10 @@
 
 ## ✨ Features Showcased
 
-* An advanced MATLAB script to automate the preparation of EHB-CB input data.
-* Extraction of textual documentation from Simulink **DocBlocks**.
-* Conversion of DocBlock content into structured AsciiDoc (`.adoc`) files.
-* Generation of interface specifications (signals, calibrations) in Excel (`.xlsx`) format.
+- An advanced MATLAB script to automate the preparation of EHB-CB input data.
+- Extraction of textual documentation from Simulink **DocBlocks**.
+- Conversion of DocBlock content into structured AsciiDoc (`.adoc`) files.
+- Generation of interface specifications (signals, calibrations) in Excel (`.xlsx`) format.
 
 ---
 
@@ -18,27 +18,27 @@
 This demo involves a pre-processing step before the final build.
 
 1. **Prerequisites:**
-    * EHANDBOOK Container-Build with a suitable license.
-    * MATLAB with Simulink.
-    * Ensure you have run the `set_tool_paths.bat` script in the repository root.
+    - EHANDBOOK Container-Build with a suitable license.
+    - MATLAB with Simulink.
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Generate Input Files:**
-    * Open MATLAB.
-    * Run the `Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.m` script.
-    * When prompted, select the `InputBeforeScript` folder as the search path.
-    * The script will process the `.slx` files, extract content from their DocBlocks, and generate the corresponding `.adoc` and `.xlsx` files into the `InputAfterScript` folder.
+    - Open MATLAB.
+    - Run the `Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.m` script.
+    - When prompted, select the `InputBeforeScript` folder as the search path.
+    - The script will process the `.slx` files, extract content from their DocBlocks, and generate the corresponding `.adoc` and `.xlsx` files into the `InputAfterScript` folder.
 
 3. **Build the Container:**
-    * Open a command prompt or terminal.
-    * Navigate to this directory.
-    * Execute the `build.bat` script, which uses the newly generated files in `InputAfterScript` to build the container.
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script, which uses the newly generated files in `InputAfterScript` to build the container.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder.
-* Open the generated EHANDBOOK file. You will see a container where the textual documentation has been automatically populated from the content of the DocBlocks within the original Simulink models.
+- After the build completes, navigate to the `Output/` folder.
+- Open the generated EHANDBOOK file. You will see a container where the textual documentation has been automatically populated from the content of the DocBlocks within the original Simulink models.
 
 ---
 
@@ -48,11 +48,11 @@ This demo enhances the automation workflow shown in the previous `m-script` exam
 
 ### Directory Structure
 
-* **`InputBeforeScript/`**: Contains the original source Simulink models (`.slx`), which include DocBlocks with textual content.
-* **`Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.m`**: The MATLAB script that reads the models and their DocBlocks.
-* **`InputAfterScript/`**: The destination for the script's output. The script populates this folder with the original models plus the generated `.adoc` (from DocBlocks) and `.xlsx` files.
-* **`build.bat`**: The script that runs the EHANDBOOK Container-Build, using `InputAfterScript/` as its input.
-* **`Output/`**: The destination folder for the final EHANDBOOK container.
+- **`InputBeforeScript/`**: Contains the original source Simulink models (`.slx`), which include DocBlocks with textual content.
+- **`Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.m`**: The MATLAB script that reads the models and their DocBlocks.
+- **`InputAfterScript/`**: The destination for the script's output. The script populates this folder with the original models plus the generated `.adoc` (from DocBlocks) and `.xlsx` files.
+- **`build.bat`**: The script that runs the EHANDBOOK Container-Build, using `InputAfterScript/` as its input.
+- **`Output/`**: The destination folder for the final EHANDBOOK container.
 
 ### The MATLAB Script
 
@@ -96,13 +96,12 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 
 The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
 
 ```text
--gensvg
 -nomatlab
 ```

@@ -6,32 +6,32 @@
 
 ## ✨ Features Showcased
 
-* Directory-based input structure.
-* Replacement of default TOCs with custom ones.
-* Use of `tocs.yaml` to define multiple, custom-named TOCs.
-* Creation of both flat and hierarchical navigation structures.
-* Custom ordering and naming for all TOC entries.
+- Directory-based input structure.
+- Replacement of default TOCs with custom ones.
+- Use of `tocs.yaml` to define multiple, custom-named TOCs.
+- Creation of both flat and hierarchical navigation structures.
+- Custom ordering and naming for all TOC entries.
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    * EHANDBOOK Container-Build (version 10.2 or newer).
-    * Ensure you have run the `set_tool_paths.bat` script in the repository root.
+    - EHANDBOOK Container-Build (version 10.2 or newer).
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    * Open a command prompt or terminal.
-    * Navigate to this directory.
-    * Execute the `build.bat` script.
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder.
-* Open the generated EHANDBOOK file.
-* In the **Document Explorer**, you will see the custom TOCs defined in `tocs.yaml` instead of the default ones. You can switch between the "Alphabetic list of software components" and the hierarchical "Software architecture" views.
+- After the build completes, navigate to the `Output/` folder.
+- Open the generated EHANDBOOK file.
+- In the **Document Explorer**, you will see the custom TOCs defined in `tocs.yaml` instead of the default ones. You can switch between the "Alphabetic list of software components" and the hierarchical "Software architecture" views.
 
 ---
 
@@ -41,11 +41,11 @@ By default, the directory-based build automatically creates two TOCs: an alphabe
 
 ### Directory Structure
 
-* **`Input/`**: Contains the source artifacts and the TOC definition.
-  * **`Composition_1/`, `Composition_2/`, `SWC_1/`, etc.**: These folders represent the different documentation units or software components.
-  * **`tocs.yaml`**: The core of this demo. This file, placed in the root of the input directory, defines the structure and content of all tables of contents.
-* **`styling/`**: Contains styling information for the container.
-* **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
+- **`Input/`**: Contains the source artifacts and the TOC definition.
+  - **`Composition_1/`, `Composition_2/`, `SWC_1/`, etc.**: These folders represent the different documentation units or software components.
+  - **`tocs.yaml`**: The core of this demo. This file, placed in the root of the input directory, defines the structure and content of all tables of contents.
+- **`styling/`**: Contains styling information for the container.
+- **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
 
 ### Build Script: `build.bat`
 
@@ -93,14 +93,14 @@ tocs:
       - idRef: SWC_n
 ```
 
-* **`docuUnits`**: This section lists all the documentation chapters you want to reference in your TOCs.
-  * `id`: The identifier for the documentation unit, which must match the name of the corresponding folder in the `Input/` directory.
-  * `displayName`: The human-readable name that will be shown in the TOC.
-* **`tocs`**: This section defines the actual TOCs. You can have one or more.
-  * `displayName`: The name of the TOC as it will appear in the EHANDBOOK-NAVIGATOR's selection menu.
-  * `contents`: A list of entries for that TOC.
-  * `idRef`: A reference to one of the `docuUnits` defined above.
-  * `contents` (nested): By nesting `contents` sections, you can create hierarchical TOCs, as shown in the "Software architecture" example.
+- **`docuUnits`**: This section lists all the documentation chapters you want to reference in your TOCs.
+  - `id`: The identifier for the documentation unit, which must match the name of the corresponding folder in the `Input/` directory.
+  - `displayName`: The human-readable name that will be shown in the TOC.
+- **`tocs`**: This section defines the actual TOCs. You can have one or more.
+  - `displayName`: The name of the TOC as it will appear in the EHANDBOOK-NAVIGATOR's selection menu.
+  - `contents`: A list of entries for that TOC.
+  - `idRef`: A reference to one of the `docuUnits` defined above.
+  - `contents` (nested): By nesting `contents` sections, you can create hierarchical TOCs, as shown in the "Software architecture" example.
 
 For more details, see the [official documentation](https://docs.etas.com/ehandbook/ehandbook/how-to-guides/how-to-explicitly-specify-table-of-contents.html#_tocs_yaml_a_yaml_file_to_specify_table_of_contents).
 
@@ -127,14 +127,14 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 
 The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
 
 ```text
--gensvg
 -styling ".\styling"
 ```
+
 

@@ -6,8 +6,8 @@
 
 ## ✨ Features Showcased
 
-*   Demonstrates, using an ASCET 6 example, what the directory structure for a directory-based build should look like.
-*   Generates an EHANDBOOK Container (`.ehb`) from the specified directory structure.
+-   Demonstrates, using an ASCET 6 example, what the directory structure for a directory-based build should look like.
+-   Generates an EHANDBOOK Container (`.ehb`) from the specified directory structure.
 
 ---
 
@@ -42,13 +42,13 @@ Typically, the input is a single ASCET model file (`.axl`) exported from a proje
 
 **ASCET Project Structure:**
 
-*   **ASCET Project**
-    *   **ASCET Module**
-        *   ASCET Class
-        *   ASCET Class
-            *   ASCET Class
-    *   **ASCET Module**
-    *   ...
+-   **ASCET Project**
+    -   **ASCET Module**
+        -   ASCET Class
+        -   ASCET Class
+            -   ASCET Class
+    -   **ASCET Module**
+    -   ...
 
 Each ASCET module usually represents one functional component, which in turn corresponds to one documentation unit in the EHANDBOOK.
 
@@ -110,12 +110,12 @@ eHandbookCB.exe ^
 ```
 
 This command tells `eHandbookCB.exe` to:
-*   Use the `ThrottleValveControl_ehbcb_in/` directory as the input source (`-i`).
-*   Place the generated container in the `ThrottleValveControl_ehbcb_out/` directory (`-o`).
-*   Name the container `ThrottleValveControl` (`-n`).
-*   Generate SVG graphics for the models (`-gensvg`).
-*   Include any ESDL source code from the ASCET model (`-includeSourceCode`).
-*   Load the `labelconfig.json` file to configure the order of ASCET instance names (`-labelconfig`).
+-   Use the `ThrottleValveControl_ehbcb_in/` directory as the input source (`-i`).
+-   Place the generated container in the `ThrottleValveControl_ehbcb_out/` directory (`-o`).
+-   Name the container `ThrottleValveControl` (`-n`).
+-   Generate SVG graphics for the models (`-gensvg`).
+-   Include any ESDL source code from the ASCET model (`-includeSourceCode`).
+-   Load the `labelconfig.json` file to configure the order of ASCET instance names (`-labelconfig`).
 
 ---
 ###  Container-Build Cloud Service (SaaS)
@@ -139,17 +139,17 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 
 The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
 
 ```text
--gensvg
 -includeSourceCode
 -labelconfig "labelconfig.json"
 ```
+
 
 
 

@@ -34,6 +34,36 @@ timestamps {
 			}
 		}
 
+		stage('zizmor (GitHub Actions scan)') {
+			dir(GIT_SYNC_FOLDER) {
+				sh '''
+					set -e
+
+					# Skip gracefully when no GitHub workflow/action files are present
+					if [ ! -d .github/workflows ] && [ ! -f action.yml ] && [ ! -f .github/dependabot.yml ]; then
+						echo "No GitHub Actions inputs found. Skipping zizmor."
+						exit 0
+					fi
+
+					docker pull ghcr.io/zizmorcore/zizmor:latest
+
+					# Offline mode avoids GitHub API token requirements
+					docker run --rm \
+						-v "$PWD:/work" \
+						-w /work \
+						ghcr.io/zizmorcore/zizmor:latest \
+						. \
+						--collect workflows \
+						--offline \
+						--format sarif \
+						--no-progress \
+						> zizmor.sarif
+				'''
+
+				archiveArtifacts artifacts: 'zizmor.sarif', allowEmptyArchive: true
+			}
+		}
+
 		if (params.publishToGitHub) {
 			stage('Publish to GitHub.com') {
 				git.publishToGitHub(GIT_SYNC_FOLDER, 'EHANDBOOK', 'ehandbook-cb-demos', "Publish EHANDBOOK CB Demos to GitHub.com", false)

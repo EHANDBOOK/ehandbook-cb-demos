@@ -6,31 +6,31 @@
 
 ## ✨ Features Showcased
 
-* Directory-based input structure.
-* Use of `tocs.yaml` to define custom, multi-level TOCs.
-* Creation of a deeply nested "Software architecture" view.
-* Demonstration of how to structure the `tocs.yaml` to create parent-child relationships between documentation units.
+- Directory-based input structure.
+- Use of `tocs.yaml` to define custom, multi-level TOCs.
+- Creation of a deeply nested "Software architecture" view.
+- Demonstration of how to structure the `tocs.yaml` to create parent-child relationships between documentation units.
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    * EHANDBOOK Container-Build (version 10.2 or newer).
-    * Ensure you have run the `set_tool_paths.bat` script in the repository root.
+    - EHANDBOOK Container-Build (version 10.2 or newer).
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    * Open a command prompt or terminal.
-    * Navigate to this directory.
-    * Execute the `build.bat` script.
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder.
-* Open the generated EHANDBOOK file.
-* In the **Document Explorer**, select the "Software architecture" TOC. You will see a multi-level hierarchy, with "ECU" at the top level, followed by compositions, and then the individual software components.
+- After the build completes, navigate to the `Output/` folder.
+- Open the generated EHANDBOOK file.
+- In the **Document Explorer**, select the "Software architecture" TOC. You will see a multi-level hierarchy, with "ECU" at the top level, followed by compositions, and then the individual software components.
 
 ---
 
@@ -40,12 +40,12 @@ This demo builds on the concept of custom TOCs by showing how to create more com
 
 ### Directory Structure
 
-* **`Input/`**: Contains the source artifacts and the TOC definition.
-  * **`ecu/`, `compo1/`, `swc1/`, etc.**: Folders representing the different documentation units that will be organized in the TOC.
-  * **`tocs.yaml`**: The configuration file that defines the nested TOC structure.
-* **`styling/`**: Contains styling information for the container.  
-* **`Output/`**: The destination folder for the generated EHANDBOOK container.
-* **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
+- **`Input/`**: Contains the source artifacts and the TOC definition.
+  - **`ecu/`, `compo1/`, `swc1/`, etc.**: Folders representing the different documentation units that will be organized in the TOC.
+  - **`tocs.yaml`**: The configuration file that defines the nested TOC structure.
+- **`styling/`**: Contains styling information for the container.  
+- **`Output/`**: The destination folder for the generated EHANDBOOK container.
+- **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
 
 ### Build Script: `build.bat`
 
@@ -82,9 +82,9 @@ tocs:
         - idRef: swc2      # Level 3
 ```
 
-* **Level 1 (Root):** The top-level `contents` list defines the root entries of the TOC. In this demo, the root is "ECU".
-* **Level 2 (Children):** By adding a `contents` list under `idRef: ecu`, we make "Composition 1" and "Composition 2" children of "ECU".
-* **Level 3 (Grandchildren):** By adding another `contents` list under `idRef: compo1`, we make "Software Component 1" and "Software Component 2" children of "Composition 1".
+- **Level 1 (Root):** The top-level `contents` list defines the root entries of the TOC. In this demo, the root is "ECU".
+- **Level 2 (Children):** By adding a `contents` list under `idRef: ecu`, we make "Composition 1" and "Composition 2" children of "ECU".
+- **Level 3 (Grandchildren):** By adding another `contents` list under `idRef: compo1`, we make "Software Component 1" and "Software Component 2" children of "Composition 1".
 
 This method allows you to create arbitrarily deep and complex navigation structures that accurately reflect your software's architecture or any other desired organization.
 
@@ -110,7 +110,7 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 

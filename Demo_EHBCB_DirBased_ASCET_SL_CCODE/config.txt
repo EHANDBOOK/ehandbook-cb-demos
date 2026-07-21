@@ -1,3 +1,2 @@
 -nomatlab
 -simlib "%MATLAB_PATH%\toolbox\simulink\blocks\library"
--gensvg

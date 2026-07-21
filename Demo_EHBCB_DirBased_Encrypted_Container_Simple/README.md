@@ -6,36 +6,36 @@
 
 ## ✨ Features Showcased
 
-* **Container encryption** with password-based protection
-* **Command-line password** specification using `-epwd`
-* **SVG graphic generation** for enhanced documentation
-* **Quick-start approach** for learning encryption basics
+- **Container encryption** with password-based protection
+- **Command-line password** specification using `-epwd`
+- **SVG graphic generation** for enhanced documentation
+- **Quick-start approach** for learning encryption basics
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-   * Ensure you have run the `set_tool_paths.bat` script in the repository root.
-   * A command prompt or terminal (Windows)
+   - Ensure you have run the `set_tool_paths.bat` script in the repository root.
+   - A command prompt or terminal (Windows)
 
 2. **Build:**
-   * Open a command prompt.
-   * Navigate to this directory (`Demo_EHBCB_DirBased_Encrypted_Container_Simple`).
-   * Execute the `build.bat` script.
+   - Open a command prompt.
+   - Navigate to this directory (`Demo_EHBCB_DirBased_Encrypted_Container_Simple`).
+   - Execute the `build.bat` script.
 
 3. **Result:**
-   * An encrypted `.ehb` file is generated in the `Output/` folder.
-   * The container is protected with the password `DemoPassword123`.
+   - An encrypted `.ehb` file is generated in the `Output/` folder.
+   - The container is protected with the password `DemoPassword123`.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After a successful build, navigate to the `Output/` folder.
-* Locate the generated `.ehb` file.
-* The container is now encrypted and will require a password to open or explore in EHANDBOOK-NAVIGATOR.
-* Attempt to open it with EHANDBOOK-NAVIGATOR and note the password prompt.
+- After a successful build, navigate to the `Output/` folder.
+- Locate the generated `.ehb` file.
+- The container is now encrypted and will require a password to open or explore in EHANDBOOK-NAVIGATOR.
+- Attempt to open it with EHANDBOOK-NAVIGATOR and note the password prompt.
 
 ---
 
@@ -43,12 +43,12 @@
 
 ### Directory Structure
 
-* `Input/`: Contains mixed source files from ASCET, Simulink, and C-Code.
-  * `ASCET/` — ASCET model and documentation
-  * `Simulink/` — Simulink model files
-  * `CCode/` — C-Code source files
-* `Output/`: Destination for the generated encrypted EHANDBOOK container.
-* `build.bat`: Batch script that invokes `eHandbookCB.exe` with encryption parameters.
+- `Input/`: Contains mixed source files from ASCET, Simulink, and C-Code.
+  - `ASCET/` — ASCET model and documentation
+  - `Simulink/` — Simulink model files
+  - `CCode/` — C-Code source files
+- `Output/`: Destination for the generated encrypted EHANDBOOK container.
+- `build.bat`: Batch script that invokes `eHandbookCB.exe` with encryption parameters.
 
 ### Configuration Deep Dive
 
@@ -65,9 +65,9 @@
 **Why `-epwd`?**
 
 The `-epwd` flag is the simplest way to encrypt a container. The password is passed directly as a command-line argument. This is useful for:
-* **Learning:** Quick way to understand encryption
-* **Automation:** Scripting builds with embedded passwords
-* **Development:** Testing encryption without managing separate password files
+- **Learning:** Quick way to understand encryption
+- **Automation:** Scripting builds with embedded passwords
+- **Development:** Testing encryption without managing separate password files
 
 **Security Note:** For production or sensitive documentation, consider using `-epwdf` (password from file) instead, as it keeps passwords out of build scripts.
 
@@ -84,9 +84,9 @@ The `-epwd` flag is the simplest way to encrypt a container. The password is pas
 
 ## See Also
 
-* **Demo_EHBCB_DirBased_Encrypted_Container_File** — Use `-epwdf` to store passwords in a file (more secure).
-* **CLAUDE.md** — Repository documentation and eHandbookCB.exe flag reference.
-* **EHANDBOOK docs:** https://docs.etas.com/ehandbook/ehandbook/container_build.html
+- **Demo_EHBCB_DirBased_Encrypted_Container_File** — Use `-epwdf` to store passwords in a file (more secure).
+- **CLAUDE.md** — Repository documentation and eHandbookCB.exe flag reference.
+- **EHANDBOOK docs:** https://docs.etas.com/ehandbook/ehandbook/container_build.html
 
 ---
 ###  Container-Build Cloud Service (SaaS)
@@ -110,7 +110,7 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 
@@ -118,6 +118,6 @@ The `config.txt` file includes the following build arguments for CB SaaS eHandbo
 
 ```text
 -epwd "DemoPassword123"
--gensvg
 -nomatlab
 ```
+

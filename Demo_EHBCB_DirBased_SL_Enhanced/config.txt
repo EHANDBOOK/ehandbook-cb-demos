@@ -1,4 +1,3 @@
--gensvg
 -nomatlab
 -tableconfig "TableConfiguration.json"
 -viewtype "AllView"

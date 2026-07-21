@@ -6,32 +6,32 @@
 
 ## ✨ Features Showcased
 
-* Directory-based input structure with content in multiple languages.
-* Use of AsciiDoc (`.adoc`) for documentation in English, Japanese, Korean, and Chinese.
-* Custom styling to support Asian language fonts in PDF output.
-* Configuration of PDF fonts via an XSL stylesheet (`PdfCustomization.xsl`).
+- Directory-based input structure with content in multiple languages.
+- Use of AsciiDoc (`.adoc`) for documentation in English, Japanese, Korean, and Chinese.
+- Custom styling to support Asian language fonts in PDF output.
+- Configuration of PDF fonts via an XSL stylesheet (`PdfCustomization.xsl`).
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    * EHANDBOOK Container-Build with a suitable license and PDF generator.
-    * **Fonts:** Ensure you have fonts installed on your Windows system that support Japanese, Korean, and Chinese. Examples include "Yu Gothic Light" for Japanese, "Malgun Gothic" for Korean, and "Microsoft YaHei" for Chinese.
-    * Ensure you have run the `set_tool_paths.bat` script in the repository root.
+    - EHANDBOOK Container-Build with a suitable license and PDF generator.
+    - **Fonts:** Ensure you have fonts installed on your Windows system that support Japanese, Korean, and Chinese. Examples include "Yu Gothic Light" for Japanese, "Malgun Gothic" for Korean, and "Microsoft YaHei" for Chinese.
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    * Open a command prompt or terminal.
-    * Navigate to this directory.
-    * Execute the `build.bat` script.
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder.
-* Open the generated EHANDBOOK file (`.ehb`). The content for all languages should render correctly in the EHANDBOOK-NAVIGATOR.
-* Open the generated PDF document. The Japanese, Korean, and Chinese text should also be rendered correctly, thanks to the font configuration.
+- After the build completes, navigate to the `Output/` folder.
+- Open the generated EHANDBOOK file (`.ehb`). The content for all languages should render correctly in the EHANDBOOK-NAVIGATOR.
+- Open the generated PDF document. The Japanese, Korean, and Chinese text should also be rendered correctly, thanks to the font configuration.
 
 ---
 
@@ -41,11 +41,11 @@ This demo highlights the necessary configuration for supporting Asian languages 
 
 ### Directory Structure
 
-* **`Input/`**: Contains the source documentation, organized by language.
-  * **`English/`**, **`Japanese/`**, **`Korean/`**, **`Chinese/`**: Each folder contains an `.adoc` file with content in the respective language.
-* **`styling/`**: Contains the styling configuration for the container and PDF output.
-  * **`PdfCustomization.xsl`**: The key file for this demo. This XSL stylesheet is used to define which fonts the PDF generator should use for different text elements (titles, paragraphs, etc.).
-* **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
+- **`Input/`**: Contains the source documentation, organized by language.
+  - **`English/`**, **`Japanese/`**, **`Korean/`**, **`Chinese/`**: Each folder contains an `.adoc` file with content in the respective language.
+- **`styling/`**: Contains the styling configuration for the container and PDF output.
+  - **`PdfCustomization.xsl`**: The key file for this demo. This XSL stylesheet is used to define which fonts the PDF generator should use for different text elements (titles, paragraphs, etc.).
+- **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
 
 ### Supporting Asian Languages in PDF Documents
 
@@ -104,7 +104,7 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 
@@ -114,3 +114,4 @@ The `config.txt` file includes the following build arguments for CB SaaS eHandbo
 -styling ".\styling"
 -pdf
 ```
+

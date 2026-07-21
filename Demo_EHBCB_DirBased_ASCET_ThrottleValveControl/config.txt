@@ -1,3 +1,2 @@
--gensvg
 -includeSourceCode
 -labelconfig "labelconfig.json"

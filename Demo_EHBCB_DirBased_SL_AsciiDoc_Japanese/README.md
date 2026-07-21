@@ -6,32 +6,32 @@
 
 ## ✨ Features Showcased
 
-* Directory-based build for a Simulink project (`.slx`).
-* Use of an AsciiDoc file (`.adoc`) with **Japanese content** for textual documentation.
-* Custom styling to support Japanese fonts in the PDF output.
-* Configuration of PDF fonts via an XSL stylesheet (`PdfCustomization.xsl`).
+- Directory-based build for a Simulink project (`.slx`).
+- Use of an AsciiDoc file (`.adoc`) with **Japanese content** for textual documentation.
+- Custom styling to support Japanese fonts in the PDF output.
+- Configuration of PDF fonts via an XSL stylesheet (`PdfCustomization.xsl`).
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    * EHANDBOOK Container-Build with suitable licenses for the Simulink converter and PDF generator.
-    * **Font:** Ensure you have a Japanese font installed on your Windows system (e.g., "Yu Gothic", "Meiryo", "MS Mincho").
-    * Ensure you have run the `set_tool_paths.bat` script in the repository root.
+    - EHANDBOOK Container-Build with suitable licenses for the Simulink converter and PDF generator.
+    - **Font:** Ensure you have a Japanese font installed on your Windows system (e.g., "Yu Gothic", "Meiryo", "MS Mincho").
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    * Open a command prompt or terminal.
-    * Navigate to this directory.
-    * Execute the `build.bat` script.
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder (it will be created if it doesn't exist).
-* Open the generated EHANDBOOK file (`.ehb`). The Japanese content from `Lcc.adoc` will be displayed alongside the interactive Simulink model.
-* Open the generated PDF document. The Japanese text should be rendered correctly, thanks to the font configuration.
+- After the build completes, navigate to the `Output/` folder (it will be created if it doesn't exist).
+- Open the generated EHANDBOOK file (`.ehb`). The Japanese content from `Lcc.adoc` will be displayed alongside the interactive Simulink model.
+- Open the generated PDF document. The Japanese text should be rendered correctly, thanks to the font configuration.
 
 ---
 
@@ -41,13 +41,13 @@ This demo focuses on combining a standard Simulink model with non-English docume
 
 ### Directory Structure
 
-* **`Lcc/`**: The main input folder for the "Lcc" function.
-  * `Lcc.slx`: The Simulink model file.
-  * `Lcc.adoc`: The AsciiDoc file containing the textual documentation in Japanese.
-  * `Lcc.xlsx`: An Excel file defining the function's interface.
-* **`styling/`**: Contains styling information, including the crucial XSL stylesheet for PDF font settings.
-  * `PdfCustomization.xsl`: This file is configured to tell the PDF generator to use a Japanese-capable font.
-* **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
+- **`Lcc/`**: The main input folder for the "Lcc" function.
+  - `Lcc.slx`: The Simulink model file.
+  - `Lcc.adoc`: The AsciiDoc file containing the textual documentation in Japanese.
+  - `Lcc.xlsx`: An Excel file defining the function's interface.
+- **`styling/`**: Contains styling information, including the crucial XSL stylesheet for PDF font settings.
+  - `PdfCustomization.xsl`: This file is configured to tell the PDF generator to use a Japanese-capable font.
+- **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
 
 ### Build Script: `build.bat`
 
@@ -111,7 +111,7 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 

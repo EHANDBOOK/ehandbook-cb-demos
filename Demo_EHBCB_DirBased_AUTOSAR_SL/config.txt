@@ -1,3 +1,2 @@
--gensvg
 -nomatlab
 -autosarcomposition "ThrottlePositionControlComposition"

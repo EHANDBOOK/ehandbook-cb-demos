@@ -6,31 +6,31 @@
 
 ## ✨ Features Showcased
 
-* **Directory-based Build** for a C-Code project.
-* **Advanced C-Code Metadata Configuration (`-ccodemeta`):** A deep dive into using an XML configuration file to improve the readability of C-Code diagrams.
-* **AUTOSAR RTE Visualization:** Demonstrates how to map AUTOSAR RTE function calls (e.g., `Rte_IWrite`, `Rte_Call`, `Rte_Pim`) to custom icons, making the diagrams easier to understand.
-* **Generic Function Decoration:** Shows that this technique is not limited to AUTOSAR and can be used to decorate any C function (like `LED_ON`/`LED_OFF`) with an icon.
+- **Directory-based Build** for a C-Code project.
+- **Advanced C-Code Metadata Configuration (`-ccodemeta`):** A deep dive into using an XML configuration file to improve the readability of C-Code diagrams.
+- **AUTOSAR RTE Visualization:** Demonstrates how to map AUTOSAR RTE function calls (e.g., `Rte_IWrite`, `Rte_Call`, `Rte_Pim`) to custom icons, making the diagrams easier to understand.
+- **Generic Function Decoration:** Shows that this technique is not limited to AUTOSAR and can be used to decorate any C function (like `LED_ON`/`LED_OFF`) with an icon.
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    * EHANDBOOK Container-Build with a suitable license for the C-Code converter.
-    * Ensure you have run the `set_tool_paths.bat` script in the repository root.
+    - EHANDBOOK Container-Build with a suitable license for the C-Code converter.
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    * Open a command prompt or terminal.
-    * Navigate to this directory.
-    * Execute the `build.bat` script.
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder and open the `Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config.ehb` file.
-* Navigate to the function diagrams for the "Sender" or "Receiver" components.
-* Observe how the standard C-Code function calls that interact with the AUTOSAR RTE are no longer generic blocks. Instead, they are represented by meaningful icons (e.g., port icons for read/write, a gear icon for a server call), as defined in the configuration.
+- After the build completes, navigate to the `Output/` folder and open the `Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config.ehb` file.
+- Navigate to the function diagrams for the "Sender" or "Receiver" components.
+- Observe how the standard C-Code function calls that interact with the AUTOSAR RTE are no longer generic blocks. Instead, they are represented by meaningful icons (e.g., port icons for read/write, a gear icon for a server call), as defined in the configuration.
 
 ---
 
@@ -40,10 +40,10 @@ The core of this demo is the C-Code metadata file, which acts as a "style guide"
 
 ### Directory & File Structure
 
-* **`Input/`**: Contains the source C-Code and AUTOSAR `.arxml` files, organized into subdirectories.
-* **`CCodeConfig/`**: This is the most important directory in this demo.
-  * **`ccode_config.xml`**: This file contains the mapping rules. It tells EHB-CB how to visualize specific C functions.
-  * **`images/`**: This subdirectory holds all the `.png` icon files that are referenced in the `ccode_config.xml`.
+- **`Input/`**: Contains the source C-Code and AUTOSAR `.arxml` files, organized into subdirectories.
+- **`CCodeConfig/`**: This is the most important directory in this demo.
+  - **`ccode_config.xml`**: This file contains the mapping rules. It tells EHB-CB how to visualize specific C functions.
+  - **`images/`**: This subdirectory holds all the `.png` icon files that are referenced in the `ccode_config.xml`.
 
 ### C-Code Metadata Configuration: `ccode_config.xml`
 
@@ -57,10 +57,10 @@ This file allows you to define visual properties for functions matched by name (
 </function>
 ```
 
-* **`<function name="Rte_IWrite(.*)">`**: This rule applies to any function whose name starts with `Rte_IWrite`.
-* **`imageURI="images/AR_PPort.png"`**: This specifies that the function call should be rendered using the `AR_PPort.png` icon from the `images` directory.
-* **`comment="..."`**: This provides a tooltip for the block in the final EHANDBOOK.
-* **`<argument ...>`**: These tags define how the function's arguments are treated and where their data-flow lines should connect to the block (e.g., `LEFT`, `BOTTOM`, or `INVISIBLE`).
+- **`<function name="Rte_IWrite(.*)">`**: This rule applies to any function whose name starts with `Rte_IWrite`.
+- **`imageURI="images/AR_PPort.png"`**: This specifies that the function call should be rendered using the `AR_PPort.png` icon from the `images` directory.
+- **`comment="..."`**: This provides a tooltip for the block in the final EHANDBOOK.
+- **`<argument ...>`**: These tags define how the function's arguments are treated and where their data-flow lines should connect to the block (e.g., `LEFT`, `BOTTOM`, or `INVISIBLE`).
 
 ### Build Script: `build.bat`
 
@@ -75,7 +75,7 @@ The build script ties everything together by passing the metadata file to the co
 -ccodemeta ".\\CCodeConfig\\ccode_config.xml"
 ```
 
-* `-ccodemeta ".\\CCodeConfig\\ccode_config.xml"`: This crucial argument tells EHB-CB to apply the visualization rules from our XML file during the C-Code conversion process. This is what transforms a generic C-Code diagram into a clear, AUTOSAR-aware representation.
+- `-ccodemeta ".\\CCodeConfig\\ccode_config.xml"`: This crucial argument tells EHB-CB to apply the visualization rules from our XML file during the C-Code conversion process. This is what transforms a generic C-Code diagram into a clear, AUTOSAR-aware representation.
 
 ---
 ###  Container-Build Cloud Service (SaaS)
@@ -99,13 +99,13 @@ Use these values when filling the workflow inputs:
 
 ---
 
-* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
 
 ### Configuration File: `config.txt`
 
 The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
 
 ```text
--gensvg
 -ccodemeta ".\CCodeConfig\ccode_config.xml"
 ```
+

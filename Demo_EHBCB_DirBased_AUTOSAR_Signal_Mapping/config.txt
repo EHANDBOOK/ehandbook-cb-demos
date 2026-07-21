@@ -1,4 +1,3 @@
--gensvg
 -nomatlab
 -simlib "%MATLAB_PATH%\toolbox\simulink"
 -componentconnectormappingfile ".\ComponentMapping.json"

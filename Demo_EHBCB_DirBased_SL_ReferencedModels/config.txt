@@ -1,2 +1,1 @@
--gensvg
 -simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink" 
