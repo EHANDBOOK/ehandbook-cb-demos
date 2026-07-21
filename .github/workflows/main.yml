@@ -1,0 +1,170 @@
+name: Create EHANDBOOK Demo Container For Multiple Input Storages
+
+on:
+  workflow_dispatch:
+    inputs:
+      demo_folder:
+        description: "Name of the folder containing the EHANDBOOK demo files"
+        required: true
+        default: "Demo_DirBased_mixed_models/Input"
+      storage_type:
+        description: "Type of storage where the input files for CB container are present"
+        required: true
+        default: "GIT"
+        type: choice
+        options:
+          - GIT
+          - S3
+          - AZURE
+      storage_url:
+        description: "The URL of Git repository to be cloned where the input files for CB container are present"
+        default: "https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
+        required: false
+      config_File:
+        description: "Config file for the container build"
+        required: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      AUTH_URL: "https://p2.authz.bosch.com/auth/realms/EU_CALPONIA/protocol/openid-connect/token"
+      API_URL: "https://eu-central-1.demo.ehandbook.cloud/v1/tasks"
+
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        if: ${{ github.event.inputs.storage_type == 'S3' }}
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Authenticate and retrieve token
+        id: auth
+        run: |
+          response=$(curl --location --request POST "$AUTH_URL" \
+          --header 'Content-Type: application/x-www-form-urlencoded' \
+          --header 'accept: application/json' \
+          --data-urlencode 'client_id=${{ secrets.DEMO_CLIENT_ID }}' \
+          --data-urlencode 'client_secret=${{ secrets.DEMO_CLIENT_SECRET }}' \
+          --data-urlencode 'grant_type=client_credentials' \
+          --data-urlencode 'scope=${{ secrets.DEMO_PANTARIS_PROJECT }}:${{ secrets.DEMO_PANTARIS_APPLICATION }}')
+
+          token=$(echo $response | jq -r '.access_token')
+          echo "TOKEN=$token" >> $GITHUB_ENV
+
+      - name: Trigger EHANDBOOK API
+        run: |
+          response=$(curl --location --request POST "$API_URL" \
+          --header 'accept: application/json' \
+          --header "Authorization: Bearer $TOKEN" \
+          --header 'Content-Type: application/json' \
+          --silent --show-error --write-out "HTTPSTATUS:%{http_code}" \
+          --data-raw '{
+            "taskType": "CB",
+            "storageType": "${{ github.event.inputs.storage_type }}",
+            "storageUrl": "${{ github.event.inputs.storage_url }}",
+            "storageCredentials": {
+              "username": "${{ secrets.GIT_USERNAME }}",
+              "password": "${{ secrets.GIT_USER_PAT }}"
+            },
+            "inputObjectKey": "${{ github.event.inputs.demo_folder }}",
+            "configurationObjectKey": "${{ github.event.inputs.config_File }}"
+          }')
+
+          # Extract the body and the status code
+          http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
+          http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+
+          if [ "$http_status" -ne 202 ]; then
+            echo "Error: Failed to trigger container generation. Status code: $http_status"
+            exit 1
+          fi
+
+          # Extract the ID from the response
+          container_resource=$(echo $http_body | jq -r '._links.self.href')
+          task_id=$(echo $http_body | jq -r '.id')
+          echo "Container Resource: $container_resource"
+
+          # Polling loop
+          status="RUNNING"
+          max_attempts=360 # maximum 3 hours
+          attempt=0
+          while [[ "$status" == "RUNNING" || "$status" == "QUEUED" && $attempt -lt $max_attempts ]]; do
+            echo "Polling attempt $((attempt+1))..."
+            sleep 30  # Wait for 30 seconds before the next poll
+
+            # Check the status of container creation
+            response=$(curl --location --request GET "$container_resource" \
+            --header 'accept: application/json' \
+            --header "Authorization: Bearer $TOKEN" \
+            --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+
+            # Extract the body and the status code
+            http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
+            http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+
+            if [ "$http_status" -ne 200 ]; then
+              echo "Error: Failed to get status. Status code: $http_status"
+              exit 1
+            fi
+
+            status=$(echo $http_body | jq -r '.state')
+            echo "Current status: $status"
+
+            attempt=$((attempt+1))
+          done
+
+          if [[ "$status" != "FINISHED" ]]; then
+            echo "Job did not complete in time."
+            exit 1
+          fi
+
+          echo "TASK_ID=$task_id" >> $GITHUB_ENV
+          echo "SELF_HREF=$container_resource" >> $GITHUB_ENV
+          echo "Job completed successfully."
+
+      - name: Download EHB container
+        run: |
+          response=$(curl --location --insecure --request GET "${{ env.SELF_HREF }}/container" \
+          --header 'accept: */*' \
+          --header "Authorization: Bearer $TOKEN" \
+          -o ${{ env.TASK_ID }}.ehb \
+          --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+
+          # Extract the body and the status code
+          http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
+          http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+
+          if [ "$http_status" -ne 200 ]; then
+            echo "Error: Failed to download EHB container. Status code: $http_status"
+            exit 1
+          fi
+
+      - name: Delete EHB container
+        run: |
+          response=$(curl --location --request DELETE "${{ env.SELF_HREF }}" \
+          --header 'accept: */*' \
+          --header "Authorization: Bearer $TOKEN" \
+          --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+
+          # Extract the body and the status code
+          http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
+          http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+
+          if [ "$http_status" -ne 204 ]; then
+            echo "Error: Failed to delete EHB container. Status code: $http_status"
+            exit 1
+          fi
+
+      - name: Deploy EHB container artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: EHANDBOOK Container
+          path: ${{ env.TASK_ID }}.ehb
+          retention-days: 5
