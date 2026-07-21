@@ -1,0 +1,2 @@
+-viewtype "INTERNAL"
+-gensvg 

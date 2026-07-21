@@ -1,0 +1,3 @@
+-epwdf ".\password.txt"
+-gensvg
+-nomatlab

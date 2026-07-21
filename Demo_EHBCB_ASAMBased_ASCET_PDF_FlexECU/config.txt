@@ -1,0 +1,4 @@
+-gensvg
+-nomatlab
+-styling ".\styling"
+-pdf

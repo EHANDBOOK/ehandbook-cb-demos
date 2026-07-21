@@ -1,0 +1,3 @@
+-ccodemeta ".\CCodeConfig\CCodeConfig.xml"
+-styling ".\styling"
+-gensvg

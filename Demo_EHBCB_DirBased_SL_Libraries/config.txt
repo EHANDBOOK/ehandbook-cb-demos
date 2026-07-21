@@ -1,0 +1,4 @@
+-simlib "%MATLAB_PATH%\toolbox\simulink"
+-simulinkview ".\configuration\SimulinkViewConfig.json"
+-viewtype "GlobalView"
+-gensvg

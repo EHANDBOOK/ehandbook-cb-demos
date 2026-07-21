@@ -1,0 +1,2 @@
+-gensvg
+-ccodemeta ".\CCodeConfig\ccode_config.xml"

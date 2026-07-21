@@ -62,3 +62,37 @@ The build script uses a standard directory-based command, but with a key flag fo
 
 * `-i "ControllerExample"`: Specifies the input directory. EHB-CB scans this folder and finds both the `.slx` and `.arxml` files.
 * `-autosarcomposition "ThrottlePositionControlComposition"`: This important flag tells EHB-CB which AUTOSAR composition to use as the top-level entry point for the documentation. EHB-CB then finds the SWCs within that composition (in this case, the `ThrottlePositionController`) and looks for corresponding implementation models (like `Controller.slx`) to generate the detailed diagrams.
+
+---
+###  Container-Build Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+#### Details and direct link
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+1. `demo_folder`: `Demo_EHBCB_DirBased_AUTOSAR_SL/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `Demo_EHBCB_DirBased_AUTOSAR_SL/config.txt`
+
+**Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
+
+---
+
+* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+
+### Configuration File: `config.txt`
+
+The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
+
+```text
+-gensvg
+-nomatlab
+-autosarcomposition "ThrottlePositionControlComposition"
+```

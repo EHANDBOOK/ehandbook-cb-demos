@@ -57,6 +57,9 @@ This demo showcases the power of the directory-based build to automatically dete
     * `Itc_InOut.xlsx`: Excel file for the interface.
     * `Itc_text.adoc`: AsciiDoc file for documentation.
 * **`Output/`**: This is the destination folder where the generated EHANDBOOK will be saved.
+* **`-nomatlab`**: Instructs the builder to use its internal Simulink reader rather than launching MATLAB, speeding up the build.
+* **`-simlib "%MATLAB_PATH%\toolbox\simulink\blocks\library"`**: Specifies the path to Simulink library blocks.
+* **`-gensvg`**: Automatically generates SVG screenshots from the interactive models
 * **`build.bat`**: This script runs the EHANDBOOK Container-Build process. It relies on the directory structure and file types in the `Input` folder to correctly build the container.
 
 ### Build Script: `build.bat`
@@ -73,9 +76,36 @@ The `build.bat` script uses the following command:
 -gensvg
 ```
 
-* `-i ".\Input"`: Specifies the input directory containing all source artifacts.
-* `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
-* `-n "Demo_EHBCB_DirBased_ASCET_SL_CCODE"`: Sets the name of the output file.
-* `-nomatlab`: Instructs the builder to use its internal Simulink reader rather than launching MATLAB, speeding up the build.
-* `-simlib "%MATLAB_PATH%\toolbox\simulink\blocks\library"`: Specifies the path to Simulink library blocks.
-* `-gensvg`: Automatically generates SVG screenshots from the interactive models.
+---
+###  Container-Build Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+#### Details and direct link
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+1. `demo_folder`: `Demo_EHBCB_DirBased_ASCET_SL_CCODE/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `Demo_EHBCB_DirBased_ASCET_SL_CCODE/config.txt`
+
+**Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
+
+---
+
+* **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+
+### Configuration File: `config.txt`
+
+The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
+
+```text
+-nomatlab
+-simlib "%MATLAB_PATH%\toolbox\simulink\blocks\library"
+-gensvg
+```

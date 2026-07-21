@@ -1,0 +1,2 @@
+-ccodemeta ".\configuration_without_hierarchies\CCodeConfig.xml" ^
+-gensvg

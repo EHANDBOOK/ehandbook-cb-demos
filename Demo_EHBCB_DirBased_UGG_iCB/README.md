@@ -76,3 +76,54 @@ This demo showcases the powerful hand-off between the UGG and EHB-CB tools for e
     ```
 
     The `-ugg` flag tells EHB-CB: "Do not look for models to process. Instead, find the pre-generated `.ugg` files in the input directories and use them directly." This allows EHB-CB to skip the model conversion step entirely, resulting in a much faster build.
+
+---
+###  Container-Build Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+#### Details and direct link
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+##### For UGG workflow
+
+1. `demo_folder`: `Demo_EHBCB_DirBased_UGG_iCB/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `Demo_EHBCB_DirBased_UGG_iCB/config_step1_build_with_UGG.txt`
+
+##### For iCB workflow
+
+1. `demo_folder`: `Demo_EHBCB_DirBased_UGG_iCB/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `Demo_EHBCB_DirBased_UGG_iCB/config_step2_build_with_iCB.txt`
+
+**Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
+
+---
+
+* **`config*.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+
+### Configuration File: `config_step1_build_with_UGG.txt`
+
+The `config_step1_build_with_UGG.txt` file includes the following build arguments for CB SaaS eHandbook UGG flow.
+
+```text
+-nomatlab
+-zip
+```
+
+### Configuration File: `config_step2_build_with_iCB.txt`
+
+The `config_step2_build_with_iCB.txt` file includes the following build arguments for CB SaaS eHandbook iCB flow.
+
+```text
+-ugg
+-rootlevel ".\RootLevel.json" 
+```

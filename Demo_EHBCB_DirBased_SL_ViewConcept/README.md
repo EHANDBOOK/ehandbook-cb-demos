@@ -81,3 +81,55 @@ The `build.bat` script executes the container build twice with different paramet
 ```
 
 * This second run uses `-viewtype "INTERNAL"`. EHB-CB generates a view that shows the complete, detailed implementation of the model, suitable for internal developers and documentation.
+
+---
+###  Container-Build Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+#### Details and direct link
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+##### For view type 'EXTERNAL'
+
+1. `demo_folder`:  for example `Demo_EHBCB_DirBased_SL_ViewConcept/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `Demo_EHBCB_DirBased_SL_ViewConcept/config_viewType_External.txt`
+
+##### For view type 'INTERNAL'
+
+1. `demo_folder`:  for example `Demo_EHBCB_DirBased_SL_ViewConcept/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `Demo_EHBCB_DirBased_SL_ViewConcept/config_viewType_Internal.txt`
+
+
+**Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
+
+---
+
+* **`config*.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, and -n arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+
+### Configuration File: `config_viewType_External.txt`
+
+The `config_viewType_External.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
+
+```text
+-viewtype "EXTERNAL"
+-gensvg 
+```
+
+### Configuration File: `config_viewType_Internal.txt`
+
+The `config_viewType_Internal.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
+
+```text
+-viewtype "INTERNAL"
+-gensvg  
+```

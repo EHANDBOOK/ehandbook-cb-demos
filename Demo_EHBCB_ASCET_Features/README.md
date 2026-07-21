@@ -64,4 +64,23 @@ The `build.bat` script uses the following command:
 * `-o ".\Output"`: Specifies the output directory for the generated EHANDBOOK container.
 * `-n "Demo_EHBCB_ASCET_Features"`: Sets the name of the output file.
 
-The directory-based approach allows EHANDBOOK Container-Build to automatically detect the ASCET model file and its supporting artifacts and generate documentation.
+The directory-based approach allows EHANDBOOK Container-Build to automatically detect the ASCET model file and its supporting artifacts and generate documentation..
+
+---
+###  Container-Build Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+#### Details and direct link
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+1. `demo_folder`: `Demo_EHBCB_ASCET_Features/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+
+**Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.

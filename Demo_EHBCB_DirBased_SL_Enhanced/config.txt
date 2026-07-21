@@ -1,0 +1,6 @@
+-gensvg
+-nomatlab
+-tableconfig "TableConfiguration.json"
+-viewtype "AllView"
+-simulinkview "SimulinkGlobalView.json"
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink"
