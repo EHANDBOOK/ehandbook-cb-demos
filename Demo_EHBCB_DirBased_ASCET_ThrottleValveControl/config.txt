@@ -1,0 +1,2 @@
+-includeSourceCode
+-labelconfig "labelconfig.json"

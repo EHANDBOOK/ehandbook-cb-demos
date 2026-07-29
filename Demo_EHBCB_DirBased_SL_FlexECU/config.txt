@@ -1,0 +1,4 @@
+-simlib ".\simlib,%MATLAB_PATH%\toolbox\simulink"
+-nomatlab
+-styling ".\styling"
+-rootlevel ".\configuration\rootlevel.json"

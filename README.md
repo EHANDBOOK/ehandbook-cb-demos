@@ -6,6 +6,17 @@ Visit <http://ehandbook.etas.com> for a general overview on the ETAS EHANDBOOK s
 
 Detailed information on EHANDBOOK Container-Build can be found in the documentation at <https://docs.etas.com/ehandbook/ehandbook/container_build.html>.
 
+## Table of Contents
+
+- [What Each Demo Contains](#what-each-demo-contains)
+- [What You'll Need](#what-youll-need)
+- [Product Evaluations](#product-evaluations)
+- [Getting Started](#getting-started)
+  - [Scenario A: Run Demos with CLI Product (Local)](#scenario-a-run-demos-with-cli-product-local)
+  - [Scenario B: Run Demos with Cloud Service (SaaS)](#scenario-b-run-demos-with-cloud-service-saas)
+- [Demo Overview](#demo-overview)
+- [AI-Generated Code Notice](#ai-generated-code-notice)
+
 ## What Each Demo Contains
 
 Each demo folder is self-contained and includes:
@@ -19,50 +30,59 @@ Each demo folder is self-contained and includes:
 - **Input/** – Source files and configuration data specific to the demo
 - **Output/** – Pre-built EHANDBOOK Container (`.ehb` file) that can be explored immediately with EHANDBOOK-NAVIGATOR
 
-## Table of Contents
-
-- [What Each Demo Contains](#what-each-demo-contains)
-- [What You'll Need](#what-youll-need)
-- [Product Evaluations](#product-evaluations)
-- [Getting Started](#getting-started)
-  - [Clone Repository](#clone-repository)
-  - [Setup](#setup)
-- [How to Run a Demo](#how-to-run-a-demo)
-- [Demo Overview](#demo-overview)
-- [AI-Generated Code Notice](#ai-generated-code-notice)
-
 ## What You'll Need
 
-Before you begin, ensure you have:
+Prerequisites depend on the scenario you choose:
+
+### Scenario A: CLI Product (Local)
 
 - ✅ **EHANDBOOK Container-Build tools** (latest version recommended)
 - ✅ **EHANDBOOK-NAVIGATOR tool** for viewing generated EHB Containers (latest version recommended)
 - ✅ **MATLAB/Simulink** (R2021a or later, optional for Simulink demos)
-- ✅ **Git** (for cloning the repository)
+- ✅ **Git** (to clone the repository locally)
 - ⏱️ **Estimated setup time:** 15-20 minutes
+
+### Scenario B: Cloud Service (SaaS)
+
+- ✅ **Git repository URL** for this demo repository (public or accessible from your cloud service environment)
 
 ## Product Evaluations
 
-ETAS offers time-limited evaluations for EHANDBOOK products free of charge.
+ETAS offers time-limited evaluation licenses for the local EHANDBOOK CLI products free of charge.
 
-Visit [https://license.etas.com](https://license.etas.com) and navigate to **Product Evaluation** or go to the [product evaluation page](https://license.etas.com/LandingPage/htm/evalproducts.jsp?lang=English) directly.
+These evaluation licenses apply to local installations only (Scenario A: CLI Product). Cloud service usage (Scenario B, technically SaaS) is handled via your cloud service account/subscription and does not use local evaluation licenses.
+
+For local CLI product evaluations, visit [https://license.etas.com](https://license.etas.com) and navigate to **Product Evaluation** or go to the [product evaluation page](https://license.etas.com/LandingPage/htm/evalproducts.jsp?lang=English) directly.
 
 ## Getting Started
 
-### Clone Repository
+Choose one of the following scenarios:
 
-Clone the repository using Git:
+1. **Scenario A:** Run demos with local CLI product
+2. **Scenario B:** Run demos with Cloud Service (SaaS)
+
+### Scenario A: Run Demos with CLI Product (Local)
+
+Use this scenario to run demos locally with full control and scriptable execution.
+
+**What you need:**
+
+1. A local clone of this repository
+2. Installed EHANDBOOK CLI tools (and optional MATLAB/Simulink for Simulink demos)
+3. A local `set_tool_paths.bat` configuration matching your environment
+
+**Steps:**
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/EHANDBOOK/ehandbook-cb-demos.git
 cd ehandbook-cb-demos
 ```
 
-### Setup
+2. Adapt `set_tool_paths.bat` to match your local environment.
 
-After cloning the repository, you first should adapt the file `set_tool_paths.bat` to match your local environment.
-
-**Example configuration:**
+Example configuration:
 
 ```batch
 set EHB_CB_PATH=C:\ETAS\EHANDBOOK-Container-Build_13.5.0_Windows
@@ -70,7 +90,7 @@ set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-Container-Build_13.5.0_Windows
 set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
 ```
 
-**To configure:**
+To configure:
 
 1. Open `set_tool_paths.bat` in a text editor
 2. Update `EHB_CB_PATH` to point to your EHANDBOOK Container-Build installation directory
@@ -78,17 +98,48 @@ set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
 4. Update `MATLAB_PATH` to point to your MATLAB installation directory (if running Simulink demos)
 5. Save the file
 
-## How to Run a Demo
+6. Open a command prompt or PowerShell terminal.
+7. Run `set_tool_paths.bat`.
+8. Navigate to the demo folder (e.g., `cd Demo_EHBCB_DirBased_CCODE_Simple`).
+9. Execute the build script: `build.bat`.
+10. Wait for the build to complete and find the generated output in the `Output/` folder within the demo directory.
 
-Each demo folder contains a batch file `build.bat` which invokes the EHANDBOOK Container-Build tool(s) on the given input data.
+Additional notes:
 
-**Steps to run any demo:**
+1. Run `set_tool_paths.bat` and `build.bat` in the **same** command prompt or PowerShell terminal session.
+2. The environment variables set by `set_tool_paths.bat` are available **only for the current terminal session**.
+3. If you open a new command prompt or PowerShell window, run `set_tool_paths.bat` again before executing `build.bat`.
+4. Otherwise, the required tool paths may not be detected, and the container build may fail.
 
-1. Open a command prompt or PowerShell terminal
-2. Navigate to the demo folder (e.g., `cd Demo_DirBased_CCode_simple`)
-3. Execute the build script: `build.bat`
-4. Wait for the build to complete
-5. Find the generated output in the `Output/` folder within the demo directory
+### Scenario B: Run Demos with Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+**What you need:**
+
+1. Cloud service account with access to EHANDBOOK build services
+2. This repository as your source for demo inputs and configuration files
+
+**Steps:**
+
+1. Open the target GitHub repository and go to **Actions**.
+2. Select the workflow **Create EHANDBOOK Demo Container**.
+3. Click **Run workflow**.
+4. Fill the workflow inputs (`demo_folder`, `storage_type`, `storage_url`, and optional `config_File`).
+5. Trigger the workflow run.
+
+#### Details and direct link
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+1. `demo_folder`: for example `Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: optional; leave empty to use the workflow default (`<demo parent>/config.txt`)
 
 **Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
 
@@ -104,7 +155,7 @@ This repository is organized into demo folders, each showcasing specific feature
 <summary><strong>ASCET6 Documentation (1 demo)</strong></summary>
 
 **[Demo_EHBCB_DirBased_ASCET_ThrottleValveControl](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/README.md)** · `Advanced`  
-Shows how to setup a Directory Based Ehandbook Container Build for an ASCET6 AXL Model file.   
+Shows how to set up a directory-based EHANDBOOK Container-Build for an ASCET6 AXL model file.  
 📦 Technologies: `ASCET` · 📁 Directory-Based  
 [📖 Documentation](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/ThrottleValveControl_ehbcb_out/ThrottleValveControl.ehb)
 

@@ -1,0 +1,3 @@
+-nomatlab
+-styling ".\styling"
+-simlib "%MATLAB_PATH%\toolbox\simulink"

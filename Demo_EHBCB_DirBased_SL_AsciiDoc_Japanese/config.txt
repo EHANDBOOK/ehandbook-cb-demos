@@ -1,0 +1,6 @@
+-labelconfig ".\configuration\LabelConfig.json"
+-labelamendment ".\configuration\LabelAmendment.json"
+-rootlevel ".\configuration\RootLevel.json"
+-tableconfig ".\configuration\TableConfiguration.json"
+-simlib ".\FlexECU_Simulink_Library"
+-pdf

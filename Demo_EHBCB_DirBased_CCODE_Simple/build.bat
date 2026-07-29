@@ -4,8 +4,8 @@ cls
 -i ".\Input" ^
 -o ".\Output" ^
 -n "Demo_EHBCB_DirBased_CCODE_Simple" ^
--ccodemeta ".\CCodeConfig\CCodeFunctionConfig.xml"
--gensvg ^
+-ccodemeta ".\CCodeConfig\CCodeFunctionConfig.xml" ^
+-gensvg
 
 pause
 
