@@ -6,32 +6,32 @@
 
 ## ✨ Features Showcased
 
-* Directory-based build for a Simulink project (`.slx`).
-* Use of an AsciiDoc file (`.adoc`) with **Japanese content** for textual documentation.
-* Custom styling to support Japanese fonts in the PDF output.
-* Configuration of PDF fonts via an XSL stylesheet (`PdfCustomization.xsl`).
+- Directory-based build for a Simulink project (`.slx`).
+- Use of an AsciiDoc file (`.adoc`) with **Japanese content** for textual documentation.
+- Custom styling to support Japanese fonts in the PDF output.
+- Configuration of PDF fonts via an XSL stylesheet (`PdfCustomization.xsl`).
 
 ---
 
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    * EHANDBOOK Container-Build with suitable licenses for the Simulink converter and PDF generator.
-    * **Font:** Ensure you have a Japanese font installed on your Windows system (e.g., "Yu Gothic", "Meiryo", "MS Mincho").
-    * Ensure you have run the `set_tool_paths.bat` script in the repository root.
+    - EHANDBOOK Container-Build with suitable licenses for the Simulink converter and PDF generator.
+    - **Font:** Ensure you have a Japanese font installed on your Windows system (e.g., "Yu Gothic", "Meiryo", "MS Mincho").
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    * Open a command prompt or terminal.
-    * Navigate to this directory.
-    * Execute the `build.bat` script.
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script.
 
 ---
 
 ## 🔬 Explore the Output
 
-* After the build completes, navigate to the `Output/` folder (it will be created if it doesn't exist).
-* Open the generated EHANDBOOK file (`.ehb`). The Japanese content from `Lcc.adoc` will be displayed alongside the interactive Simulink model.
-* Open the generated PDF document. The Japanese text should be rendered correctly, thanks to the font configuration.
+- After the build completes, navigate to the `Output/` folder (it will be created if it doesn't exist).
+- Open the generated EHANDBOOK file (`.ehb`). The Japanese content from `Lcc.adoc` will be displayed alongside the interactive Simulink model.
+- Open the generated PDF document. The Japanese text should be rendered correctly, thanks to the font configuration.
 
 ---
 
@@ -41,13 +41,13 @@ This demo focuses on combining a standard Simulink model with non-English docume
 
 ### Directory Structure
 
-* **`Lcc/`**: The main input folder for the "Lcc" function.
-  * `Lcc.slx`: The Simulink model file.
-  * `Lcc.adoc`: The AsciiDoc file containing the textual documentation in Japanese.
-  * `Lcc.xlsx`: An Excel file defining the function's interface.
-* **`styling/`**: Contains styling information, including the crucial XSL stylesheet for PDF font settings.
-  * `PdfCustomization.xsl`: This file is configured to tell the PDF generator to use a Japanese-capable font.
-* **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
+- **`Lcc/`**: The main input folder for the "Lcc" function.
+  - `Lcc.slx`: The Simulink model file.
+  - `Lcc.adoc`: The AsciiDoc file containing the textual documentation in Japanese.
+  - `Lcc.xlsx`: An Excel file defining the function's interface.
+- **`styling/`**: Contains styling information, including the crucial XSL stylesheet for PDF font settings.
+  - `PdfCustomization.xsl`: This file is configured to tell the PDF generator to use a Japanese-capable font.
+- **`build.bat`**: The script that runs the EHANDBOOK Container-Build process.
 
 ### Build Script: `build.bat`
 
@@ -87,3 +87,41 @@ While the EHANDBOOK-NAVIGATOR can typically render Japanese text without special
     ```
 
 This ensures that the generated PDF correctly embeds and displays the Japanese characters from the AsciiDoc file. For more details, see the [official documentation](https://docs.etas.com/ehandbook/ehandbook/how-to-guides/how-to-support-asian-languages-in-ehb-generated-pdf-documents.html).
+
+
+---
+###  Container-Build Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+#### Details and direct link
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+1. `demo_folder`: `Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese/config.txt`
+
+**Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
+
+---
+
+- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+
+### Configuration File: `config.txt`
+
+The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
+
+```text
+-labelconfig ".\configuration\LabelConfig.json" ^
+-labelamendment ".\configuration\LabelAmendment.json" ^
+-rootlevel ".\configuration\RootLevel.json" ^
+-tableconfig ".\configuration\TableConfiguration.json" ^
+-simlib ".\FlexECU_Simulink_Library" ^
+-pdf
+```

@@ -1,0 +1,42 @@
+name: Fetch Auth Token
+description: Fetches an OAuth2 client credentials access token from the Bosch auth endpoint
+
+inputs:
+  client_id:
+    description: OAuth2 client ID
+    required: true
+  client_secret:
+    description: OAuth2 client secret
+    required: true
+  project_id:
+    description: Cloud Hub project ID (used as scope prefix)
+    required: true
+  application_id:
+    description: Cloud Hub application ID (used as scope suffix)
+    required: true
+  auth_url:
+    description: Token endpoint URL
+    required: true
+
+outputs:
+  token:
+    description: The retrieved access token
+    value: ${{ steps.fetch.outputs.token }}
+
+runs:
+  using: composite
+  steps:
+    - name: Retrieve access token
+      id: fetch
+      shell: bash
+      run: |
+        response=$(curl --location --request POST "${{ inputs.auth_url }}" \
+          --header 'Content-Type: application/x-www-form-urlencoded' \
+          --header 'accept: application/json' \
+          --data-urlencode 'client_id=${{ inputs.client_id }}' \
+          --data-urlencode 'client_secret=${{ inputs.client_secret }}' \
+          --data-urlencode 'grant_type=client_credentials' \
+          --data-urlencode 'scope=${{ inputs.project_id }}:${{ inputs.application_id }}')
+        token=$(echo "$response" | jq -r '.access_token')
+        echo "::add-mask::$token"
+        echo "token=$token" >> "$GITHUB_OUTPUT"
