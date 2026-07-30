@@ -62,18 +62,28 @@ jobs:
             echo "$resp" | jq -r '.access_token'
           }
 
+          payload=$(jq -n \
+            --arg taskType "CB" \
+            --arg storageType "$GITHUB_EVENT_INPUTS_STORAGE_TYPE" \
+            --arg storageUrl "$GITHUB_EVENT_INPUTS_STORAGE_URL" \
+            --arg inputObjectKey "$GITHUB_EVENT_INPUTS_DEMO_FOLDER" \
+            --arg configurationObjectKey "$GITHUB_EVENT_INPUTS_CONFIG_FILE" \
+            '{
+                taskType: $taskType,
+                storageType: $storageType,
+                storageUrl: $storageUrl,
+                inputObjectKey: $inputObjectKey,
+                configurationObjectKey: $configurationObjectKey
+            }')
+          
+          echo "$payload"
+          
           response=$(curl --location --request POST "${{ secrets.DEMO_API_URL }}" \
-          --header 'accept: application/json' \
-          --header "Authorization: Bearer $TOKEN" \
-          --header 'Content-Type: application/json' \
-          --silent --show-error --write-out "HTTPSTATUS:%{http_code}" \
-          --data-raw '{
-            "taskType": "CB",
-            "storageType": "${GITHUB_EVENT_INPUTS_STORAGE_TYPE}",
-            "storageUrl": "${GITHUB_EVENT_INPUTS_STORAGE_URL}",
-            "inputObjectKey": "${GITHUB_EVENT_INPUTS_DEMO_FOLDER}",
-            "configurationObjectKey": "${GITHUB_EVENT_INPUTS_CONFIG_FILE}"
-          }')
+            --header "accept: application/json" \
+            --header "Authorization: Bearer $TOKEN" \
+            --header "Content-Type: application/json" \
+            --silent --show-error --write-out "HTTPSTATUS:%{http_code}" \
+            --data "$payload")
 
           # Extract the body and the status code
           http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
