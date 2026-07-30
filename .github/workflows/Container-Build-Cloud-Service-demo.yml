@@ -66,12 +66,18 @@ jobs:
             --arg taskType "CB" \
             --arg storageType "$GITHUB_EVENT_INPUTS_STORAGE_TYPE" \
             --arg storageUrl "$GITHUB_EVENT_INPUTS_STORAGE_URL" \
+            --arg username "${{ secrets.GIT_USERNAME }}" \
+            --arg password "${{ secrets.GIT_USER_PAT }}" \
             --arg inputObjectKey "$GITHUB_EVENT_INPUTS_DEMO_FOLDER" \
             --arg configurationObjectKey "$GITHUB_EVENT_INPUTS_CONFIG_FILE" \
             '{
                 taskType: $taskType,
                 storageType: $storageType,
                 storageUrl: $storageUrl,
+                storageCredentials: {
+                  username: $username,
+                  password: $password
+                },
                 inputObjectKey: $inputObjectKey,
                 configurationObjectKey: $configurationObjectKey
             }')
