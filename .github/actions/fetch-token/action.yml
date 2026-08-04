@@ -30,7 +30,14 @@ runs:
       id: fetch
       shell: bash
       run: |
+        CURL_CONNECT_TIMEOUT=30
+        CURL_MAX_TIME=180
+        ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+        echo "[$(ts)] Fetching OAuth token from auth endpoint..."
         response=$(curl --location --request POST "${{ inputs.auth_url }}" \
+          --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+          --max-time "$CURL_MAX_TIME" \
+          --silent --show-error \
           --header 'Content-Type: application/x-www-form-urlencoded' \
           --header 'accept: application/json' \
           --data-urlencode 'client_id=${{ inputs.client_id }}' \

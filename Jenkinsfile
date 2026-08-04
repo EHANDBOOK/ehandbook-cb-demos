@@ -14,7 +14,7 @@ properties(jenkins.createBasicBuildProperties() +
 	parameters([
 		booleanParam(name: 'publishToGitHub', description: "Publish the CB Demos to GitHub.com (https://github.com/EHANDBOOK/ehandbook-cb-demos)."),
 		booleanParam(name: 'triggerGitHubCloudServiceWorkflow', defaultValue: false, description: "Trigger GitHub workflow 'Container-Build-Cloud-Service-demo.yml' after sync."),
-		choice(name: 'workflowExecutionTarget', choices: ['NONE', 'GITHUB', 'LOCAL'], description: "Where to execute Container-Build-Cloud-Service-demo.yml: NONE, GITHUB, or LOCAL (via act)."),
+		choice(name: 'workflowExecutionTarget', choices: ['GITHUB', 'NONE', 'LOCAL'], description: "Where to execute Container-Build-Cloud-Service-demo.yml: NONE, GITHUB, or LOCAL (via act)."),
 		string(name: 'githubRef', defaultValue: 'main', description: "Git ref (branch or tag) used for GitHub workflow dispatch."),
 		string(name: 'demoFolder', defaultValue: 'Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input', description: "workflow_dispatch input: demo_folder"),
 		string(name: 'storageType', defaultValue: 'GIT', description: "workflow_dispatch input: storage_type"),
@@ -45,6 +45,8 @@ timestamps {
 
 		stage('Preflight: GitHub workflow validation') {
 			dir(GIT_SYNC_FOLDER) {
+				artifactory.pullDockerImage('rhysd/actionlint:latest')
+
 				sh '''
 					set -euo pipefail
 
@@ -62,7 +64,6 @@ timestamps {
 					fi
 
 					# 1) Semantic GitHub Actions validation with actionlint
-					docker pull rhysd/actionlint:latest
 					docker run --rm \\
 						-v "$PWD:/repo" \\
 						-w /repo \\
@@ -93,6 +94,10 @@ timestamps {
 
 		stage('zizmor (GitHub Actions security scan)') {
 			dir(GIT_SYNC_FOLDER) {
+				artifactory.pullDockerImage('ghcr.io/zizmorcore/zizmor:latest', [
+					dockerRemoteRepositoriesByPrefix: ['ghcr.io/': 'ghcr-docker-remote']
+				])
+
 				sh '''
 					set -e
 
@@ -101,8 +106,6 @@ timestamps {
 						echo "No GitHub Actions inputs found. Skipping zizmor."
 						exit 0
 					fi
-
-					docker pull ghcr.io/zizmorcore/zizmor:latest
 
 					# Offline mode avoids GitHub API token requirements
 					docker run --rm \
@@ -142,10 +145,17 @@ timestamps {
 						withEnv([
 							"ORIGINAL_COMMIT_ID=${originalCommit}",
 							"TEMP_BRANCH_NAME=${tempBranchName}",
-							"REF_TO_TEST_VALUE=${refToTest}"
+							"REF_TO_TEST_VALUE=${refToTest}",
+							"DEMO_FOLDER_VALUE=${params.demoFolder}",
+							"STORAGE_TYPE_VALUE=${params.storageType}",
+							"STORAGE_URL_VALUE=${params.storageUrl}",
+							"CONFIG_FILE_VALUE=${params.configFile ?: ''}"
 						]) {
 							sh '''
 							set -euo pipefail
+
+							# config_File is optional; default to empty when not present to avoid set -u aborts.
+							CONFIG_FILE_VALUE="${CONFIG_FILE_VALUE-}"
 
 							REPO="EHANDBOOK/ehandbook-cb-demos"
 							WORKFLOW_FILE="Container-Build-Cloud-Service-demo.yml"
@@ -159,11 +169,12 @@ timestamps {
 
 								if [ -n "$TEMP_BRANCH" ]; then
 									echo "Deleting temporary GitHub branch: $TEMP_BRANCH"
-									curl -sS -X DELETE \
+									delete_status=$(curl -sS -o /tmp/gh-delete-response.txt -w "%{http_code}" -X DELETE \
 										-H "Authorization: Bearer ${GH_TOKEN}" \
 										-H "Accept: application/vnd.github+json" \
 										-H "X-GitHub-Api-Version: 2022-11-28" \
-										"https://api.github.com/repos/${REPO}/git/refs/heads/${TEMP_BRANCH}" >/dev/null || true
+										"https://api.github.com/repos/${REPO}/git/refs/heads/${TEMP_BRANCH}" || true)
+									echo "Temporary branch delete HTTP status: ${delete_status:-curl_failed}"
 								fi
 							}
 							trap cleanup EXIT
@@ -177,19 +188,18 @@ timestamps {
 
 							payload=$(jq -n \
 								--arg ref "$REF_TO_TEST" \
-								--arg demo_folder "${demoFolder}" \
-								--arg storage_type "${storageType}" \
-								--arg storage_url "${storageUrl}" \
-								--arg config_File "${configFile}" \
+								--arg demo_folder "$DEMO_FOLDER_VALUE" \
+								--arg storage_type "$STORAGE_TYPE_VALUE" \
+								--arg storage_url "$STORAGE_URL_VALUE" \
+								--arg config_File "$CONFIG_FILE_VALUE" \
 								'{
 									ref: $ref,
 									inputs: {
 										demo_folder: $demo_folder,
 										storage_type: $storage_type,
-										storage_url: $storage_url,
-										config_File: $config_File
+										storage_url: $storage_url
 									}
-								}')
+								} | if ($config_File | length) > 0 then .inputs.config_File = $config_File else . end')
 
 							http_status=$(curl -sS -o /tmp/gh-dispatch-response.txt -w "%{http_code}" \
 								-X POST "https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches" \
@@ -197,10 +207,10 @@ timestamps {
 								-H "Accept: application/vnd.github+json" \
 								-H "X-GitHub-Api-Version: 2022-11-28" \
 								-d "$payload")
+							echo "Workflow dispatch HTTP status: ${http_status}"
 
 							if [ "$http_status" -ne 204 ]; then
 								echo "Failed to dispatch workflow. HTTP ${http_status}" >&2
-								cat /tmp/gh-dispatch-response.txt >&2 || true
 								exit 1
 							fi
 
@@ -212,13 +222,18 @@ timestamps {
 								attempt=$((attempt+1))
 								sleep 10
 
-								response=$(curl -sS \
+								lookup_status=$(curl -sS -o /tmp/gh-runs-response.txt -w "%{http_code}" \
 									-H "Authorization: Bearer ${GH_TOKEN}" \
 									-H "Accept: application/vnd.github+json" \
 									-H "X-GitHub-Api-Version: 2022-11-28" \
 									"https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/runs?event=workflow_dispatch&branch=${REF_TO_TEST}&per_page=50")
+								echo "Workflow runs lookup HTTP status: ${lookup_status}"
+								if [ "$lookup_status" -ne 200 ]; then
+									echo "Failed to query workflow runs. HTTP ${lookup_status}" >&2
+									exit 1
+								fi
 
-								run_id=$(echo "$response" | jq -r --arg dispatch_time "$dispatch_time" '.workflow_runs[] | select(.created_at >= $dispatch_time) | .id' | head -n1)
+								run_id=$(jq -r --arg dispatch_time "$dispatch_time" '(.workflow_runs // []) | .[] | select(.created_at >= $dispatch_time) | .id' /tmp/gh-runs-response.txt | head -n1)
 							done
 
 							if [ -z "$run_id" ]; then
@@ -236,14 +251,19 @@ timestamps {
 								attempt=$((attempt+1))
 								sleep 20
 
-								run_response=$(curl -sS \
+								run_status_http=$(curl -sS -o /tmp/gh-run-response.txt -w "%{http_code}" \
 									-H "Authorization: Bearer ${GH_TOKEN}" \
 									-H "Accept: application/vnd.github+json" \
 									-H "X-GitHub-Api-Version: 2022-11-28" \
 									"https://api.github.com/repos/${REPO}/actions/runs/${run_id}")
+								echo "Workflow run poll HTTP status: ${run_status_http}"
+								if [ "$run_status_http" -ne 200 ]; then
+									echo "Failed to query workflow run status. HTTP ${run_status_http}" >&2
+									exit 1
+								fi
 
-								status=$(echo "$run_response" | jq -r '.status')
-								conclusion=$(echo "$run_response" | jq -r '.conclusion // empty')
+								status=$(jq -r '.status // empty' /tmp/gh-run-response.txt)
+								conclusion=$(jq -r '.conclusion // empty' /tmp/gh-run-response.txt)
 								echo "GitHub run status: ${status} conclusion: ${conclusion:-n/a}"
 
 								if [ "$status" = "completed" ]; then
@@ -257,6 +277,34 @@ timestamps {
 							fi
 
 							if [ "$conclusion" != "success" ]; then
+								jobs_status_http=$(curl -sS -o /tmp/gh-run-jobs-response.txt -w "%{http_code}" \
+									-H "Authorization: Bearer ${GH_TOKEN}" \
+									-H "Accept: application/vnd.github+json" \
+									-H "X-GitHub-Api-Version: 2022-11-28" \
+									"https://api.github.com/repos/${REPO}/actions/runs/${run_id}/jobs?per_page=100")
+								echo "Workflow jobs lookup HTTP status: ${jobs_status_http}"
+								if [ "$jobs_status_http" -eq 200 ]; then
+									echo "Failed GitHub job/step summary:"
+									has_failed_details=false
+
+									while IFS=$'\t' read -r job_name job_status job_conclusion job_url; do
+										[ -n "$job_name" ] || continue
+										has_failed_details=true
+										echo "Job: $job_name | status: $job_status | conclusion: $job_conclusion | url: $job_url"
+									done < <(jq -r '(.jobs // [])[] | select((.conclusion // "") != "" and (.conclusion // "") != "success") | [(.name // "n/a"), (.status // "n/a"), (.conclusion // "n/a"), (.html_url // "n/a")] | @tsv' /tmp/gh-run-jobs-response.txt)
+
+									while IFS=$'\t' read -r parent_job step_number step_name step_status step_conclusion; do
+										[ -n "$parent_job" ] || continue
+										has_failed_details=true
+										echo "  Step in $parent_job: $step_number $step_name | status: $step_status | conclusion: $step_conclusion"
+									done < <(jq -r '(.jobs // [])[] | .name as $job | (.steps // [])[] | select((.conclusion // "") != "" and (.conclusion // "") != "success") | [($job // "n/a"), ((.number // "?") | tostring), (.name // "n/a"), (.status // "n/a"), (.conclusion // "n/a")] | @tsv' /tmp/gh-run-jobs-response.txt)
+
+									if [ "$has_failed_details" = false ]; then
+										echo "No failed job/step details returned by GitHub API."
+									fi
+								else
+									echo "Unable to fetch GitHub job details for failed run. HTTP ${jobs_status_http}" >&2
+								fi
 								echo "GitHub workflow completed with conclusion: ${conclusion}" >&2
 								exit 1
 							fi
@@ -278,6 +326,10 @@ timestamps {
 		if (params.workflowExecutionTarget == 'LOCAL') {
 			stage('Execute Cloud Service workflow locally (act)') {
 				dir(GIT_SYNC_FOLDER) {
+					artifactory.pullDockerImage('ghcr.io/nektos/act:latest', [
+						dockerRemoteRepositoriesByPrefix: ['ghcr.io/': 'ghcr-docker-remote']
+					])
+
 					withCredentials([
 						string(credentialsId: GITHUB_ACTIONS_DISPATCH_TOKEN_CREDENTIALS, variable: 'GH_TOKEN'),
 						string(credentialsId: LOCAL_WORKFLOW_SECRETS_CREDENTIALS, variable: 'LOCAL_WORKFLOW_SECRETS')
@@ -300,7 +352,6 @@ timestamps {
 							chmod 600 .act.secrets
 
 							mkdir -p act-artifacts
-							docker pull ghcr.io/nektos/act:latest
 							docker run --rm \\
 								-v "$PWD:/workspace" \\
 								-v /var/run/docker.sock:/var/run/docker.sock \\
