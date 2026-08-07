@@ -13,13 +13,7 @@ final String GIT_SYNC_FOLDER = '.'
 properties(jenkins.createBasicBuildProperties() + 
 	parameters([
 		booleanParam(name: 'publishToGitHub', description: "Publish the CB Demos to GitHub.com (https://github.com/EHANDBOOK/ehandbook-cb-demos)."),
-		booleanParam(name: 'triggerGitHubCloudServiceWorkflow', defaultValue: false, description: "Trigger GitHub workflow 'Container-Build-Cloud-Service-demo.yml' after sync."),
-		choice(name: 'workflowExecutionTarget', choices: ['GITHUB', 'NONE', 'LOCAL'], description: "Where to execute Container-Build-Cloud-Service-demo.yml: NONE, GITHUB, or LOCAL (via act)."),
-		string(name: 'githubRef', defaultValue: 'main', description: "Git ref (branch or tag) used for GitHub workflow dispatch."),
-		string(name: 'demoFolder', defaultValue: 'Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input', description: "workflow_dispatch input: demo_folder"),
-		string(name: 'storageType', defaultValue: 'GIT', description: "workflow_dispatch input: storage_type"),
-		string(name: 'storageUrl', defaultValue: 'https://github.com/EHANDBOOK/ehandbook-cb-demos.git', description: "workflow_dispatch input: storage_url"),
-		string(name: 'configFile', defaultValue: '', description: "workflow_dispatch input: config_File (optional)")
+		choice(name: 'workflowExecutionTarget', choices: ['GITHUB', 'NONE'], description: "Where to execute Container-Build-Cloud-Service-demo.yml: NONE or GITHUB.")
 	])
 )
 
@@ -45,7 +39,9 @@ timestamps {
 
 		stage('Preflight: GitHub workflow validation') {
 			dir(GIT_SYNC_FOLDER) {
-				artifactory.pullDockerImage('rhysd/actionlint:latest')
+				script {
+					artifactory.dockerLogin()
+				}
 
 				sh '''
 					set -euo pipefail
@@ -67,7 +63,7 @@ timestamps {
 					docker run --rm \\
 						-v "$PWD:/repo" \\
 						-w /repo \\
-						rhysd/actionlint:latest \\
+						artifactory.etas-dev.com/etasdev-docker-main/rhysd/actionlint:latest \\
 						-color \\
 						-oneline \\
 						$(cat workflow-files.txt) 2>&1 | tee actionlint-report.txt
@@ -94,9 +90,9 @@ timestamps {
 
 		stage('zizmor (GitHub Actions security scan)') {
 			dir(GIT_SYNC_FOLDER) {
-				artifactory.pullDockerImage('ghcr.io/zizmorcore/zizmor:latest', [
-					dockerRemoteRepositoriesByPrefix: ['ghcr.io/': 'ghcr-docker-remote']
-				])
+				script {
+					artifactory.dockerLogin()
+				}
 
 				sh '''
 					set -e
@@ -111,7 +107,7 @@ timestamps {
 					docker run --rm \
 						-v "$PWD:/work" \
 						-w /work \
-						ghcr.io/zizmorcore/zizmor:latest \
+						artifactory.etas-dev.com/ghcr-docker-remote/ghcr.io/zizmorcore/zizmor:latest \
 						. \
 						--collect workflows \
 						--offline \
@@ -124,13 +120,13 @@ timestamps {
 			}
 		}
 
-		if (params.workflowExecutionTarget == 'GITHUB' || (params.workflowExecutionTarget == 'NONE' && params.triggerGitHubCloudServiceWorkflow)) {
+		if (params.workflowExecutionTarget == 'GITHUB') {
 			stage('Validate workflow on temporary GitHub branch') {
 				dir(GIT_SYNC_FOLDER) {
 					withCredentials([string(credentialsId: GITHUB_ACTIONS_DISPATCH_TOKEN_CREDENTIALS, variable: 'GH_TOKEN')]) {
 						def originalCommit = git.getBuildCommit()
 						def tempBranchName = ''
-						def refToTest = params.githubRef
+						def refToTest = 'main'
 
 						if (params.workflowExecutionTarget == 'GITHUB') {
 							tempBranchName = "jenkins-cb-wf-${env.BUILD_NUMBER}-${new Date().format('yyyyMMddHHmmss', TimeZone.getTimeZone('UTC'))}"
@@ -146,10 +142,10 @@ timestamps {
 							"ORIGINAL_COMMIT_ID=${originalCommit}",
 							"TEMP_BRANCH_NAME=${tempBranchName}",
 							"REF_TO_TEST_VALUE=${refToTest}",
-							"DEMO_FOLDER_VALUE=${params.demoFolder}",
-							"STORAGE_TYPE_VALUE=${params.storageType}",
-							"STORAGE_URL_VALUE=${params.storageUrl}",
-							"CONFIG_FILE_VALUE=${params.configFile ?: ''}"
+							"DEMO_FOLDER_VALUE=Demo_EHBCB_DirBased_SL_Enhanced/Input",
+							"STORAGE_TYPE_VALUE=GIT",
+							"STORAGE_URL_VALUE=https://github.com/EHANDBOOK/ehandbook-cb-demos.git",
+							"CONFIG_FILE_VALUE="
 						]) {
 							sh '''
 							set -euo pipefail
@@ -162,6 +158,126 @@ timestamps {
 							REF_TO_TEST="$REF_TO_TEST_VALUE"
 							TEMP_BRANCH="$TEMP_BRANCH_NAME"
 							ORIGINAL_COMMIT="$ORIGINAL_COMMIT_ID"
+
+							api_call() {
+								local method="$1"
+								local url="$2"
+								local output_file="$3"
+								shift 3
+								curl -sS -o "$output_file" -w "%{http_code}" \
+									-X "$method" \
+									-H "Authorization: Bearer ${GH_TOKEN}" \
+									-H "Accept: application/vnd.github+json" \
+									-H "X-GitHub-Api-Version: 2022-11-28" \
+									"$@" \
+									"$url"
+							}
+
+							require_status() {
+								local actual="$1"
+								local expected="$2"
+								local message="$3"
+								if [ "$actual" -ne "$expected" ]; then
+									echo "${message} HTTP ${actual}" >&2
+									exit 1
+								fi
+							}
+
+							resolve_run_id() {
+								local dispatch_time="$1"
+								local run_id=""
+								local attempt=0
+
+								while [ -z "$run_id" ] && [ "$attempt" -lt 20 ]; do
+									attempt=$((attempt+1))
+									sleep 10
+
+									lookup_status=$(api_call GET \
+										"https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/runs?event=workflow_dispatch&branch=${REF_TO_TEST}&per_page=50" \
+										/tmp/gh-runs-response.txt)
+									echo "Workflow runs lookup HTTP status: ${lookup_status}" >&2
+									require_status "$lookup_status" 200 "Failed to query workflow runs."
+
+									run_id=$(jq -r --arg dispatch_time "$dispatch_time" '(.workflow_runs // []) | .[] | select(.created_at >= $dispatch_time) | .id' /tmp/gh-runs-response.txt | head -n1)
+								done
+
+								if [ -z "$run_id" ]; then
+									echo "Unable to identify dispatched workflow run ID." >&2
+									exit 1
+								fi
+
+								echo "$run_id"
+							}
+
+							wait_for_run_completion() {
+								local run_id="$1"
+								local status="queued"
+								local conclusion=""
+								local attempt=0
+
+								while [ "$attempt" -lt 180 ]; do
+									attempt=$((attempt+1))
+									sleep 20
+
+									run_status_http=$(api_call GET \
+										"https://api.github.com/repos/${REPO}/actions/runs/${run_id}" \
+										/tmp/gh-run-response.txt)
+									echo "Workflow run poll HTTP status: ${run_status_http}" >&2
+									require_status "$run_status_http" 200 "Failed to query workflow run status."
+
+									status=$(jq -r '.status // empty' /tmp/gh-run-response.txt)
+									conclusion=$(jq -r '.conclusion // empty' /tmp/gh-run-response.txt)
+									echo "GitHub run status: ${status} conclusion: ${conclusion:-n/a}" >&2
+
+									if [ "$status" = "completed" ]; then
+										break
+									fi
+								done
+
+								if [ "$status" != "completed" ]; then
+									echo "Timed out waiting for GitHub workflow run completion." >&2
+									exit 1
+								fi
+
+								echo "$conclusion"
+							}
+
+							download_run_artifacts() {
+								local run_id="$1"
+
+								echo "Downloading workflow artifacts for run ID ${run_id}..."
+								mkdir -p gh-workflow-artifacts
+
+								artifacts_status_http=$(api_call GET \
+									"https://api.github.com/repos/${REPO}/actions/runs/${run_id}/artifacts?per_page=100" \
+									/tmp/gh-run-artifacts-response.txt)
+								echo "Workflow artifacts lookup HTTP status: ${artifacts_status_http}"
+								require_status "$artifacts_status_http" 200 "Failed to query workflow artifacts."
+
+								cp /tmp/gh-run-artifacts-response.txt gh-workflow-artifacts/artifacts-metadata.json
+
+								artifact_count=$(jq -r '.total_count // 0' /tmp/gh-run-artifacts-response.txt)
+								if [ "$artifact_count" -eq 0 ]; then
+									echo "No workflow artifacts found for run ID ${run_id}."
+									return
+								fi
+
+								jq -r '(.artifacts // [])[] | @base64' /tmp/gh-run-artifacts-response.txt | while IFS= read -r artifact; do
+									artifact_json=$(printf '%s' "$artifact" | base64 --decode)
+									artifact_name=$(printf '%s' "$artifact_json" | jq -r '.name')
+									artifact_id=$(printf '%s' "$artifact_json" | jq -r '.id')
+									artifact_url=$(printf '%s' "$artifact_json" | jq -r '.archive_download_url')
+									safe_name=$(printf '%s' "$artifact_name" | tr -cs '[:alnum:]._+-' '_')
+									artifact_file="gh-workflow-artifacts/${safe_name}-${artifact_id}.zip"
+
+									download_status=$(api_call GET "$artifact_url" "$artifact_file" -L)
+									echo "Downloaded artifact '${artifact_name}' (id: ${artifact_id}) with HTTP status ${download_status}"
+									if [ "$download_status" -ne 200 ]; then
+										echo "Failed to download artifact '${artifact_name}' (id: ${artifact_id}). HTTP ${download_status}" >&2
+										exit 1
+									fi
+								done
+							}
 
 							cleanup() {
 								# Restore original checkout so later stages (publish/local execution) keep expected context.
@@ -201,87 +317,24 @@ timestamps {
 									}
 								} | if ($config_File | length) > 0 then .inputs.config_File = $config_File else . end')
 
-							http_status=$(curl -sS -o /tmp/gh-dispatch-response.txt -w "%{http_code}" \
-								-X POST "https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches" \
-								-H "Authorization: Bearer ${GH_TOKEN}" \
-								-H "Accept: application/vnd.github+json" \
-								-H "X-GitHub-Api-Version: 2022-11-28" \
+							http_status=$(api_call POST \
+								"https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches" \
+								/tmp/gh-dispatch-response.txt \
 								-d "$payload")
 							echo "Workflow dispatch HTTP status: ${http_status}"
-
-							if [ "$http_status" -ne 204 ]; then
-								echo "Failed to dispatch workflow. HTTP ${http_status}" >&2
-								exit 1
-							fi
+							require_status "$http_status" 204 "Failed to dispatch workflow."
 
 							echo "Workflow dispatched. Resolving run ID..."
-
-							run_id=""
-							attempt=0
-							while [ -z "$run_id" ] && [ "$attempt" -lt 20 ]; do
-								attempt=$((attempt+1))
-								sleep 10
-
-								lookup_status=$(curl -sS -o /tmp/gh-runs-response.txt -w "%{http_code}" \
-									-H "Authorization: Bearer ${GH_TOKEN}" \
-									-H "Accept: application/vnd.github+json" \
-									-H "X-GitHub-Api-Version: 2022-11-28" \
-									"https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/runs?event=workflow_dispatch&branch=${REF_TO_TEST}&per_page=50")
-								echo "Workflow runs lookup HTTP status: ${lookup_status}"
-								if [ "$lookup_status" -ne 200 ]; then
-									echo "Failed to query workflow runs. HTTP ${lookup_status}" >&2
-									exit 1
-								fi
-
-								run_id=$(jq -r --arg dispatch_time "$dispatch_time" '(.workflow_runs // []) | .[] | select(.created_at >= $dispatch_time) | .id' /tmp/gh-runs-response.txt | head -n1)
-							done
-
-							if [ -z "$run_id" ]; then
-								echo "Unable to identify dispatched workflow run ID." >&2
-								exit 1
-							fi
+							run_id=$(resolve_run_id "$dispatch_time")
 
 							echo "Dispatched run ID: ${run_id}"
 							echo "Run URL: https://github.com/${REPO}/actions/runs/${run_id}"
-
-							status="queued"
-							conclusion=""
-							attempt=0
-							while [ "$attempt" -lt 180 ]; do
-								attempt=$((attempt+1))
-								sleep 20
-
-								run_status_http=$(curl -sS -o /tmp/gh-run-response.txt -w "%{http_code}" \
-									-H "Authorization: Bearer ${GH_TOKEN}" \
-									-H "Accept: application/vnd.github+json" \
-									-H "X-GitHub-Api-Version: 2022-11-28" \
-									"https://api.github.com/repos/${REPO}/actions/runs/${run_id}")
-								echo "Workflow run poll HTTP status: ${run_status_http}"
-								if [ "$run_status_http" -ne 200 ]; then
-									echo "Failed to query workflow run status. HTTP ${run_status_http}" >&2
-									exit 1
-								fi
-
-								status=$(jq -r '.status // empty' /tmp/gh-run-response.txt)
-								conclusion=$(jq -r '.conclusion // empty' /tmp/gh-run-response.txt)
-								echo "GitHub run status: ${status} conclusion: ${conclusion:-n/a}"
-
-								if [ "$status" = "completed" ]; then
-									break
-								fi
-							done
-
-							if [ "$status" != "completed" ]; then
-								echo "Timed out waiting for GitHub workflow run completion." >&2
-								exit 1
-							fi
+							conclusion=$(wait_for_run_completion "$run_id")
 
 							if [ "$conclusion" != "success" ]; then
-								jobs_status_http=$(curl -sS -o /tmp/gh-run-jobs-response.txt -w "%{http_code}" \
-									-H "Authorization: Bearer ${GH_TOKEN}" \
-									-H "Accept: application/vnd.github+json" \
-									-H "X-GitHub-Api-Version: 2022-11-28" \
-									"https://api.github.com/repos/${REPO}/actions/runs/${run_id}/jobs?per_page=100")
+								jobs_status_http=$(api_call GET \
+									"https://api.github.com/repos/${REPO}/actions/runs/${run_id}/jobs?per_page=100" \
+									/tmp/gh-run-jobs-response.txt)
 								echo "Workflow jobs lookup HTTP status: ${jobs_status_http}"
 								if [ "$jobs_status_http" -eq 200 ]; then
 									echo "Failed GitHub job/step summary:"
@@ -309,8 +362,12 @@ timestamps {
 								exit 1
 							fi
 
+							download_run_artifacts "$run_id"
+
 							echo "GitHub workflow completed successfully."
 						'''
+
+							archiveArtifacts artifacts: 'gh-workflow-artifacts/*.zip,gh-workflow-artifacts/*.json', allowEmptyArchive: true
 						}
 					}
 				}
@@ -320,57 +377,6 @@ timestamps {
 		if (params.publishToGitHub) {
 			stage('Publish to GitHub.com') {
 				git.publishToGitHub(GIT_SYNC_FOLDER, 'EHANDBOOK', 'ehandbook-cb-demos', "Publish EHANDBOOK CB Demos to GitHub.com", false)
-			}
-		}
-
-		if (params.workflowExecutionTarget == 'LOCAL') {
-			stage('Execute Cloud Service workflow locally (act)') {
-				dir(GIT_SYNC_FOLDER) {
-					artifactory.pullDockerImage('ghcr.io/nektos/act:latest', [
-						dockerRemoteRepositoriesByPrefix: ['ghcr.io/': 'ghcr-docker-remote']
-					])
-
-					withCredentials([
-						string(credentialsId: GITHUB_ACTIONS_DISPATCH_TOKEN_CREDENTIALS, variable: 'GH_TOKEN'),
-						string(credentialsId: LOCAL_WORKFLOW_SECRETS_CREDENTIALS, variable: 'LOCAL_WORKFLOW_SECRETS')
-					]) {
-						sh '''
-							set -euo pipefail
-
-							WORKFLOW_FILE=".github/workflows/Container-Build-Cloud-Service-demo.yml"
-							if [ ! -f "$WORKFLOW_FILE" ]; then
-								echo "Expected workflow file not found: $WORKFLOW_FILE" >&2
-								exit 1
-							fi
-
-							# LOCAL_WORKFLOW_SECRETS must contain KEY=VALUE lines required by the workflow,
-							# for example DEMO_CLIENT_ID, DEMO_CLIENT_SECRET, CLOUD_HUB_PROJECT_ID,
-							# CLOUD_HUB_APPLICATION_ID, AUTH_URL, DEMO_API_URL, GIT_USERNAME, GIT_USER_PAT.
-							# Add GITHUB_TOKEN so actions/checkout has a token in act runtime.
-							printf '%s\n' "$LOCAL_WORKFLOW_SECRETS" > .act.secrets
-							printf 'GITHUB_TOKEN=%s\n' "$GH_TOKEN" >> .act.secrets
-							chmod 600 .act.secrets
-
-							mkdir -p act-artifacts
-							docker run --rm \\
-								-v "$PWD:/workspace" \\
-								-v /var/run/docker.sock:/var/run/docker.sock \\
-								-w /workspace \\
-								ghcr.io/nektos/act:latest workflow_dispatch \\
-								--workflows "$WORKFLOW_FILE" \\
-								--secret-file .act.secrets \\
-								--input demo_folder="${demoFolder}" \\
-								--input storage_type="${storageType}" \\
-								--input storage_url="${storageUrl}" \\
-								--input config_File="${configFile}" \\
-								--artifact-server-path /workspace/act-artifacts
-
-							rm -f .act.secrets
-						'''
-
-						archiveArtifacts artifacts: 'act-artifacts/**/*', allowEmptyArchive: true
-					}
-				}
 			}
 		}
 	}
