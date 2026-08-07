@@ -45,7 +45,9 @@ timestamps {
 
 		stage('Preflight: GitHub workflow validation') {
 			dir(GIT_SYNC_FOLDER) {
-				artifactory.pullDockerImage('rhysd/actionlint:latest')
+				script {
+					artifactory.dockerLogin()
+				}
 
 				sh '''
 					set -euo pipefail
@@ -67,7 +69,7 @@ timestamps {
 					docker run --rm \\
 						-v "$PWD:/repo" \\
 						-w /repo \\
-						rhysd/actionlint:latest \\
+						artifactory.etas-dev.com/etasdev-docker-main/rhysd/actionlint:latest \\
 						-color \\
 						-oneline \\
 						$(cat workflow-files.txt) 2>&1 | tee actionlint-report.txt
@@ -94,9 +96,9 @@ timestamps {
 
 		stage('zizmor (GitHub Actions security scan)') {
 			dir(GIT_SYNC_FOLDER) {
-				artifactory.pullDockerImage('ghcr.io/zizmorcore/zizmor:latest', [
-					dockerRemoteRepositoriesByPrefix: ['ghcr.io/': 'ghcr-docker-remote']
-				])
+				script {
+					artifactory.dockerLogin()
+				}
 
 				sh '''
 					set -e
@@ -111,7 +113,7 @@ timestamps {
 					docker run --rm \
 						-v "$PWD:/work" \
 						-w /work \
-						ghcr.io/zizmorcore/zizmor:latest \
+						artifactory.etas-dev.com/ghcr-docker-remote/ghcr.io/zizmorcore/zizmor:latest \
 						. \
 						--collect workflows \
 						--offline \
