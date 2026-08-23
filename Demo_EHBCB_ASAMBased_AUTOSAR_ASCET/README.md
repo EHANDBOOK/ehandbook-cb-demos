@@ -32,7 +32,12 @@
 ## 🔬 Explore the Output
 
 - After the build completes, a `Demo_EHBCB_ASAMBased_AUTOSAR.ehb` file will be created in the `Output` directory.
+
 - Open the EHANDBOOK file to explore the documented AUTOSAR system. You will see the software components and their underlying ASCET model implementations integrated into a single, navigable handbook.
+
+- If an AUTOSAR component type has multiple prototypes, the prototypes are shown as separate entries in the Table of Contents. Each prototype is represented by a separate Function Component Unit (FC Unit), while reusing the documentation of the corresponding component type.
+
+  For example, if the component type `App_X` has two prototypes, `App_XA1` and `App_XA2`, the generated ehandbook contains separate entries for `App_XA1` and `App_XA2`. Both entries use the documentation of the `App_X` component type.
 
 ---
 
