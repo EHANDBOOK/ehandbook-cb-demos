@@ -105,7 +105,7 @@ Use these values when filling the workflow inputs:
 1. `demo_folder`: `Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese/Input`
 2. `storage_type`: `GIT`
 3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
-4. `config_File`: `Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese/config.txt`
+4. `config_File`: `../config.txt`
 
 **Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
 

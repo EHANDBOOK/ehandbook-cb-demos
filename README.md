@@ -139,7 +139,7 @@ Use these values when filling the workflow inputs:
 1. `demo_folder`: for example `Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input`
 2. `storage_type`: `GIT`
 3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
-4. `config_File`: optional; leave empty to use the workflow default (`<demo parent>/config.txt`)
+4. `config_File`: optional; leave empty to use the workflow default (`../config.txt`)
 
 **Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
 
