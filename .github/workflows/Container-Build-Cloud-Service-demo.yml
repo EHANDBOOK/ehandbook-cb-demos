@@ -47,12 +47,20 @@ jobs:
       - name: Trigger EHANDBOOK API
         run: |
           TOKEN="${STEPS_AUTH_OUTPUTS_TOKEN}"
+          CURL_CONNECT_TIMEOUT=30
+          CURL_MAX_TIME=180
+
+          ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
 
           # fetch_token is used for periodic token refresh inside the polling loop
           # (composite actions cannot be called from within a bash script)
           fetch_token() {
             local resp token
+            echo "[$(ts)] Requesting refreshed auth token..." >&2
             resp=$(curl --location --request POST "$AUTH_URL" \
+              --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+              --max-time "$CURL_MAX_TIME" \
+              --silent --show-error \
               --header 'Content-Type: application/x-www-form-urlencoded' \
               --header 'accept: application/json' \
               --data-urlencode 'client_id=${{ secrets.DEMO_CLIENT_ID }}' \
@@ -80,13 +88,15 @@ jobs:
                   username: $username,
                   password: $password
                 },
-                inputObjectKey: $inputObjectKey,
-                configurationObjectKey: $configurationObjectKey
-            }')
+                inputObjectKey: $inputObjectKey
+            } | if ($configurationObjectKey | length) > 0 then .configurationObjectKey = $configurationObjectKey else . end')
 
           echo "$payload"
 
+          echo "[$(ts)] Triggering container-build API request..."
           response=$(curl --location --request POST "${{ secrets.DEMO_API_URL }}" \
+            --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+            --max-time "$CURL_MAX_TIME" \
             --header "accept: application/json" \
             --header "Authorization: Bearer $TOKEN" \
             --header "Content-Type: application/json" \
@@ -94,8 +104,8 @@ jobs:
             --data "$payload")
 
           # Extract the body and the status code
-          http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
-          http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+          http_body="${response%HTTPSTATUS:*}"
+          http_status="${response##*HTTPSTATUS:}"
 
           echo "body is $http_body"
 
@@ -105,8 +115,8 @@ jobs:
           fi
 
           # Extract the ID from the response
-          container_resource=$(echo $http_body | jq -r '._links.self.href')
-          task_id=$(echo $http_body | jq -r '.id')
+          container_resource=$(printf '%s' "$http_body" | jq -r '._links.self.href')
+          task_id=$(printf '%s' "$http_body" | jq -r '.id')
           echo "Container Resource: $container_resource"
 
           # Polling loop
@@ -115,7 +125,7 @@ jobs:
           status="ACCEPTED"
           max_attempts=360 # maximum 3 hours
           attempt=0
-          while [[ $attempt -lt $max_attempts && ( "$status" == "ACCEPTED" || "$status" == "MALWARE-SCANNING" || "$status" == "RUNNING" || "$status" == "DOWNLOADING" || "$status" == "QUEUED" ) ]]; do
+          while [[ "$attempt" -lt "$max_attempts" && ( "$status" == "ACCEPTED" || "$status" == "MALWARE-SCANNING" || "$status" == "RUNNING" || "$status" == "DOWNLOADING" || "$status" == "QUEUED" ) ]]; do
             echo "Polling attempt $((attempt+1))..."
             sleep 30  # Wait for 30 seconds before the next poll
 
@@ -128,21 +138,24 @@ jobs:
             fi
 
             # Check the status of container creation
+            echo "[$(ts)] Polling container status from resource URL..."
             response=$(curl --location --request GET "$container_resource" \
+            --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+            --max-time "$CURL_MAX_TIME" \
             --header 'accept: application/json' \
             --header "Authorization: Bearer $TOKEN" \
             --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
 
             # Extract the body and the status code
-            http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
-            http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+            http_body="${response%HTTPSTATUS:*}"
+            http_status="${response##*HTTPSTATUS:}"
 
             if [ "$http_status" -ne 200 ]; then
               echo "Error: Failed to get status. Status code: $http_status"
               exit 1
             fi
 
-            status=$(echo $http_body | jq -r '.state')
+            status=$(printf '%s' "$http_body" | jq -r '.state')
             echo "Current status: $status"
 
             attempt=$((attempt+1))
@@ -162,8 +175,8 @@ jobs:
               ;;
           esac
 
-          echo "TASK_ID=$task_id" >> $GITHUB_ENV
-          echo "SELF_HREF=$container_resource" >> $GITHUB_ENV
+          echo "TASK_ID=$task_id" >> "$GITHUB_ENV"
+          echo "SELF_HREF=$container_resource" >> "$GITHUB_ENV"
           echo "Job completed successfully."
         env:
           AUTH_URL: ${{ secrets.AUTH_URL }}
@@ -186,16 +199,22 @@ jobs:
       - name: Download EHB container
         run: |
           TOKEN="${STEPS_AUTH_DOWNLOAD_OUTPUTS_TOKEN}"
+          CURL_CONNECT_TIMEOUT=30
+          CURL_MAX_TIME=300
 
+          ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+          echo "[$(ts)] Downloading generated EHB container..."
           response=$(curl --location --insecure --request GET "${SELF_HREF}/container" \
+          --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+          --max-time "$CURL_MAX_TIME" \
           --header 'accept: */*' \
           --header "Authorization: Bearer $TOKEN" \
-          -o ${TASK_ID}.ehb \
+          -o "${TASK_ID}.ehb" \
           --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
 
-          # Extract the body and the status code
-          http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
-          http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+          # Extract the status code
+          http_status="${response##*HTTPSTATUS:}"
 
           if [ "$http_status" -ne 200 ]; then
             echo "Error: Failed to download EHB container. Status code: $http_status"
@@ -217,15 +236,21 @@ jobs:
       - name: Delete EHB container
         run: |
           TOKEN="${STEPS_AUTH_DELETE_OUTPUTS_TOKEN}"
+          CURL_CONNECT_TIMEOUT=30
+          CURL_MAX_TIME=180
 
+          ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+          echo "[$(ts)] Deleting generated EHB container resource..."
           response=$(curl --location --request DELETE "${SELF_HREF}" \
+          --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+          --max-time "$CURL_MAX_TIME" \
           --header 'accept: */*' \
           --header "Authorization: Bearer $TOKEN" \
           --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
 
-          # Extract the body and the status code
-          http_body=$(echo "$response" | sed -e 's/HTTPSTATUS\:.*//g')
-          http_status=$(echo "$response" | tr -d '\n' | sed -e 's/.*HTTPSTATUS://')
+          # Extract the status code
+          http_status="${response##*HTTPSTATUS:}"
 
           if [ "$http_status" -ne 204 ]; then
             echo "Error: Failed to delete EHB container. Status code: $http_status"

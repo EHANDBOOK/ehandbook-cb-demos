@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 9513821737,
+      "node_id": "MDg6QXJ0aWZhY3Q5NTEzODIxNzM3",
+      "name": "EHANDBOOK Container",
+      "size_in_bytes": 343505,
+      "url": "https://api.github.com/repos/EHANDBOOK/ehandbook-cb-demos/actions/artifacts/9513821737",
+      "archive_download_url": "https://api.github.com/repos/EHANDBOOK/ehandbook-cb-demos/actions/artifacts/9513821737/zip",
+      "expired": false,
+      "digest": "sha256:50e25ec0bd97e17c3c38ee1c7d72194e3c58fe35887d001e29b94eb2b49a191f",
+      "created_at": "2026-08-24T09:13:31Z",
+      "updated_at": "2026-08-24T09:13:31Z",
+      "expires_at": "2026-08-29T09:13:30Z",
+      "workflow_run": {
+        "id": 32708413634,
+        "repository_id": 1143428814,
+        "head_repository_id": 1143428814,
+        "head_branch": "jenkins-cb-wf-93-20260824085115",
+        "head_sha": "9bcaad70a714f8ea2f78f102dd20a63dad92b999"
+      }
+    }
+  ]
+}
