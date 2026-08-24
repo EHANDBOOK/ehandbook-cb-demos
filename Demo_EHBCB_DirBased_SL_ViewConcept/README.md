@@ -100,14 +100,14 @@ Use these values when filling the workflow inputs:
 1. `demo_folder`: `Demo_EHBCB_DirBased_SL_ViewConcept/Input`
 2. `storage_type`: `GIT`
 3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
-4. `config_File`: `Demo_EHBCB_DirBased_SL_ViewConcept/config_viewType_External.txt`
+4. `config_File`: `../config_viewType_External.txt`
 
 ##### For view type 'INTERNAL'
 
 1. `demo_folder`: `Demo_EHBCB_DirBased_SL_ViewConcept/Input`
 2. `storage_type`: `GIT`
 3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
-4. `config_File`: `Demo_EHBCB_DirBased_SL_ViewConcept/config_viewType_Internal.txt`
+4. `config_File`: `../config_viewType_Internal.txt`
 
 
 **Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
