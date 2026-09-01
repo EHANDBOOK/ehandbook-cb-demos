@@ -1,4 +1,3 @@
--simlib "FlexECU_Simulink_Library"
 -nomatlab
 -styling ".\styling"
 -rootlevel ".\configuration\rootlevel.json"
