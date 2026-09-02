@@ -1,25 +1,18 @@
 name: Request EHANDBOOK Container
-
 on:
   issues:
     types:
       - opened
-
 permissions:
   contents: write
   issues: write
 
 jobs:
-
   request:
     name: Validate and Submit Container Request
-
     if: github.event.issue.title == 'EHANDBOOK Container Request'
-
     runs-on: ubuntu-latest
-
     steps:
-
       # ------------------------------------------------------------
       # Parse and validate GitHub Issue Form
       # ------------------------------------------------------------
@@ -30,14 +23,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           echo "Parsing EHANDBOOK container request..."
 
-          # GitHub Issue Forms are converted to Markdown.
-          # Extract the value following:
-          #
-          # ### Demo folder
-          #
+          # Extract value following: ### Demo folder
           DEMO_FOLDER=$(
             printf '%s\n' "$ISSUE_BODY" |
             awk '
@@ -50,10 +38,7 @@ jobs:
             '
           )
 
-          # Extract the value following:
-          #
-          # ### Configuration file
-          #
+          # Extract value following: ### Configuration file
           CONFIG_FILE=$(
             printf '%s\n' "$ISSUE_BODY" |
             awk '
@@ -66,80 +51,72 @@ jobs:
             '
           )
 
-          # Remove leading/trailing whitespace.
+          # Remove leading/trailing whitespace
           DEMO_FOLDER="$(echo "$DEMO_FOLDER" | xargs)"
           CONFIG_FILE="$(echo "$CONFIG_FILE" | xargs)"
+
+          # --------------------------------------------------------
+          # Normalize empty config file from GitHub Forms
+          # --------------------------------------------------------
+          if [[ "$CONFIG_FILE" == "_No response_" || "$CONFIG_FILE" == "None" || "$CONFIG_FILE" == "none" ]]; then
+            CONFIG_FILE=""
+          fi
 
           echo "Validating request..."
 
           # --------------------------------------------------------
           # demo_folder is mandatory
           # --------------------------------------------------------
-          if [ -z "$DEMO_FOLDER" ]; then
+          if [ -z "$DEMO_FOLDER" ] || [ "$DEMO_FOLDER" = "_No response_" ]; then
             echo "::error::Demo folder is required."
             exit 1
           fi
 
-          # --------------------------------------------------------
           # Prevent absolute paths
-          # --------------------------------------------------------
           if [[ "$DEMO_FOLDER" == /* ]]; then
-            echo "::error::Absolute paths are not allowed."
+            echo "::error::Absolute paths are not allowed in demo folder."
             exit 1
           fi
 
-          # --------------------------------------------------------
           # Prevent path traversal
-          # --------------------------------------------------------
           if [[ "$DEMO_FOLDER" == *".."* ]]; then
-            echo "::error::Path traversal is not allowed."
+            echo "::error::Path traversal is not allowed in demo folder."
             exit 1
           fi
 
-          # --------------------------------------------------------
           # Allow only safe path characters
-          # --------------------------------------------------------
           if [[ "$DEMO_FOLDER" =~ [^a-zA-Z0-9_./-] ]]; then
             echo "::error::Invalid characters in demo folder."
             exit 1
           fi
 
           # --------------------------------------------------------
-          # Validate optional config file
+          # Validate optional config file (skipped if empty)
           # --------------------------------------------------------
           if [ -n "$CONFIG_FILE" ]; then
-
             if [[ "$CONFIG_FILE" == /* ]]; then
               echo "::error::Absolute paths are not allowed in config file."
               exit 1
             fi
-
             if [[ "$CONFIG_FILE" == *".."* ]]; then
               echo "::error::Path traversal is not allowed in config file."
               exit 1
             fi
-
             if [[ "$CONFIG_FILE" =~ [^a-zA-Z0-9_./-] ]]; then
               echo "::error::Invalid characters in config file."
               exit 1
             fi
-
           fi
 
           # --------------------------------------------------------
-          # Pass validated values to the next step
+          # Pass values to the next step (sends empty string if not provided)
           # --------------------------------------------------------
           echo "demo_folder=$DEMO_FOLDER" >> "$GITHUB_OUTPUT"
           echo "config_file=$CONFIG_FILE" >> "$GITHUB_OUTPUT"
-
           echo "Request validation completed successfully."
 
       # ------------------------------------------------------------
       # Trigger trusted workflow
-      #
-      # IMPORTANT:
-      # storage type and storage URL are NOT supplied by the user.
-      # They are controlled by the trusted workflow.
       # ------------------------------------------------------------
       - name: Trigger trusted workflow
         env:
@@ -149,9 +126,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           echo "Submitting EHANDBOOK container request..."
-
           gh api \
             --method POST \
             "/repos/${{ github.repository }}/dispatches" \
@@ -160,7 +135,6 @@ jobs:
             -f client_payload[config_file]="$CONFIG_FILE" \
             -f client_payload[storage_type]="GIT" \
             -f client_payload[storage_url]="https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
-
           echo "Trusted workflow triggered successfully."
 
       # ------------------------------------------------------------
