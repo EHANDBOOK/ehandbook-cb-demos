@@ -1,0 +1,35 @@
+name: Auto Close EHANDBOOK Container Request
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  auto-close:
+    # Trigger only if the issue title matches or starts with "EHANDBOOK Container Request"
+    if: startsWith(github.event.issue.title, 'EHANDBOOK Container Request')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Optional: Post an automated acknowledgement comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ **EHANDBOOK Container Request** received and queued. Closing this issue automatically.'
+            });
+
+            // Close the issue as completed
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+              state_reason: 'completed'
+            });
