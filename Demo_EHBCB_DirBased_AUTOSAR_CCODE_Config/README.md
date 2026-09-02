@@ -93,13 +93,20 @@ Use these values when filling the workflow inputs:
 1. `demo_folder`: `Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config/Input`
 2. `storage_type`: `GIT`
 3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
-4. `config_File`: `../config.txt`
+4. `config_File`: `Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config/config.txt`
 
 **Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
 
 ---
 
-- **`config.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+- **`config.txt`**: This file contains the argument key-value pairs used during the Container-Build process. These arguments are consumed by the EHB-CB Cloud Service container-generation workflow to configure and control the build.
+
+By default, the -i, -o, -n, and -gensvg arguments are provided by the EHB-CB Cloud API. Therefore, they do not need to be specified in config.txt unless explicitly required.
+
+For arguments that contain file or directory paths:
+
+Relative paths are resolved relative to the location of the config.txt file.
+Absolute paths are resolved relative to the repository root, similar to how the input path is resolved.
 
 ### Configuration File: `config.txt`
 
