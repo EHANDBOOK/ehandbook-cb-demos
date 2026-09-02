@@ -1,0 +1,270 @@
+name: Create EHANDBOOK Cloud Service Demo Container
+
+on:
+  repository_dispatch:
+    types:
+      - ehb-container-request
+    inputs:
+      demo_folder:
+        description: "Name of the folder containing the EHANDBOOK demo files"
+        required: true
+        default: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
+      storage_type:
+        description: "Type of storage where the input files for CB container are present"
+        required: true
+        default: "GIT"
+        type: choice
+        options:
+          - GIT
+      storage_url:
+        description: "The URL of Git repository to be cloned where the input files for CB container are present"
+        default: "https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
+        required: false
+      config_File:
+        description: "Config file for the container build"
+        required: false
+jobs:
+  build:
+    environment: ehb-container-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Authenticate and retrieve token
+        id: auth
+        uses: ./.github/actions/fetch-token
+        with:
+          client_id: ${{ secrets.DEMO_CLIENT_ID }}
+          client_secret: ${{ secrets.DEMO_CLIENT_SECRET }}
+          project_id: ${{ secrets.CLOUD_HUB_PROJECT_ID }}
+          application_id: ${{ secrets.CLOUD_HUB_APPLICATION_ID }}
+          auth_url: ${{ secrets.AUTH_URL }}
+
+      - name: Trigger EHANDBOOK API
+        run: |
+          TOKEN="${STEPS_AUTH_OUTPUTS_TOKEN}"
+          CURL_CONNECT_TIMEOUT=30
+          CURL_MAX_TIME=180
+
+          ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+          # fetch_token is used for periodic token refresh inside the polling loop
+          # (composite actions cannot be called from within a bash script)
+          fetch_token() {
+            local resp token
+            echo "[$(ts)] Requesting refreshed auth token..." >&2
+            resp=$(curl --location --request POST "$AUTH_URL" \
+              --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+              --max-time "$CURL_MAX_TIME" \
+              --silent --show-error \
+              --header 'Content-Type: application/x-www-form-urlencoded' \
+              --header 'accept: application/json' \
+              --data-urlencode 'client_id=${{ secrets.DEMO_CLIENT_ID }}' \
+              --data-urlencode 'client_secret=${{ secrets.DEMO_CLIENT_SECRET }}' \
+              --data-urlencode 'grant_type=client_credentials' \
+              --data-urlencode 'scope=${{ secrets.CLOUD_HUB_PROJECT_ID }}:${{ secrets.CLOUD_HUB_APPLICATION_ID }}')
+            token=$(echo "$resp" | jq -er '.access_token | select(length > 0)')
+            echo "::add-mask::$token" >&2
+            printf '%s\n' "$token"
+          }
+
+          payload=$(jq -n \
+            --arg taskType "CB" \
+            --arg storageType "$GITHUB_EVENT_INPUTS_STORAGE_TYPE" \
+            --arg storageUrl "$GITHUB_EVENT_INPUTS_STORAGE_URL" \
+            --arg username "${{ secrets.GIT_USERNAME }}" \
+            --arg password "${{ secrets.GIT_USER_PAT }}" \
+            --arg inputObjectKey "$GITHUB_EVENT_INPUTS_DEMO_FOLDER" \
+            --arg configurationObjectKey "$GITHUB_EVENT_INPUTS_CONFIG_FILE" \
+            '{
+                taskType: $taskType,
+                storageType: $storageType,
+                storageUrl: $storageUrl,
+                storageCredentials: {
+                  username: $username,
+                  password: $password
+                },
+                inputObjectKey: $inputObjectKey
+            } | if ($configurationObjectKey | length) > 0 then .configurationObjectKey = $configurationObjectKey else . end')
+
+          echo "$payload"
+
+          echo "[$(ts)] Triggering container-build API request..."
+          response=$(curl --location --request POST "${{ secrets.DEMO_API_URL }}" \
+            --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+            --max-time "$CURL_MAX_TIME" \
+            --header "accept: application/json" \
+            --header "Authorization: Bearer $TOKEN" \
+            --header "Content-Type: application/json" \
+            --silent --show-error --write-out "HTTPSTATUS:%{http_code}" \
+            --data "$payload")
+
+          # Extract the body and the status code
+          http_body="${response%HTTPSTATUS:*}"
+          http_status="${response##*HTTPSTATUS:}"
+
+          echo "body is $http_body"
+
+          if [ "$http_status" -ne 202 ]; then
+            echo "Error: Failed to trigger container generation. Status code: $http_status"
+            exit 1
+          fi
+
+          # Extract the ID from the response
+          container_resource=$(printf '%s' "$http_body" | jq -r '._links.self.href')
+          task_id=$(printf '%s' "$http_body" | jq -r '.id')
+          echo "Container Resource: $container_resource"
+
+          # Polling loop
+          token_fetched_at=$(date +%s)
+          TOKEN_REFRESH_INTERVAL=540  # Refresh every 9 minutes (token expires after 10)
+          status="ACCEPTED"
+          max_attempts=360 # maximum 3 hours
+          attempt=0
+          while [[ "$attempt" -lt "$max_attempts" && ( "$status" == "ACCEPTED" || "$status" == "MALWARE-SCANNING" || "$status" == "RUNNING" || "$status" == "DOWNLOADING" || "$status" == "QUEUED" ) ]]; do
+            echo "Polling attempt $((attempt+1))..."
+            sleep 30  # Wait for 30 seconds before the next poll
+
+            # Refresh token if close to expiry
+            elapsed=$(( $(date +%s) - token_fetched_at ))
+            if [ "$elapsed" -ge "$TOKEN_REFRESH_INTERVAL" ]; then
+              echo "Refreshing access token (${elapsed}s elapsed since last fetch)..."
+              TOKEN=$(fetch_token)
+              token_fetched_at=$(date +%s)
+            fi
+
+            # Check the status of container creation
+            echo "[$(ts)] Polling container status from resource URL..."
+            response=$(curl --location --request GET "$container_resource" \
+            --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+            --max-time "$CURL_MAX_TIME" \
+            --header 'accept: application/json' \
+            --header "Authorization: Bearer $TOKEN" \
+            --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+
+            # Extract the body and the status code
+            http_body="${response%HTTPSTATUS:*}"
+            http_status="${response##*HTTPSTATUS:}"
+
+            if [ "$http_status" -ne 200 ]; then
+              echo "Error: Failed to get status. Status code: $http_status"
+              exit 1
+            fi
+
+            status=$(printf '%s' "$http_body" | jq -r '.state')
+            echo "Current status: $status"
+
+            attempt=$((attempt+1))
+          done
+
+          case "$status" in
+            FINISHED)
+              ;;
+            FAILED)
+              echo "Container-build service reported FAILED."
+              echo "$http_body"
+              exit 1
+              ;;
+            *)
+              echo "Container build timed out in state: $status"
+              exit 1
+              ;;
+          esac
+
+          echo "TASK_ID=$task_id" >> "$GITHUB_ENV"
+          echo "SELF_HREF=$container_resource" >> "$GITHUB_ENV"
+          echo "Job completed successfully."
+        env:
+          AUTH_URL: ${{ secrets.AUTH_URL }}
+          STEPS_AUTH_OUTPUTS_TOKEN: ${{ steps.auth.outputs.token }}
+          GITHUB_EVENT_INPUTS_STORAGE_TYPE: ${{ github.event.client_payload.storage_type }}
+          GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ github.event.inputs.storage_url }}
+          GITHUB_EVENT_INPUTS_DEMO_FOLDER: ${{ github.event.client_payload.demo_folder }}
+          GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ github.event.client_payload.config_file }}
+
+      - name: Authenticate for download
+        id: auth-download
+        uses: ./.github/actions/fetch-token
+        with:
+          client_id: ${{ secrets.DEMO_CLIENT_ID }}
+          client_secret: ${{ secrets.DEMO_CLIENT_SECRET }}
+          project_id: ${{ secrets.CLOUD_HUB_PROJECT_ID }}
+          application_id: ${{ secrets.CLOUD_HUB_APPLICATION_ID }}
+          auth_url: ${{ secrets.AUTH_URL }}
+
+      - name: Download EHB container
+        run: |
+          TOKEN="${STEPS_AUTH_DOWNLOAD_OUTPUTS_TOKEN}"
+          CURL_CONNECT_TIMEOUT=30
+          CURL_MAX_TIME=300
+
+          ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+          echo "[$(ts)] Downloading generated EHB container..."
+          response=$(curl --location --insecure --request GET "${SELF_HREF}/container" \
+          --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+          --max-time "$CURL_MAX_TIME" \
+          --header 'accept: */*' \
+          --header "Authorization: Bearer $TOKEN" \
+          -o "${TASK_ID}.ehb" \
+          --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+
+          # Extract the status code
+          http_status="${response##*HTTPSTATUS:}"
+
+          if [ "$http_status" -ne 200 ]; then
+            echo "Error: Failed to download EHB container. Status code: $http_status"
+            exit 1
+          fi
+        env:
+          STEPS_AUTH_DOWNLOAD_OUTPUTS_TOKEN: ${{ steps.auth-download.outputs.token }}
+
+      - name: Authenticate for delete
+        id: auth-delete
+        uses: ./.github/actions/fetch-token
+        with:
+          client_id: ${{ secrets.DEMO_CLIENT_ID }}
+          client_secret: ${{ secrets.DEMO_CLIENT_SECRET }}
+          project_id: ${{ secrets.CLOUD_HUB_PROJECT_ID }}
+          application_id: ${{ secrets.CLOUD_HUB_APPLICATION_ID }}
+          auth_url: ${{ secrets.AUTH_URL }}
+
+      - name: Delete EHB container
+        run: |
+          TOKEN="${STEPS_AUTH_DELETE_OUTPUTS_TOKEN}"
+          CURL_CONNECT_TIMEOUT=30
+          CURL_MAX_TIME=180
+
+          ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+          echo "[$(ts)] Deleting generated EHB container resource..."
+          response=$(curl --location --request DELETE "${SELF_HREF}" \
+          --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+          --max-time "$CURL_MAX_TIME" \
+          --header 'accept: */*' \
+          --header "Authorization: Bearer $TOKEN" \
+          --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+
+          # Extract the status code
+          http_status="${response##*HTTPSTATUS:}"
+
+          if [ "$http_status" -ne 204 ]; then
+            echo "Error: Failed to delete EHB container. Status code: $http_status"
+            exit 1
+          fi
+        env:
+          STEPS_AUTH_DELETE_OUTPUTS_TOKEN: ${{ steps.auth-delete.outputs.token }}
+
+      - name: Deploy EHB container artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: EHANDBOOK Container
+          path: ${{ env.TASK_ID }}.ehb
+          retention-days: 5

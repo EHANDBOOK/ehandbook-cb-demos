@@ -1,0 +1,77 @@
+name: Request EHANDBOOK Container
+
+on:
+  issues:
+    types:
+      - opened
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  request:
+    if: github.event.issue.title == 'EHANDBOOK Container Request'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Parse request
+        id: request
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          DEMO_FOLDER=$(echo "$ISSUE_BODY" \
+            | sed -n 's/^demo_folder=//p' \
+            | head -n 1)
+
+          CONFIG_FILE=$(echo "$ISSUE_BODY" \
+            | sed -n 's/^config_file=//p' \
+            | head -n 1)
+
+          if [ -z "$DEMO_FOLDER" ]; then
+            echo "demo_folder is required"
+            exit 1
+          fi
+
+          # Allow only safe path characters.
+          if [[ "$DEMO_FOLDER" =~ [^a-zA-Z0-9_./-] ]]; then
+            echo "Invalid demo_folder"
+            exit 1
+          fi
+
+          if [[ "$CONFIG_FILE" =~ [^a-zA-Z0-9_./-] ]]; then
+            echo "Invalid config_file"
+            exit 1
+          fi
+
+          echo "demo_folder=$DEMO_FOLDER" >> "$GITHUB_OUTPUT"
+          echo "config_file=$CONFIG_FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger trusted workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEMO_FOLDER: ${{ steps.request.outputs.demo_folder }}
+          CONFIG_FILE: ${{ steps.request.outputs.config_file }}
+        run: |
+          set -euo pipefail
+
+          gh api \
+            --method POST \
+            "/repos/${{ github.repository }}/dispatches" \
+            -f event_type="ehb-container-request" \
+            -f client_payload[demo_folder]="$DEMO_FOLDER" \
+            -f client_payload[config_file]="$CONFIG_FILE" \
+            -f client_payload[storage_type]="GIT" \
+            -f client_payload[storage_url]="https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
+
+      - name: Comment on issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment \
+            "${{ github.event.issue.number }}" \
+            --body "✅ EHANDBOOK container request accepted and submitted."
