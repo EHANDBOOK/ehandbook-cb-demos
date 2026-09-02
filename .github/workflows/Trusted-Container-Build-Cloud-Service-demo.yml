@@ -185,7 +185,7 @@ jobs:
           AUTH_URL: ${{ secrets.AUTH_URL }}
           STEPS_AUTH_OUTPUTS_TOKEN: ${{ steps.auth.outputs.token }}
           GITHUB_EVENT_INPUTS_STORAGE_TYPE: ${{ github.event.client_payload.storage_type }}
-          GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ github.event.inputs.storage_url }}
+          GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ github.event.client_payload.storage_url }}
           GITHUB_EVENT_INPUTS_DEMO_FOLDER: ${{ github.event.client_payload.demo_folder }}
           GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ github.event.client_payload.config_file }}
 
