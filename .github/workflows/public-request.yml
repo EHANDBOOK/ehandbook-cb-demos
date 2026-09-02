@@ -10,12 +10,19 @@ permissions:
   issues: write
 
 jobs:
+
   request:
+    name: Validate and Submit Container Request
+
     if: github.event.issue.title == 'EHANDBOOK Container Request'
 
     runs-on: ubuntu-latest
 
     steps:
+
+      # ------------------------------------------------------------
+      # Parse and validate GitHub Issue Form
+      # ------------------------------------------------------------
       - name: Parse request
         id: request
         env:
@@ -24,55 +31,161 @@ jobs:
         run: |
           set -euo pipefail
 
-          DEMO_FOLDER=$(echo "$ISSUE_BODY" \
-            | sed -n 's/^demo_folder=//p' \
-            | head -n 1)
+          echo "Parsing EHANDBOOK container request..."
 
-          CONFIG_FILE=$(echo "$ISSUE_BODY" \
-            | sed -n 's/^config_file=//p' \
-            | head -n 1)
+          # GitHub Issue Forms are converted to Markdown.
+          # Extract the value following:
+          #
+          # ### Demo folder
+          #
+          DEMO_FOLDER=$(
+            printf '%s\n' "$ISSUE_BODY" |
+            awk '
+              /^### Demo folder$/ {
+                getline
+                getline
+                print
+                exit
+              }
+            '
+          )
 
+          # Extract the value following:
+          #
+          # ### Configuration file
+          #
+          CONFIG_FILE=$(
+            printf '%s\n' "$ISSUE_BODY" |
+            awk '
+              /^### Configuration file$/ {
+                getline
+                getline
+                print
+                exit
+              }
+            '
+          )
+
+          # Remove leading/trailing whitespace.
+          DEMO_FOLDER="$(echo "$DEMO_FOLDER" | xargs)"
+          CONFIG_FILE="$(echo "$CONFIG_FILE" | xargs)"
+
+          echo "Validating request..."
+
+          # --------------------------------------------------------
+          # demo_folder is mandatory
+          # --------------------------------------------------------
           if [ -z "$DEMO_FOLDER" ]; then
-            echo "demo_folder is required"
+            echo "::error::Demo folder is required."
             exit 1
           fi
 
-          # Allow only safe path characters.
+          # --------------------------------------------------------
+          # Prevent absolute paths
+          # --------------------------------------------------------
+          if [[ "$DEMO_FOLDER" == /* ]]; then
+            echo "::error::Absolute paths are not allowed."
+            exit 1
+          fi
+
+          # --------------------------------------------------------
+          # Prevent path traversal
+          # --------------------------------------------------------
+          if [[ "$DEMO_FOLDER" == *".."* ]]; then
+            echo "::error::Path traversal is not allowed."
+            exit 1
+          fi
+
+          # --------------------------------------------------------
+          # Allow only safe path characters
+          # --------------------------------------------------------
           if [[ "$DEMO_FOLDER" =~ [^a-zA-Z0-9_./-] ]]; then
-            echo "Invalid demo_folder"
+            echo "::error::Invalid characters in demo folder."
             exit 1
           fi
 
-          if [[ "$CONFIG_FILE" =~ [^a-zA-Z0-9_./-] ]]; then
-            echo "Invalid config_file"
-            exit 1
+          # --------------------------------------------------------
+          # Validate optional config file
+          # --------------------------------------------------------
+          if [ -n "$CONFIG_FILE" ]; then
+
+            if [[ "$CONFIG_FILE" == /* ]]; then
+              echo "::error::Absolute paths are not allowed in config file."
+              exit 1
+            fi
+
+            if [[ "$CONFIG_FILE" == *".."* ]]; then
+              echo "::error::Path traversal is not allowed in config file."
+              exit 1
+            fi
+
+            if [[ "$CONFIG_FILE" =~ [^a-zA-Z0-9_./-] ]]; then
+              echo "::error::Invalid characters in config file."
+              exit 1
+            fi
+
           fi
 
+          # --------------------------------------------------------
+          # Pass validated values to the next step
+          # --------------------------------------------------------
           echo "demo_folder=$DEMO_FOLDER" >> "$GITHUB_OUTPUT"
           echo "config_file=$CONFIG_FILE" >> "$GITHUB_OUTPUT"
 
+          echo "Request validation completed successfully."
+
+      # ------------------------------------------------------------
+      # Trigger trusted workflow
+      #
+      # IMPORTANT:
+      # storage type and storage URL are NOT supplied by the user.
+      # They are controlled by the trusted workflow.
+      # ------------------------------------------------------------
       - name: Trigger trusted workflow
         env:
           GH_TOKEN: ${{ github.token }}
           DEMO_FOLDER: ${{ steps.request.outputs.demo_folder }}
           CONFIG_FILE: ${{ steps.request.outputs.config_file }}
+        shell: bash
         run: |
           set -euo pipefail
+
+          echo "Submitting EHANDBOOK container request..."
 
           gh api \
             --method POST \
             "/repos/${{ github.repository }}/dispatches" \
+            -H "Accept: application/vnd.github+json" \
             -f event_type="ehb-container-request" \
             -f client_payload[demo_folder]="$DEMO_FOLDER" \
-            -f client_payload[config_file]="$CONFIG_FILE" \
-            -f client_payload[storage_type]="GIT" \
-            -f client_payload[storage_url]="https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
+            -f client_payload[config_file]="$CONFIG_FILE"
 
+          echo "Trusted workflow triggered successfully."
+
+      # ------------------------------------------------------------
+      # Comment successful request
+      # ------------------------------------------------------------
       - name: Comment on issue
+        if: success()
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           gh issue comment \
             "${{ github.event.issue.number }}" \
             --repo "${{ github.repository }}" \
-            --body "✅ EHANDBOOK container request accepted and submitted."
+            --body "✅ EHANDBOOK container request accepted and submitted for processing."
+
+      # ------------------------------------------------------------
+      # Comment failed request
+      # ------------------------------------------------------------
+      - name: Comment failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh issue comment \
+            "${{ github.event.issue.number }}" \
+            --repo "${{ github.repository }}" \
+            --body "❌ EHANDBOOK container request could not be submitted. Please check the workflow logs."
