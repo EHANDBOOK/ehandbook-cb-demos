@@ -155,10 +155,11 @@ jobs:
           gh api \
             --method POST \
             "/repos/${{ github.repository }}/dispatches" \
-            -H "Accept: application/vnd.github+json" \
             -f event_type="ehb-container-request" \
             -f client_payload[demo_folder]="$DEMO_FOLDER" \
-            -f client_payload[config_file]="$CONFIG_FILE"
+            -f client_payload[config_file]="$CONFIG_FILE" \
+            -f client_payload[storage_type]="GIT" \
+            -f client_payload[storage_url]="https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
 
           echo "Trusted workflow triggered successfully."
 
