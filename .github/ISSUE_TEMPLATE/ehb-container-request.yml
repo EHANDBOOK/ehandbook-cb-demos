@@ -3,19 +3,14 @@ description: Request creation of an EHANDBOOK Cloud Service demo container
 title: "EHANDBOOK Container Request"
 labels:
   - container-request
-
 body:
-
   - type: markdown
     attributes:
       value: |
         ## EHANDBOOK Container Request
-
         Use this form to request creation of an EHANDBOOK Cloud Service
         demo container.
-
         The demo folder must exist in this repository.
-
   - type: input
     id: demo_folder
     attributes:
@@ -23,12 +18,10 @@ body:
       description: |
         Enter the path of the demo Input folder relative to the
         repository root.
-
       placeholder: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
-
+      value: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
     validations:
       required: true
-
   - type: input
     id: config_file
     attributes:
@@ -36,12 +29,8 @@ body:
       description: |
         Optional configuration file path relative to the repository root.
         Leave empty if no configuration file is required.
-
-      placeholder: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/config.txt"
-
     validations:
       required: false
-
   - type: checkboxes
     id: confirmation
     attributes:
@@ -49,7 +38,6 @@ body:
       options:
         - label: I confirm that the demo folder is a valid EHANDBOOK demo.
           required: true
-
   - type: markdown
     attributes:
       value: |
