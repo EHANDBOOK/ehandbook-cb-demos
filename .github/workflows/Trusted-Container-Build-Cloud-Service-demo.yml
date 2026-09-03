@@ -4,25 +4,7 @@ on:
   repository_dispatch:
     types:
       - ehb-container-request
-    inputs:
-      demo_folder:
-        description: "Name of the folder containing the EHANDBOOK demo files"
-        required: true
-        default: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
-      storage_type:
-        description: "Type of storage where the input files for CB container are present"
-        required: true
-        default: "GIT"
-        type: choice
-        options:
-          - GIT
-      storage_url:
-        description: "The URL of Git repository to be cloned where the input files for CB container are present"
-        default: "https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
-        required: false
-      config_File:
-        description: "Config file for the container build"
-        required: false
+
 jobs:
   build:
     environment: ehb-container-build
@@ -30,10 +12,11 @@ jobs:
     permissions:
       contents: read
       actions: write
+      issues: write # <-- Added permission to comment & close issues
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
@@ -48,6 +31,7 @@ jobs:
           auth_url: ${{ secrets.AUTH_URL }}
 
       - name: Trigger EHANDBOOK API
+        id: build_step
         run: |
           TOKEN="${STEPS_AUTH_OUTPUTS_TOKEN}"
           CURL_CONNECT_TIMEOUT=30
@@ -55,8 +39,6 @@ jobs:
 
           ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
 
-          # fetch_token is used for periodic token refresh inside the polling loop
-          # (composite actions cannot be called from within a bash script)
           fetch_token() {
             local resp token
             echo "[$(ts)] Requesting refreshed auth token..." >&2
@@ -106,7 +88,6 @@ jobs:
             --silent --show-error --write-out "HTTPSTATUS:%{http_code}" \
             --data "$payload")
 
-          # Extract the body and the status code
           http_body="${response%HTTPSTATUS:*}"
           http_status="${response##*HTTPSTATUS:}"
 
@@ -117,22 +98,19 @@ jobs:
             exit 1
           fi
 
-          # Extract the ID from the response
           container_resource=$(printf '%s' "$http_body" | jq -r '._links.self.href')
           task_id=$(printf '%s' "$http_body" | jq -r '.id')
           echo "Container Resource: $container_resource"
 
-          # Polling loop
           token_fetched_at=$(date +%s)
-          TOKEN_REFRESH_INTERVAL=540  # Refresh every 9 minutes (token expires after 10)
+          TOKEN_REFRESH_INTERVAL=540
           status="ACCEPTED"
-          max_attempts=360 # maximum 3 hours
+          max_attempts=360
           attempt=0
           while [[ "$attempt" -lt "$max_attempts" && ( "$status" == "ACCEPTED" || "$status" == "MALWARE-SCANNING" || "$status" == "RUNNING" || "$status" == "DOWNLOADING" || "$status" == "QUEUED" ) ]]; do
             echo "Polling attempt $((attempt+1))..."
-            sleep 30  # Wait for 30 seconds before the next poll
+            sleep 30
 
-            # Refresh token if close to expiry
             elapsed=$(( $(date +%s) - token_fetched_at ))
             if [ "$elapsed" -ge "$TOKEN_REFRESH_INTERVAL" ]; then
               echo "Refreshing access token (${elapsed}s elapsed since last fetch)..."
@@ -140,16 +118,14 @@ jobs:
               token_fetched_at=$(date +%s)
             fi
 
-            # Check the status of container creation
             echo "[$(ts)] Polling container status from resource URL..."
             response=$(curl --location --request GET "$container_resource" \
-            --connect-timeout "$CURL_CONNECT_TIMEOUT" \
-            --max-time "$CURL_MAX_TIME" \
-            --header 'accept: application/json' \
-            --header "Authorization: Bearer $TOKEN" \
-            --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+              --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+              --max-time "$CURL_MAX_TIME" \
+              --header 'accept: application/json' \
+              --header "Authorization: Bearer $TOKEN" \
+              --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
 
-            # Extract the body and the status code
             http_body="${response%HTTPSTATUS:*}"
             http_status="${response##*HTTPSTATUS:}"
 
@@ -209,14 +185,13 @@ jobs:
 
           echo "[$(ts)] Downloading generated EHB container..."
           response=$(curl --location --insecure --request GET "${SELF_HREF}/container" \
-          --connect-timeout "$CURL_CONNECT_TIMEOUT" \
-          --max-time "$CURL_MAX_TIME" \
-          --header 'accept: */*' \
-          --header "Authorization: Bearer $TOKEN" \
-          -o "${TASK_ID}.ehb" \
-          --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+            --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+            --max-time "$CURL_MAX_TIME" \
+            --header 'accept: */*' \
+            --header "Authorization: Bearer $TOKEN" \
+            -o "${TASK_ID}.ehb" \
+            --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
 
-          # Extract the status code
           http_status="${response##*HTTPSTATUS:}"
 
           if [ "$http_status" -ne 200 ]; then
@@ -246,13 +221,12 @@ jobs:
 
           echo "[$(ts)] Deleting generated EHB container resource..."
           response=$(curl --location --request DELETE "${SELF_HREF}" \
-          --connect-timeout "$CURL_CONNECT_TIMEOUT" \
-          --max-time "$CURL_MAX_TIME" \
-          --header 'accept: */*' \
-          --header "Authorization: Bearer $TOKEN" \
-          --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
+            --connect-timeout "$CURL_CONNECT_TIMEOUT" \
+            --max-time "$CURL_MAX_TIME" \
+            --header 'accept: */*' \
+            --header "Authorization: Bearer $TOKEN" \
+            --silent --show-error --write-out "HTTPSTATUS:%{http_code}")
 
-          # Extract the status code
           http_status="${response##*HTTPSTATUS:}"
 
           if [ "$http_status" -ne 204 ]; then
@@ -263,8 +237,53 @@ jobs:
           STEPS_AUTH_DELETE_OUTPUTS_TOKEN: ${{ steps.auth-delete.outputs.token }}
 
       - name: Deploy EHB container artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@v4
         with:
           name: EHANDBOOK Container
           path: ${{ env.TASK_ID }}.ehb
           retention-days: 5
+
+      # ------------------------------------------------------------
+      # On Success: Comment artifact link & Close Issue
+      # ------------------------------------------------------------
+      - name: Comment and Close Issue on Success
+        if: success() && github.event.client_payload.issue_number != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = Number('${{ github.event.client_payload.issue_number }}');
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const taskId = '${{ env.TASK_ID }}';
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: `✅ **EHANDBOOK Container Build Completed Successfully!**\n\n- **Task ID:** \`${taskId}\`\n- **Artifact:** The container has been uploaded to workflow artifacts.\n- **Workflow Run:** [View Logs & Download Artifact](${runUrl})\n\nClosing this request.`
+            });
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              state: 'closed',
+              state_reason: 'completed'
+            });
+
+      # ------------------------------------------------------------
+      # On Failure: Comment failure details
+      # ------------------------------------------------------------
+      - name: Comment on Issue on Failure
+        if: failure() && github.event.client_payload.issue_number != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = Number('${{ github.event.client_payload.issue_number }}');
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: `❌ **EHANDBOOK Container Build Failed.**\n\nPlease check the workflow execution logs for error details:\n- **Workflow Run:** [View Logs](${runUrl})`
+            });
