@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Close Issue
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             // Optional: Post an automated acknowledgement comment
