@@ -83,15 +83,15 @@ The `build.bat` script executes the container build twice with different paramet
 - This second run uses `-viewtype "INTERNAL"`. EHB-CB generates a view that shows the complete, detailed implementation of the model, suitable for internal developers and documentation.
 
 ---
-###  Container-Build Cloud Service (SaaS)
+### Container-Build Cloud Service (SaaS)
 
 Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
 
-#### Details and direct link
+#### **Internal Container Build Workflow (Admin / Collaborator)**
 
 If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
 
-Direct workflow link: [Container-Build-Cloud-Service-demo.yml](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+Direct workflow link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
 
 Use these values when filling the workflow inputs:
 
@@ -110,13 +110,50 @@ Use these values when filling the workflow inputs:
 4. `config_File`: `../config_viewType_Internal.txt`
 
 
-**Expected output:** The build generates an EHANDBOOK Container file and - where configured - a corresponding PDF document.
+**Expected output:** The build generates an EHANDBOOK Container (.ehb) and a PDF when -pdf is specified in config.txt.
 
 ---
 
-- **`config*.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+#### **Public Container Build Request (Anyone)**
 
-### Configuration File: `config_viewType_External.txt`
+The container generation is initiated by creating a GitHub Issue using the **EHANDBOOK Container Request** issue form.
+
+Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml)
+
+> The issue form must be available from the repository's default branch and stored under `.github/ISSUE_TEMPLATE/`.
+
+##### How to request a container
+
+1. Open the **EHANDBOOK Container Request** issue form using the direct link above.
+2. Enter the required **Demo folder**.
+3. Optionally enter the **Configuration file**.
+4. Confirm that the demo folder is a valid EHANDBOOK demo.
+5. Click **Submit new issue**.
+
+##### Example values
+
+1. `Demo folder`:  
+   `Demo_EHBCB_DirBased_SL_ViewConcept/Input`
+
+2. `Configuration file`:  
+   `Demo_EHBCB_DirBased_SL_ViewConcept/config_viewType_Internal.txt`
+
+The **storage type** and **repository URL** are managed by the workflow and are not entered by the requester.
+
+Internally, the trusted workflow uses:
+
+- `storage_type`: `GIT`
+- `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+
+**Expected output:** The build generates an EHANDBOOK Container (.ehb) and a PDF when -pdf is specified in config.txt.
+
+---
+
+### Configuration file
+
+**`config*.txt`**: This contains the arguments used during the Container-Build process. These arguments are utilized by the EHB-CB Cloud Service container generation workflow to configure the build. By default, the -i, -o, -n and -gensvg arguments are provided by the EHB-CB Cloud API call, so they do not need to be specified in the config.txt file unless explicitly required.
+
+#### Demo Configuration File `config_viewType_External.txt`
 
 The `config_viewType_External.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
 
@@ -124,7 +161,7 @@ The `config_viewType_External.txt` file includes the following build arguments f
 -viewtype "EXTERNAL" 
 ```
 
-### Configuration File: `config_viewType_Internal.txt`
+#### Demo Configuration File `config_viewType_Internal.txt`
 
 The `config_viewType_Internal.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
 
