@@ -237,7 +237,7 @@ jobs:
           STEPS_AUTH_DELETE_OUTPUTS_TOKEN: ${{ steps.auth-delete.outputs.token }}
 
       - name: Deploy EHB container artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: EHANDBOOK Container
           path: ${{ env.TASK_ID }}.ehb
