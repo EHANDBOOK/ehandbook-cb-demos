@@ -729,7 +729,7 @@
 		<!-- START FC4 : Afr -->
 
 		<ABLOCK ID="ID_04000">
-			<SHORT-NAME>CPT_Afr</SHORT-NAME>
+			<SHORT-NAME>Afr</SHORT-NAME>
 			<LONG-NAME>Air Fuel Ratio</LONG-NAME>
 			<DESC>Afr - Air Fuel Ratio</DESC>
 			<CATEGORY>FC</CATEGORY>
@@ -754,7 +754,28 @@
 				<AREF ID-REF="ID_04006" />
 				<AREF ID-REF="ID_04007" />
 				<AREF ID-REF="AfrXfn" />
+				<AREF ID-REF="AfrXfn1" />
+				<AREF ID-REF="AfrXfn2" />
 			</AREFS>
+		</ABLOCK>
+
+		<ABLOCK ID="AfrXfn1">
+			<SHORT-NAME>Afr Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Afr1</SD>
+				</SDG>		
+			</SDGS>	
+		</ABLOCK>
+		<ABLOCK ID="AfrXfn2">
+			<SHORT-NAME>Afr Function Overview</SHORT-NAME>
+			<CATEGORY>PIC-FO</CATEGORY>
+			<SDGS>
+				<SDG GID="function_overview">
+					<SD GID="component">CPT_Afr2</SD>
+				</SDG>		
+			</SDGS>	
 		</ABLOCK>
 
 		<ABLOCK ID="AfrXfn">
