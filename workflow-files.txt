@@ -1,1 +1,3 @@
+.github/workflows/01-public-container-build-request.yml
+.github/workflows/02-trusted-container-build-cloud-service-demo.yml
 .github/workflows/Container-Build-Cloud-Service-demo.yml

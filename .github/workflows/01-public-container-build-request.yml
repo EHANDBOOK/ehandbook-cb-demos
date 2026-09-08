@@ -1,0 +1,164 @@
+name: Request EHANDBOOK Container
+
+on:
+  issues:
+    types:
+      - opened
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  request:
+    name: Validate and Submit Container Request
+    if: github.event.issue.title == 'EHANDBOOK Container Request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Parse request
+        id: request
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "Parsing EHANDBOOK container request..."
+
+          # Extract value following: ### Demo folder
+          DEMO_FOLDER=$(
+            printf '%s\n' "$ISSUE_BODY" |
+            awk '
+              /^### Demo folder$/ {
+                getline
+                getline
+                print
+                exit
+              }
+            '
+          )
+
+          # Extract value following: ### Configuration file
+          CONFIG_FILE=$(
+            printf '%s\n' "$ISSUE_BODY" |
+            awk '
+              /^### Configuration file$/ {
+                getline
+                getline
+                print
+                exit
+              }
+            '
+          )
+
+          # Trim leading/trailing whitespace
+          DEMO_FOLDER="$(echo "$DEMO_FOLDER" | xargs)"
+          CONFIG_FILE="$(echo "$CONFIG_FILE" | xargs)"
+
+          # Normalize empty config file from GitHub Forms
+          if [[ "$CONFIG_FILE" == "_No response_" ||
+                "$CONFIG_FILE" == "None" ||
+                "$CONFIG_FILE" == "none" ]]; then
+            CONFIG_FILE=""
+          fi
+
+          echo "Validating request..."
+
+          # Validate demo folder
+          if [[ -z "$DEMO_FOLDER" || "$DEMO_FOLDER" == "_No response_" ]]; then
+            echo "::error::Demo folder is required."
+            exit 1
+          fi
+
+          # Reject absolute paths
+          if [[ "$DEMO_FOLDER" == /* ]]; then
+            echo "::error::Absolute paths are not allowed in demo folder."
+            exit 1
+          fi
+
+          # Reject path traversal
+          if [[ "$DEMO_FOLDER" == *".."* ]]; then
+            echo "::error::Path traversal is not allowed in demo folder."
+            exit 1
+          fi
+
+          # Allow only alphanumeric characters, underscore, dot, slash and hyphen
+          if [[ "$DEMO_FOLDER" =~ [^a-zA-Z0-9_./-] ]]; then
+            echo "::error::Invalid characters in demo folder."
+            exit 1
+          fi
+
+          # Validate optional configuration file
+          if [[ -n "$CONFIG_FILE" ]]; then
+
+            # Reject absolute paths
+            if [[ "$CONFIG_FILE" == /* ]]; then
+              echo "::error::Absolute paths are not allowed in config file."
+              exit 1
+            fi
+
+            # Reject path traversal
+            if [[ "$CONFIG_FILE" == *".."* ]]; then
+              echo "::error::Path traversal is not allowed in config file."
+              exit 1
+            fi
+
+            # Allow only alphanumeric characters, underscore, dot, slash and hyphen
+            if [[ "$CONFIG_FILE" =~ [^a-zA-Z0-9_./-] ]]; then
+              echo "::error::Invalid characters in config file."
+              exit 1
+            fi
+          fi
+
+          # Export validated values
+          echo "demo_folder=$DEMO_FOLDER" >> "$GITHUB_OUTPUT"
+          echo "config_file=$CONFIG_FILE" >> "$GITHUB_OUTPUT"
+
+          echo "Request validation completed successfully."
+
+      - name: Trigger trusted workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEMO_FOLDER: ${{ steps.request.outputs.demo_folder }}
+          CONFIG_FILE: ${{ steps.request.outputs.config_file }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "Submitting EHANDBOOK container request for issue #${ISSUE_NUMBER}..."
+
+          gh api \
+            --method POST \
+            "/repos/${{ github.repository }}/dispatches" \
+            -f event_type="ehb-container-request" \
+            -f "client_payload[issue_number]=$ISSUE_NUMBER" \
+            -f "client_payload[demo_folder]=$DEMO_FOLDER" \
+            -f "client_payload[config_file]=$CONFIG_FILE" \
+            -f "client_payload[storage_type]=GIT" \
+            -f "client_payload[storage_url]=https://github.com/EHANDBOOK/ehandbook-cb-demos.git"
+
+          echo "Trusted workflow triggered successfully."
+
+      - name: Comment on issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh issue comment \
+            "${{ github.event.issue.number }}" \
+            --repo "${{ github.repository }}" \
+            --body "🚀 **EHANDBOOK Container Build Started!** Your request has been validated and the build workflow is now running. This ticket will be updated and closed once the container is ready."
+
+      - name: Comment failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh issue comment \
+            "${{ github.event.issue.number }}" \
+            --repo "${{ github.repository }}" \
+            --body "❌ **Validation Error:** The container request could not be processed. Please verify that the folder path does not contain invalid characters or path traversal and try again."
