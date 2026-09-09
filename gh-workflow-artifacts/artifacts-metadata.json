@@ -2,23 +2,23 @@
   "total_count": 1,
   "artifacts": [
     {
-      "id": 10049461285,
-      "node_id": "MDg6QXJ0aWZhY3QxMDA0OTQ2MTI4NQ==",
+      "id": 10095930522,
+      "node_id": "MDg6QXJ0aWZhY3QxMDA5NTkzMDUyMg==",
       "name": "EHANDBOOK Container",
-      "size_in_bytes": 367204,
-      "url": "https://api.github.com/repos/EHANDBOOK/ehandbook-cb-demos/actions/artifacts/10049461285",
-      "archive_download_url": "https://api.github.com/repos/EHANDBOOK/ehandbook-cb-demos/actions/artifacts/10049461285/zip",
+      "size_in_bytes": 344413,
+      "url": "https://api.github.com/repos/EHANDBOOK/ehandbook-cb-demos/actions/artifacts/10095930522",
+      "archive_download_url": "https://api.github.com/repos/EHANDBOOK/ehandbook-cb-demos/actions/artifacts/10095930522/zip",
       "expired": false,
-      "digest": "sha256:2e857034b40ea5648a0450a834fc407fb56a418eab6e7902daf3593cb1caf5a5",
-      "created_at": "2026-09-08T09:29:15Z",
-      "updated_at": "2026-09-08T09:29:15Z",
-      "expires_at": "2026-09-13T09:29:14Z",
+      "digest": "sha256:e85cb2dba5ddb307a725473e137d51ea56abc83dc30cc19a10130c0767b68098",
+      "created_at": "2026-09-09T08:52:09Z",
+      "updated_at": "2026-09-09T08:52:09Z",
+      "expires_at": "2026-09-14T08:52:08Z",
       "workflow_run": {
-        "id": 34207275466,
+        "id": 34329779827,
         "repository_id": 1143428814,
         "head_repository_id": 1143428814,
-        "head_branch": "jenkins-cb-wf-107-20260908085641",
-        "head_sha": "9c0f4fd7e5d6a9be35908ec172e7439555c80b86"
+        "head_branch": "jenkins-cb-wf-112-20260909083327",
+        "head_sha": "9042eff594741fe4f0e261e4e4c530ff4431fca1"
       }
     }
   ]
