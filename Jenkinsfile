@@ -27,7 +27,7 @@ timestamps {
 				checkout scm
 
 				// Remove files not needed for GitHub
-				sh 'rm .mailmap Jenkinsfile'
+				sh 'rm Jenkinsfile'
 			}
 		}
 
