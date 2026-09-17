@@ -153,15 +153,15 @@ jobs:
             "${{ github.event.issue.number }}" \
             --repo "${{ github.repository }}" \
             --body "<!-- ehb-progress-tracker -->
-[![Step](https://img.shields.io/badge/Step-Request_Validated-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)]($JOB_URL)
+          [![Step](https://img.shields.io/badge/Step-Request_Validated-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)]($JOB_URL)
 
-🚀 **EHANDBOOK Container Build Started!**
+          🚀 **EHANDBOOK Container Build Started!**
 
-- **Current Step:** Request validated & workflow dispatched
-- **Next Step:** Authenticate and retrieve token
-- **Job Console:** [View Live Logs & Output]($JOB_URL)
+          - **Current Step:** Request validated & workflow dispatched
+          - **Next Step:** Authenticate and retrieve token
+          - **Job Console:** [View Live Logs & Output]($JOB_URL)
 
-_This comment will be updated automatically as each step progresses._"
+          _This comment will be updated automatically as each step progresses._"
 
       - name: Comment failure
         if: failure()

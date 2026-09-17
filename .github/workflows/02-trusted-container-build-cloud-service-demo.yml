@@ -50,12 +50,12 @@ jobs:
 
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
-[![Step](https://img.shields.io/badge/Step-Trigger_EHANDBOOK_API-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+            [![Step](https://img.shields.io/badge/Step-Trigger_EHANDBOOK_API-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
 
-⚙️ **Container Build In Progress...**
+            ⚙️ **Container Build In Progress...**
 
-- **Current Step:** Trigger EHANDBOOK API
-- **Job Console:** [View Live Logs & Output](${jobUrl})`;
+            - **Current Step:** Trigger EHANDBOOK API
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
 
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -100,21 +100,16 @@ jobs:
             local marker="<!-- ehb-progress-tracker -->"
 
             local body="${marker}
-[![Step](${badge_url})](${job_url})
+            [![Step](${badge_url})](${job_url})
 
-⚙️ **Container Build In Progress...**
+            ⚙️ **Container Build In Progress...**
 
-- **Current Step:** Trigger EHANDBOOK API (\`${current_state}\`)
-- **Task ID:** \`${task_id:-pending}\`
-- **Job Console:** [View Live Logs & Output](${job_url})"
+            - **Current Step:** Trigger EHANDBOOK API (\`${current_state}\`)
+            - **Task ID:** \`${task_id:-pending}\`
+            - **Job Console:** [View Live Logs & Output](${job_url})"
 
             local comment_id
             comment_id=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}/comments" --jq ".[] | select(.body | contains(\"${marker}\")) | .id" 2>/dev/null | head -n 1 || true)
-
-            if [ -n "$comment_id" ]; then
-              gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${comment_id}" -f body="$body" > /dev/null 2>&1 || true
-            fi
-          }
 
             if [ -n "$comment_id" ]; then
               gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${comment_id}" -f body="$body" > /dev/null 2>&1 || true
@@ -277,13 +272,13 @@ jobs:
 
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
-[![Step](https://img.shields.io/badge/Step-Download_EHB_Container-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+            [![Step](https://img.shields.io/badge/Step-Download_EHB_Container-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
 
-⚙️ **Container Build In Progress...**
+            ⚙️ **Container Build In Progress...**
 
-- **Current Step:** Download EHB container
-- **Task ID:** \`${taskId}\`
-- **Job Console:** [View Live Logs & Output](${jobUrl})`;
+            - **Current Step:** Download EHB container
+            - **Task ID:** \`${taskId}\`
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
 
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -392,13 +387,13 @@ jobs:
 
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
-[![Step](https://img.shields.io/badge/Step-Deploy_EHB_Container_Artifact-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+            [![Step](https://img.shields.io/badge/Step-Deploy_EHB_Container_Artifact-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
 
-⚙️ **Container Build In Progress...**
+            ⚙️ **Container Build In Progress...**
 
-- **Current Step:** Deploy EHB container artifact
-- **Task ID:** \`${taskId}\`
-- **Job Console:** [View Live Logs & Output](${jobUrl})`;
+            - **Current Step:** Deploy EHB container artifact
+            - **Task ID:** \`${taskId}\`
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
 
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -446,15 +441,15 @@ jobs:
 
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
-[![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+            [![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
 
-✅ **EHANDBOOK Container Build Completed Successfully!**
+            ✅ **EHANDBOOK Container Build Completed Successfully!**
 
-- **Task ID:** \`${taskId}\`
-- **Artifact:** The container has been uploaded to workflow artifacts.
-- **Job Console & Artifact:** [View Logs & Download Artifact](${jobUrl})
+            - **Task ID:** \`${taskId}\`
+            - **Artifact:** The container has been uploaded to workflow artifacts.
+            - **Job Console & Artifact:** [View Logs & Download Artifact](${jobUrl})
 
-Closing this request.`;
+            Closing this request.`;
 
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -509,17 +504,17 @@ Closing this request.`;
 
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
-[![Status](https://img.shields.io/badge/Status-Failed-red?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+            [![Status](https://img.shields.io/badge/Status-Failed-red?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
 
-❌ **EHANDBOOK Container Build Failed.**
+            ❌ **EHANDBOOK Container Build Failed.**
 
-Please check the workflow execution logs for error details:
-- **Job Console:** [View Live Logs & Output](${jobUrl})`;
+            Please check the workflow execution logs for error details:
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
 
-❌ **EHANDBOOK Container Build Failed.**
+            ❌ **EHANDBOOK Container Build Failed.**
 
-Please check the workflow execution logs for error details:
-- **Workflow Run:** [View Logs](${runUrl})`;
+            Please check the workflow execution logs for error details:
+            - **Workflow Run:** [View Logs](${runUrl})`;
 
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
