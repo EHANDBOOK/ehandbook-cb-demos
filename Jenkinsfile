@@ -1,5 +1,5 @@
 final String LABEL = 'Linux_67'
-library identifier: 'ehandbook-jenkins-library@13.1.18'
+library identifier: 'ehandbook-jenkins-library@13.2.1'
 
 final String BITBUCKET_CREDENTIALS = '73ab8e6b-2e5b-409f-928c-c70f3ecd0094'
 final String GITHUB_ACTIONS_DISPATCH_TOKEN_CREDENTIALS = 'github-actions-dispatch-token'
@@ -27,7 +27,7 @@ timestamps {
 				checkout scm
 
 				// Remove files not needed for GitHub
-				sh 'rm .mailmap Jenkinsfile'
+				sh 'rm Jenkinsfile'
 			}
 		}
 

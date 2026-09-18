@@ -147,10 +147,21 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
+          JOB_URL=$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" --jq '.jobs[0].html_url // empty' 2>/dev/null || true)
+          JOB_URL="${JOB_URL:-${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}}"
           gh issue comment \
             "${{ github.event.issue.number }}" \
             --repo "${{ github.repository }}" \
-            --body "🚀 **EHANDBOOK Container Build Started!** Your request has been validated and the build workflow is now running. This ticket will be updated and closed once the container is ready."
+            --body "<!-- ehb-progress-tracker -->
+          [![Step](https://img.shields.io/badge/Step-Request_Validated-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)]($JOB_URL)
+
+          🚀 **EHANDBOOK Container Build Started!**
+
+          - **Current Step:** Request validated & workflow dispatched
+          - **Next Step:** Authenticate and retrieve token
+          - **Job Console:** [View Live Logs & Output]($JOB_URL)
+
+          _This comment will be updated automatically as each step progresses._"
 
       - name: Comment failure
         if: failure()

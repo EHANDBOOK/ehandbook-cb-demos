@@ -30,6 +30,55 @@ jobs:
           application_id: ${{ secrets.CLOUD_HUB_APPLICATION_ID }}
           auth_url: ${{ secrets.AUTH_URL }}
 
+      - name: Update Issue Progress - Authenticated
+        if: github.event.client_payload.issue_number != ''
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          script: |
+            const issueNumber = Number('${{ github.event.client_payload.issue_number }}');
+            let jobUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            try {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.runId,
+              });
+              if (jobs.data.jobs.length > 0 && jobs.data.jobs[0].html_url) {
+                jobUrl = jobs.data.jobs[0].html_url;
+              }
+            } catch (e) {}
+
+            const marker = '<!-- ehb-progress-tracker -->';
+            const body = `${marker}
+            [![Step](https://img.shields.io/badge/Step-Trigger_EHANDBOOK_API-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+
+            ⚙️ **Container Build In Progress...**
+
+            - **Current Step:** Trigger EHANDBOOK API
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
+
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+            });
+            const existing = comments.data.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: body
+              });
+            }
+
       - name: Trigger EHANDBOOK API
         id: build_step
         run: |
@@ -38,6 +87,34 @@ jobs:
           CURL_MAX_TIME=180
 
           ts() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+          update_issue_status() {
+            local current_state="$1"
+            if [ -z "${ISSUE_NUMBER:-}" ]; then return 0; fi
+
+            local badge_state="${current_state//-/_}"
+            local badge_url="https://img.shields.io/badge/Step-${badge_state}-007BC2?style=for-the-badge&logo=githubactions&logoColor=white"
+            local job_url
+            job_url=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs" --jq '.jobs[0].html_url // empty' 2>/dev/null || true)
+            job_url="${job_url:-${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}}"
+            local marker="<!-- ehb-progress-tracker -->"
+
+            local body="${marker}
+            [![Step](${badge_url})](${job_url})
+
+            ⚙️ **Container Build In Progress...**
+
+            - **Current Step:** Trigger EHANDBOOK API (\`${current_state}\`)
+            - **Task ID:** \`${task_id:-pending}\`
+            - **Job Console:** [View Live Logs & Output](${job_url})"
+
+            local comment_id
+            comment_id=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}/comments" --jq ".[] | select(.body | contains(\"${marker}\")) | .id" 2>/dev/null | head -n 1 || true)
+
+            if [ -n "$comment_id" ]; then
+              gh api --method PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${comment_id}" -f body="$body" > /dev/null 2>&1 || true
+            fi
+          }
 
           fetch_token() {
             local resp token
@@ -105,9 +182,16 @@ jobs:
           token_fetched_at=$(date +%s)
           TOKEN_REFRESH_INTERVAL=540
           status="ACCEPTED"
+          prev_status=""
           max_attempts=360
           attempt=0
           while [[ "$attempt" -lt "$max_attempts" && ( "$status" == "ACCEPTED" || "$status" == "MALWARE-SCANNING" || "$status" == "RUNNING" || "$status" == "DOWNLOADING" || "$status" == "QUEUED" ) ]]; do
+            if [ "$status" != "$prev_status" ]; then
+              echo "[$(ts)] Status changed to '$status' - updating issue status badge..."
+              update_issue_status "$status"
+              prev_status="$status"
+            fi
+
             echo "Polling attempt $((attempt+1))..."
             sleep 30
 
@@ -158,12 +242,58 @@ jobs:
           echo "SELF_HREF=$container_resource" >> "$GITHUB_ENV"
           echo "Job completed successfully."
         env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.client_payload.issue_number }}
           AUTH_URL: ${{ secrets.AUTH_URL }}
           STEPS_AUTH_OUTPUTS_TOKEN: ${{ steps.auth.outputs.token }}
           GITHUB_EVENT_INPUTS_STORAGE_TYPE: ${{ github.event.client_payload.storage_type }}
           GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ github.event.client_payload.storage_url }}
           GITHUB_EVENT_INPUTS_DEMO_FOLDER: ${{ github.event.client_payload.demo_folder }}
           GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ github.event.client_payload.config_file }}
+
+      - name: Update Issue Progress - Container Generated
+        if: github.event.client_payload.issue_number != ''
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          script: |
+            const issueNumber = Number('${{ github.event.client_payload.issue_number }}');
+            const taskId = '${{ env.TASK_ID }}';
+            let jobUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            try {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.runId,
+              });
+              if (jobs.data.jobs.length > 0 && jobs.data.jobs[0].html_url) {
+                jobUrl = jobs.data.jobs[0].html_url;
+              }
+            } catch (e) {}
+
+            const marker = '<!-- ehb-progress-tracker -->';
+            const body = `${marker}
+            [![Step](https://img.shields.io/badge/Step-Download_EHB_Container-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+
+            ⚙️ **Container Build In Progress...**
+
+            - **Current Step:** Download EHB container
+            - **Task ID:** \`${taskId}\`
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
+
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+            });
+            const existing = comments.data.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body
+              });
+            }
 
       - name: Authenticate for download
         id: auth-download
@@ -236,6 +366,50 @@ jobs:
         env:
           STEPS_AUTH_DELETE_OUTPUTS_TOKEN: ${{ steps.auth-delete.outputs.token }}
 
+      - name: Update Issue Progress - Download Completed
+        if: github.event.client_payload.issue_number != ''
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          script: |
+            const issueNumber = Number('${{ github.event.client_payload.issue_number }}');
+            const taskId = '${{ env.TASK_ID }}';
+            let jobUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            try {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.runId,
+              });
+              if (jobs.data.jobs.length > 0 && jobs.data.jobs[0].html_url) {
+                jobUrl = jobs.data.jobs[0].html_url;
+              }
+            } catch (e) {}
+
+            const marker = '<!-- ehb-progress-tracker -->';
+            const body = `${marker}
+            [![Step](https://img.shields.io/badge/Step-Deploy_EHB_Container_Artifact-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+
+            ⚙️ **Container Build In Progress...**
+
+            - **Current Step:** Deploy EHB container artifact
+            - **Task ID:** \`${taskId}\`
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
+
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+            });
+            const existing = comments.data.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body
+              });
+            }
+
       - name: Deploy EHB container artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
@@ -252,15 +426,52 @@ jobs:
         with:
           script: |
             const issueNumber = Number('${{ github.event.client_payload.issue_number }}');
-            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const taskId = '${{ env.TASK_ID }}';
+            let jobUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            try {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.runId,
+              });
+              if (jobs.data.jobs.length > 0 && jobs.data.jobs[0].html_url) {
+                jobUrl = jobs.data.jobs[0].html_url;
+              }
+            } catch (e) {}
 
-            await github.rest.issues.createComment({
+            const marker = '<!-- ehb-progress-tracker -->';
+            const body = `${marker}
+            [![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+
+            ✅ **EHANDBOOK Container Build Completed Successfully!**
+
+            - **Task ID:** \`${taskId}\`
+            - **Artifact:** The container has been uploaded to workflow artifacts.
+            - **Job Console & Artifact:** [View Logs & Download Artifact](${jobUrl})
+
+            Closing this request.`;
+
+            const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
-              body: `✅ **EHANDBOOK Container Build Completed Successfully!**\n\n- **Task ID:** \`${taskId}\`\n- **Artifact:** The container has been uploaded to workflow artifacts.\n- **Workflow Run:** [View Logs & Download Artifact](${runUrl})\n\nClosing this request.`
             });
+            const existing = comments.data.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: body
+              });
+            }
 
             await github.rest.issues.update({
               owner: context.repo.owner,
@@ -279,11 +490,50 @@ jobs:
         with:
           script: |
             const issueNumber = Number('${{ github.event.client_payload.issue_number }}');
-            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            let jobUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            try {
+              const jobs = await github.rest.actions.listJobsForWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.runId,
+              });
+              if (jobs.data.jobs.length > 0 && jobs.data.jobs[0].html_url) {
+                jobUrl = jobs.data.jobs[0].html_url;
+              }
+            } catch (e) {}
 
-            await github.rest.issues.createComment({
+            const marker = '<!-- ehb-progress-tracker -->';
+            const body = `${marker}
+            [![Status](https://img.shields.io/badge/Status-Failed-red?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
+
+            ❌ **EHANDBOOK Container Build Failed.**
+
+            Please check the workflow execution logs for error details:
+            - **Job Console:** [View Live Logs & Output](${jobUrl})`;
+
+            ❌ **EHANDBOOK Container Build Failed.**
+
+            Please check the workflow execution logs for error details:
+            - **Workflow Run:** [View Logs](${runUrl})`;
+
+            const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
-              body: `❌ **EHANDBOOK Container Build Failed.**\n\nPlease check the workflow execution logs for error details:\n- **Workflow Run:** [View Logs](${runUrl})`
             });
+            const existing = comments.data.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: body
+              });
+            }
