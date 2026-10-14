@@ -18,8 +18,8 @@ body:
       description: |
         Enter the path of the demo Input folder relative to the
         repository root.
-      placeholder: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
-      value: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
+      placeholder: "04-AUTOSAR/10-With-Simulink-FlexECU/Input"
+      value: "04-AUTOSAR/10-With-Simulink-FlexECU/Input"
     validations:
       required: true
   - type: input

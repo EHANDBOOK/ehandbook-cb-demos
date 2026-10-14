@@ -6,11 +6,11 @@ REM This script sets the required environment variables for eHandbook-CB demos
 REM ============================================================================
 
 REM Set eHandbook-CB path
-set EHB_CB_PATH=C:\ETAS\EHANDBOOK-Container-Build_14.1.1_Windows
-set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-Container-Build_14.1.1_Windows
+set EHB_CB_PATH=C:\ETAS\EHANDBOOK-Container-Build_14.4.0_Windows
+set EHB_UGG_PATH=C:\ETAS\EHANDBOOK-Container-Build_14.4.0_Windows
 
 REM Set MATLAB path
-set MATLAB_PATH=C:\Program Files\MATLAB\R2021a
+set MATLAB_PATH=C:\Program Files\MATLAB\R2022b
 
 REM Display the set variables
 echo Environment variables set:

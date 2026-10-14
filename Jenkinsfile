@@ -142,10 +142,10 @@ timestamps {
 							"ORIGINAL_COMMIT_ID=${originalCommit}",
 							"TEMP_BRANCH_NAME=${tempBranchName}",
 							"REF_TO_TEST_VALUE=${refToTest}",
-							"DEMO_FOLDER_VALUE=Demo_EHBCB_DirBased_SL_Enhanced/Input",
+							"DEMO_FOLDER_VALUE=02-Simulink/01-Basic/Input",
 							"STORAGE_TYPE_VALUE=GIT",
 							"STORAGE_URL_VALUE=https://github.com/EHANDBOOK/ehandbook-cb-demos.git",
-							"CONFIG_FILE_VALUE="
+							"CONFIG_FILE_VALUE=02-Simulink/01-Basic/config.txt"
 						]) {
 							sh '''
 							set -euo pipefail

@@ -25,7 +25,7 @@ Sets `EHB_CB_PATH`, `EHB_UGG_PATH`, and `MATLAB_PATH` environment variables. Bui
 
 ### Build a Single Demo
 ```batch
-cd Demo_EHBCB_DirBased_CCODE_Simple
+cd 01-C-Code\01-Basic
 build.bat
 ```
 Output appears in `./Output/` folder (typically a `.ehb` EHANDBOOK Container file).
@@ -48,30 +48,40 @@ graphicsGen.exe -help
 ### Directory Layout
 ```
 ehandbook-cb-demos/
-├── Demo_EHBCB_**/           # 30+ demo folders (self-contained)
+├── 00-Quickstart/           # Getting started guide
+├── 01-C-Code/               # C-Code demos
+├── 02-Simulink/             # Simulink demos
+├── 03-ASCET/                # ASCET demos
+├── 04-AUTOSAR/              # AUTOSAR demos
+├── 05-AsciiDoc/             # AsciiDoc demos
+├── 06-Mixed-Sources/        # Multi-source demos
+├── 07-Advanced-Features/    # Encryption, ToC, language support, UGG
+├── 08-Toolbox-AddOns/       # ASCET and Simulink toolbox add-ons
+│
+│   Each category contains build-type subfolders (01-Directory-Based,
+│   02-ASAM-Based) with numbered leaf demo folders, each containing:
 │   ├── README.md            # Demo-specific documentation
 │   ├── Input/               # Source files & configurations
 │   ├── Output/              # Generated .ehb containers
 │   ├── build.bat            # Runs eHandbookCB.exe
 │   ├── configuration/       # (optional) Build configs
 │   └── styling/             # (optional) Custom styling
+│
 ├── set_tool_paths.bat/ps1   # Environment setup
-├── build_all_demos.bat/ps1  # Batch build script
+├── build_all_demos.bat/ps1  # Batch build script (recursive)
 ├── AGENTS.md                # AI agent guidance
 └── CONTRIBUTING.md          # Contribution standards
 ```
 
-### Demo Naming Convention
-All demo folders follow this pattern:
+### Demo Organization Convention
+Demos are placed in category/build-type/leaf folders, e.g.:
 ```
-Demo_EHBCB_<BuildType>_<SourceType>[_<Variant>]
+01-C-Code/01-Basic/
+09-ASAM-Based/01-Simulink-Basic/
+04-AUTOSAR/10-With-Simulink-FlexECU/
 ```
 
-**BuildTypes:** `DirBased` (directory-organized) | `ASAMBased` (ASAM configuration)
-
-**SourceTypes:** `SL` (Simulink), `CCODE` (C-Code), `AUTOSAR`, `ASCET`, `AsciiDoc`, `Mscript`, or combinations like `ASCET_SL_CCODE`
-
-**Examples:** `Demo_EHBCB_DirBased_SL_FlexECU`, `Demo_EHBCB_ASAMBased_AUTOSAR_SL`, `Demo_EHBCB_DirBased_ASCET_SL_CCODE_Mixed`
+**Categories:** `01-C-Code`, `02-Simulink`, `03-ASCET`, `04-AUTOSAR`, `05-AsciiDoc`, `06-Mixed-Sources`, `07-Advanced-Features`, `08-Toolbox-AddOns`
 
 ### Typical Build Script Pattern
 ```batch
@@ -107,8 +117,8 @@ Key flags:
 - Pre-built `.ehb` files in `Output/` can be regenerated after modifications
 
 ### Creating a New Demo
-1. Plan: Decide BuildType, SourceTypes, and target audience (Beginner/Intermediate/Advanced)
-2. Create folder: `Demo_EHBCB_<BuildType>_<SourceType>_<Feature>`
+1. Plan: Decide category, build type, and target audience (Beginner/Intermediate/Advanced)
+2. Create folder: `<category>/<build-type>/<nn-feature-name>/` (e.g., `01-C-Code/01-Directory-Based/04-My-Feature`)
 3. Create standard subdirectories: `Input/`, `Output/`
 4. Add source files to `Input/`
 5. Create `build.bat` (reference existing demos as templates)
@@ -132,8 +142,8 @@ Key flags:
 | Empty .ehb output | Build error not reported | Check console output for errors |
 
 ### Demo Organization
-- All demos start with `Demo_EHBCB_` prefix (search/discovery)
-- Each demo is self-contained (can be moved independently)
+- Demos live under category/build-type/leaf-folder hierarchy (not in root)
+- Each demo is self-contained within its leaf folder
 - Pre-built `.ehb` files let users explore without building
 - Input files organized logically to reflect documentation structure
 

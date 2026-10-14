@@ -1,0 +1,8 @@
+{
+	"ASCET": {
+		"elementNameFirst": true,
+		"includeModuleName": true,
+		"includeProjectName": true,
+		"globalNamePrefix": ""
+	}
+}

@@ -19,13 +19,30 @@ Each demo is a self-contained example with input files, configuration, build scr
 
 ```plain
 ehandbook-cb-demos/
-├── Demo_EHBCB_*/              # 30+ individual demo folders
+├── 00-Quickstart/              # Getting started guide
+├── 01-C-Code/                  # C-Code demos
+│   └── 01-Directory-Based/
+│       ├── 01-Basic/
+│       ├── 02-Custom-Block-Config/
+│       └── 03-References/
+├── 02-Simulink/                # Simulink demos
+│   ├── 01-Directory-Based/
+│   └── 02-ASAM-Based/
+├── 03-ASCET/                   # ASCET demos
+├── 04-AUTOSAR/                 # AUTOSAR demos
+├── 05-AsciiDoc/                # AsciiDoc demos
+├── 06-Mixed-Sources/           # Multi-source demos
+├── 07-Advanced-Features/       # Encryption, ToC, language support, UGG, etc.
+├── 08-Toolbox-AddOns/          # ASCET and Simulink toolbox add-ons
+│
+│   Each leaf demo folder contains:
 │   ├── README.md               # Demo documentation (always read this first!)
 │   ├── Input/                  # Source files and configurations
 │   ├── Output/                 # Pre-built .ehb containers
 │   ├── build.bat               # Windows build script
 │   ├── configuration/          # (Optional) Build configurations
 │   └── styling/                # (Optional) Custom styling files
+│
 ├── .github/
 │   ├── copilot-instructions.md # Copilot-specific guidance
 │   └── CONTRIBUTING.md         # Contribution guidelines
@@ -121,33 +138,23 @@ When a user asks about a specific demo:
    - `styling/` folder for custom styling
    - `Output/` folder for expected results
 
-### Demo Naming Conventions
+### Demo Organization
 
-All demo folders follow this pattern:
+Demos are organized by technology category and build type:
 
 ```plain
-Demo_EHBCB_<BuildType>_<SourceType>[_<Variant>]
+<category>/<build-type>/<nn-feature-name>/
 ```
 
 Examples:
 
-- `Demo_EHBCB_DirBased_SL_Simple` – Directory-based build with simple Simulink model
-- `Demo_EHBCB_ASAMBased_AUTOSAR_SL` – ASAM-based build with AUTOSAR and Simulink
-- `Demo_EHBCB_DirBased_ASCET_SL_CCODE_Mixed` – Mixed source types
+- `01-C-Code/01-Basic` – Simple C-Code directory-based demo
+- `09-ASAM-Based/04-AUTOSAR-With-Simulink` – ASAM-based AUTOSAR + Simulink demo
+- `06-Mixed-Sources/02-ASCET-SL-CCode-Mixed` – Mixed source types
 
-**BuildTypes:**
+**Categories:** `01-C-Code`, `02-Simulink`, `03-ASCET`, `04-AUTOSAR`, `05-AsciiDoc`, `06-Mixed-Sources`, `07-Advanced-Features`, `08-Toolbox-AddOns`
 
-- `DirBased` – Files organized by directory structure
-- `ASAMBased` – Uses ASAM-based configuration approach
-
-**SourceTypes:**
-
-- `SL` – Simulink models
-- `CCODE` – C/C++ source code
-- `AUTOSAR` – AUTOSAR XML specifications
-- `ASCET` – ASCET models
-- `AsciiDoc` – AsciiDoc documentation
-- `Mscript` – MATLAB scripts
+**Build types:** `01-Directory-Based`, `02-ASAM-Based`
 
 ## 🏃 Running Builds
 
@@ -155,7 +162,7 @@ Examples:
 
 ```batch
 # Navigate to demo folder
-cd Demo_EHBCB_DirBased_SL_Simple
+cd 01-C-Code\01-Basic
 
 # Run the build
 build.bat
@@ -202,12 +209,12 @@ Decide:
 ### Step 2: Create Demo Structure
 
 ```batch
-# Create demo folder with proper naming
-mkdir Demo_EHBCB_<BuildType>_<SourceType>[_<Variant>]
+# Create demo folder under the appropriate category
+mkdir 01-C-Code\01-Directory-Based\04-My-New-Feature
 
 # Create standard subdirectories
-mkdir Demo_EHBCB_YourDemo\Input
-mkdir Demo_EHBCB_YourDemo\Output
+mkdir 01-C-Code\01-Directory-Based\04-My-New-Feature\Input
+mkdir 01-C-Code\01-Directory-Based\04-My-New-Feature\Output
 ```
 
 ### Step 3: Add Required Files
@@ -220,7 +227,7 @@ mkdir Demo_EHBCB_YourDemo\Output
 
 ```batch
 # Build the demo
-cd Demo_EHBCB_YourDemo
+cd 01-C-Code\01-Directory-Based\04-My-New-Feature
 build.bat
 
 # Verify the output
@@ -337,7 +344,7 @@ If you modify demos, update the README.md to reflect the changes.
 1. **Environment Setup is Mandatory** – Builds will fail without `set_tool_paths.bat`
 2. **Pre-built Outputs Exist** – Users can explore demos without building
 3. **Avoid Large Files** – Keep demo files reasonably sized for repository storage
-4. **Naming Matters** – All demo folders must start with `Demo_EHBCB_`
+4. **Structure Matters** – New demos belong inside the appropriate category subfolder, not in the repository root
 5. **License Required** – All builds require valid EHANDBOOK licenses
 6. **Cross-Reference Wisely** – Link to related demos in documentation
 

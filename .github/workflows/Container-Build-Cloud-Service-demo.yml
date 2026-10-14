@@ -6,7 +6,7 @@ on:
       demo_folder:
         description: "Name of the folder containing the EHANDBOOK demo files"
         required: true
-        default: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
+        default: "04-AUTOSAR/10-With-Simulink-FlexECU/Input"
       storage_type:
         description: "Type of storage where the input files for CB container are present"
         required: true
