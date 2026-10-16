@@ -145,7 +145,7 @@ timestamps {
 							"DEMO_FOLDER_VALUE=02-Simulink/01-Basic/Input",
 							"STORAGE_TYPE_VALUE=GIT",
 							"STORAGE_URL_VALUE=https://github.com/EHANDBOOK/ehandbook-cb-demos.git",
-							"CONFIG_FILE_VALUE=02-Simulink/01-Basic/config.txt"
+							"CONFIG_FILE_VALUE="
 						]) {
 							sh '''
 							set -euo pipefail
