@@ -100,7 +100,7 @@ To configure:
 
 6. Open a command prompt or PowerShell terminal.
 7. Run `set_tool_paths.bat`.
-8. Navigate to the demo folder (e.g., `cd Demo_EHBCB_DirBased_CCODE_Simple`).
+8. Navigate to the demo folder (e.g., `cd 01-C-Code/01-Basic`).
 9. Execute the build script: `build.bat`.
 10. Wait for the build to complete and find the generated output in the `Output/` folder within the demo directory.
 
@@ -123,10 +123,10 @@ Direct workflow link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK
 
 Use these values when filling the workflow inputs:
 
-1. `demo_folder`: `Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input`
+1. `demo_folder`: `04-AUTOSAR/10-With-Simulink-FlexECU/Input`
 2. `storage_type`: `GIT`
 3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
-4. `config_File`: `Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/config.txt`
+4. `config_File`: `04-AUTOSAR/10-With-Simulink-FlexECU/config.txt`
 
 **Expected output:** The build generates an EHANDBOOK Container (.ehb) and a PDF when -pdf is specified in config.txt.
 
@@ -151,10 +151,10 @@ Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/
 ##### Example values
 
 1. `Demo folder`:  
-   `Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input`
+   `04-AUTOSAR/10-With-Simulink-FlexECU/Input`
 
 2. `Configuration file`:  
-   `Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/config.txt`
+   `04-AUTOSAR/10-With-Simulink-FlexECU/config.txt`
 
 The **storage type** and **repository URL** are managed by the workflow and are not entered by the requester.
 
@@ -176,10 +176,10 @@ This repository is organized into demo folders, each showcasing specific feature
 <details>
 <summary><strong>ASCET6 Documentation (1 demo)</strong></summary>
 
-**[Demo_EHBCB_DirBased_ASCET_ThrottleValveControl](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/README.md)** · `Advanced`  
+**[Throttle-Valve-Control](./03-ASCET/02-Throttle-Valve-Control/README.md)** · `Advanced`  
 Shows how to set up a directory-based EHANDBOOK Container-Build for an ASCET6 AXL model file.  
 📦 Technologies: `ASCET` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_ASCET_ThrottleValveControl/ThrottleValveControl_ehbcb_out/ThrottleValveControl.ehb)
+[📖 Documentation](./03-ASCET/02-Throttle-Valve-Control/README.md) · [⬇️ Download .ehb](./03-ASCET/02-Throttle-Valve-Control/ThrottleValveControl_ehbcb_out/ThrottleValveControl.ehb)
 
 </details>
 
@@ -190,15 +190,15 @@ Shows how to set up a directory-based EHANDBOOK Container-Build for an ASCET6 AX
 <details>
 <summary><strong>ASCET + Simulink + C-Code (2 demos)</strong></summary>
 
-**[Demo_EHBCB_DirBased_ASCET_SL_CCODE](./Demo_EHBCB_DirBased_ASCET_SL_CCODE/README.md)** · `Advanced`  
+**[ASCET-SL-CCode](./06-Mixed-Sources/01-ASCET-SL-CCode/README.md)** · `Advanced`  
 Generates a single container from mixed sources: ASCET model, Simulink model, and C-Code.  
 📦 Technologies: `ASCET`, `Simulink`, `C-Code` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_ASCET_SL_CCODE/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_ASCET_SL_CCODE/Output/Demo_EHBCB_DirBased_ASCET_SL_CCODE.ehb)
+[📖 Documentation](./06-Mixed-Sources/01-ASCET-SL-CCode/README.md) · [⬇️ Download .ehb](./06-Mixed-Sources/01-ASCET-SL-CCode/Output/06-Mixed-Sources/01-ASCET-SL-CCode.ehb)
 
-**[Demo_EHBCB_DirBased_ASCET_SL_CCODE_Mixed](./Demo_EHBCB_DirBased_ASCET_SL_CCODE_Mixed/README.md)** · `Advanced`  
+**[ASCET-SL-CCode-Mixed](./06-Mixed-Sources/02-ASCET-SL-CCode-Mixed/README.md)** · `Advanced`  
 Combines function specifications from ASCET, Simulink, and C-Code in a single build.  
 📦 Technologies: `ASCET`, `Simulink`, `C-Code` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_ASCET_SL_CCODE_Mixed/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_ASCET_SL_CCODE_Mixed/Output/Demo_EHBCB_DirBased_ASCET_SL_CCODE_Mixed.ehb)
+[📖 Documentation](./06-Mixed-Sources/02-ASCET-SL-CCode-Mixed/README.md) · [⬇️ Download .ehb](./06-Mixed-Sources/02-ASCET-SL-CCode-Mixed/Output/06-Mixed-Sources/02-ASCET-SL-CCode-Mixed.ehb)
 
 </details>
 
@@ -209,55 +209,55 @@ Combines function specifications from ASCET, Simulink, and C-Code in a single bu
 <details>
 <summary><strong>Simulink Projects & Models (10 demos)</strong></summary>
 
-**[Demo_EHBCB_DirBased_SL_FlexECU](./Demo_EHBCB_DirBased_SL_FlexECU/README.md)** · `Intermediate`  
+**[FlexECU](./02-Simulink/03-FlexECU/README.md)** · `Intermediate`  
 A comprehensive example of generating complete ECU software documentation with 15 Simulink-based functions.  
 📦 Technologies: `Simulink`, `FlexECU` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_FlexECU/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_SL_FlexECU/Output/Demo_EHBCB_DirBased_SL_FlexECU.ehb)
+[📖 Documentation](./02-Simulink/03-FlexECU/README.md) · [⬇️ Download .ehb](./02-Simulink/03-FlexECU/Output/02-Simulink/03-FlexECU.ehb)
 
-**[Demo_EHBCB_DirBased_SL_Enhanced](./Demo_EHBCB_DirBased_SL_Enhanced/README.md)** · `Advanced`  
+**[Basic](./02-Simulink/01-Basic/README.md)** · `Advanced`  
 Demonstrates advanced Simulink processing features, including custom table configurations and Simulink library support.  
 📦 Technologies: `Simulink` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_Enhanced/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_SL_Enhanced/Output/Demo_EHBCB_DirBased_SL_Enhanced.ehb)
+[📖 Documentation](./02-Simulink/01-Basic/README.md) · [⬇️ Download .ehb](./02-Simulink/01-Basic/Output/02-Simulink/01-Basic.ehb)
 
-**[Demo_EHBCB_DirBased_SL_ReferencedModels](./Demo_EHBCB_DirBased_SL_ReferencedModels/README.md)** · `Intermediate`  
+**[Referenced-Models](./02-Simulink/07-Referenced-Models/README.md)** · `Intermediate`  
 Shows how to handle Simulink projects containing referenced models.  
 📦 Technologies: `Simulink` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_ReferencedModels/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_SL_ReferencedModels/Output/Demo_EHBCB_DirBased_SL_ReferencedModels.ehb)
+[📖 Documentation](./02-Simulink/07-Referenced-Models/README.md) · [⬇️ Download .ehb](./02-Simulink/07-Referenced-Models/Output/02-Simulink/07-Referenced-Models.ehb)
 
-**[Demo_EHBCB_DirBased_SL_Libraries](./Demo_EHBCB_DirBased_SL_Libraries/README.md)** · `Intermediate`  
+**[Libraries](./02-Simulink/05-Libraries/README.md)** · `Intermediate`  
 Demonstrates the handling and documentation of Simulink libraries with view configuration for know-how protection.  
 📦 Technologies: `Simulink` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_Libraries/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_SL_Libraries/Output/Demo_EHBCB_DirBased_SL_Libraries.ehb)
+[📖 Documentation](./02-Simulink/05-Libraries/README.md) · [⬇️ Download .ehb](./02-Simulink/05-Libraries/Output/02-Simulink/05-Libraries.ehb)
 
-**[Demo_EHBCB_DirBased_SL_ViewConcept](./Demo_EHBCB_DirBased_SL_ViewConcept/README.md)** · `Advanced`  
+**[View-Concept](./02-Simulink/08-View-Concept/README.md)** · `Advanced`  
 Illustrates the Simulink View Concept to generate different EHANDBOOK variants from a single model, enabling know-how protection.  
 📦 Technologies: `Simulink` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_ViewConcept/README.md) · [⬇️ Download Internal](./Demo_EHBCB_DirBased_SL_ViewConcept/Output/Demo_EHBCB_DirBased_SL_ViewConcept_Internal.ehb) · [⬇️ Download External](./Demo_EHBCB_DirBased_SL_ViewConcept/Output/Demo_EHBCB_DirBased_SL_ViewConcept_External.ehb)
+[📖 Documentation](./02-Simulink/08-View-Concept/README.md) · [⬇️ Download Internal](./02-Simulink/08-View-Concept/Output/02-Simulink/08-View-Concept_Internal.ehb) · [⬇️ Download External](./02-Simulink/08-View-Concept/Output/02-Simulink/08-View-Concept_External.ehb)
 
-**[Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese](./Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese/README.md)** · `Advanced`  
+**[With-AsciiDoc-Japanese](./02-Simulink/10-With-AsciiDoc-Japanese/README.md)** · `Advanced`  
 A Simulink demo featuring AsciiDoc and Japanese language support.  
 📦 Technologies: `Simulink`, `AsciiDoc`, `Localization` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese/Output/Demo_EHBCB_DirBased_SL_AsciiDoc_Japanese.ehb)
+[📖 Documentation](./02-Simulink/10-With-AsciiDoc-Japanese/README.md) · [⬇️ Download .ehb](./02-Simulink/10-With-AsciiDoc-Japanese/Output/02-Simulink/10-With-AsciiDoc-Japanese.ehb)
 
-**[Demo_EHBCB_DirBased_SL_Mscript](./Demo_EHBCB_DirBased_SL_Mscript/README.md)** · `Intermediate`  
+**[With-MScript](./02-Simulink/11-With-MScript/README.md)** · `Intermediate`  
 Uses a MATLAB script to generate input files for EHANDBOOK Container-Build from Simulink models.  
 📦 Technologies: `MATLAB`, `Simulink` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_Mscript/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_SL_Mscript/Output/Demo_EHBCB_DirBased_SL_Mscript.ehb)
+[📖 Documentation](./02-Simulink/11-With-MScript/README.md) · [⬇️ Download .ehb](./02-Simulink/11-With-MScript/Output/02-Simulink/11-With-MScript.ehb)
 
-**[Demo_EHBCB_DirBased_SL_MScript_DocBlocks_To_AsciiDoc](./Demo_EHBCB_DirBased_SL_MScript_DocBlocks_To_AsciiDoc/README.md)** · `Advanced`  
+**[MScript-DocBlocks](./02-Simulink/06-MScript-DocBlocks/README.md)** · `Advanced`  
 Converts documentation blocks from m-scripts into AsciiDoc format.  
 📦 Technologies: `MATLAB`, `AsciiDoc` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_SL_MScript_DocBlocks_To_AsciiDoc/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_SL_MScript_DocBlocks_To_AsciiDoc/Output/Demo_EHBCB_DirBased_SL_MScript_DocBlocks_To_AsciiDoc.ehb)
+[📖 Documentation](./02-Simulink/06-MScript-DocBlocks/README.md) · [⬇️ Download .ehb](./02-Simulink/06-MScript-DocBlocks/Output/02-Simulink/06-MScript-DocBlocks.ehb)
 
-**[Demo_EHBCB_DirBased_UGG_iCB](./Demo_EHBCB_DirBased_UGG_iCB/README.md)** · `Intermediate`  
+**[UGG-iCB](./07-Advanced-Features/07-UGG-iCB/README.md)** · `Intermediate`  
 Demonstrates the use of the Unified Graphics Generator (UGG) to speed up the EHB-CB process by pre-generating model graphics and data.  
 📦 Technologies: `UGG`, `Mixed Models` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_UGG_iCB/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_UGG_iCB/Output_iCB/Demo_EHBCB_DirBased_UGG_iCB.ehb)
+[📖 Documentation](./07-Advanced-Features/07-UGG-iCB/README.md) · [⬇️ Download .ehb](./07-Advanced-Features/07-UGG-iCB/Output_iCB/07-Advanced-Features/07-UGG-iCB.ehb)
 
-**[Demo_EHBCB_ASAMBased_SL_Simple](./Demo_EHBCB_ASAMBased_SL_Simple/README.md)** · `Beginner`  
+**[Basic](./09-ASAM-Based/01-Simulink-Basic/README.md)** · `Beginner`  
 Demonstrates generating an EHANDBOOK container using ASAM-based input formats for a single Simulink-based ECU function.  
 📦 Technologies: `ASAM`, `Simulink` · 📋 ASAM-Based  
-[📖 Documentation](./Demo_EHBCB_ASAMBased_SL_Simple/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_ASAMBased_SL_Simple/Output/Demo_EHBCB_ASAMBased_SL_Simple.ehb)
+[📖 Documentation](./09-ASAM-Based/01-Simulink-Basic/README.md) · [⬇️ Download .ehb](./09-ASAM-Based/01-Simulink-Basic/Output/09-ASAM-Based/01-Simulink-Basic.ehb)
 
 </details>
 
@@ -268,20 +268,20 @@ Demonstrates generating an EHANDBOOK container using ASAM-based input formats fo
 <details>
 <summary><strong>C-Code Documentation (3 demos)</strong></summary>
 
-**[Demo_EHBCB_DirBased_CCODE_Simple](./Demo_EHBCB_DirBased_CCODE_Simple/README.md)** · `Beginner`  
+**[Basic](./01-C-Code/01-Basic/README.md)** · `Beginner`  
 A fundamental example of documenting a simple C-code project.  
 📦 Technologies: `C-Code` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_CCODE_Simple/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_CCODE_Simple/Output/Demo_EHBCB_DirBased_CCODE_Simple.ehb)
+[📖 Documentation](./01-C-Code/01-Basic/README.md) · [⬇️ Download .ehb](./01-C-Code/01-Basic/Output/01-C-Code/01-Basic.ehb)
 
-**[Demo_EHBCB_DirBased_CCODE_References](./Demo_EHBCB_DirBased_CCODE_References/README.md)** · `Intermediate`  
+**[References](./01-C-Code/03-References/README.md)** · `Intermediate`  
 Demonstrates handling of code hierarchies and references in a C-Code project.  
 📦 Technologies: `C-Code` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_CCODE_References/README.md) · [⬇️ Download With Hierarchies](./Demo_EHBCB_DirBased_CCODE_References/Output/Demo_EHBCB_DirBased_CCODE_References_With_Hierarchies.ehb) · [⬇️ Download Without Hierarchies](./Demo_EHBCB_DirBased_CCODE_References/Output/Demo_EHBCB_DirBased_CCODE_References_Without_Hierarchies.ehb)
+[📖 Documentation](./01-C-Code/03-References/README.md) · [⬇️ Download With Hierarchies](./01-C-Code/03-References/Output/01-C-Code/03-References_With_Hierarchies.ehb) · [⬇️ Download Without Hierarchies](./01-C-Code/03-References/Output/01-C-Code/03-References_Without_Hierarchies.ehb)
 
-**[Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration](./Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration/README.md)** · `Intermediate`  
+**[Custom-Block-Config](./01-C-Code/02-Custom-Block-Config/README.md)** · `Intermediate`  
 Demonstrates customizing of block visualization in a C-Code project.  
 📦 Technologies: `C-Code` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_CCODE_CustomBlockConfiguration/Output/Demo_EHBCB_DirBased_CCODE_ConfigExample.ehb)
+[📖 Documentation](./01-C-Code/02-Custom-Block-Config/README.md) · [⬇️ Download .ehb](./01-C-Code/02-Custom-Block-Config/Output/Demo_EHBCB_DirBased_CCODE_ConfigExample.ehb)
 
 </details>
 
@@ -292,55 +292,55 @@ Demonstrates customizing of block visualization in a C-Code project.
 <details>
 <summary><strong>AUTOSAR Classic Architecture (10 demos)</strong></summary>
 
-**[Demo_EHBCB_DirBased_AUTOSAR](./Demo_EHBCB_DirBased_AUTOSAR/README.md)** · `Advanced`  
+**[Basic](./04-AUTOSAR/01-Basic/README.md)** · `Advanced`  
 Directory-based build for AUTOSAR Classic architecture with ASCET models for Software Components.  
 📦 Technologies: `AUTOSAR`, `ASCET` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR/Output/Demo_EHBCB_DirBased_AUTOSAR.ehb)
+[📖 Documentation](./04-AUTOSAR/01-Basic/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/01-Basic/Output/04-AUTOSAR/01-Basic.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_SL](./Demo_EHBCB_DirBased_AUTOSAR_SL/README.md)** · `Advanced`  
+**[With-Simulink](./04-AUTOSAR/09-With-Simulink/README.md)** · `Advanced`  
 Documents AUTOSAR Classic SWC with Simulink implementation.  
 📦 Technologies: `AUTOSAR`, `Simulink` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_SL/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_SL/Output/Demo_EHBCB_DirBased_AUTOSAR_SL.ehb)
+[📖 Documentation](./04-AUTOSAR/09-With-Simulink/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/09-With-Simulink/Output/04-AUTOSAR/09-With-Simulink.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_CCODE](./Demo_EHBCB_DirBased_AUTOSAR_CCODE/README.md)** · `Advanced`  
+**[With-C-Code](./04-AUTOSAR/07-With-C-Code/README.md)** · `Advanced`  
 Documents an AUTOSAR Classic system from RTA-CAR Starter Kit with C-Code implementations.  
 📦 Technologies: `AUTOSAR`, `C-Code` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_CCODE/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_CCODE/Output/Demo_EHBCB_DirBased_AUTOSAR_CCODE.ehb)
+[📖 Documentation](./04-AUTOSAR/07-With-C-Code/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/07-With-C-Code/Output/04-AUTOSAR/07-With-C-Code.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config](./Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config/README.md)** · `Advanced`  
+**[With-C-Code-Config](./04-AUTOSAR/08-With-C-Code-Config/README.md)** · `Advanced`  
 Detailed example of C-Code configuration to visually enhance AUTOSAR RTE API calls with custom icons.  
 📦 Technologies: `AUTOSAR`, `C-Code` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config/Output/Demo_EHBCB_DirBased_AUTOSAR_CCODE_Config.ehb)
+[📖 Documentation](./04-AUTOSAR/08-With-C-Code-Config/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/08-With-C-Code-Config/Output/04-AUTOSAR/08-With-C-Code-Config.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_Excerpt](./Demo_EHBCB_DirBased_AUTOSAR_Excerpt/README.md)** · `Intermediate`  
+**[Excerpt](./04-AUTOSAR/02-Excerpt/README.md)** · `Intermediate`  
 Documents an excerpt or subset of a larger AUTOSAR Classic system.  
 📦 Technologies: `AUTOSAR`, `ASCET` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_Excerpt/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_Excerpt/Output/Demo_EHBCB_DirBased_AUTOSAR_Excerpt.ehb)
+[📖 Documentation](./04-AUTOSAR/02-Excerpt/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/02-Excerpt/Output/04-AUTOSAR/02-Excerpt.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_Excerpt_AR_Only](./Demo_EHBCB_DirBased_AUTOSAR_Excerpt_AR_Only/README.md)** · `Intermediate`  
+**[Excerpt-AR-Only](./04-AUTOSAR/03-Excerpt-AR-Only/README.md)** · `Intermediate`  
 Documents only AUTOSAR architecture from ARXML files without implementation details.  
 📦 Technologies: `AUTOSAR` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_Excerpt_AR_Only/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_Excerpt_AR_Only/Output/Demo_EHBCB_DirBased_AUTOSAR_Excerpt_AR_Only.ehb)
+[📖 Documentation](./04-AUTOSAR/03-Excerpt-AR-Only/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/03-Excerpt-AR-Only/Output/04-AUTOSAR/03-Excerpt-AR-Only.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only](./Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only/README.md)** · `Intermediate`  
+**[FlexECU-Only](./04-AUTOSAR/04-FlexECU-Only/README.md)** · `Intermediate`  
 Two-step workflow using -ar2ehbcbinput flag to document AUTOSAR architecture only.  
 📦 Technologies: `AUTOSAR` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only/Output/Demo_EHBCB_DirBased_AUTOSAR_FlexECU_Only.ehb)
+[📖 Documentation](./04-AUTOSAR/04-FlexECU-Only/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/04-FlexECU-Only/Output/04-AUTOSAR/04-FlexECU-Only.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU](./Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/README.md)** · `Intermediate`  
+**[With-Simulink-FlexECU](./04-AUTOSAR/10-With-Simulink-FlexECU/README.md)** · `Intermediate`  
 Generates container for AUTOSAR software component specified by a Simulink model.  
 📦 Technologies: `AUTOSAR`, `Simulink` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Output/Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU.ehb)
+[📖 Documentation](./04-AUTOSAR/10-With-Simulink-FlexECU/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/10-With-Simulink-FlexECU/Output/04-AUTOSAR/10-With-Simulink-FlexECU.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_RTA_RTE_Only](./Demo_EHBCB_DirBased_AUTOSAR_RTA_RTE_Only/README.md)** · `Intermediate`  
+**[RTA-RTE-Only](./04-AUTOSAR/05-RTA-RTE-Only/README.md)** · `Intermediate`  
 Two-step workflow to document AUTOSAR architecture from RTA-RTE case study.  
 📦 Technologies: `AUTOSAR` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_RTA_RTE_Only/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_RTA_RTE_Only/Output/Demo_EHBCB_DirBased_AUTOSAR_RTA_RTE_Only.ehb)
+[📖 Documentation](./04-AUTOSAR/05-RTA-RTE-Only/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/05-RTA-RTE-Only/Output/04-AUTOSAR/05-RTA-RTE-Only.ehb)
 
-**[Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping](./Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping/README.md)** · `Advanced`  
+**[Signal-Mapping](./04-AUTOSAR/06-Signal-Mapping/README.md)** · `Advanced`  
 Establishes and visualizes connections between components from different domains using component mapping.  
 📦 Technologies: `AUTOSAR` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping/Output/Demo_EHBCB_DirBased_AUTOSAR_Signal_Mapping.ehb)
+[📖 Documentation](./04-AUTOSAR/06-Signal-Mapping/README.md) · [⬇️ Download .ehb](./04-AUTOSAR/06-Signal-Mapping/Output/04-AUTOSAR/06-Signal-Mapping.ehb)
 
 </details>
 
@@ -351,25 +351,25 @@ Establishes and visualizes connections between components from different domains
 <details>
 <summary><strong>AsciiDoc, Localization & Table of Contents (3 demos)</strong></summary>
 
-**[Demo_EHBCB_DirBased_AsciiDoc](./Demo_EHBCB_DirBased_AsciiDoc/README.md)** · `Beginner`  
+**[Basic](./05-AsciiDoc/01-Basic/README.md)** · `Beginner`  
 Showcases generating an EHANDBOOK container from textual content written in AsciiDoc format.  
 📦 Technologies: `AsciiDoc` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_AsciiDoc/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_AsciiDoc/Output/Demo_EHBCB_DirBased_AsciiDoc.ehb)
+[📖 Documentation](./05-AsciiDoc/01-Basic/README.md) · [⬇️ Download .ehb](./05-AsciiDoc/01-Basic/Output/05-AsciiDoc/01-Basic.ehb)
 
-**[Demo_EHBCB_DirBased_Language_Support](./Demo_EHBCB_DirBased_Language_Support/README.md)** · `Intermediate`  
+**[Language-Support](./07-Advanced-Features/05-Language-Support/README.md)** · `Intermediate`  
 Illustrates support for multiple languages in the output.  
 📦 Technologies: `Customization`, `Localization` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_Language_Support/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_Language_Support/Output/Demo_EHBCB_DirBased_Language_Support.ehb)
+[📖 Documentation](./07-Advanced-Features/05-Language-Support/README.md) · [⬇️ Download .ehb](./07-Advanced-Features/05-Language-Support/Output/07-Advanced-Features/05-Language-Support.ehb)
 
-**[Demo_EHBCB_DirBased_Custom_Tocs](./Demo_EHBCB_DirBased_Custom_Tocs/README.md)** · `Intermediate`  
+**[Custom-Table-of-Contents](./07-Advanced-Features/01-Custom-Table-of-Contents/README.md)** · `Intermediate`  
 Shows how to create custom table of contents structures.  
 📦 Technologies: `Customization` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_Custom_Tocs/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_Custom_Tocs/Output/Demo_EHBCB_DirBased_Custom_Tocs.ehb)
+[📖 Documentation](./07-Advanced-Features/01-Custom-Table-of-Contents/README.md) · [⬇️ Download .ehb](./07-Advanced-Features/01-Custom-Table-of-Contents/Output/07-Advanced-Features/01-Custom-Table-of-Contents.ehb)
 
-**[Demo_EHBCB_DirBased_Nested_ToC](./Demo_EHBCB_DirBased_Nested_ToC/README.md)** · `Intermediate`  
+**[Nested-ToC](./07-Advanced-Features/06-Nested-ToC/README.md)** · `Intermediate`  
 Creates deeply nested, hierarchical Tables of Contents using a tocs.yaml file.  
 📦 Technologies: `Customization` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_Nested_ToC/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_DirBased_Nested_ToC/Output/Demo_EHBCB_DirBased_Nested_ToC.ehb)
+[📖 Documentation](./07-Advanced-Features/06-Nested-ToC/README.md) · [⬇️ Download .ehb](./07-Advanced-Features/06-Nested-ToC/Output/07-Advanced-Features/06-Nested-ToC.ehb)
 
 </details>
 
@@ -380,15 +380,15 @@ Creates deeply nested, hierarchical Tables of Contents using a tocs.yaml file.
 <details>
 <summary><strong>Container Encryption (2 demos)</strong></summary>
 
-**[Demo_EHBCB_DirBased_Encrypted_Container_Simple](./Demo_EHBCB_DirBased_Encrypted_Container_Simple/README.md)** · `Beginner`  
+**[Encryption-Simple](./07-Advanced-Features/04-Encryption-Simple/README.md)** · `Beginner`  
 This demo shows how to generate and encrypt an EHANDBOOK container using a plaintext password supplied directly in the build script with the `-epwd` flag.  
 📦 Technologies: `Encryption` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_Encrypted_Container_Simple/README.md)
+[📖 Documentation](./07-Advanced-Features/04-Encryption-Simple/README.md)
 
-**[Demo_EHBCB_DirBased_Encrypted_Container_File](./Demo_EHBCB_DirBased_Encrypted_Container_File/README.md)** · `Intermediate`  
+**[Encryption-Full](./07-Advanced-Features/03-Encryption-Full/README.md)** · `Intermediate`  
 This demo shows how to generate and encrypt an EHANDBOOK container by reading the password from a text file using the `-epwdf` flag, a more secure approach for production builds.  
 📦 Technologies: `Encryption` · 📁 Directory-Based  
-[📖 Documentation](./Demo_EHBCB_DirBased_Encrypted_Container_File/README.md)
+[📖 Documentation](./07-Advanced-Features/03-Encryption-Full/README.md)
 
 </details>
 
@@ -399,20 +399,20 @@ This demo shows how to generate and encrypt an EHANDBOOK container by reading th
 <details>
 <summary><strong>ASAM-Based Workflows (3 demos)</strong></summary>
 
-**[Demo_EHBCB_ASAMBased_AUTOSAR](./Demo_EHBCB_ASAMBased_AUTOSAR/README.md)** · `Advanced`  
+**[With-ASCET](./09-ASAM-Based/03-AUTOSAR-With-ASCET/README.md)** · `Advanced`  
 ASAM-based build for AUTOSAR Classic architecture with ASCET models for Software Components.  
 📦 Technologies: `ASAM`, `AUTOSAR`, `ASCET` · 📋 ASAM-Based  
-[📖 Documentation](./Demo_EHBCB_ASAMBased_AUTOSAR/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_ASAMBased_AUTOSAR/Output/Demo_EHBCB_ASAMBased_AUTOSAR.ehb)
+[📖 Documentation](./09-ASAM-Based/03-AUTOSAR-With-ASCET/README.md) · [⬇️ Download .ehb](./09-ASAM-Based/03-AUTOSAR-With-ASCET/Output/09-ASAM-Based/03-AUTOSAR-With-ASCET.ehb)
 
-**[Demo_EHBCB_ASAMBased_AUTOSAR_SL](./Demo_EHBCB_ASAMBased_AUTOSAR_SL/README.md)** · `Advanced`  
+**[With-Simulink](./09-ASAM-Based/04-AUTOSAR-With-Simulink/README.md)** · `Advanced`  
 ASAM-based build for AUTOSAR Classic architecture with Simulink models for Software Components.  
 📦 Technologies: `ASAM`, `AUTOSAR`, `Simulink` · 📋 ASAM-Based  
-[📖 Documentation](./Demo_EHBCB_ASAMBased_AUTOSAR_SL/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_ASAMBased_AUTOSAR_SL/Output/Demo_EHBCB_ASAMBased_AUTOSAR_SL.ehb)
+[📖 Documentation](./09-ASAM-Based/04-AUTOSAR-With-Simulink/README.md) · [⬇️ Download .ehb](./09-ASAM-Based/04-AUTOSAR-With-Simulink/Output/09-ASAM-Based/04-AUTOSAR-With-Simulink.ehb)
 
-**[Demo_EHBCB_ASAMBased_ASCET_PDF_FlexECU](./Demo_EHBCB_ASAMBased_ASCET_PDF_FlexECU/README.md)** · `Advanced`  
+**[With-PDF-FlexECU](./09-ASAM-Based/02-ASCET-With-PDF-FlexECU/README.md)** · `Advanced`  
 Generates an EHANDBOOK Container and PDF for a complex multi-component project with both ASCET and Simulink models.  
 📦 Technologies: `ASAM`, `ASCET`, `Simulink`, `PDF` · 📋 ASAM-Based  
-[📖 Documentation](./Demo_EHBCB_ASAMBased_ASCET_PDF_FlexECU/README.md) · [⬇️ Download .ehb](./Demo_EHBCB_ASAMBased_ASCET_PDF_FlexECU/Output/Demo_EHBCB_ASAMBased_ASCET_PDF_FlexECU.ehb)
+[📖 Documentation](./09-ASAM-Based/02-ASCET-With-PDF-FlexECU/README.md) · [⬇️ Download .ehb](./09-ASAM-Based/02-ASCET-With-PDF-FlexECU/Output/09-ASAM-Based/02-ASCET-With-PDF-FlexECU.ehb)
 
 </details>
 
@@ -423,15 +423,15 @@ Generates an EHANDBOOK Container and PDF for a complex multi-component project w
 <details>
 <summary><strong>Toolbox Integrations (2 demos)</strong></summary>
 
-**[Demo_EHBCB_AddOn_ASCET_Toolbox](./Demo_EHBCB_AddOn_ASCET_Toolbox/README.md)** · `Intermediate`  
+**[ASCET-Toolbox](./08-Toolbox-AddOns/01-ASCET-Toolbox/README.md)** · `Intermediate`  
 Documents the EHANDBOOK Container-Build Add-On for ASCET Toolbox.
 📦 Technologies: `ASCET` · 🔧 Add-On  
-[📖 Documentation](./Demo_EHBCB_AddOn_ASCET_Toolbox/README.md)
+[📖 Documentation](./08-Toolbox-AddOns/01-ASCET-Toolbox/README.md)
 
-**[Demo_EHBCB_AddOn_SL_Toolbox](./Demo_EHBCB_AddOn_SL_Toolbox/README.md)** · `Intermediate`  
+**[Simulink-Toolbox](./08-Toolbox-AddOns/02-Simulink-Toolbox/README.md)** · `Intermediate`  
 Demonstrates the EHANDBOOK Container-Build Add-On for Simulink Toolbox, showing how to generate documentation directly from Simulink models via the integrated toolbox.  
 📦 Technologies: `Simulink` · 🔧 Add-On  
-[📖 Documentation](./Demo_EHBCB_AddOn_SL_Toolbox/README.md)
+[📖 Documentation](./08-Toolbox-AddOns/02-Simulink-Toolbox/README.md)
 
 </details>
 

@@ -3,7 +3,7 @@ REM ============================================================================
 REM Build All Demos Script
 REM ============================================================================
 REM This script builds all eHandbook-CB demo projects in the workspace.
-REM It iterates through each Demo_* directory and executes its build.bat file.
+REM It recursively finds all build.bat files and executes each one.
 REM ============================================================================
 
 setlocal enabledelayedexpansion
@@ -36,48 +36,50 @@ set LOG_FILE=%LOG_FILE: =0%
 echo Build started at %date% %time% > "%LOG_FILE%"
 echo. >> "%LOG_FILE%"
 
-REM Get list of all Demo directories
-for /d %%D in (Demo_*) do (
-    set DEMO_DIR=%%D
-    
-    echo ------------------------------------------------------------------------
-    echo Processing: !DEMO_DIR!
-    echo ------------------------------------------------------------------------
-    echo Processing: !DEMO_DIR! >> "%LOG_FILE%"
-    
-    REM Check if build.bat exists
-    if exist "!DEMO_DIR!\build.bat" (
-        echo [Building] !DEMO_DIR!
-        echo [Building] !DEMO_DIR! >> "%LOG_FILE%"
-        
+REM Recursively find all build.bat files (excluding this script's own directory entry)
+for /r %%F in (build.bat) do (
+    REM Skip the root-level build_all_demos itself (build.bat in root would be this file)
+    set DEMO_BUILD=%%F
+    set DEMO_DIR=%%~dpF
+    REM Remove trailing backslash
+    set DEMO_DIR=!DEMO_DIR:~0,-1!
+
+    REM Skip if this build.bat is in the repository root (avoid self-reference)
+    if /i not "!DEMO_DIR!"=="%~dp0." (
+        REM Compute relative path for display
+        set REL_DIR=!DEMO_DIR:%~dp0=!
+
+        echo ------------------------------------------------------------------------
+        echo Processing: !REL_DIR!
+        echo ------------------------------------------------------------------------
+        echo Processing: !REL_DIR! >> "%LOG_FILE%"
+
+        echo [Building] !REL_DIR!
+        echo [Building] !REL_DIR! >> "%LOG_FILE%"
+
         REM Change to demo directory
         pushd "!DEMO_DIR!"
-        
+
         REM Execute build.bat (without pause)
-        REM We redirect output to capture it, and use findstr to avoid the pause command
         call build.bat < nul > nul 2>&1
-        
+
         REM Check exit code
         if !errorlevel! equ 0 (
-            echo [SUCCESS] !DEMO_DIR! built successfully
-            echo [SUCCESS] !DEMO_DIR! built successfully >> "..\%LOG_FILE%"
+            echo [SUCCESS] !REL_DIR! built successfully
+            echo [SUCCESS] !REL_DIR! built successfully >> "..\%LOG_FILE%"
             set /a SUCCESS_COUNT+=1
         ) else (
-            echo [FAILED] !DEMO_DIR! build failed with error code !errorlevel!
-            echo [FAILED] !DEMO_DIR! build failed with error code !errorlevel! >> "..\%LOG_FILE%"
+            echo [FAILED] !REL_DIR! build failed with error code !errorlevel!
+            echo [FAILED] !REL_DIR! build failed with error code !errorlevel! >> "..\%LOG_FILE%"
             set /a FAILED_COUNT+=1
         )
-        
+
         REM Return to root directory
         popd
-    ) else (
-        echo [SKIPPED] !DEMO_DIR! - No build.bat found
-        echo [SKIPPED] !DEMO_DIR! - No build.bat found >> "%LOG_FILE%"
-        set /a SKIPPED_COUNT+=1
+
+        echo.
+        echo. >> "%LOG_FILE%"
     )
-    
-    echo.
-    echo. >> "%LOG_FILE%"
 )
 
 REM Print summary

@@ -2,22 +2,22 @@
 # Build All Demos Script (PowerShell)
 # ============================================================================
 # This script builds all eHandbook-CB demo projects in the workspace.
-# It iterates through each Demo_* directory and executes its build.bat file.
-# 
+# It recursively finds all build.bat files and executes each one.
+#
 # Usage:
 #   .\build_all_demos.ps1                    # Build all demos sequentially
 #   .\build_all_demos.ps1 -Parallel          # Build demos in parallel (requires PowerShell 7+)
-#   .\build_all_demos.ps1 -Filter "*AUTOSAR*" # Build only matching demos
+#   .\build_all_demos.ps1 -Filter "*AUTOSAR*" # Build only matching demos (path substring)
 # ============================================================================
 
 [CmdletBinding()]
 param(
     [Parameter(HelpMessage="Build demos in parallel (requires PowerShell 7+)")]
     [switch]$Parallel,
-    
-    [Parameter(HelpMessage="Filter demos by name pattern (e.g., '*AUTOSAR*')")]
-    [string]$Filter = "Demo_*",
-    
+
+    [Parameter(HelpMessage="Filter demos by path pattern (e.g., '*AUTOSAR*')")]
+    [string]$Filter = "*",
+
     [Parameter(HelpMessage="Continue building even if some demos fail")]
     [switch]$ContinueOnError
 )
@@ -91,53 +91,62 @@ $logFile = "build_all_demos_$timestamp.log"
 "Build started at $(Get-Date)" | Out-File -FilePath $logFile
 "" | Out-File -FilePath $logFile -Append
 
-# Get list of all Demo directories
-$demoDirs = Get-ChildItem -Directory -Filter $Filter | Where-Object { $_.Name -like "Demo_*" }
+# Get list of all build.bat files recursively, excluding the repository root itself
+$buildScripts = Get-ChildItem -Recurse -Filter "build.bat" | Where-Object { $_.DirectoryName -ne $PSScriptRoot }
 
-if ($demoDirs.Count -eq 0) {
-    Write-Host "No demo directories found matching pattern: $Filter" -ForegroundColor Yellow
+# Apply optional filter by path
+if ($Filter -ne "*") {
+    $buildScripts = $buildScripts | Where-Object { $_.FullName -like "*$Filter*" }
+}
+
+if ($buildScripts.Count -eq 0) {
+    Write-Host "No build.bat files found matching filter: $Filter" -ForegroundColor Yellow
     exit 0
 }
 
-Write-Host "Found $($demoDirs.Count) demo(s) to build" -ForegroundColor Cyan
+Write-Host "Found $($buildScripts.Count) demo(s) to build" -ForegroundColor Cyan
 Write-Host ""
 
-# Function to build a single demo
+# Function to build a single demo (given the parent directory of build.bat)
 function Invoke-DemoBuild {
     param(
         [Parameter(Mandatory=$true)]
         [System.IO.DirectoryInfo]$DemoDir,
-        
+
         [Parameter(Mandatory=$true)]
         [string]$LogFile
     )
-    
+
+    # Compute a display name relative to the repo root
+    $relName = $DemoDir.FullName.Replace($PSScriptRoot, "").TrimStart("\", "/")
+
     $result = @{
-        Name = $DemoDir.Name
+        Name = $relName
         Success = $false
         Skipped = $false
         ErrorMessage = ""
     }
-    
+
     $buildBat = Join-Path $DemoDir.FullName "build.bat"
-    
+
     if (-not (Test-Path $buildBat)) {
         $result.Skipped = $true
         $result.ErrorMessage = "No build.bat found"
         return $result
     }
-    
+
     try {
         # Execute build.bat
+        $safeName = $relName -replace '[\\/:*?"<>|]', '_'
         $process = Start-Process -FilePath "cmd.exe" `
             -ArgumentList "/c", "`"$buildBat`" < nul" `
             -WorkingDirectory $DemoDir.FullName `
             -NoNewWindow `
             -Wait `
             -PassThru `
-            -RedirectStandardOutput (Join-Path $env:TEMP "$($DemoDir.Name)_stdout.log") `
-            -RedirectStandardError (Join-Path $env:TEMP "$($DemoDir.Name)_stderr.log")
-        
+            -RedirectStandardOutput (Join-Path $env:TEMP "${safeName}_stdout.log") `
+            -RedirectStandardError (Join-Path $env:TEMP "${safeName}_stderr.log")
+
         if ($process.ExitCode -eq 0) {
             $result.Success = $true
         } else {
@@ -147,7 +156,7 @@ function Invoke-DemoBuild {
     catch {
         $result.ErrorMessage = "Exception: $($_.Exception.Message)"
     }
-    
+
     return $result
 }
 
@@ -155,40 +164,46 @@ function Invoke-DemoBuild {
 if ($Parallel) {
     Write-Host "Building demos in parallel..." -ForegroundColor Cyan
     Write-Host ""
-    
-    $results = $demoDirs | ForEach-Object -Parallel {
-        $demo = $_
+
+    $scriptRoot = $PSScriptRoot
+    $results = $buildScripts | ForEach-Object -Parallel {
+        $script = $_
+        $demoDir = $script.Directory
         $logFilePath = $using:logFile
-        
+        $repoRoot = $using:scriptRoot
+
         # Load the function in parallel context
         function Invoke-DemoBuild {
-            param($DemoDir, $LogFile)
-            
+            param($DemoDir, $LogFile, $RepoRoot)
+
+            $relName = $DemoDir.FullName.Replace($RepoRoot, "").TrimStart("\", "/")
+
             $result = @{
-                Name = $DemoDir.Name
+                Name = $relName
                 Success = $false
                 Skipped = $false
                 ErrorMessage = ""
             }
-            
+
             $buildBat = Join-Path $DemoDir.FullName "build.bat"
-            
+
             if (-not (Test-Path $buildBat)) {
                 $result.Skipped = $true
                 $result.ErrorMessage = "No build.bat found"
                 return $result
             }
-            
+
             try {
+                $safeName = $relName -replace '[\\/:*?"<>|]', '_'
                 $process = Start-Process -FilePath "cmd.exe" `
                     -ArgumentList "/c", "`"$buildBat`" < nul" `
                     -WorkingDirectory $DemoDir.FullName `
                     -NoNewWindow `
                     -Wait `
                     -PassThru `
-                    -RedirectStandardOutput (Join-Path $env:TEMP "$($DemoDir.Name)_stdout.log") `
-                    -RedirectStandardError (Join-Path $env:TEMP "$($DemoDir.Name)_stderr.log")
-                
+                    -RedirectStandardOutput (Join-Path $env:TEMP "${safeName}_stdout.log") `
+                    -RedirectStandardError (Join-Path $env:TEMP "${safeName}_stderr.log")
+
                 if ($process.ExitCode -eq 0) {
                     $result.Success = $true
                 } else {
@@ -198,18 +213,18 @@ if ($Parallel) {
             catch {
                 $result.ErrorMessage = "Exception: $($_.Exception.Message)"
             }
-            
+
             return $result
         }
-        
-        Invoke-DemoBuild -DemoDir $demo -LogFile $logFilePath
+
+        Invoke-DemoBuild -DemoDir $demoDir -LogFile $logFilePath -RepoRoot $repoRoot
     } -ThrottleLimit 4
-    
+
     # Process results
     foreach ($result in $results) {
         $logEntry = "------------------------------------------------------------------------`n"
         $logEntry += "Demo: $($result.Name)`n"
-        
+
         if ($result.Skipped) {
             Write-Host "[SKIPPED] $($result.Name) - $($result.ErrorMessage)" -ForegroundColor Yellow
             $logEntry += "[SKIPPED] $($result.ErrorMessage)`n"
@@ -226,23 +241,26 @@ if ($Parallel) {
             $failedCount++
             $failedDemos += $result.Name
         }
-        
+
         $logEntry | Out-File -FilePath $logFile -Append
     }
 }
 else {
     # Sequential build
-    foreach ($demoDir in $demoDirs) {
+    foreach ($script in $buildScripts) {
+        $demoDir = $script.Directory
+        $relName = $demoDir.FullName.Replace($PSScriptRoot, "").TrimStart("\", "/")
+
         Write-Host "------------------------------------------------------------------------" -ForegroundColor Gray
-        Write-Host "Processing: $($demoDir.Name)" -ForegroundColor Cyan
+        Write-Host "Processing: $relName" -ForegroundColor Cyan
         Write-Host "------------------------------------------------------------------------" -ForegroundColor Gray
-        
+
         $logEntry = "------------------------------------------------------------------------`n"
-        $logEntry += "Processing: $($demoDir.Name)`n"
+        $logEntry += "Processing: $relName`n"
         $logEntry | Out-File -FilePath $logFile -Append
-        
+
         $result = Invoke-DemoBuild -DemoDir $demoDir -LogFile $logFile
-        
+
         if ($result.Skipped) {
             Write-Host "[SKIPPED] $($result.Name) - $($result.ErrorMessage)" -ForegroundColor Yellow
             "[SKIPPED] $($result.ErrorMessage)`n" | Out-File -FilePath $logFile -Append
@@ -258,14 +276,14 @@ else {
             "[FAILED] $($result.ErrorMessage)`n" | Out-File -FilePath $logFile -Append
             $failedCount++
             $failedDemos += $result.Name
-            
+
             if (-not $ContinueOnError) {
                 Write-Host ""
                 Write-Host "Build failed! Use -ContinueOnError to continue building remaining demos." -ForegroundColor Yellow
                 break
             }
         }
-        
+
         Write-Host ""
     }
 }

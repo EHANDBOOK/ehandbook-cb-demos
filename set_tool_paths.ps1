@@ -5,11 +5,11 @@
 # ============================================================================
 
 # Set eHandbook-CB path
-$env:EHB_CB_PATH = "C:\ETAS\EHANDBOOK-Container-Build_14.1.1_Windows"
-$env:EHB_UGG_PATH = "C:\ETAS\EHANDBOOK-Container-Build_14.1.1_Windows"
+$env:EHB_CB_PATH = "C:\ETAS\EHANDBOOK-Container-Build_14.4.0_Windows"
+$env:EHB_UGG_PATH = "C:\ETAS\EHANDBOOK-Container-Build_14.4.0_Windows"
 
 # Set MATLAB path
-$env:MATLAB_PATH = "C:\Program Files\MATLAB\R2021a"
+$env:MATLAB_PATH = "C:\Program Files\MATLAB\R2022b"
 
 # Display the set variables
 Write-Host "Environment variables set:" -ForegroundColor Green

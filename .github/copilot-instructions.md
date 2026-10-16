@@ -15,7 +15,8 @@ This is the **EHANDBOOK Container-Build Demos** repository, containing 30+ demos
 - MATLAB scripting
 
 **Repository Structure:**
-- `Demo_EHBCB_*` folders: Individual demos
+- `00-Quickstart/`: Getting started guide
+- `01-C-Code/`, `02-Simulink/`, `03-ASCET/`, `04-AUTOSAR/`, `05-AsciiDoc/`, `06-Mixed-Sources/`, `07-Advanced-Features/`, `08-Toolbox-AddOns/`: Category folders containing individual demos
 - `.github/`: GitHub-specific files (this file, contribution guidelines)
 - `docs/`: Developer documentation
 - Root-level scripts: Build all demos at once (`build_all_demos.bat`, `build_all_demos.ps1`)
@@ -42,7 +43,7 @@ This is the **EHANDBOOK Container-Build Demos** repository, containing 30+ demos
 
 ### Building and Testing
 
-- Users run individual demo builds with: `cd Demo_Name && build.bat`
+- Users run individual demo builds with: `cd 01-C-Code\01-Basic && build.bat`
 - To build all demos: `build_all_demos.bat` or `.\build_all_demos.ps1`
 - Prerequisites must be set up first via: `set_tool_paths.bat` (Windows) or `set_tool_paths.ps1` (PowerShell)
 
@@ -70,7 +71,7 @@ This is the **EHANDBOOK Container-Build Demos** repository, containing 30+ demos
 1. **Environment Setup**: Users must run `set_tool_paths.bat` before building any demo.
 2. **Output Files**: Pre-built .ehb containers are committed to the repo so users can explore without building.
 3. **Large Files**: Avoid extremely large models or datasets in demos.
-4. **Naming**: All demo folders must start with `Demo_` and follow the established naming conventions.
+4. **Structure**: New demos go into the appropriate category subfolder (e.g., `01-C-Code/01-Directory-Based/`) and use a numbered kebab-case leaf name.
 5. **Cross-references**: When referring to demos in documentation, use links to their README.md files.
 
 ## Common Tasks

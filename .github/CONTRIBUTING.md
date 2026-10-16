@@ -9,38 +9,35 @@ Thank you for your interest in contributing to this repository! This guide will 
 - [Demo Structure](#demo-structure)
 - [Getting Help](#getting-help)
 
-## Demo Naming Conventions
+## Repository Structure
 
-This repository follows a consistent naming convention for demo directories to make them self-explanatory, searchable, and easy to categorize.
-
-### Naming Pattern
+Demos are organized into technology categories under numbered top-level folders:
 
 ```plain
-Demo_[EHBCB|EHBCB_AddOn]_[DirBased|ASAMBased]_[ASCET|SL|CCODE|ASCET_SL_CCODE|...]_[FeatureOrAspect]
+00-Quickstart/
+01-C-Code/
+  01-Directory-Based/
+  02-ASAM-Based/        (if applicable)
+02-Simulink/
+  01-Directory-Based/
+  02-ASAM-Based/
+03-ASCET/
+04-AUTOSAR/
+05-AsciiDoc/
+06-Mixed-Sources/
+07-Advanced-Features/
+08-Toolbox-AddOns/
 ```
 
-**Pattern Components:**
+Each leaf folder contains a self-contained demo with `Input/`, `Output/`, `build.bat`, and `README.md`.
 
-- `Demo_`: All demo folders start with this prefix.
-- `EHBCB` or `EHBCB_AddOn`: Indicates if it's a standard EHB-CB demo or one using an add-on.
-  - For add-ons: `ASCET` or `SL` specifies the add-on type.
-- `DirBased` or `ASAMBased`: Specifies the build system (only for standard EHBCB demos).
-- Model language: `ASCET`, `SL` (Simulink), `CCODE`, or combinations (e.g., `ASCET_SL_CCODE`).
-- `FeatureOrAspect`: A short description of the specific feature, workflow, or integration demonstrated (e.g., `CustomTocs`, `LanguageSupport`, `FlexECU`, `PDF`, `ViewConcept`, etc.).
+### Naming Convention for Demo Leaf Folders
 
-### Naming Rules
+Leaf demo folders use kebab-case descriptive names, e.g.:
 
-- **PascalCase**: Use PascalCase for all words in the directory name.
-  - Example: `DirBased`, `FlexECU`, `ViewConcept`.
-- **ALLCAPS for Abbreviations**: Use ALLCAPS for abbreviations.
-  - Example: `EHBCB`, `CCODE`, `PDF`, `AUTOSAR`.
-
-### Examples
-
-- `Demo_EHBCB_DirBased_CCODE_Simple` – Directory-based demo with simple C-code.
-- `Demo_EHBCB_ASAMBased_AUTOSAR` – ASAM-based demo with AUTOSAR.
-- `Demo_EHBCB_DirBased_SL_ViewConcept` – Directory-based Simulink demo showcasing the View Concept.
-- `Demo_EHBCB_AddOn_SL_Toolbox` – Add-on demo for Simulink Toolbox.
+- `01-Basic` – the simplest entry point for a category
+- `02-Custom-Block-Config` – a named feature variant
+- `10-With-Simulink-FlexECU` – technology combination
 
 ## Creating a New Demo
 
@@ -55,12 +52,12 @@ Before creating the directory, decide:
 
 ### Step 2: Create the Demo Directory
 
-Using the naming convention above, create a new folder in the repository root.
+Create a new leaf folder inside the appropriate category and build-type subfolder.
 
-Example:
+Example (adding a new C-Code demo):
 
 ```bash
-mkdir Demo_EHBCB_DirBased_MyFeature
+mkdir 01-C-Code\01-Directory-Based\04-My-New-Feature
 ```
 
 ### Step 3: Create the README.md
@@ -92,8 +89,8 @@ Create a `build.bat` script (or `.ps1` for PowerShell) that invokes EHANDBOOK Co
 Add your new demo to the repository:
 
 ```bash
-git add Demo_EHBCB_DirBased_MyFeature/
-git commit -m "Add Demo_EHBCB_DirBased_MyFeature demo"
+git add 01-C-Code/01-Directory-Based/04-My-New-Feature/
+git commit -m "Add C-Code My-New-Feature demo"
 git push
 ```
 
@@ -101,10 +98,10 @@ Don't forget to update the main [README.md](../README.md) with your new demo in 
 
 ## Demo Structure
 
-Each demo folder should follow this structure:
+Each demo leaf folder should follow this structure:
 
 ```plain
-Demo_EHBCB_[Type]_[Technologies]_[Feature]/
+<category>/<build-type>/<nn-feature-name>/
 ├── README.md                    # Demo documentation (use template)
 ├── build.bat                    # Windows batch build script
 ├── build.ps1                    # PowerShell build script (optional)
@@ -135,23 +132,23 @@ Demo_EHBCB_[Type]_[Technologies]_[Feature]/
 Some demos deviate from the standard structure due to their nature:
 
 #### Add-On Toolbox Demos
-Add-on demos (e.g., `Demo_EHBCB_AddOn_ASCET_Toolbox`, `Demo_EHBCB_AddOn_SL_Toolbox`) are executed from within external tools (ASCET, Simulink) rather than via command-line scripts. These demos:
+Add-on demos (e.g., `08-Toolbox-AddOns/01-ASCET-Toolbox`, `08-Toolbox-AddOns/02-Simulink-Toolbox`) are executed from within external tools (ASCET, Simulink) rather than via command-line scripts. These demos:
 
 - **Do NOT include** `build.bat` or `build.ps1` scripts
 - **Include** a comprehensive `README.md` with step-by-step instructions and screenshots showing how to use the toolbox
 - **Include** example input files (e.g., `.axl`, `.slx`) but NOT an `Input/` folder structure
 - **Include** an `Output/` folder with pre-built `.ehb` output for users to explore
 
-**Example:** See `Demo_EHBCB_AddOn_ASCET_Toolbox/README.md` for the pattern.
+**Example:** See `08-Toolbox-AddOns/01-ASCET-Toolbox/README.md` for the pattern.
 
 #### Multi-Step Build Demos
-Some demos use multi-step builds (e.g., `Demo_EHBCB_DirBased_UGG_iCB` with `step1_` and `step2_` scripts) or variant builds (e.g., `Demo_EHBCB_DirBased_CCODE_References` with `build_with_hierarchies.bat` and `build_without_hierarchies.bat`). These demos:
+Some demos use multi-step builds (e.g., `07-Advanced-Features/07-UGG-iCB` with `step1_` and `step2_` scripts) or variant builds (e.g., `01-C-Code/03-References` with `build_with_hierarchies.bat` and `build_without_hierarchies.bat`). These demos:
 
 - **Include** multiple `build.bat` files (or `build_variant.bat` files) instead of a single script
 - **Document** each build variant in the README, explaining the difference and when to use each
 - **Include** an `Output/` folder with pre-built results for each variant
 
-**Example:** See `Demo_EHBCB_DirBased_CCODE_References/README.md` for the pattern.
+**Example:** See `01-C-Code/03-References/README.md` for the pattern.
 
 ## Getting Help
 

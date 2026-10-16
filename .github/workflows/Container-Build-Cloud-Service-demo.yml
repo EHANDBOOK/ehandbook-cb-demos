@@ -6,7 +6,7 @@ on:
       demo_folder:
         description: "Name of the folder containing the EHANDBOOK demo files"
         required: true
-        default: "Demo_EHBCB_DirBased_AUTOSAR_SL_FlexECU/Input"
+        default: "04-AUTOSAR/10-With-Simulink-FlexECU/Input"
       storage_type:
         description: "Type of storage where the input files for CB container are present"
         required: true
@@ -260,7 +260,7 @@ jobs:
           STEPS_AUTH_DELETE_OUTPUTS_TOKEN: ${{ steps.auth-delete.outputs.token }}
 
       - name: Deploy EHB container artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: EHANDBOOK Container
           path: ${{ env.TASK_ID }}.ehb

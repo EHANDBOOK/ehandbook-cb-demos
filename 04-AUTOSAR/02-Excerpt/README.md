@@ -1,0 +1,148 @@
+# Demo: Directory-based EHB-CB with an AUTOSAR Excerpt
+
+**Objective:** This demo illustrates how the directory-based EHANDBOOK Container-Build can be used to document an *excerpt* or subset of a larger AUTOSAR Classic system, using ASCET models for the Software Component (SWC) implementations.
+
+---
+
+## ✨ Features Showcased
+
+- **Directory-based Build** for an AUTOSAR project.
+- **Documentation of a System Subset:** Demonstrates that you do not need the complete set of system artifacts; EHB-CB can generate a valid handbook from only a selection of SWCs and their corresponding architecture descriptions.
+- **AUTOSAR Classic Integration:** The build automatically discovers and processes the provided `.arxml` files.
+- **ASCET Models for SWCs:** The logic for the included SWCs is provided by ASCET models (`.axl`).
+
+---
+
+## 🛠️ How to Run
+
+1. **Prerequisites:**
+    - EHANDBOOK Container-Build with suitable licenses for the ASCET and AUTOSAR converters.
+    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
+
+2. **Build:**
+    - Open a command prompt or terminal.
+    - Navigate to this directory.
+    - Execute the `build.bat` script.
+
+---
+
+## 🔬 Explore the Output
+
+- After the build completes, a `Demo_EHBCB_DirBased_AUTOSAR_Excerpt.ehb` file will be created in the `Output` directory.
+- Open the EHANDBOOK file. You will find a handbook that contains *only* the software components that were included in the `Input` folder, rather than the full FlexECU system.
+
+---
+
+## ⚙️ Under the Hood
+
+This demo highlights the flexibility of the directory-based build. By simply controlling which files are present in the input directory, you can control the scope of the generated documentation.
+
+### Directory & File Structure
+
+- **`Input/`**: This is the main input directory. It is a slimmed-down version of a full project directory.
+  - **`.arxml` files:** Contains the necessary AUTOSAR architecture files (`Compositions.arxml`, `Interfaces.arxml`, etc.).
+  - **Component Folders (e.g., `CPT_Afr/`, `CPT_Tqs/`):** Contains a *subset* of the component folders from the full FlexECU demo. Each folder includes the ASCET model (`.axl`) that implements the SWC's logic.
+- **`configuration/`**: Contains various JSON files for customizing the output.
+- **`styling/`**: Provides custom branding and styling.
+
+### Build Script: `build.bat`
+
+The build script is a standard directory-based build command. The key is that the input directory it points to only contains a subset of the project files.
+
+```batch
+%EHB_CB_PATH%\eHandbookCB.exe ^
+-i ".\\Input" ^
+-o ".\\Output" ^
+-n "Demo_EHBCB_DirBased_AUTOSAR_Excerpt" ^
+-simlib "FlexECU_Simulink_Library" ^
+-nomatlab ^
+-gensvg ^
+-styling ".\\styling" ^
+-rootlevel ".\\configuration\\rootlevel.json" ^
+-labelamendment ".\\configuration\\labelamendment.json"
+```
+
+- `-i "Input"`: EHB-CB scans this directory and builds a handbook based *only* on the artifacts it finds within. If a component's folder or its description in an `.arxml` file is missing, it is simply excluded from the final output. This provides an easy way to generate focused documentation for specific parts of a large system.
+
+---
+
+### Container-Build Cloud Service (SaaS)
+
+Use this scenario to execute builds in a hosted environment without installing the CLI product locally.
+
+#### **Internal Container Build Workflow (Admin / Collaborator)**
+
+If you use the workflow definition you shared (`Create EHANDBOOK Demo Container`), you can trigger it as follows.
+
+Direct workflow link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/actions/workflows/Container-Build-Cloud-Service-demo.yml)
+
+Use these values when filling the workflow inputs:
+
+1. `demo_folder`: `04-AUTOSAR/02-Excerpt/Input`
+2. `storage_type`: `GIT`
+3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+4. `config_File`: `04-AUTOSAR/02-Excerpt/config.txt`
+
+**Expected output:** The build generates an EHANDBOOK Container (.ehb) and a PDF when -pdf is specified in config.txt.
+
+---
+
+#### **Public Container Build Request (Anyone)**
+
+The container generation is initiated by creating a GitHub Issue using the **EHANDBOOK Container Request** issue form.
+
+Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml)
+
+> The issue form must be available from the repository's default branch and stored under `.github/ISSUE_TEMPLATE/`.
+
+##### How to request a container
+
+1. Open the **EHANDBOOK Container Request** issue form using the direct link above.
+2. Enter the required **Demo folder**.
+3. Optionally enter the **Configuration file**.
+4. Confirm that the demo folder is a valid EHANDBOOK demo.
+5. Click **Submit new issue**.
+
+##### Example values
+
+1. `Demo folder`:  
+   `04-AUTOSAR/02-Excerpt/Input`
+
+2. `Configuration file`:  
+   `04-AUTOSAR/02-Excerpt/config.txt`
+
+The **storage type** and **repository URL** are managed by the workflow and are not entered by the requester.
+
+Internally, the trusted workflow uses:
+
+- `storage_type`: `GIT`
+- `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
+
+**Expected output:** The build generates an EHANDBOOK Container (.ehb) and a PDF when -pdf is specified in config.txt.
+
+---
+
+### Configuration file
+
+**`config.txt`**: This file contains the argument key-value pairs used during the Container-Build process. These arguments are consumed by the EHB-CB Cloud Service container-generation workflow to configure and control the build.
+
+By default, the -i, -o, -n, and -gensvg arguments are provided by the EHB-CB Cloud API. Therefore, they do not need to be specified in config.txt unless explicitly required.
+
+For arguments that contain file or directory paths:
+
+- Relative paths are resolved relative to the location of the config.txt file.
+- Absolute paths are resolved relative to the repository root, similar to how the input path is resolved.
+
+#### Demo Configuration File
+
+The `config.txt` file includes the following build arguments for CB SaaS eHandbook container generation.
+
+```text
+-simlib ".\FlexECU_Simulink_Library"
+-nomatlab
+-styling ".\styling"
+-rootlevel ".\configuration\rootlevel.json"
+-labelamendment ".\configuration\labelamendment.json"
+```
+
+
