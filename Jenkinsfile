@@ -9,6 +9,27 @@ final String FOSSLENSE_PRODUCT_ID = '1661'
 final String SOURCES_URI = 'https://bitbucket.etas-dev.com/scm/ehb/ehandbook-cb-demos.git'
 
 final String GIT_SYNC_FOLDER = '.'
+final String GITHUB_EXCLUDED_FILES = '.mailmap Jenkinsfile zizmor.sarif actionlint-report.txt workflow-files.txt'
+
+def removeGitHubExcludedFiles = {
+	withEnv(["GITHUB_EXCLUDED_FILES=${GITHUB_EXCLUDED_FILES}"]) {
+		sh 'set -eu; rm -f -- $GITHUB_EXCLUDED_FILES'
+	}
+}
+
+def verifyExcludedFilesAbsent = {
+	withEnv(["GITHUB_EXCLUDED_FILES=${GITHUB_EXCLUDED_FILES}"]) {
+		sh '''
+			set -eu
+			for excluded_file in $GITHUB_EXCLUDED_FILES; do
+				if [ -e "$excluded_file" ] || [ -L "$excluded_file" ]; then
+					echo "Refusing GitHub push: excluded file is present: $excluded_file" >&2
+					exit 1
+				fi
+			done
+		'''
+	}
+}
 
 properties(jenkins.createBasicBuildProperties() + 
 	parameters([
@@ -25,9 +46,6 @@ timestamps {
 			deleteDir()
 			dir(GIT_SYNC_FOLDER) {
 				checkout scm
-
-				// Remove files not needed for GitHub
-				sh 'rm Jenkinsfile'
 			}
 		}
 
@@ -120,6 +138,13 @@ timestamps {
 			}
 		}
 
+		stage('Prepare GitHub snapshot') {
+			dir(GIT_SYNC_FOLDER) {
+				// Remove files not intended to be deployed to public GitHub repository
+				removeGitHubExcludedFiles()
+			}
+		}
+
 		if (params.workflowExecutionTarget == 'GITHUB') {
 			stage('Validate workflow on temporary GitHub branch') {
 				dir(GIT_SYNC_FOLDER) {
@@ -131,6 +156,7 @@ timestamps {
 						if (params.workflowExecutionTarget == 'GITHUB') {
 							tempBranchName = "jenkins-cb-wf-${env.BUILD_NUMBER}-${new Date().format('yyyyMMddHHmmss', TimeZone.getTimeZone('UTC'))}"
 							refToTest = tempBranchName
+							verifyExcludedFilesAbsent()
 							git.pushCurrentRepositoryToGitHubBranch(
 								tempBranchName,
 								"https://x-access-token:${GH_TOKEN}@github.com/EHANDBOOK/ehandbook-cb-demos.git",
@@ -376,6 +402,10 @@ timestamps {
 
 		if (params.publishToGitHub) {
 			stage('Publish to GitHub.com') {
+				dir(GIT_SYNC_FOLDER) {
+					removeGitHubExcludedFiles()
+					verifyExcludedFilesAbsent()
+				}
 				git.publishToGitHub(GIT_SYNC_FOLDER, 'EHANDBOOK', 'ehandbook-cb-demos', "Publish EHANDBOOK CB Demos to GitHub.com", false)
 			}
 		}
