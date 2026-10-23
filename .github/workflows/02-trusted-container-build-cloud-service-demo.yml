@@ -48,6 +48,16 @@ jobs:
               }
             } catch (e) {}
 
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId,
+            });
+            const artifact = artifacts.data.artifacts.find(item => item.name === 'EHANDBOOK Container');
+            const artifactUrl = artifact
+              ? `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts/${artifact.id}`
+              : `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`;
+
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
             [![Step](https://img.shields.io/badge/Step-Trigger_EHANDBOOK_API-007BC2?style=for-the-badge&logo=githubactions&logoColor=white)](${jobUrl})
@@ -447,7 +457,8 @@ jobs:
 
             - **Task ID:** \`${taskId}\`
             - **Artifact:** The container has been uploaded to workflow artifacts.
-            - **Job Console & Artifact:** [View Logs & Download Artifact](${jobUrl})
+            - **Artifact:** [Download EHANDBOOK Container](${artifactUrl})
+            - **Job Console:** [View Logs & Output](${jobUrl})
 
             Closing this request.`;
 
@@ -511,11 +522,6 @@ jobs:
             Please check the workflow execution logs for error details:
             - **Job Console:** [View Live Logs & Output](${jobUrl})`;
 
-            ❌ **EHANDBOOK Container Build Failed.**
-
-            Please check the workflow execution logs for error details:
-            - **Workflow Run:** [View Logs](${runUrl})`;
-
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -537,3 +543,11 @@ jobs:
                 body: body
               });
             }
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              state: 'closed',
+              state_reason: 'not_planned'
+            });
