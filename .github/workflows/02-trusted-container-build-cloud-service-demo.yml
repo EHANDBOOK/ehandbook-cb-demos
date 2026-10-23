@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      actions: write
+      actions: read
       issues: write # <-- Added permission to comment & close issues
 
     steps:
@@ -47,16 +47,6 @@ jobs:
                 jobUrl = jobs.data.jobs[0].html_url;
               }
             } catch (e) {}
-
-            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: context.runId,
-            });
-            const artifact = artifacts.data.artifacts.find(item => item.name === 'EHANDBOOK Container');
-            const artifactUrl = artifact
-              ? `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts/${artifact.id}`
-              : `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`;
 
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
@@ -162,8 +152,6 @@ jobs:
                 },
                 inputObjectKey: $inputObjectKey
             } | if ($configurationObjectKey | length) > 0 then .configurationObjectKey = $configurationObjectKey else . end')
-
-          echo "$payload"
 
           echo "[$(ts)] Triggering container-build API request..."
           response=$(curl --location --request POST "${{ secrets.DEMO_API_URL }}" \
@@ -448,6 +436,16 @@ jobs:
                 jobUrl = jobs.data.jobs[0].html_url;
               }
             } catch (e) {}
+
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId,
+            });
+            const artifact = artifacts.data.artifacts.find(item => item.name === 'EHANDBOOK Container');
+            const artifactUrl = artifact
+              ? `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts/${artifact.id}`
+              : `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`;
 
             const marker = '<!-- ehb-progress-tracker -->';
             const body = `${marker}
