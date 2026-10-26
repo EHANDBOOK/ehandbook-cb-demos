@@ -1,4 +1,4 @@
-final String LABEL = 'Linux_69'
+final String LABEL = 'Linux_70'
 library identifier: 'ehandbook-jenkins-library@13.2.3'
 
 final String BITBUCKET_CREDENTIALS = '73ab8e6b-2e5b-409f-928c-c70f3ecd0094'
