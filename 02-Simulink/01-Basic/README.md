@@ -12,6 +12,7 @@
 - **No-MATLAB Connection:** Generating the container without requiring a MATLAB installation, which significantly speeds up the build process. While this speeds up the build process, the generated interactive models and SVG images have less details (e.g., no mask images).
 - **SVG Generation:** Automatically generating SVG image screenshots from the interactive model.
 - **Commented Element Rendering Support:** Rendering commented Simulink and Stateflow blocks, states, transitions, signal lines, and labels in gray-out mode with support for both explicit (`comment.xplicit`) and implicit (`comment.implicit`) comment annotations.
+- **State reader/ writer blocks text rendering support:** Rendering state reader/writer block's state-name text along with those blocks.
 
 ---
 
