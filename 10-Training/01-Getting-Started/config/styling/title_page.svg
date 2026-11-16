@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+<#function wordwrap text width x y dy>
+	<#assign returnValue>
+		<#if (text?length > width)>
+			<#local wrap = text?substring(0, width)?last_index_of(" ")>
+			<#if wrap <= 0>
+				<#local wrap=width>
+			</#if>
+			${'\n'}<tspan x="${x?c}" y="${y?c}">${text?substring(0, wrap)}</tspan>
+			${wordwrap(text?substring(wrap + 1), width, x, y + dy, dy)}
+		<#else>
+			${'\n'}<tspan x="${x?c}" y="${y?c}">${text}</tspan>
+		</#if>
+	</#assign>
+	<#return returnValue>
+</#function>
+
+<#macro infoField label value x y>
+		<text x="${x?c}" y="${y?c}" fill="#5F6B7A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12px" letter-spacing="2">${label?upper_case}</text>
+		<text x="${x?c}" y="${(y + 25)?c}" fill="#0B1F3A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18px" font-weight="bold">${value}</text>
+</#macro>
+
+<#assign DOC_TITLE = DOC_TITLE!"ABS / ESP">
+<#assign DOC_SUBTITLE_1 = DOC_SUBTITLE_1!"Anti-lock Braking System">
+<#assign DOC_SUBTITLE_2 = DOC_SUBTITLE_2!"Electronic Stability Program">
+<#assign DOC_AUDIENCE = DOC_AUDIENCE!"Calibration Engineers">
+<#assign CUSTOMER = CUSTOMER!"General Motors">
+
+<#assign currentDate = .now>
+<#assign DATE_TIME = currentDate?string["dd.MM.yyyy"]>
+-->
+<svg version="1.1" id="GM_Title_Page"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 890 985" width="890px" height="985px" xml:space="preserve">
+	<defs>
+		<!-- GM-style blue gradient (sky blue to deep blue) -->
+		<linearGradient id="gmGradient" x1="0" y1="1" x2="1" y2="0">
+			<stop offset="0" style="stop-color:#2CB3F0"/>
+			<stop offset="0.55" style="stop-color:#0072CE"/>
+			<stop offset="1" style="stop-color:#0B3D91"/>
+		</linearGradient>
+		<linearGradient id="gmBar" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="890" y2="0">
+			<stop offset="0" style="stop-color:#2CB3F0"/>
+			<stop offset="1" style="stop-color:#0B3D91"/>
+		</linearGradient>
+		<linearGradient id="gmPanel" gradientUnits="userSpaceOnUse" x1="0" y1="985" x2="890" y2="690">
+			<stop offset="0" style="stop-color:#0B3D91"/>
+			<stop offset="0.6" style="stop-color:#0072CE"/>
+			<stop offset="1" style="stop-color:#2CB3F0"/>
+		</linearGradient>
+		<radialGradient id="discFill" gradientUnits="userSpaceOnUse" cx="720" cy="320" r="112">
+			<stop offset="0.5" style="stop-color:#FFFFFF"/>
+			<stop offset="1" style="stop-color:#E6F1FB"/>
+		</radialGradient>
+		<linearGradient id="caliper" gradientUnits="userSpaceOnUse" x1="754" y1="226" x2="814" y2="286">
+			<stop offset="0" style="stop-color:#2CB3F0"/>
+			<stop offset="1" style="stop-color:#0B3D91"/>
+		</linearGradient>
+	</defs>
+
+	<rect fill="#FFFFFF" width="890" height="985"/>
+	<rect fill="url(#gmBar)" width="890" height="6"/>
+
+	<!-- Simplified GM-style mark; replace with official logo artwork if available -->
+	<g>
+		<rect x="50" y="50" width="96" height="96" rx="22" ry="22" fill="url(#gmGradient)"/>
+		<text x="98" y="110" text-anchor="middle" fill="#FFFFFF" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="46px" font-weight="bold">gm</text>
+		<rect x="95" y="121" width="35" height="5" rx="2.5" ry="2.5" fill="#FFFFFF"/>
+	</g>
+
+	<text x="840" y="92" text-anchor="end" fill="#5F6B7A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14px">Prepared for ${CUSTOMER}</text>
+	<text x="840" y="114" text-anchor="end" fill="#0B1F3A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14px" font-weight="bold">Chassis Controls | Brake Systems</text>
+
+	<!-- Brake disc motif with caliper and ESP yaw arc -->
+	<g>
+		<path d="M668.7,460.95 A150,150 0 0 1 623.58,205.1" fill="none" stroke="#0072CE" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="10 8" stroke-linecap="round"/>
+		<circle cx="623.58" cy="205.1" r="5" fill="#0072CE" fill-opacity="0.6"/>
+		<circle cx="720" cy="320" r="130" fill="none" stroke="#E3E8EF" stroke-width="1.5"/>
+		<circle cx="720" cy="320" r="112" fill="url(#discFill)" stroke="#D5E3F2" stroke-width="1"/>
+		<g fill="#D5E3F2">
+			<circle cx="805" cy="320" r="3.5"/>
+			<circle cx="793.6" cy="362.5" r="3.5"/>
+			<circle cx="762.5" cy="393.6" r="3.5"/>
+			<circle cx="720" cy="405" r="3.5"/>
+			<circle cx="677.5" cy="393.6" r="3.5"/>
+			<circle cx="646.4" cy="362.5" r="3.5"/>
+			<circle cx="635" cy="320" r="3.5"/>
+			<circle cx="646.4" cy="277.5" r="3.5"/>
+			<circle cx="677.5" cy="246.4" r="3.5"/>
+			<circle cx="720" cy="235" r="3.5"/>
+			<circle cx="762.5" cy="246.4" r="3.5"/>
+			<circle cx="793.6" cy="277.5" r="3.5"/>
+		</g>
+		<circle cx="720" cy="320" r="58" fill="#FFFFFF" stroke="#D5E3F2" stroke-width="1"/>
+		<g fill="#B9D3EE">
+			<circle cx="720" cy="276" r="5"/>
+			<circle cx="761.85" cy="306.4" r="5"/>
+			<circle cx="745.86" cy="355.6" r="5"/>
+			<circle cx="694.14" cy="355.6" r="5"/>
+			<circle cx="678.15" cy="306.4" r="5"/>
+		</g>
+		<circle cx="720" cy="320" r="28" fill="url(#gmGradient)"/>
+		<path d="M754.2,226.03 A100,100 0 0 1 813.97,285.8" fill="none" stroke="url(#caliper)" stroke-width="26" stroke-linecap="round"/>
+	</g>
+
+	<!-- Title block -->
+	<text x="50" y="230" fill="#0072CE" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="16px" font-weight="bold" letter-spacing="3">CALIBRATION HANDBOOK</text>
+	<text x="46" y="320" fill="#0B1F3A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="88px" font-weight="bold">${DOC_TITLE}</text>
+	<text x="50" y="368" fill="#5F6B7A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24px">${DOC_SUBTITLE_1}</text>
+	<text x="50" y="400" fill="#5F6B7A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24px">${DOC_SUBTITLE_2}</text>
+	<rect x="50" y="428" width="120" height="8" rx="4" ry="4" fill="url(#gmBar)"/>
+
+	<text fill="#0B1F3A" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22px" font-weight="bold">${wordwrap(PROJECT_LONGNAME!, 40, 50, 490, 28)}</text>
+	<!--
+<#assign infoGrid>
+<@infoField label="Variant" value=(PROJECT_VARIANT!"-") x=50 y=575/>
+<@infoField label="Revision" value=(PROJECT_REVISION!"-") x=330 y=575/>
+<@infoField label="Target Audience" value=DOC_AUDIENCE x=50 y=645/>
+<@infoField label="Date" value=DATE_TIME x=330 y=645/>
+</#assign>
+-->
+	${infoGrid}
+
+		<!-- Bottom panel: curved road / vehicle trajectory -->
+	<path d="M0,740 C260,690 560,800 890,700 L890,985 L0,985 Z" fill="url(#gmPanel)"/>
+	<path d="M0,790 C260,740 560,850 890,750" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5"/>
+	<path d="M0,880 C260,830 560,940 890,840" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="24 16"/>
+
+	<text x="50" y="830" fill="#FFFFFF" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="16px">Generated by ${PRODUCT_NAME!} ${PRODUCT_VERSION!}</text>
+	<text x="50" y="853" fill="#FFFFFF" fill-opacity="0.85" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="16px">on ${DATE_TIME}</text>
+	<text fill="#FFFFFF" fill-opacity="0.85" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12px">${wordwrap(FOOTER_TEXT!, 115, 50, 915, 17)}</text>
+</svg>
