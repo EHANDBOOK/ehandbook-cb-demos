@@ -1,4 +1,4 @@
-name: Create EHANDBOOK Cloud Service Demo Container
+name: Create EHANDBOOK Cloud Service Demo Container(UGG)
 
 on:
   workflow_dispatch:
