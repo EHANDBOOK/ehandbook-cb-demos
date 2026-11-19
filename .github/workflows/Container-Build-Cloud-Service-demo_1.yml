@@ -181,10 +181,10 @@ jobs:
         env:
           AUTH_URL: ${{ secrets.AUTH_URL }}
           STEPS_AUTH_OUTPUTS_TOKEN: ${{ steps.auth.outputs.token }}
-          GITHUB_EVENT_INPUTS_STORAGE_TYPE: ${{ github.event.inputs.storage_type }}
-          GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ github.event.inputs.storage_url }}
-          GITHUB_EVENT_INPUTS_DEMO_FOLDER: ${{ github.event.inputs.demo_folder }}
-          GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ github.event.inputs.config_File }}
+          GITHUB_EVENT_INPUTS_STORAGE_TYPE: ${{ inputs.storage_type }}
+          GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ inputs.storage_url }}
+          GITHUB_EVENT_INPUTS_DEMO_FOLDER: ${{ inputs.demo_folder }}
+          GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ inputs.config_File }}
 
 
       - name: Authenticate for download
