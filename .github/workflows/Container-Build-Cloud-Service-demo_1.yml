@@ -21,6 +21,24 @@ on:
       config_File:
         description: "Config file for the container build"
         required: false
+  workflow_call:
+    inputs:
+      demo_folder:
+        description: "Name of the folder containing the EHANDBOOK demo files"
+        required: true
+        type: string
+      storage_type:
+        description: "Type of storage where the input files for CB container are present"
+        required: true
+        type: string
+      storage_url:
+        description: "The URL of Git repository to be cloned where the input files for CB container are present"
+        required: false
+        type: string
+      config_File:
+        description: "Config file for the container build"
+        required: false
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
