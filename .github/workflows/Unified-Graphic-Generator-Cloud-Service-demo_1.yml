@@ -287,7 +287,7 @@ jobs:
       - name: Deploy EHB container artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
-          name: EHANDBOOK Container ${{ env.FILE_NAME }}
+          name: ${{ env.FILE_NAME }}
           path: ${{ env.FILE_NAME }}.ugg
           retention-days: 5
 
@@ -304,12 +304,38 @@ jobs:
         uses: actions/download-artifact@v7
         with:
           pattern: EHANDBOOK Container *
-          path: ehb-containers
-          merge-multiple: true
+          path: downloaded
+
+      - name: Arrange containers into one folder per file name
+        run: |
+          shopt -s nullglob
+          for f in downloaded/*/*.ugg; do
+            name=$(basename "$f" .ugg)
+            mkdir -p "ehb-containers/$name"
+            cp "$f" "ehb-containers/$name/"
+          done
+          find ehb-containers -type f
 
       - name: Deploy combined EHB containers artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
-          name: EHANDBOOK Containers
-          path: ehb-containers/*.ugg
+          name: EHANDBOOK CB Graphics
+          path: ehb-containers/
           retention-days: 5
+
+  container:
+    needs: [prepare, collect]
+    if: ${{ !cancelled() && needs.collect.result == 'success' }}
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    permissions:
+      contents: read
+      actions: write
+    uses: ./.github/workflows/Container-Build-Cloud-Service-demo_1.yml
+    with:
+      demo_folder: ${{ matrix.demo_folder }}
+      storage_type: ${{ github.event.inputs.storage_type }}
+      storage_url: ${{ github.event.inputs.storage_url }}
+      config_File: ${{ github.event.inputs.config_File }}
+    secrets: inherit
