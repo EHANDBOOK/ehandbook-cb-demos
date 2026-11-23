@@ -308,17 +308,20 @@ jobs:
 
       - name: Arrange containers into one folder per file name
         run: |
-          shopt -s nullglob
-          for f in downloaded/*/*.ugg; do
+           echo "Downloaded files:"
+           find downloaded -type f || true
+           found=0
+           while IFS= read -r -d '' f; do
             name=$(basename "$f" .ugg)
             mkdir -p "ehb-containers/$name"
             cp "$f" "ehb-containers/$name/"
-          done
-          if [ -z "$(find ehb-containers -type f -name '*.ugg' 2>/dev/null)" ]; then
+            found=$((found+1))
+           done < <(find downloaded -type f -name '*.ugg' -print0)
+           if [ "$found" -eq 0 ]; then
             echo "Error: no .ugg files were collected from the matrix builds"
             exit 1
-          fi
-          find ehb-containers -type f
+           fi
+           find ehb-containers -type f
 
       - name: Deploy combined EHB containers artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
