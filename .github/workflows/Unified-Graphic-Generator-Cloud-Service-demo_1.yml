@@ -296,10 +296,19 @@ jobs:
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       actions: write
+    env:
+      GRAPHICS_FOLDER: EHANDBOOK-CB-Graphics
 
     steps:
+      # The cloud service clones the default branch of storage_url, so the graphics are committed there.
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: repo
+
       - name: Download all EHB containers
         uses: actions/download-artifact@v7
         with:
@@ -330,6 +339,35 @@ jobs:
           path: ehb-containers/
           retention-days: 5
 
+      - name: Commit UGG graphics back to repository
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        working-directory: repo
+        run: |
+          rm -rf "$GRAPHICS_FOLDER"
+          mkdir -p "$GRAPHICS_FOLDER"
+          cp -r ../ehb-containers/. "$GRAPHICS_FOLDER/"
+          find "$GRAPHICS_FOLDER" -type f
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add -A "$GRAPHICS_FOLDER"
+          if git diff --cached --quiet; then
+            echo "UGG graphics unchanged - nothing to commit."
+            exit 0
+          fi
+          git commit -m "Update UGG graphics from workflow run ${GITHUB_RUN_ID}" -m "$RUN_URL"
+          for i in 1 2 3; do
+            if git push origin "HEAD:${DEFAULT_BRANCH}"; then
+              exit 0
+            fi
+            echo "Push rejected, rebasing and retrying ($i/3)..."
+            git pull --rebase origin "$DEFAULT_BRANCH"
+          done
+          echo "Error: failed to push UGG graphics"
+          exit 1
+
   container:
     needs: collect
     if: ${{ !cancelled() && needs.collect.result == 'success' }}
@@ -338,7 +376,6 @@ jobs:
       actions: write
     uses: ./.github/workflows/Container-Build-Cloud-Service-demo_1.yml
     with:
-      graphics_artifact: EHANDBOOK CB Graphics
       demo_folder: EHANDBOOK-CB-Graphics
       storage_type: ${{ github.event.inputs.storage_type }}
       storage_url: ${{ github.event.inputs.storage_url }}
