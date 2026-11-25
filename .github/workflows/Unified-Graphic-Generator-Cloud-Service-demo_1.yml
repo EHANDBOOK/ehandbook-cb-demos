@@ -331,17 +331,15 @@ jobs:
           retention-days: 5
 
   container:
-    needs: [prepare, collect]
+    needs: collect
     if: ${{ !cancelled() && needs.collect.result == 'success' }}
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     permissions:
       contents: read
       actions: write
     uses: ./.github/workflows/Container-Build-Cloud-Service-demo_1.yml
     with:
-      demo_folder: ${{ matrix.demo_folder }}
+      graphics_artifact: EHANDBOOK CB Graphics
+      demo_folder: EHANDBOOK-CB-Graphics
       storage_type: ${{ github.event.inputs.storage_type }}
       storage_url: ${{ github.event.inputs.storage_url }}
       config_File: ${{ github.event.inputs.config_File }}
