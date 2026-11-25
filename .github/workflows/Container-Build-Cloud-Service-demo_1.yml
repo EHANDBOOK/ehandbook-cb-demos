@@ -39,6 +39,11 @@ on:
         description: "Config file for the container build"
         required: false
         type: string
+      graphics_artifact:
+        description: "Optional name of a workflow artifact (e.g. 'EHANDBOOK CB Graphics') to download into demo_folder as container input"
+        required: false
+        type: string
+        default: ""
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,6 +56,19 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+
+      - name: Download graphics input artifact
+        if: ${{ inputs.graphics_artifact != '' }}
+        uses: actions/download-artifact@v7
+        with:
+          name: ${{ inputs.graphics_artifact }}
+          path: ${{ inputs.demo_folder }}
+
+      - name: Show container input
+        if: ${{ inputs.graphics_artifact != '' }}
+        env:
+          DEMO_FOLDER: ${{ inputs.demo_folder }}
+        run: find "$DEMO_FOLDER" -type f
 
       - name: Authenticate and retrieve token
         id: auth
