@@ -21,6 +21,9 @@ on:
       config_File:
         description: "Config file for the container build"
         required: false
+      git_ref:
+        description: "Optional branch or tag of the Git repository to check out (default branch if empty)"
+        required: false
   workflow_call:
     inputs:
       demo_folder:
@@ -39,8 +42,8 @@ on:
         description: "Config file for the container build"
         required: false
         type: string
-      graphics_artifact:
-        description: "Optional name of a workflow artifact (e.g. 'EHANDBOOK CB Graphics') to download into demo_folder as container input"
+      git_ref:
+        description: "Optional branch or tag of the Git repository to check out (default branch if empty)"
         required: false
         type: string
         default: ""
@@ -116,6 +119,7 @@ jobs:
             --arg password "${{ secrets.GIT_USER_PAT }}" \
             --arg inputObjectKey "$GITHUB_EVENT_INPUTS_DEMO_FOLDER" \
             --arg configurationObjectKey "$GITHUB_EVENT_INPUTS_CONFIG_FILE" \
+            --arg gitRef "$GITHUB_EVENT_INPUTS_GIT_REF" \
             '{
                 taskType: $taskType,
                 storageType: $storageType,
@@ -125,7 +129,9 @@ jobs:
                   password: $password
                 },
                 inputObjectKey: $inputObjectKey
-            } | if ($configurationObjectKey | length) > 0 then .configurationObjectKey = $configurationObjectKey else . end')
+            }
+            | if ($configurationObjectKey | length) > 0 then .configurationObjectKey = $configurationObjectKey else . end
+            | if ($gitRef | length) > 0 then .gitRef = $gitRef else . end')
 
           echo "$payload"
 
@@ -220,7 +226,8 @@ jobs:
           GITHUB_EVENT_INPUTS_STORAGE_TYPE: ${{ inputs.storage_type }}
           GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ inputs.storage_url }}
           GITHUB_EVENT_INPUTS_DEMO_FOLDER: ${{ inputs.demo_folder }}
-          GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ inputs.graphics_artifact != '' && 'config.txt' || inputs.config_File }}
+          GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ inputs.config_File }}
+          GITHUB_EVENT_INPUTS_GIT_REF: ${{ inputs.git_ref }}
 
 
       - name: Authenticate for download
