@@ -342,5 +342,5 @@ jobs:
       demo_folder: EHANDBOOK-CB-Graphics
       storage_type: ${{ github.event.inputs.storage_type }}
       storage_url: ${{ github.event.inputs.storage_url }}
-      config_File: ${{ github.event.inputs.config_File }}
+      config_File: config.txt
     secrets: inherit
