@@ -220,7 +220,7 @@ jobs:
           GITHUB_EVENT_INPUTS_STORAGE_TYPE: ${{ inputs.storage_type }}
           GITHUB_EVENT_INPUTS_STORAGE_URL: ${{ inputs.storage_url }}
           GITHUB_EVENT_INPUTS_DEMO_FOLDER: ${{ inputs.demo_folder }}
-          GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ inputs.config_File }}
+          GITHUB_EVENT_INPUTS_CONFIG_FILE: ${{ inputs.graphics_artifact != '' && 'config.txt' || inputs.config_File }}
 
 
       - name: Authenticate for download
