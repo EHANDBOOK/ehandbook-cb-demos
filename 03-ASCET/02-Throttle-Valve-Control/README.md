@@ -6,8 +6,8 @@
 
 ## ✨ Features Showcased
 
--   Demonstrates, using an ASCET 6 example, what the directory structure for a directory-based build should look like.
--   Generates an EHANDBOOK Container (`.ehb`) from the specified directory structure.
+- Demonstrates, using an ASCET 6 example, what the directory structure for a directory-based build should look like.
+- Generates an EHANDBOOK Container (`.ehb`) from the specified directory structure.
 
 ---
 
@@ -42,13 +42,13 @@ Typically, the input is a single ASCET model file (`.axl`) exported from a proje
 
 **ASCET Project Structure:**
 
--   **ASCET Project**
-    -   **ASCET Module**
-        -   ASCET Class
-        -   ASCET Class
-            -   ASCET Class
-    -   **ASCET Module**
-    -   ...
+- **ASCET Project**
+  - **ASCET Module**
+    - ASCET Class
+    - ASCET Class
+      - ASCET Class
+  - **ASCET Module**
+  - ...
 
 Each ASCET module usually represents one functional component, which in turn corresponds to one documentation unit in the EHANDBOOK.
 
@@ -110,12 +110,13 @@ eHandbookCB.exe ^
 ```
 
 This command tells `eHandbookCB.exe` to:
--   Use the `ThrottleValveControl_ehbcb_in/` directory as the input source (`-i`).
--   Place the generated container in the `ThrottleValveControl_ehbcb_out/` directory (`-o`).
--   Name the container `ThrottleValveControl` (`-n`).
--   Generate SVG graphics for the models (`-gensvg`).
--   Include any ESDL source code from the ASCET model (`-includeSourceCode`).
--   Load the `labelconfig.json` file to configure the order of ASCET instance names (`-labelconfig`).
+
+- Use the `ThrottleValveControl_ehbcb_in/` directory as the input source (`-i`).
+- Place the generated container in the `ThrottleValveControl_ehbcb_out/` directory (`-o`).
+- Name the container `ThrottleValveControl` (`-n`).
+- Generate SVG graphics for the models (`-gensvg`).
+- Include any ESDL source code from the ASCET model (`-includeSourceCode`).
+- Load the `labelconfig.json` file to configure the order of ASCET instance names (`-labelconfig`).
 
 ---
 
@@ -144,7 +145,7 @@ Use these values when filling the workflow inputs:
 
 The container generation is initiated by creating a GitHub Issue using the **EHANDBOOK Container Request** issue form.
 
-Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml)
+Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml&demo_folder=03-ASCET%2F02-Throttle-Valve-Control%2FThrottleValveControl_ehbcb_in&config_file=03-ASCET%2F02-Throttle-Valve-Control%2Fconfig.txt)
 
 > The issue form must be available from the repository's default branch and stored under `.github/ISSUE_TEMPLATE/`.
 
@@ -194,11 +195,3 @@ The `config.txt` file includes the following build arguments for CB SaaS eHandbo
 -includeSourceCode
 -labelconfig "labelconfig.json"
 ```
-
-
-
-
-
-
-
-

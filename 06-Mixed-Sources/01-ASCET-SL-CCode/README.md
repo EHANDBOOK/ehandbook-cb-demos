@@ -103,7 +103,7 @@ Use these values when filling the workflow inputs:
 
 The container generation is initiated by creating a GitHub Issue using the **EHANDBOOK Container Request** issue form.
 
-Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml)
+Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml&demo_folder=06-Mixed-Sources%2F01-ASCET-SL-CCode%2FInput&config_file=06-Mixed-Sources%2F01-ASCET-SL-CCode%2Fconfig.txt)
 
 > The issue form must be available from the repository's default branch and stored under `.github/ISSUE_TEMPLATE/`.
 

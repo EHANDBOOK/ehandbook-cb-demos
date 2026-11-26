@@ -1,6 +1,6 @@
 # Demo: AUTOSAR Architecture-Only Build using `-ar2ehbcbinput`
 
-**Objective:** This demo illustrates a two-step workflow for creating an EHANDBOOK container that documents *only* the AUTOSAR Classic architecture from a set of `.arxml` files, without any implementation models or code.
+**Objective:** This demo illustrates a two-step workflow for creating an EHANDBOOK container that documents _only_ the AUTOSAR Classic architecture from a set of `.arxml` files, without any implementation models or code.
 
 ---
 
@@ -16,13 +16,13 @@
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    - EHANDBOOK Container-Build with a suitable license for the AUTOSAR converter.
-    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
+   - EHANDBOOK Container-Build with a suitable license for the AUTOSAR converter.
+   - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    - Open a command prompt or terminal.
-    - Navigate to this directory.
-    - Execute the `build.bat` script.
+   - Open a command prompt or terminal.
+   - Navigate to this directory.
+   - Execute the `build.bat` script.
 
 ---
 
@@ -72,7 +72,6 @@ md FlexECU_AUTOSAR_files_ehb_cb_input
 - EHB-CB processes this generated structure to build the final, architecture-only EHANDBOOK container.
 
 This two-step process is the recommended workflow for generating a handbook purely from `.arxml` files.
-
 
 ### Build Script: `build.bat`
 
@@ -131,7 +130,7 @@ Use these values when filling the workflow inputs:
 
 The container generation is initiated by creating a GitHub Issue using the **EHANDBOOK Container Request** issue form.
 
-Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml)
+Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml&demo_folder=04-AUTOSAR%2F04-FlexECU-Only%2FFlexECU_AUTOSAR_files&config_file=04-AUTOSAR%2F04-FlexECU-Only%2Fconfig.txt)
 
 > The issue form must be available from the repository's default branch and stored under `.github/ISSUE_TEMPLATE/`.
 
@@ -180,5 +179,3 @@ The `config.txt` file includes the following build arguments for CB SaaS eHandbo
 ```text
 -ar2ehbcbinput
 ```
-
-

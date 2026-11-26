@@ -1,6 +1,6 @@
 # Demo: AUTOSAR Architecture-Only Build from RTA-RTE Case Study
 
-**Objective:** This demo illustrates the two-step workflow for creating an EHANDBOOK container that documents *only* the AUTOSAR Classic architecture from the `.arxml` files of the RTA-RTE (Real-Time Application - Runtime Environment) case study.
+**Objective:** This demo illustrates the two-step workflow for creating an EHANDBOOK container that documents _only_ the AUTOSAR Classic architecture from the `.arxml` files of the RTA-RTE (Real-Time Application - Runtime Environment) case study.
 
 ---
 
@@ -16,13 +16,13 @@
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    - EHANDBOOK Container-Build with a suitable license for the AUTOSAR converter.
-    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
+   - EHANDBOOK Container-Build with a suitable license for the AUTOSAR converter.
+   - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    - Open a command prompt or terminal.
-    - Navigate to this directory.
-    - Execute the `build.bat` script.
+   - Open a command prompt or terminal.
+   - Navigate to this directory.
+   - Execute the `build.bat` script.
 
 ---
 
@@ -70,7 +70,6 @@ md RTA_RTE_Case_Study_AUTOSAR_files_ehb_cb_input
 - The second call to `eHandbookCB.exe` is a standard directory-based build.
 - The input (`-i`) is the temporary directory that was created and populated in Step 1.
 - EHB-CB processes this generated structure to build the final, architecture-only EHANDBOOK container.
-
 
 ### Build Script: `build.bat`
 
@@ -129,7 +128,7 @@ Use these values when filling the workflow inputs:
 
 The container generation is initiated by creating a GitHub Issue using the **EHANDBOOK Container Request** issue form.
 
-Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml)
+Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml&demo_folder=04-AUTOSAR%2F05-RTA-RTE-Only%2FRTA_RTE_Case_Study_AUTOSAR_files&config_file=04-AUTOSAR%2F05-RTA-RTE-Only%2Fconfig.txt)
 
 > The issue form must be available from the repository's default branch and stored under `.github/ISSUE_TEMPLATE/`.
 
@@ -178,4 +177,3 @@ The `config.txt` file includes the following build arguments for CB SaaS eHandbo
 ```text
 -ar2ehbcbinput
 ```
-

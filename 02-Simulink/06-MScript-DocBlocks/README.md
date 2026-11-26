@@ -18,20 +18,20 @@
 This demo involves a pre-processing step before the final build.
 
 1. **Prerequisites:**
-    - EHANDBOOK Container-Build with a suitable license.
-    - MATLAB with Simulink.
-    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
+   - EHANDBOOK Container-Build with a suitable license.
+   - MATLAB with Simulink.
+   - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Generate Input Files:**
-    - Open MATLAB.
-    - Run the `Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.m` script.
-    - When prompted, select the `InputBeforeScript` folder as the search path.
-    - The script will process the `.slx` files, extract content from their DocBlocks, and generate the corresponding `.adoc` and `.xlsx` files into the `InputAfterScript` folder.
+   - Open MATLAB.
+   - Run the `Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.m` script.
+   - When prompted, select the `InputBeforeScript` folder as the search path.
+   - The script will process the `.slx` files, extract content from their DocBlocks, and generate the corresponding `.adoc` and `.xlsx` files into the `InputAfterScript` folder.
 
 3. **Build the Container:**
-    - Open a command prompt or terminal.
-    - Navigate to this directory.
-    - Execute the `build.bat` script, which uses the newly generated files in `InputAfterScript` to build the container.
+   - Open a command prompt or terminal.
+   - Navigate to this directory.
+   - Execute the `build.bat` script, which uses the newly generated files in `InputAfterScript` to build the container.
 
 ---
 
@@ -74,6 +74,7 @@ The `Create_FunctionDocumentation_and_InterfaceSpec_from_Simulink_withDocBlocks.
 -gensvg ^
 -nomatlab
 ```
+
 ---
 
 ### Container-Build Cloud Service (SaaS)
@@ -101,7 +102,7 @@ Use these values when filling the workflow inputs:
 
 The container generation is initiated by creating a GitHub Issue using the **EHANDBOOK Container Request** issue form.
 
-Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml)
+Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/ehandbook-cb-demos/issues/new?template=ehb-container-request.yml&demo_folder=02-Simulink%2F06-MScript-DocBlocks%2FInputAfterScript&config_file=02-Simulink%2F06-MScript-DocBlocks%2Fconfig.txt)
 
 > The issue form must be available from the repository's default branch and stored under `.github/ISSUE_TEMPLATE/`.
 
