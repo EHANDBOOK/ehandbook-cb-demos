@@ -60,19 +60,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Download graphics input artifact
-        if: ${{ inputs.graphics_artifact != '' }}
-        uses: actions/download-artifact@v7
-        with:
-          name: ${{ inputs.graphics_artifact }}
-          path: ${{ inputs.demo_folder }}
-
-      - name: Show container input
-        if: ${{ inputs.graphics_artifact != '' }}
-        env:
-          DEMO_FOLDER: ${{ inputs.demo_folder }}
-        run: find "$DEMO_FOLDER" -type f
-
       - name: Authenticate and retrieve token
         id: auth
         uses: ./.github/actions/fetch-token
