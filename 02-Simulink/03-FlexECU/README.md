@@ -19,13 +19,13 @@
 ## 🛠️ How to Run
 
 1. **Prerequisites:**
-    - EHANDBOOK Container-Build with a suitable license for the Simulink converter and PDF generator.
-    - Ensure you have run the `set_tool_paths.bat` script in the repository root.
+   - EHANDBOOK Container-Build with a suitable license for the Simulink converter and PDF generator.
+   - Ensure you have run the `set_tool_paths.bat` script in the repository root.
 
 2. **Build:**
-    - Open a command prompt or terminal.
-    - Navigate to this directory.
-    - Execute the `build.bat` script.
+   - Open a command prompt or terminal.
+   - Navigate to this directory.
+   - Execute the `build.bat` script.
 
 ---
 
@@ -90,7 +90,9 @@ Use these values when filling the workflow inputs:
 1. `demo_folder`: `02-Simulink/03-FlexECU/Input`
 2. `storage_type`: `GIT`
 3. `storage_url`: `https://github.com/EHANDBOOK/ehandbook-cb-demos.git`
-4. `config_File`: `02-Simulink/03-FlexECU/config.txt`
+4. `config_File` (optional):
+   - No mask images (faster): `02-Simulink/03-FlexECU/config.txt`
+   - With MATLAB connection (for mask images): `02-Simulink/03-FlexECU/config-with-matlab-connection.txt`
 
 **Expected output:** The build generates an EHANDBOOK Container (.ehb) and a PDF when -pdf is specified in config.txt.
 
@@ -114,11 +116,12 @@ Direct request link: [EHANDBOOK Container Request](https://github.com/EHANDBOOK/
 
 ##### Example values
 
-1. `Demo folder`:  
+1. `Demo folder`:
    `02-Simulink/03-FlexECU/Input`
 
-2. `Configuration file`:  
-   `02-Simulink/03-FlexECU/config.txt`
+2. `Configuration file` (optional):
+   - No mask images (faster): `02-Simulink/03-FlexECU/config.txt`
+   - With MATLAB connection (for mask images): `02-Simulink/03-FlexECU/config-with-matlab-connection.txt`
 
 The **storage type** and **repository URL** are managed by the workflow and are not entered by the requester.
 
@@ -152,4 +155,3 @@ The `config.txt` file includes the following build arguments for CB SaaS eHandbo
 -styling ".\styling"
 -rootlevel ".\configuration\rootlevel.json"
 ```
-
