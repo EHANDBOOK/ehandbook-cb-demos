@@ -298,11 +298,15 @@ jobs:
     permissions:
       contents: write
       actions: write
+    outputs:
+      graphics_branch: ${{ steps.push.outputs.branch }}
+      graphics_input: ${{ steps.push.outputs.input }}
     env:
       GRAPHICS_FOLDER: EHANDBOOK-CB-Graphics
 
     steps:
-      # The cloud service clones the default branch of storage_url, so the graphics are committed there.
+      # master is protected, so the graphics are pushed to a new per-run branch which the
+      # container build checks out via the API's gitRef parameter.
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -349,8 +353,8 @@ jobs:
           git switch -c "$BRANCH"
 
           rm -rf "$GRAPHICS_FOLDER"
-          mkdir -p "$GRAPHICS_FOLDER"
-          cp -r ../ehb-containers/. "$GRAPHICS_FOLDER/"
+          mkdir -p "$GRAPHICS_FOLDER/Input"
+          cp -r ../ehb-containers/. "$GRAPHICS_FOLDER/Input/"
           find "$GRAPHICS_FOLDER" -type f
 
           git config user.name "github-actions[bot]"
@@ -360,17 +364,19 @@ jobs:
           git push origin "HEAD:refs/heads/${BRANCH}"
 
           echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
-          echo "Pushed UGG graphics to branch: $BRANCH"
+          echo "input=$GRAPHICS_FOLDER/Input" >> "$GITHUB_OUTPUT"
+          echo "Pushed UGG graphics to branch: $BRANCH (input folder: $GRAPHICS_FOLDER/Input)"
 
   container:
     needs: collect
-    if: ${{ !cancelled() && needs.collect.result == 'success' }}
+    # Without gitRef the service clones the default branch, where the graphics input folder does not exist.
+    if: ${{ !cancelled() && needs.collect.result == 'success' && needs.collect.outputs.graphics_branch != '' }}
     permissions:
       contents: read
       actions: write
     uses: ./.github/workflows/Container-Build-Cloud-Service-demo_1.yml
     with:
-      demo_folder: EHANDBOOK-CB-Graphics
+      demo_folder: ${{ needs.collect.outputs.graphics_input }}
       git_ref: ${{ needs.collect.outputs.graphics_branch }}
       storage_type: ${{ github.event.inputs.storage_type }}
       storage_url: ${{ github.event.inputs.storage_url }}
