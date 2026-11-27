@@ -371,11 +371,10 @@ jobs:
           echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
           echo "input=$GRAPHICS_FOLDER/Input" >> "$GITHUB_OUTPUT"
           echo "Pushed UGG graphics to branch: $BRANCH (input folder: $GRAPHICS_FOLDER/Input)"
-
   container:
     needs: collect
-    # Without gitRef the service clones the default branch, where the graphics input folder does not exist.
-    if: ${{ !cancelled() && needs.collect.result == 'success' && needs.collect.outputs.graphics_branch != '' }}
+    # Only run if the preceding stages succeeded, the graphics branch is generated, AND the user checked the box.
+    if: ${{ !cancelled() && needs.collect.result == 'success' && needs.collect.outputs.graphics_branch != '' && inputs.run_container_build }}
     permissions:
       contents: read
       actions: write
